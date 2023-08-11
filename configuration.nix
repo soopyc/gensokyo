@@ -34,9 +34,6 @@
     keyMap = "us";
   };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   sound.enable = false;
 
@@ -48,13 +45,6 @@
         authorizedKeys.keyFiles = [ "/etc/nixos/creds/ssh/cassie" ];
     };
     packages = with pkgs; [];
-  };
-
-  programs.tmux = {
-    enable = true;
-    newSession = true;
-    keyMode = "vi";
-    historyLimit = 10000;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
