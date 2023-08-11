@@ -8,6 +8,7 @@
 
     # plugins
     syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
 
     ohMyZsh = {
       enable = true;
