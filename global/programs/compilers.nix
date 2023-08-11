@@ -5,5 +5,6 @@
     binutils
     libclang
     libgccjit
+    gnumake
   ];
 }
