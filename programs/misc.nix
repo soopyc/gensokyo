@@ -10,6 +10,7 @@
     wget
     curl
 
+    file
     ripgrep
     ack
 
