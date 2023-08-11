@@ -1,4 +1,4 @@
 { ... } :
 {
-  networking.networkmanager.ethernet.macAddress = builtins.readFile ../creds/nma.cry;
+  networking.networkmanager.ethernet.macAddress = builtins.readFile ../nma.cry;
 }
