@@ -12,4 +12,3 @@
 
   nix.package = pkgs.nixFlakes;
 }
-
