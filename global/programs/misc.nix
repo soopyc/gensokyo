@@ -10,8 +10,6 @@
     wget
     curl
 
-    cope  # colo[u]rs!!
-
     file
     ripgrep
     ack
