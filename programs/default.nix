@@ -5,6 +5,8 @@
     ./editors.nix
     ./shells.nix
 
+    ./compilers.nix
+
     ./ssh.nix
     ./scm.nix
 
