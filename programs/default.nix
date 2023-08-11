@@ -8,6 +8,8 @@
     ./ssh.nix
     ./scm.nix
 
+    ./gpg.nix
+
     ./misc.nix
   ];
 }

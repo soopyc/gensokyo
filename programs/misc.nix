@@ -9,9 +9,10 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
+
     ripgrep
-    gnupg
-    pinentry
+    ack
+
     git-crypt
   ];
 }
