@@ -18,4 +18,6 @@
 
     git-crypt
   ];
+
+  programs.mtr.enable = true;
 }
