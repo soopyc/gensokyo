@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   nix.settings = {
@@ -10,5 +10,6 @@
     auto-optimise-store = true;
   };
 
+  nix.package = pkgs.nixFlakes;
 }
 
