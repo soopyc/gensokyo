@@ -8,7 +8,10 @@
 
     # plugins
     syntaxHighlighting.enable = true;
-    autosuggestions.enable = true;
+    autosuggestions = {
+      enable = true;
+      highlightStyle = "fg=white";
+    };
 
     ohMyZsh = {
       enable = true;
