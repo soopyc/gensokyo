@@ -1,6 +1,7 @@
-{ ... }: 
+{ pkgs, ... }:
 
 {
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
     enable = true;
     histSize = 50000;
