@@ -4,6 +4,7 @@
     ./nix.nix
     ./editors.nix
     ./shells.nix
+    ./multiplexers.nix
 
     ./compilers.nix
 
