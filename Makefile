@@ -1,4 +1,12 @@
 # I LOVE MAKEFILE!!!!!!
 
-default:
-	nixos-rebuild switch --flake .\#
+default: test
+
+test:
+	nixos-rebuild test --flake .#
+
+build: 
+	nixos-rebuild build --flake .#
+
+switch:
+	nixos-rebuild switch --flake .#
