@@ -6,6 +6,5 @@
     newSession = true;
     keyMode = "vi";
     historyLimit = 10000;
-    terminal = "tmux-direct";
   };
 }
