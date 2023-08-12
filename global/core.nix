@@ -8,5 +8,5 @@
   };
 
   # Lock root account
-  users.users.root.shell = pkgs.shadow;
+  users.users.root.shell = pkgs.shadow;  # basically /bin/nologin
 }
