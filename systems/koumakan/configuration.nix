@@ -23,6 +23,7 @@
     enable = true;
     device = "nodev";
     efiSupport = true;
+    theme = pkgs.nixos-grub2-theme;
   };
 
   time.timeZone = "Asia/Hong_Kong";
