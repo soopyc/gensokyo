@@ -10,7 +10,6 @@
     syntaxHighlighting.enable = true;
     autosuggestions = {
       enable = true;
-      highlightStyle = "fg=white";
     };
 
     ohMyZsh = {
