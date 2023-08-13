@@ -13,6 +13,7 @@
       ../../global/programs
       ./networking
       ./security/pam.nix
+      ./security/sudo.nix
     ];
 
   boot.loader.efi = {
