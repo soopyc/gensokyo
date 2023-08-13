@@ -12,6 +12,7 @@
       ../../global/core.nix
       ../../global/programs
       ./networking
+      ./security/pam.nix
     ];
 
   boot.loader.efi = {
