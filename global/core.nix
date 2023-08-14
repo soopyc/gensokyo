@@ -7,11 +7,11 @@
     keyMap = "us";
   };
 
-  # Enable crash dumps globally
-  boot.crashDump = {
-    enable = true;
-    reservedMemory = "128M";
-  };
+  # # Enable crash dumps globally
+  # boot.crashDump = {
+  #   enable = true;
+  #   reservedMemory = "128M";
+  # };
 
   # Lock root account
   users.users.root.shell = pkgs.shadow;  # basically /bin/nologin
