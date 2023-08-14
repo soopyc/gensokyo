@@ -9,8 +9,8 @@
       "/".extraConfig = ''
         fancyindex_header "/theme/index_header.html";
       '';
-      "/theme".alias = "/srv/www/misc/keine/theme";
-      "/static".alias = "/srv/www/misc/keine/theme/static/";
+      "/theme/".alias = "/srv/www/misc/keine/theme";
+      "/static/".alias = "/srv/www/misc/keine/theme/static/";
     };
 
     extraConfig = ''
