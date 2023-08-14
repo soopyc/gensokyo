@@ -1,7 +1,7 @@
 { ... }:
 {
   services.nginx.virtualHosts."keine.soopy.moe" = {
-    useACMEHost = "global.soopy.moe";
+    useACMEHost = "global.c.soopy.moe";
     addSSL = true;  # Don't force SSL on a mirror (implications TBD)
 
     root = "/srv/www/keine";

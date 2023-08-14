@@ -6,7 +6,7 @@
 
   services.nginx.virtualHosts."_" = {
     default = true;
-    useACMEHost = "global.soopy.moe";
+    useACMEHost = "global.c.soopy.moe";
     # locations."/".return = "301 https://gensokyo.soopy.moe";
 
     # TODO: remove after bringing back up all the services.
