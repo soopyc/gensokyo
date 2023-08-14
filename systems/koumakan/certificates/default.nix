@@ -1,6 +1,10 @@
 { ... }: 
 
 {
+  imports = [
+    ./global.nix
+  ];
+
   security.acme = {
     defaults = {
       # == lego Configuration ==
@@ -17,7 +21,4 @@
 
     acceptTerms = true;
   };
-
-  # TODO: Remove after testing.
-  security.acme.certs."3b036246-d40d-483b-a9e6-2b6850a611ee.staging.soopy.moe" = {};
 }
