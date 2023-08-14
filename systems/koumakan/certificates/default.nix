@@ -11,9 +11,8 @@
   
       # == LE Configuration ==
       email = "me@soopy.moe";
-      # TODO: toggle these 2 after testing
-      server = "https://acme-staging-v02.api.letsencrypt.org/directory";
-      #server = "https://acme-v02.api.letsencrypt.org/directory";
+      # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      server = "https://acme-v02.api.letsencrypt.org/directory";
     };
 
     acceptTerms = true;
