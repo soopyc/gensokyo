@@ -7,5 +7,10 @@
     package = pkgs.nginxMainline;
 
     statusPage = true;
+
+    additionalModules = with pkgs.nginxModules; [
+      fancyindex
+      brotli
+    ];
   };
 }
