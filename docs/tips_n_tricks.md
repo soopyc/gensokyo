@@ -20,3 +20,11 @@ This works as well
 ```nix
 security.sudo.package = (pkgs.sudo.override {withInsults = true;});
 ```
+
+## nginx regex location
+```nix
+  locations."~ \.php$".extraConfig = ''
+  # balls
+  '';
+```
+from [nixos wiki](https://nixos.wiki/wiki/Nginx#LEMP_stack)
