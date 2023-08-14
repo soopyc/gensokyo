@@ -4,8 +4,7 @@
   security.acme = {
     defaults = {
       # == lego Configuration ==
-      # We use desec.io, so use those here
-      credentialsFile = "/etc/lego/creds";
+      credentialsFile = "/etc/lego/desec";
       dnsProvider = "desec";
       # In an more ideal world we would have an eddsa algo here but oh well
       keyType = "ec256";  # Ensure we use ec keys
