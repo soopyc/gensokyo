@@ -8,6 +8,7 @@
 
     statusPage = true;
 
+    recommendedTlsSettings = true;
     additionalModules = with pkgs.nginxModules; [
       fancyindex
       brotli
