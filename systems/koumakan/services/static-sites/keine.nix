@@ -5,7 +5,7 @@
     addSSL = true;  # Don't force SSL on a mirror (implications TBD)
 
     root = "/srv/www/keine";
-    location = {
+    locations = {
       "/".extraConfig = ''
         fancyindex_header "/theme/index_header.html";
       '';
