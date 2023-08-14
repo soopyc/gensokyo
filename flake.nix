@@ -6,6 +6,8 @@
 
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    attic.url = "github:zhaofengli/attic";
   };
 
   outputs = { nixpkgs, home-manager, ... }:
