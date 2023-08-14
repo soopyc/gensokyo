@@ -16,6 +16,7 @@
       ./security/pam.nix
       ./security/sudo.nix
       ./certificates
+      ./services
     ];
 
   boot.loader.efi = {
