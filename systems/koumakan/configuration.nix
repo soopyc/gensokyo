@@ -11,9 +11,11 @@
       
       ../../global/core.nix
       ../../global/programs
+
       ./networking
       ./security/pam.nix
       ./security/sudo.nix
+      ./certificates
     ];
 
   boot.loader.efi = {
