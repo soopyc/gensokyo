@@ -3,6 +3,7 @@
 {
   imports = [
     ./global.nix
+    ./postgresql.nix
   ];
 
   security.acme = {
