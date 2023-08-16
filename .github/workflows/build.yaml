@@ -1,0 +1,50 @@
+on:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+        with:
+          extra-conf: "experimental-features = nix-command flakes"
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - name: Run nix flake check
+        run: nix flake check
+
+      - name: Check with DeterminateSystems/flake-checker-action
+        uses: DeterminateSystems/flake-checker-action@v5
+        with:
+          ignore-missing-flake-lock: false
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        host:
+          - koumakan
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v4
+        with:
+          extra-conf: "experimental-features = nix-command flakes"
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - name: Replace .cry files with some bollocks
+        run: find . -name "*.cry" -execdir bash -c 'echo some bollocks > {}' \;
+
+      - name: Build configuration
+        run: nix build .#nixosConfigurations."${ matrix.host }".config.system.build.toplevel
