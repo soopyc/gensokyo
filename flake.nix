@@ -11,7 +11,7 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }:
-  let 
+  let
     pkgs = import nixpkgs {};
     lib = nixpkgs.lib;
   in {
@@ -23,7 +23,7 @@
             # see docs/tips_n_tricks.md#extra_opts for syntax
             # see docs/utils.md for functions
             _module.args = {
-              utils = (import ./global/utils.nix) { inherit pkgs; };
+              _utils = (import ./global/utils.nix) { inherit pkgs; };
             };
           }
           ./systems/koumakan/configuration.nix
