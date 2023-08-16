@@ -3,6 +3,7 @@
 {
   services.nitter = {
     enable = true;
+    redisCreateLocally = false;  # why is the default of this `true`??
     server = {
       title = "NSM";
       port = 36325;
