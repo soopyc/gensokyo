@@ -45,7 +45,7 @@ a way of passing additional options globally to modules is by using extraOpts.
 <!-- find a way that we can still use this apart from in nixos config-->
 for example, check out this line in our flake.nix:
 
-https://github.com/soopyc/nix-on-koumakan/blob/3c32de4a69a5963f9cd83bf5cf0dccea88f9f36c/flake.nix#L22-L26
+https://github.com/soopyc/nix-on-koumakan/blob/8228dfc2c6e7aaa21b3f24f37699371837f25098/flake.nix#L22-L28
 
 this avoids the horror of `import ../../../utils/bar.nix;`
 
