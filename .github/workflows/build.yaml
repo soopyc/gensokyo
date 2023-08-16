@@ -47,4 +47,4 @@ jobs:
         run: find . -name "*.cry" -execdir bash -c 'echo some bollocks > {}' \;
 
       - name: Build configuration
-        run: nix build .#nixosConfigurations."${ matrix.host }".config.system.build.toplevel
+        run: nix build .#nixosConfigurations."${{ matrix.host }}".config.system.build.toplevel
