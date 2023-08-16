@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  includes = [
+  imports = [
     ./nitter.nix
   ];
 }
