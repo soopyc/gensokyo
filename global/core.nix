@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  includes = [
+  imports = [
     ./upgrade-diff.nix
   ];
   # Set default i18n configuration
