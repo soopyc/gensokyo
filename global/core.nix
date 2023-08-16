@@ -1,5 +1,8 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
+  includes = [
+    ./upgrade-diff.nix
+  ];
   # Set default i18n configuration
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
