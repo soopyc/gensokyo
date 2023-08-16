@@ -4,7 +4,7 @@
 
 let
   lib = pkgs.lib;
-in {
+in rec {
   mkVhost = opts: {
     # ideally mkOverride/mkDefault would be used, but i have 0 idea how it works.
     forceSSL = true;
