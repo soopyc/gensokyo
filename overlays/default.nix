@@ -1,0 +1,3 @@
+[
+  (import ./nitter.nix)
+]
