@@ -24,11 +24,13 @@
     efiSysMountPoint = "/boot/efi";
   };
 
-  boot.loader.grub = {
+  boot.loader.systemd-boot = {
     enable = true;
-    device = "nodev";
-    efiSupport = true;
-    theme = pkgs.nixos-grub2-theme;
+    netbootxyz.enable = true;
+  };
+
+  boot.loader.grub = {
+    enable = false;
   };
 
   time.timeZone = "Asia/Hong_Kong";
