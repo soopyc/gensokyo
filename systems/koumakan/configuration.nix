@@ -26,6 +26,7 @@
 
   boot.loader.systemd-boot = {
     enable = true;
+    graceful = true;
     netbootxyz.enable = true;
   };
 
