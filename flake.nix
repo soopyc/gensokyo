@@ -17,7 +17,7 @@
     attic.url = "github:zhaofengli/attic";
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, ... }:
+  outputs = { nixpkgs, home-manager, lanzaboote, attic, ... }:
   let
     pkgs = import nixpkgs {};
     lib = nixpkgs.lib;
@@ -33,8 +33,10 @@
               _utils = (import ./global/utils.nix) { inherit pkgs; };
             };
           }
-          lanzaboote.nixosModules.lanzaboote
           
+          lanzaboote.nixosModules.lanzaboote
+          attic.nixosModules.atticd
+
           ./systems/koumakan/configuration.nix
         ];
       };
