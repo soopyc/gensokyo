@@ -39,7 +39,7 @@ in {
       lc_time = "en_HK.UTF-8";
       default_text_search_config = "pc_catalog.english";
 
-      max_wal_size = "2G";
+      max_wal_size = "2GB";
       min_wal_size = "80MB";
     };
   };
