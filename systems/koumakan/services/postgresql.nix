@@ -1,10 +1,46 @@
 { pkgs, ... }:
 
-{
+let
+  acmeRoot = "/var/lib/acme/phant.soopy.moe";
+in {
   services.postgresql = {
     enable = true;
 
     package = pkgs.postgresql_15;
     dataDir = "/var/lib/postgresql/15";
+    logLinePrefix = "%m [%p] %h ";  # bollocks to that
+
+    authentication = ''
+      # unix socket connection
+      local   all             all                                     trust
+      # local ipv4/6 tcp connection
+      host    all             all             127.0.0.1/32            scram-sha-256
+      host    all             all             ::1/128                 scram-sha-256
+      # world (encrypted) tcp traffic
+      hostssl all             all             all                     scram-sha-256
+    '';
+
+    settings = {
+      listen_addresses = pkgs.lib.mkForce "*";
+      max_connections = 200;
+      password_encryption = "scram-sha-256";
+
+      ssl = "on";
+      ssl_cert_file = "${acmeRoot}/cert.pem";
+      ssl_key_file = "${acmeRoot}/key.pem";
+
+      log_hostname = true;
+      datestyle = "iso, dmy";
+      log_timezone = "Asia/Hong_Kong";
+      timezone = "Asia/Hong_Kong";
+      lc_messages = "en_US.UTF-8";
+      lc_monetary = "en_US.UTF-8";
+      lc_numeric = "en_US.UTF-8";
+      lc_time = "en_HK.UTF-8";
+      default_text_search_config = "pc_catalog.english";
+
+      max_wal_size = "2G";
+      min_wal_size = "80MB";
+    };
   };
 }
