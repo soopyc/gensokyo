@@ -33,10 +33,6 @@ in {
       datestyle = "iso, dmy";
       log_timezone = "Asia/Hong_Kong";
       timezone = "Asia/Hong_Kong";
-      lc_messages = "en_US.UTF-8";
-      lc_monetary = "en_US.UTF-8";
-      lc_numeric = "en_US.UTF-8";
-      lc_time = "en_HK.UTF-8";
       default_text_search_config = "pc_catalog.english";
 
       max_wal_size = "2GB";
