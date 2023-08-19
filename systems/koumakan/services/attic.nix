@@ -10,10 +10,6 @@
       allowed-hosts = [
         "nonbunary.soopy.moe"
       ];
-      database = {
-        url = {};
-        heartbeat = true;
-      };
       chunking = {
         # The minimum NAR size to trigger chunking
         #   If 0, chunking is disabled entirely for newly-uploaded NARs.
