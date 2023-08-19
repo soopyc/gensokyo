@@ -7,7 +7,13 @@
 
     settings = {
       listen = "127.0.0.1:38191";
-        chunking = {
+      allowed-hosts = [
+        "nonbunary.soopy.moe"
+      ];
+      database = {
+        heartbeat = true;
+      };
+      chunking = {
         # The minimum NAR size to trigger chunking
         #   If 0, chunking is disabled entirely for newly-uploaded NARs.
         #   If 1, all NARs are chunked.
