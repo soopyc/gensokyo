@@ -1,12 +1,5 @@
-# I LOVE MAKEFILE!!!!!!
+default: build
 
-default: test
-
-test:
-	nixos-rebuild test --flake .#
-
-build: 
-	nixos-rebuild build --flake .#
-
-switch:
-	nixos-rebuild switch --flake .#
+%:
+	@echo "WARNING: using make is deprecated. please use just instead."
+	@just $(O)
