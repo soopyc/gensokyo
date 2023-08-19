@@ -6,6 +6,8 @@
     enableReload = true;
     package = pkgs.nginxMainline;
 
+    clientMaxBodySize = "50m";
+
     statusPage = true;
 
     recommendedTlsSettings = true;
