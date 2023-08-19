@@ -7,6 +7,7 @@
       "flakes"
     ];
 
+    max-jobs = "auto";
     auto-optimise-store = true;
   };
 
