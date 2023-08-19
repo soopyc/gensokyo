@@ -15,6 +15,7 @@
     ack
 
     nvd
+    just
 
     git-crypt
   ];
