@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
-let
-  acmeRoot = "/var/lib/acme/phant.soopy.moe";
-in {
+{
   services.postgresql = {
     enable = true;
 
@@ -20,14 +18,16 @@ in {
       hostssl all             all             all                     scram-sha-256
     '';
 
-    settings = {
+    settings = let
+      credsDir = "/run/credentials/postgresql.service";
+    in {
       listen_addresses = pkgs.lib.mkForce "*";
       max_connections = 200;
       password_encryption = "scram-sha-256";
 
       ssl = "on";
-      ssl_cert_file = "${acmeRoot}/cert.pem";
-      ssl_key_file = "${acmeRoot}/key.pem";
+      ssl_cert_file = "${credsDir}/cert.pem";
+      ssl_key_file = "${credsDir}/key.pem";
 
       log_hostname = true;
       datestyle = "iso, dmy";
