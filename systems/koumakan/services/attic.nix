@@ -11,6 +11,7 @@
         "nonbunary.soopy.moe"
       ];
       database = {
+        url = {};
         heartbeat = true;
       };
       chunking = {
