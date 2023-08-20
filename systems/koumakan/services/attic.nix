@@ -30,5 +30,9 @@
 
   services.nginx.virtualHosts."nonbunary.soopy.moe" = _utils.mkSimpleProxy {
     port = 38191;
+  } // {
+    extraConfig = ''
+      client_max_body_size 200m;
+    '';
   };
 }
