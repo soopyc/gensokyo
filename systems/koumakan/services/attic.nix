@@ -32,7 +32,7 @@
     port = 38191;
   } // {
     extraConfig = ''
-      client_max_body_size 200m;
+      client_max_body_size 1G;
     '';
   };
 }
