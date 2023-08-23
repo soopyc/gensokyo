@@ -14,6 +14,8 @@
     ripgrep
     ack
 
+    deno
+
     nvd
     just
 
