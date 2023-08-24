@@ -73,6 +73,11 @@ args@{a, b, c, ...}: {
 ```
 from [nixos wiki](https://nixos.wiki/wiki/Nginx#LEMP_stack)
 
+# adding a package with an overlay to a package set
+i have no idea if this is the best practice or not but this is the abomination i have
+
+https://github.com/soopyc/nix-on-koumakan/blob/30e65402d22b000a3b5af6c9e5ea48a2b58a54e0/overlays/nim/oauth/default.nix
+
 
 <!--links-->
 [nixpkgs:lib/modules.nix#122]: https://github.com/NixOS/nixpkgs/blob/6e68daefde56a7a8e6fe7c3ca9ceeb436294bb9f/lib/modules.nix#L122
