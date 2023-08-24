@@ -62,14 +62,17 @@ very simple.
 ```nix
 args@{a, b, c, ...}: {
   # args.a and a are the same
+  some = "value";
 }
 ```
 
 ## nginx regex location
 ```nix
+{
   locations."~ \.php$".extraConfig = ''
-  # balls
+    # balls
   '';
+}
 ```
 from [nixos wiki](https://nixos.wiki/wiki/Nginx#LEMP_stack)
 
