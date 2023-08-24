@@ -2,25 +2,21 @@
 { lib, nimPackages, fetchFromGitHub }:
 
 nimPackages.buildNimPackage rec {
-  pname = "oauth";
-  version = "b8c163b0d9cfad6d29ce8c1fb394e5f47182ee1c";
+  pname = "sha1";
+  version = "92ccc5800bb0ac4865b275a2ce3c1544e98b48bc";
 
   src = fetchFromGitHub {
-    owner = "CORDEA";
+    owner = "onionhammer";
     repo = pname;
     rev = version;
-    sha256 = "0k5slyzjngbdr6g0b0dykhqmaf8r8n2klbkg2gpid4ckm8hg62v5";
+    sha256 = "sha256-tWHouIa6AFRmbvJaMsoWKNZX7bzqd3Je1kJ4rVHb+wM=";
   };
-
-  buildInputs = with nimPackages; [
-    sha1
-  ];
 
   meta = {
     homepage = src.meta.homepage;
     downloadPage = src.url;
-    description = "OAuth library for nim";
-    license = lib.licenses.asl20;
+    description = "SHA-1 hashing library for nim";
+    license = lib.licenses.mit;  # the author did something to it so i'm not exactly sure, but the previous ver. is mit.
     maintainers = [ ];
   };
 }
