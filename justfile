@@ -10,3 +10,7 @@ build:
 
 switch:
 	nixos-rebuild switch --flake .#
+
+utils recipe="list":
+  @echo "Running utils/{{recipe}}"
+  @cd utils && just {{recipe}}

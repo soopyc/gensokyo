@@ -1,0 +1,6 @@
+
+list:
+  just -l
+
+nitter-token:
+  deno run --allow-{env,read,net} nitter-guest-account.js tokens.json
