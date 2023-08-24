@@ -35,6 +35,7 @@ nimPackages.buildNimPackage rec {
     karax
     markdown
     nimcrypto
+    oauth
     packedjson
     redis
     redpool

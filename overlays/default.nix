@@ -1,3 +1,3 @@
 [
   (import ./nitter)
-]
+] ++ (import ./nim)
