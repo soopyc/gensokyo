@@ -13,6 +13,12 @@
     };
   };
 
+  systemd.services.nitter = {
+    environment = {
+      NITTER_ACCOUNTS_FILE = "/etc/nitter/guest_accounts.json";
+    };
+  };
+
   services.nginx.virtualHosts."nitter.soopy.moe" = _utils.mkSimpleProxy {
     port = 36325;
   };
