@@ -1,6 +1,7 @@
 # via https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/servers/nitter/default.nix
 
 { lib
+, pkgs
 , fetchFromGitHub
 , nimPackages
 , nixosTests

@@ -1,5 +1,5 @@
 # copied and adapted from https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/development/nim-packages/jsony/default.nix
-{ lib, nimPackages, fetchFromGitHub }:
+{ lib, pkgs, nimPackages, fetchFromGitHub }:
 
 nimPackages.buildNimPackage rec {
   pname = "oauth";
@@ -12,7 +12,7 @@ nimPackages.buildNimPackage rec {
     sha256 = "0k5slyzjngbdr6g0b0dykhqmaf8r8n2klbkg2gpid4ckm8hg62v5";
   };
 
-  buildInputs = with nimPackages; [
+  propagatedBuildInputs = with nimPackages; [
     sha1
   ];
 
