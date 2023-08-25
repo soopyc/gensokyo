@@ -15,8 +15,11 @@
 
   systemd.services.nitter = {
     environment = {
-      NITTER_ACCOUNTS_FILE = "/etc/nitter/guest_accounts.json";
+      NITTER_ACCOUNTS_FILE = "/run/credentials/nitter.service/guest_accounts.json";
     };
+    serviceConfig.LoadCredential = [
+      "guest_accounts.json:/etc/nitter/guest_accounts.json"
+    ];
   };
 
   services.nginx.virtualHosts."nitter.soopy.moe" = _utils.mkSimpleProxy {
