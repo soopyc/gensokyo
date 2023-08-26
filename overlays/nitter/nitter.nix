@@ -1,7 +1,6 @@
 # via https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/servers/nitter/default.nix
 
 { lib
-, pkgs
 , fetchFromGitHub
 , nimPackages
 , nixosTests
@@ -16,8 +15,8 @@ nimPackages.buildNimPackage rec {
   src = fetchFromGitHub {
     owner = "zedeus";
     repo = "nitter";
-    rev = "45808361af63e848ce322a27190d3ed7aba0723a";
-    hash = "sha256-fwf0/hCf0z5QBo0WU9KbqbNRnuKyHXx8zz+qGNjAvaE=";
+    rev = "7630f57f17246ffb60d4f5472d17af5fc3c6fa9f";
+    hash = "sha256-eBD77Yf12Geatld+RMieQHLnGxHkvllQCWnPo36yY2o=";
   };
 
   patches = [
