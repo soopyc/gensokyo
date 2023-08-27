@@ -8,6 +8,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Replace .cry files with some bollocks
+        run: find . -name "*.cry" -execdir bash -c 'echo some bollocks > {}' \;
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
         with:
