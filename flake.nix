@@ -2,7 +2,7 @@
   description = "Gensokyo system configurations";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.05";
+    nixpkgs.url = "nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
