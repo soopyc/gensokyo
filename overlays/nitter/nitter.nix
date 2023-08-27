@@ -10,7 +10,7 @@
 
 nimPackages.buildNimPackage rec {
   pname = "nitter";
-  version = "unstable-2023-08-22+guest_accounts";
+  version = "unstable-2023-08-26+guest_accounts";
 
   src = fetchFromGitHub {
     owner = "zedeus";
