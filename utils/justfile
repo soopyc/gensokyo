@@ -1,6 +1,7 @@
+python_executable := if os() == "android" { "python3" } else { "nix run .#python3 --" }
 
 list:
   just -l
 
 nitter-token:
-  deno run --allow-{env,read,net} nitter-guest-account.js tokens.json
+  {{python_executable}} nitter-guest-account.py tokens.json
