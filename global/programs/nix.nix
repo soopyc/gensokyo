@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# some items are sourced from https://jackson.dev/post/nix-reasonable-defaults/
 {
   nix.settings = {
     experimental-features = [
