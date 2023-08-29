@@ -15,6 +15,8 @@ documentation and extra tips can be found [here](docs/)
 ## Note to self
 * try to keep it simple as much as possible
 
+✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
+
 ## TODO
 - [ ] migrate ~/.yubico/authorized_yubikeys to HM config (via pam.yubico.authorizedYubiKeys.ids)
 

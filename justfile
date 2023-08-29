@@ -1,4 +1,5 @@
-# I LOVE MAKEFILE!!!!!!
+# friendship ended with Makefile
+# I LOVE justFILE!!!!!!
 
 default: build
 
@@ -14,3 +15,6 @@ switch:
 utils recipe="list":
   @echo "Running utils/{{recipe}}"
   @cd utils && just {{recipe}}
+
+ebuild system:
+  nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.toplevel
