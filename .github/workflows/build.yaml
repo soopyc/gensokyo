@@ -18,7 +18,7 @@ jobs:
       - name: Write Nix netrc file
         run: |
           sudo mkdir -p /etc/nix
-          echo "machine nonbunary.soopy.moe password ${access_token}" | sudo tee /etc/nix/netrc > dev/null
+          echo "machine nonbunary.soopy.moe password ${access_token}" | sudo tee /etc/nix/netrc > /dev/null
         env:
           access_token: ${{ secrets.ATTIC_ACCESS_TOKEN }}
 
@@ -59,7 +59,7 @@ jobs:
       - name: Write Nix netrc file
         run: |
           sudo mkdir -p /etc/nix
-          echo "machine nonbunary.soopy.moe password ${access_token}" | sudo tee /etc/nix/netrc > dev/null
+          echo "machine nonbunary.soopy.moe password ${access_token}" | sudo tee /etc/nix/netrc > /dev/null
         env:
           access_token: ${{ secrets.ATTIC_ACCESS_TOKEN }}
 
