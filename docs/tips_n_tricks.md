@@ -22,11 +22,11 @@ security.sudo.package = (pkgs.sudo.override {withInsults = true;});
 ```
 
 ## overlays
-overlays are useful when you want to refer to refer to a package globally.
+overlays are useful when you want to refer to a package globally.
 
 the gist of overlays is as thus:
 
-> overlay is just `prev: final: {}` functions where dumbed down idea is
+> overlay is just `final: pref: {}` functions where dumbed down idea is
 > that you do pkg = prev.pkg.override and refer to everything else from
 > final
 >
@@ -35,7 +35,7 @@ the gist of overlays is as thus:
 
 (poorly made) example overlays can be found [here](https://github.com/soopyc/nixos-config/blob/master/overlays/discord-canary.nix)
 
-*note: replace `self: super:` with `prev: final:` for consistency*
+*note: replace `self: super:` with `final: prev:` for consistency*
 
 *concept and content by \@natsukagami*
 
