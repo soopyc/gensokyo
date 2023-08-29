@@ -1,3 +1,5 @@
+name: Check and Build configuration
+
 on:
   push:
 
@@ -11,10 +13,25 @@ jobs:
       - name: Replace .cry files with some bollocks
         run: find . -name "*.cry" -execdir bash -c 'echo some bollocks > {}' \;
 
+      # we need nix to be able to access our private cache
+      # again, prs welcome!
+      - name: Write Nix netrc file
+        run: |
+          mkdir -p /etc/nix
+          echo "machine nonbunary.soopy.moe password ${access_token}" > /etc/nix/netrc
+        env:
+          access_token: ${{ secrets.ATTIC_ACCESS_TOKEN }}
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
         with:
-          extra-conf: "experimental-features = nix-command flakes"
+          extra-conf: |
+            fallback = true
+            connect-timeout = 30
+            netrc-file = /etc/nix/netrc
+            experimental-features = nix-command flakes
+            extra-substituters = https://nonbunary.soopy.moe/gensokyo-koumakan https://nonbunary.soopy.moe/gensokyo-satori
+            extra-trusted-public-keys = gensokyo-koumakan:ODEzVQdQ7UEHvPsLWYn7wxN//xS/0lkhjHgfkZlxO4k= gensokyo-satori:dAbXCUMJP2GZfviFA+yD4+dsxedMqMweOjecAM/zfKk= gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec=
 
       - name: Setup Nix cache
         uses: DeterminateSystems/magic-nix-cache-action@v2
@@ -34,14 +51,28 @@ jobs:
       matrix:
         host:
           - koumakan
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Write Nix netrc file
+        run: |
+          mkdir -p /etc/nix
+          echo "machine nonbunary.soopy.moe password ${access_token}" > /etc/nix/netrc
+        env:
+          access_token: ${{ secrets.ATTIC_ACCESS_TOKEN }}
+
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@v4
         with:
-          extra-conf: "experimental-features = nix-command flakes"
+          extra-conf: |
+            fallback = true  # why is this not the default?
+            connect-timeout = 30
+            netrc-file = /etc/nix/netrc
+            experimental-features = nix-command flakes
+            extra-substituters = https://nonbunary.soopy.moe/gensokyo-koumakan https://nonbunary.soopy.moe/gensokyo-satori
+            extra-trusted-public-keys = gensokyo-koumakan:ODEzVQdQ7UEHvPsLWYn7wxN//xS/0lkhjHgfkZlxO4k= gensokyo-satori:dAbXCUMJP2GZfviFA+yD4+dsxedMqMweOjecAM/zfKk= gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec=
 
       - name: Setup Nix cache
         uses: DeterminateSystems/magic-nix-cache-action@v2
@@ -51,3 +82,11 @@ jobs:
 
       - name: Build configuration
         run: nix build .#nixosConfigurations."${{ matrix.host }}".config.system.build.toplevel
+
+      - name: Setup attic and push to cache
+        run: |
+          nix run github:zhaofengli/attic#default login nbsm https://nonbunary.soopy.moe ${access_token}
+          nix run github:zhaofengli/attic#default push gensokyo-${{ matrix.host }} result
+        env:
+          access_token: ${{ secrets.ATTIC_ACCESS_TOKEN }}
+        continue-on-error: true
