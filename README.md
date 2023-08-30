@@ -12,8 +12,8 @@ way of doing things are very much appreciated.
 ## docs
 documentation and extra tips can be found [here](docs/)
 
-## Note to self
-* try to keep it simple as much as possible
+couldn't find what you needed? suffer with me! see the
+[How 2 Nix section in this repo.](https://github.com/hlissner/dotfiles#frequently-asked-questions)
 
 ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
 
