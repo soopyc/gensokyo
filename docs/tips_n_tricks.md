@@ -1,6 +1,9 @@
 # tops and bottoms
 this document outlines things that i learned from various sources and some pure guesswork
 
+> To learn Nix is to learn to suffer, and to learn the way of numbing the pain
+— Cassie circa. 2023
+
 ## overriding packages
 the pill confused me and i thought i had to make overlays to do overrides but no
 
@@ -35,6 +38,8 @@ the gist of overlays is as thus:
 
 (poorly made) example overlays can be found [here](https://github.com/soopyc/nixos-config/blob/master/overlays/discord-canary.nix)
 
+currently in-use and slightly better overlays can be found in this repo! head over to /overlays to see them.
+
 *note: replace `self: super:` with `final: prev:` for consistency*
 
 *concept and content by \@natsukagami*
@@ -42,17 +47,15 @@ the gist of overlays is as thus:
 ## extra opts
 a way of passing additional options globally to modules is by using extraOpts.
 
-<!-- find a way that we can still use this apart from in nixos config-->
+in nix flakes, this is accomplished by using `specialArgs` in `nixosSystem`.
+
 for example, check out this line in our flake.nix:
 
-https://github.com/soopyc/nix-on-koumakan/blob/8228dfc2c6e7aaa21b3f24f37699371837f25098/flake.nix#L22-L28
+https://github.com/soopyc/nix-on-koumakan/blob/492dfaa01808c2aa5dbb2d8223163e92bcef673b/flake.nix#L22-L28
 
 this avoids the horror of `import ../../../utils/bar.nix;`
 
 refer to [nixpkgs:nixos/lib/eval-config.nix] and [nixpkgs:lib/modules.nix#122] for more info
-
-note that extraArgs is deprecated, so you will need to use config._module.args (i have no idea
-how this works)
 
 *pointers by \@natsukagami*
 
