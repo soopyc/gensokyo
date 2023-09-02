@@ -1,14 +1,16 @@
 # see /docs/utils.md for a usage guide
 
-{ pkgs, ... }:
+{ ... }:
 
-let
-  lib = pkgs.lib;
-in rec {
+# let
+  # lib = pkgs.lib;
+# in
+rec {
   mkVhost = opts: {
     # ideally mkOverride/mkDefault would be used, but i have 0 idea how it works.
     forceSSL = true;
     useACMEHost = "global.c.soopy.moe";
+    kTLS = true;
   } // opts;
 
   mkSimpleProxy = {
