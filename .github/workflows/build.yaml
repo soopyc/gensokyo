@@ -72,7 +72,7 @@ jobs:
       - name: Setup attic and push to cache
         run: |
           nix run github:zhaofengli/attic#default login nbsm https://nonbunary.soopy.moe ${access_token}
-          nix run github:zhaofengli/attic#default push gensokyo-${{ matrix.host }} result
+          nix run github:zhaofengli/attic#default push gensokyo-systems result
         env:
           access_token: ${{ secrets.ATTIC_ACCESS_TOKEN }}
         continue-on-error: true
