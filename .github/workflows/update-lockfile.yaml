@@ -27,3 +27,7 @@ jobs:
           pr-labels: |
             dependencies
             automated
+          git-author-name: soopyc [bot]
+          git-author-email: ci_signing+github@ningenkai.soopy.moe
+          git-committer-name: soopyc [bot]
+          git-committer-email: ci_signing+github@ningenkai.soopy.moe
