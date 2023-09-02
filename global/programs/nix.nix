@@ -9,20 +9,17 @@
     ];
 
     substituters = [
-      "https://nonbunary.soopy.moe/gensokyo-koumakan"
-      "https://nonbunary.soopy.moe/gensokyo-satori"
+      "https://nonbunary.soopy.moe/gensokyo-systems"
       "https://nonbunary.soopy.moe/gensokyo-global"
     ];
 
     trusted-substituters = [
-      "https://nonbunary.soopy.moe/gensokyo-koumakan"
-      "https://nonbunary.soopy.moe/gensokyo-satori"
+      "https://nonbunary.soopy.moe/gensokyo-systems"
       "https://nonbunary.soopy.moe/gensokyo-global"
     ];
 
     trusted-public-keys = [
-      "gensokyo-koumakan:ODEzVQdQ7UEHvPsLWYn7wxN//xS/0lkhjHgfkZlxO4k="
-      "gensokyo-satori:dAbXCUMJP2GZfviFA+yD4+dsxedMqMweOjecAM/zfKk="
+      "gensokyo-systems:r/Wx649dPuQrCN9Pgh3Jic526zQNk3oWMqYJHnob/Ok="
       "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
     ];
 
