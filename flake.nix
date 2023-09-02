@@ -24,29 +24,16 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, attic, mystia, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
   let
-    pkgs = import nixpkgs {};
+    # pkgs = import nixpkgs {};
+    _utils = import ./global/utils.nix {};
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      koumakan = lib.nixosSystem {
-        system = "x86_64-linux";
-
-        # see docs/tips_n_tricks.md#extra_opts for syntax
-        # see docs/utils.md for functions
-        specialArgs = {
-          inherit inputs;
-          _utils = (import ./global/utils.nix) { inherit pkgs; };
-        };
-
-        modules = [
-          lanzaboote.nixosModules.lanzaboote
-          attic.nixosModules.atticd
-
-          ./systems/koumakan/configuration.nix
-        ];
-      };
+      koumakan = (import ./systems/koumakan { inherit _utils lib inputs; });
     };
+
+    # formatter.x86_64-linux = pkgs.alejendra;
   };
 }
