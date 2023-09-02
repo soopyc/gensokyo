@@ -80,9 +80,21 @@ args@{a, b, c, ...}: {
 from [nixos wiki](https://nixos.wiki/wiki/Nginx#LEMP_stack)
 
 # adding a package with an overlay to a package set
-i have no idea if this is the best practice or not but this is the abomination i have
+
+for package sets with a scope, you will have to do something like
+```nix
+final: prev: {
+  nimPackages = prev.nimPackages.overrideScope (final': prev': {
+    sha1 = final'.callPackage ./sha1.nix {};
+    oauth = final'.callPackage ./oauth.nix {};
+  });
+}
+```
+There's an alternative method that i used to use here:
 
 https://github.com/soopyc/nix-on-koumakan/blob/30e65402d22b000a3b5af6c9e5ea48a2b58a54e0/overlays/nim/oauth/default.nix
+
+however i do not think that's the best way lol
 
 ## Useful links
 
