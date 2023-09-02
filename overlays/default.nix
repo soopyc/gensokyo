@@ -1,4 +1,1 @@
-[
-  (import ./nim)
-  (import ./nitter)
-]
+[]

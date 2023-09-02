@@ -1,4 +1,4 @@
-{ _utils, ... }:
+{ _utils, pkgs, ... }:
 
 {
   services.nitter = {
@@ -11,6 +11,7 @@
       hostname = "nitter.soopy.moe";
       address = "127.0.0.1";
     };
+    package = pkgs.nitterExperimental;
   };
 
   systemd.services.nitter = {

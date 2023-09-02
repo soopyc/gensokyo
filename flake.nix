@@ -14,10 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    attic.url = "github:zhaofengli/attic";
+    attic = {
+      url = "github:zhaofengli/attic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mystia = {
+      url = "github:soopyc/mystia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, attic, ... }:
+  outputs = { nixpkgs, home-manager, lanzaboote, attic, mystia, ... }@inputs:
   let
     pkgs = import nixpkgs {};
     lib = nixpkgs.lib;
@@ -29,7 +36,7 @@
         # see docs/tips_n_tricks.md#extra_opts for syntax
         # see docs/utils.md for functions
         specialArgs = {
-          # inherit mystia;
+          inherit inputs;
           _utils = (import ./global/utils.nix) { inherit pkgs; };
         };
 
