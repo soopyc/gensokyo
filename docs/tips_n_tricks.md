@@ -2,7 +2,8 @@
 this document outlines things that i learned from various sources and some pure guesswork
 
 > To learn Nix is to learn to suffer, and to learn the way of numbing the pain
-— Cassie circa. 2023
+>
+> — Cassie circa. 2023
 
 ## overriding packages
 the pill confused me and i thought i had to make overlays to do overrides but no
@@ -147,13 +148,16 @@ error:
 
 just don't!!!11 remove the pkgs definition. (note that this only applies to `pkgs = import nixpkgs {};`)
 
-### explanation
+explanation
+
 > you shouldn't ever really import nixpkgs with an empty attrset either
 >
 > that causes it to fall back on guessing your system using `builtins.currentSystem`,
 > which is impure and so not allowed in pure evaluation mode
-— \@getchoo
-## Useful links
+>
+> — \@getchoo
+
+# Useful links
 
 Builtin stdlib functions search engine: https://noogle.dev/
 
