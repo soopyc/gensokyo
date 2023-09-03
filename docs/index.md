@@ -1,6 +1,18 @@
-# documentation
-bals
+# Cow
+![a yak on some grass](./quaritsch-photography-1_6rJHQ2Gmw-unsplash.jpg)
 
-## table of contents
-- [tips_n_tricks.md](./tips_n_tricks.md) Tips and tricks for nix
-- [utils.md](./utils.md) _utils functions reference 
+*Gracefully provided by [Quaritsch Photography](https://unsplash.com/@quaritsch) on Unsplash, via https://unsplash.com/photos/1_6rJHQ2Gmw*
+
+# NixOS Configuration
+This is a bare minimum nix configuration for koumakan.
+
+I'm still very, very new to Nix and its ecosystem so pointers to better
+way of doing things are very much appreciated.
+
+## docs
+documentation and extra tips can be found [here](./docs)
+
+couldn't find what you needed? suffer with me! see the
+[How 2 Nix section in this repo.](https://github.com/hlissner/dotfiles#frequently-asked-questions)
+
+✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
