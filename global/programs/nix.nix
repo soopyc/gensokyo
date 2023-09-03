@@ -8,18 +8,22 @@
     ];
 
     substituters = [
-      "https://nonbunary.soopy.moe/gensokyo-systems"
-      "https://nonbunary.soopy.moe/gensokyo-global"
+      "https://nonbunary.soopy.moe/gensokyo-systems/"
+      "https://nonbunary.soopy.moe/gensokyo-global/"
     ];
 
     trusted-substituters = [
-      "https://nonbunary.soopy.moe/gensokyo-systems"
-      "https://nonbunary.soopy.moe/gensokyo-global"
+      "https://nonbunary.soopy.moe/gensokyo-systems/"
+      "https://nonbunary.soopy.moe/gensokyo-global/"
     ];
 
     trusted-public-keys = [
       "gensokyo-systems:r/Wx649dPuQrCN9Pgh3Jic526zQNk3oWMqYJHnob/Ok="
       "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
+    ];
+
+    trusted-users = [
+      "cassie"
     ];
 
     fallback = true;
