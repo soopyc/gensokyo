@@ -1,13 +1,11 @@
 {
   description = "Gensokyo system configurations";
 
-  nixConfig = rec {
+  nixConfig = {
     extra-substituters = [
       "https://nonbunary.soopy.moe/gensokyo-global"
       "https://nonbunary.soopy.moe/gensokyo-systems"
     ];
-
-    extra-trusted-substituters = extra-substituters;
 
     extra-trusted-public-keys = [
       "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
