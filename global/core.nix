@@ -10,6 +10,8 @@
     keyMap = "us";
   };
 
+  hardware.enableRedistributableFirmware = true;
+
   # # Enable crash dumps globally
   # boot.crashDump = {
   #   enable = true;
