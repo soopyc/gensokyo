@@ -1,4 +1,4 @@
-python_executable := if os() == "android" { "python3" } else { "nix run .#python3 --" }
+python_executable := if os() == "android" { "python3" } else { "nix develop ..# -c python3" }
 
 list:
   just -l
