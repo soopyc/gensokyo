@@ -70,6 +70,7 @@ jobs:
         run: nix build .#nixosConfigurations."${{ matrix.host }}".config.system.build.toplevel
 
       - name: Setup attic and push to cache
+        if: ${{ github.event_name != 'pull_request' }}
         run: |
           nix run github:zhaofengli/attic#default login nbsm https://nonbunary.soopy.moe ${access_token}
           nix run github:zhaofengli/attic#default push gensokyo-systems result
