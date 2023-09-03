@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./upgrade-diff.nix
   ];
@@ -19,5 +18,5 @@
   # };
 
   # Lock root account
-  users.users.root.shell = pkgs.shadow;  # basically /bin/nologin
+  users.users.root.shell = pkgs.shadow; # basically /bin/nologin
 }

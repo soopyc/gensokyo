@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.nginx = {
     enable = true;
     enableReload = true;

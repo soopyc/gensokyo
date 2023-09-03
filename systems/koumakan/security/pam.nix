@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   security.pam.yubico = {
     enable = true;
     id = builtins.readFile ./ykid.cry;

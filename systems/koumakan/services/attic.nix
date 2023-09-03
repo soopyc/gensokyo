@@ -1,6 +1,8 @@
-{ _utils, pkgs, ... }:
-
-let
+{
+  _utils,
+  pkgs,
+  ...
+}: let
   # where tf are the docs for pkgs.formats??
   toml = pkgs.formats.toml {};
 in {
@@ -37,14 +39,14 @@ in {
     };
   };
 
-  services.nginx.virtualHosts."nonbunary.soopy.moe" = _utils.mkSimpleProxy {
-    port = 38191;
-  } // {
-    extraConfig = ''
-      client_max_body_size 1G;
-      proxy_read_timeout 3h;
-      proxy_connect_timeout 3h;
-      proxy_send_timeout 3h;
-    '';
-  };
+  services.nginx.virtualHosts."nonbunary.soopy.moe" =
+    _utils.mkSimpleProxy {port = 38191;}
+    // {
+      extraConfig = ''
+        client_max_body_size 1G;
+        proxy_read_timeout 3h;
+        proxy_connect_timeout 3h;
+        proxy_send_timeout 3h;
+      '';
+    };
 }
