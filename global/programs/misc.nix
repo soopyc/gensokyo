@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Miscellaneous packages that do not have an option.
   # It is recommended to use packages.<package>.enable when possible.
 

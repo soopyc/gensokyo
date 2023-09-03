@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [ gnupg pinentry ];
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [gnupg pinentry];
 
   programs.gnupg.agent.enable = true;
   # ideally this should be set automatically but in case that doesn't work

@@ -1,5 +1,9 @@
-{ lib, _utils, inputs, ... }:
-
+{
+  lib,
+  _utils,
+  inputs,
+  ...
+}:
 lib.nixosSystem {
   system = "x86_64-linux";
 

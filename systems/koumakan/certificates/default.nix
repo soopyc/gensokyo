@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./global.nix
     ./postgresql.nix
@@ -11,8 +9,8 @@
       # == lego Configuration ==
       credentialsFile = "/etc/lego/desec";
       dnsProvider = "desec";
-      # In an more ideal world we would have an eddsa algo here but oh well
-      keyType = "ec256";  # Ensure we use ec keys
+      # In a more ideal world we would have an eddsa algo here but oh well
+      keyType = "ec256"; # Ensure we use ec keys
 
       dnsResolver = "8.8.8.8:53";
 

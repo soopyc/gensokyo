@@ -1,12 +1,10 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.postgresql = {
     enable = true;
 
     package = pkgs.postgresql_15;
     dataDir = "/var/lib/postgresql/15";
-    logLinePrefix = "%m [%p] %h ";  # bollocks to that
+    logLinePrefix = "%m [%p] %h ";
 
     authentication = ''
       # unix socket connection

@@ -40,16 +40,19 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-  let
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
     # pkgs = import nixpkgs {};
     _utils = import ./global/utils.nix {};
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      koumakan = (import ./systems/koumakan { inherit _utils lib inputs; });
+      koumakan = import ./systems/koumakan {inherit _utils lib inputs;};
     };
 
-    # formatter.x86_64-linux = pkgs.alejendra;
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }

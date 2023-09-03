@@ -1,26 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
+{inputs, ...}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-{ inputs, ... }:
+    ../../global/core.nix
+    ../../global/programs
 
-{
-  imports = [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
-      ../../global/core.nix
-      ../../global/programs
-
-      ./networking
-      ./certificates
-      ./security
-      ./services
+    ./networking
+    ./certificates
+    ./security
+    ./services
   ];
 
-  nixpkgs.overlays = import ../../overlays ++ (with inputs; [
-    mystia.overlays.default
-    attic.overlays.default
-  ]);
+  nixpkgs.overlays =
+    import ../../overlays
+    ++ (with inputs; [
+      mystia.overlays.default
+      attic.overlays.default
+    ]);
 
   boot.loader.efi = {
     canTouchEfiVariables = true;
@@ -42,9 +42,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cassie = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
     openssh = {
-        authorizedKeys.keyFiles = [ ../../creds/ssh/cassie ];
+      authorizedKeys.keyFiles = [../../creds/ssh/cassie];
     };
     # packages = with pkgs; [];
   };

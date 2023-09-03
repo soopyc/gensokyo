@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   imports = [
     ./keine.nix
   ];
@@ -16,8 +15,7 @@
       "~ ^/(index.html|splash.png)".root = "/srv/www/maintenance";
     };
     extraConfig = ''
-    	error_page 503 /index.html;
+      error_page 503 /index.html;
     '';
-
   };
 }
