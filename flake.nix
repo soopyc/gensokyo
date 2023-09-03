@@ -45,13 +45,28 @@
     home-manager,
     ...
   } @ inputs: let
-    # pkgs = import nixpkgs {};
     _utils = import ./global/utils.nix {};
     lib = nixpkgs.lib;
+
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
+    forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
   in {
     nixosConfigurations = {
       koumakan = import ./systems/koumakan {inherit _utils lib inputs;};
     };
+
+    devShells = forAllSystems (pkgs: {
+      default = pkgs.mkShell {
+        packages = [
+          (pkgs.python311.withPackages (p: [p.requests]))
+        ];
+      };
+    });
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
