@@ -17,6 +17,7 @@
     nvd
     just
 
+    attic
     git-crypt
   ];
 
