@@ -22,10 +22,6 @@
       "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
     ];
 
-    trusted-users = [
-      "cassie"
-    ];
-
     fallback = true;
     connect-timeout = 30;
     max-jobs = "auto";
