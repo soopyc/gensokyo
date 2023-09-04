@@ -1,3 +1,5 @@
+[![Check and Build configuration](https://github.com/soopyc/nix-on-koumakan/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/soopyc/nix-on-koumakan/actions/workflows/build.yaml)
+
 # Cow
 ![a yak on some grass](docs/quaritsch-photography-1_6rJHQ2Gmw-unsplash.jpg)
 
