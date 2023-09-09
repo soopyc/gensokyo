@@ -1,0 +1,23 @@
+keys:
+  # maintainers
+  - &soopyc_mpxl7a age10rkyshu0lswdqyvun4cs9cekm9zt4fw5c8ssa38tn3lukgcahcvsltnqx2
+  - &soopyc_pgp302 8F3B277901484C6EA7E63F82D539637D518022C6
+  # - &soopyc_age302 age1yubikey1qgmfcf0vddslyza7djdekjjk3t3u29d474c5xscmcdye8x3spvhlxxj23xz
+  # failed to parse input as Bech32-encoded age public key: malformed recipient "age1yubikey1qgmfcf0vddslyza7djdekjjk3t3u29d474c5xscmcdye8x3spvhlxxj23xz": invalid type "age1yubikey"
+
+  # Hosts
+  - &koumakan_ssh age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
+
+default_group: &default_group
+  pgp:
+    - *soopyc_pgp302
+  age:
+    # - *soopyc_age302
+    - *soopyc_mpxl7a
+
+creation_rules:
+  - path_regex: creds/sops/koumakan.yaml
+    key_groups:
+      - <<: *default_group
+        age:
+          - *koumakan_ssh

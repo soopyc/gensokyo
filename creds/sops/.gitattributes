@@ -1,0 +1,3 @@
+# to use, make sure `sops` is in your path and run
+#  git config diff.sopsdiff.textconv "sops -d"
+*.yaml diff=sopsdiff

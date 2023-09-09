@@ -16,6 +16,7 @@ lib.nixosSystem {
   modules = [
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.attic.nixosModules.atticd
+    inputs.sops-nix.nixosModules.sops
 
     ./configuration.nix
   ];

@@ -41,6 +41,10 @@
     # packages = with pkgs; [];
   };
 
+  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops.defaultSopsFile = ../../creds/sops/koumakan.yaml;
+  sops.secrets."synapse.yaml" = {}; # test only
+
   # Just don't change this :p
   system.stateVersion = "23.05"; # Did you read the comment?
 }

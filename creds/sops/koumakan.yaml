@@ -1,0 +1,42 @@
+example_key: ENC[AES256_GCM,data:oMExig==,iv:dlHKkmKBNZBM3izQyv1P/wuZyPPqutUM4pK/vANYEYY=,tag:PQVnsIQAwdbEDGDxtjTV9Q==,type:str]
+synapse.yaml: ENC[AES256_GCM,data:s7ck7gkMOiC1piRtMzIt7LqxLGb42w==,iv:eIPXO9DfK5x3hdP9vLrqO9X726OjD0UXOVFxxbEHyHQ=,tag:H9KSXDrpN0B8pU3k8zyNaw==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age10rkyshu0lswdqyvun4cs9cekm9zt4fw5c8ssa38tn3lukgcahcvsltnqx2
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBMQzlpOS9lRnpNZGJkbzV3
+            ODRLT1BVcHJWL3NJM00vbC90QTVEUTZvOURZClg0aHd5YzZmdlpCalNDUEZDOW4r
+            ajQ5S1NLSEMrbmVhQXpnV1IxZ1J4OVkKLS0tIHBQL2dvcmtNcUVWWXBYc2RYbFll
+            YnFTRFY0TmdubElIUkdNdTU4czJPaFkK5pRl+R+yYkRb5dd4T0GfC2C/WXWU4EhM
+            hTi+rg82rQBZLyp0zbBNBLOGl+dcjkJEqlBoxbcm1TShon6briQwmQ==
+            -----END AGE ENCRYPTED FILE-----
+        - recipient: age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjVlBBcGFUY3UzaVlnMG1w
+            cSt6WDZiMThaNGtYdEY5a0VSY3U3Rm5xODNRClVLdEdWTzF5R3dYYVdMUFpDMzBo
+            TWY0S0I2d2NaSFFWd0RsOTQyaWhxOUkKLS0tIGhkWWhib3Y0cEhVeUYxWWNFT3ZM
+            eVdKdDN0OStLOTVZanNZcmpUdTdKRzAKqzwo11HXixF3bEWPF/G/sDhwujqZoL06
+            R8uWaLzl/PLBWjcgGTwR2NwnfgusW4PwWJesM0lyK6Y/tH9epm/sXQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2023-09-09T06:06:55Z"
+    mac: ENC[AES256_GCM,data:rpmUP05t2ldtk/j0LOa2egGyyyUppfP1AQAJCjHzYmQnbCDFdLv9PB72AZXnLOU42mPZvyCsbDgAvBDrxVk3vF8mDfOtIDQgBCgGfODFCeAWoIZu6PjwBAKVMoAcmv1+jruZLlW18Y4GaqHg+sj7+oDRieNPr3JCvF1HWN7lr4c=,iv:1On6YmNHUirVozmllRJV4GAdEqk2CMo8P2Jk904St9w=,tag:o10NPIT4UetR/ThMF43GZw==,type:str]
+    pgp:
+        - created_at: "2023-09-08T14:11:19Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wV4DAxCcDC4ukRQSAQdAPp7f7lEc5aKN8AMfqL++7Vb7nd8lcMpqYPFLXgAeREcw
+            TQSNq/QEGQBD7ajzC0EOSrQy6cbnfkcm24RSPIe1jq3DPX0kWzzfT/z37EAb7QjD
+            0lEBXLip/22Y/iP9auv27kcdm8j8/jZKAOdkjg1iJVBNhAdDDV3VE51akkSo8/7x
+            pgEi2iyU9jgEp9gCw8B07eQUB7hunS5MXjz+D1E3U3ZoqdA=
+            =VLNe
+            -----END PGP MESSAGE-----
+          fp: 8F3B277901484C6EA7E63F82D539637D518022C6
+    unencrypted_suffix: _unencrypted
+    version: 3.7.3
