@@ -17,6 +17,8 @@
   #   reservedMemory = "128M";
   # };
 
+  time.timeZone = "Asia/Hong_Kong";
+
   # Lock root account
   users.users.root.shell = pkgs.shadow; # basically /bin/nologin
 }

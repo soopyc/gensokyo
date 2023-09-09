@@ -14,22 +14,18 @@
 
   nixpkgs.overlays = import ../../global/overlays inputs;
 
-  boot.loader.efi = {
-    canTouchEfiVariables = true;
-    efiSysMountPoint = "/boot/efi";
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    systemd-boot = {
+      enable = true;
+      graceful = true;
+      netbootxyz.enable = true;
+    };
+    grub.enable = false;
   };
-
-  boot.loader.systemd-boot = {
-    enable = true;
-    graceful = true;
-    netbootxyz.enable = true;
-  };
-
-  boot.loader.grub = {
-    enable = false;
-  };
-
-  time.timeZone = "Asia/Hong_Kong";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.cassie = {
