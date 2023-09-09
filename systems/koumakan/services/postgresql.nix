@@ -2,7 +2,7 @@
   services.postgresql = {
     enable = true;
 
-    package = pkgs.postgresql_15;
+    package = pkgs.postgresql_15_pam;
     dataDir = "/var/lib/postgresql/15";
     logLinePrefix = "%m [%p] %h ";
 

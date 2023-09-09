@@ -1,0 +1,3 @@
+[
+  (import ./postgresql-pam.nix)
+]

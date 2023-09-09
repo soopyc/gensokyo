@@ -12,7 +12,7 @@
     ./services
   ];
 
-  nixpkgs.overlays = import ../../global/overlays inputs;
+  nixpkgs.overlays = import ../../global/overlays inputs ++ import ./overlays;
 
   boot.loader = {
     efi = {
