@@ -8,7 +8,7 @@
 
     authentication = ''
       # unix socket connection
-      local   all             all                                     trust
+      local   all             all                                     pam
       # local ipv4/6 tcp connection
       host    all             all             127.0.0.1/32            scram-sha-256
       host    all             all             ::1/128                 scram-sha-256
