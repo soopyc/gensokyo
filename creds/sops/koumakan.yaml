@@ -1,5 +1,6 @@
 comment_unencrypted: See https://github.com/Mic92/sops-nix/issues/120 for synapse.yaml quirks
 synapse.yaml: ENC[AES256_GCM,data:889nzlShKPYzmBygeHCpedKT42W2FDKV2k4GiPunpbIlf8fGvryUOpeMxgzJkPwgYLjCmtQELDbwQICYO6yxaOfQaWPZP+bsRhvDE1YNJ0/gVHy2RGcT5niKOWLXjqmnN2plD2MgX8fqNoyxgX7T/lt29hpLoJqKBGNizXPzU1QYLvWr//5CmpwKNbLDJe1MyXGWLg9buM1MPWrQHBMLOtBkX/17Sdi6mseF7/pxV7d2yak4FQL7FXlMjvbd5/y4kIxsNZl5DQxz7W4etWWDB+8f5tqlCmDNHsNkWBqnjtcf9X3LmelYsTmzGl8GDMlQijA9jlb0Ghxbn9ZbWd+HoPNDRzEt9sIiKLD0A5+SfgWxqfOV6u+XUPbhaJY/vaQDOQbWSZoc76L9Fhe5UPnibwmjWm+vn/MXYW3N6yaHpJqxqCCuy3U14YI4TEM9HR5/KU4Yt7uqcZkn88a5MNQtWZ8zN4lK/otN6W3ocSN8RW9e54FVbFkp9eP7XfNlYFSnfvwZyuOxsd7akcvIM7OHng+DiGuzBvGxWO0ty2gWTvXiRBNhb5AeuglYoBWivHstzr9M6ciGJwLjvooYhVeACxzb2xAkQ7Q1Q0TltEjO6e+G4GPIIHVW+hVmgZCu0+26M3kIjSfQq00R016X0srduEg5puWY6nijV4R0SSd5g9ygZY80oCTZthYeEkNKrwuRXVxgyiyMsxWSDZlQDD7EcqS5gf1/OyPuAYhCaDrtWttNrbrUBk7yrvCZrcqNj6n69jKFY0oYc+siMmvKrFa3x0HVB9LAL0Tj9x6HJPn3wLoDZQCz+QSqs/D7rga/NUZn33G4KupgPrdwpevCuTK3Z5BlRRe27mDoVOj4Cnvkpfz0EbZ8UsvFUx/Shszgaow+d5aPVqSx9KffSnA=,iv:sqkXFPatFfwBa0uUSoytJm+tFYak7fbenkQ2OyiSMEA=,tag:oy/bHLjYHkQFlqETwIMXlw==,type:str]
+matrix-signing-key: ENC[AES256_GCM,data:u6miE2oM3TUXaQ7wc776SwSMaOAxJOVlpl2kBW+AjI/aDH5vcGBp0L0uTpZbVfOtIe+RDNEv5E/mKA==,iv:abvwkrNe324QCbWLwiPY0UwqezS0wbyk2Fvi0vs3SI0=,tag:ZmpDB9LHbezQrxuwHNgpRg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -24,8 +25,8 @@ sops:
             cHJ5aWIrQ2Zrb1dhbC9yZ1lIMU1jbzgK4mx+S5bF6KBMe6+TrSZfaBcuWEg9cHyd
             tbJty1zxS9pndA/u3qz5EJxDouiAODvyAR07yeegtEcbw1FlG6W/gA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-09-10T15:34:26Z"
-    mac: ENC[AES256_GCM,data:+hcp+xHiX9AS7hT8NnSzneeY5NUgsyD1l4U7TgxCXppIagBPiOJ36zO/x4RBgLdbIP466piG/lm1uLyGPDtPC+ndUDcXuAvBzS4P084PeVWGzZORgeHX36gIx695Rvrk7GB2mwVjYgaoIQ5jNTSJp0Me78n2QM9V0lnteSCGXX0=,iv:Ou7z/4QJYJVm2Sdd/SMDnO3Yox2yExb4yp41pyTjiyA=,tag:SSBSzlIrp7A5Qa+FndShUg==,type:str]
+    lastmodified: "2023-09-10T15:41:35Z"
+    mac: ENC[AES256_GCM,data:4qy+TtS6iUz8KAgOMx5JVDWk8iHga8srb7m07uJISyHW3osuLUnXxgVh+0A7c91I8fqLOrnBFYLA0RVym7xqarTxK+UnBK6YwBaM8CVu63sbnWlOWXgWE3v/5UvL53GJzROBb0406iaLjQwJfohQs3AbrfZYNfeSDCItmbs+pqA=,iv:bE8sQJ1SS8peAhQ3hVTYx8WhtuN5zhT9bHRpTpExahM=,tag:Jab43t+6XYOfxTwHRLGfaA==,type:str]
     pgp:
         - created_at: "2023-09-08T14:11:19Z"
           enc: |-

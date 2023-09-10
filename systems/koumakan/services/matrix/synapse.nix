@@ -9,6 +9,11 @@
     owner = config.users.users.matrix-synapse.name;
   };
 
+  sops.secrets.matrix-signing-key = {
+    mode = "0400";
+    owner = config.users.users.matrix-synapse.name;
+  };
+
   users.users.matrix-synapse.extraGroups = [config.users.groups.keys.name];
 
   services.matrix-synapse = {
@@ -37,6 +42,7 @@
       session_lifetime = "infinite";
 
       max_upload_size = "100M";
+      signing_key_path = "/run/secrets/matrix-signing-key";
 
       server_notices = {
         system_mxid_localpart = "server";
