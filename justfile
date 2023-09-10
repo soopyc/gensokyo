@@ -16,5 +16,8 @@ utils recipe="list":
   @echo "Running utils/{{recipe}}"
   @cd utils && just {{recipe}}
 
+update-input input:
+  nix flake lock --update-input {{input}}
+
 ebuild system:
   nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.toplevel
