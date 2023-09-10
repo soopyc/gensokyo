@@ -92,6 +92,10 @@
       '';
     };
 
+    locations."= /.well-known/matrix/server" = {
+      return = "200 '{\"m.server\": \"nue.soopy.moe:443\"}'";
+    };
+
     locations."~ ^(/_matrix|/_synapse/client)" = {
       proxyPass = "http://localhost:8080";
       extraConfig = ''
