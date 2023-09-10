@@ -1,6 +1,6 @@
 {
   lib,
-  _utils,
+  utils,
   inputs,
   ...
 }:
@@ -10,7 +10,11 @@ lib.nixosSystem {
   # see docs/tips_n_tricks.md#extra_opts for syntax
   # see docs/utils.md for functions
   specialArgs = {
-    inherit inputs _utils;
+    inherit inputs;
+    _utils = utils {
+      inherit inputs;
+      system = "x86_64-linux";
+    };
   };
 
   modules = [

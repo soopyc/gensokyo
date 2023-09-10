@@ -49,7 +49,7 @@
     home-manager,
     ...
   } @ inputs: let
-    _utils = import ./global/utils.nix {};
+    utils = import ./global/utils.nix;
     lib = nixpkgs.lib;
 
     systems = [
@@ -61,7 +61,7 @@
     forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
   in {
     nixosConfigurations = {
-      koumakan = import ./systems/koumakan {inherit _utils lib inputs;};
+      koumakan = import ./systems/koumakan {inherit utils lib inputs;};
     };
 
     devShells = forAllSystems (pkgs: {
