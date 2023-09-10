@@ -97,7 +97,7 @@
     };
 
     locations."~ ^(/_matrix|/_synapse/client)" = {
-      proxyPass = "http://localhost:8080";
+      proxyPass = "http://localhost:8008";
       extraConfig = ''
         client_max_body_size 100M;
       '';
