@@ -39,7 +39,7 @@
       # TODO: Setup opentracing
       url_preview_enabled = true;
       enable_registration = false;
-      session_lifetime = "infinite";
+      session_lifetime = "99y";
 
       max_upload_size = "100M";
       signing_key_path = "/run/secrets/matrix-signing-key";
