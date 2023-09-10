@@ -1,5 +1,5 @@
 comment_unencrypted: See https://github.com/Mic92/sops-nix/issues/120 for synapse.yaml quirks
-synapse.yaml: ENC[AES256_GCM,data:889nzlShKPYzmBygeHCpedKT42W2FDKV2k4GiPunpbIlf8fGvryUOpeMxgzJkPwgYLjCmtQELDbwQICYO6yxaOfQaWPZP+bsRhvDE1YNJ0/gVHy2RGcT5niKOWLXjqmnN2plD2MgX8fqNoyxgX7T/lt29hpLoJqKBGNizXPzU1QYLvWr//5CmpwKNbLDJe1MyXGWLg9buM1MPWrQHBMLOtBkX/17Sdi6mseF7/pxV7d2yak4FQL7FXlMjvbd5/y4kIxsNZl5DQxz7W4etWWDB+8f5tqlCmDNHsNkWBqnjtcf9X3LmelYsTmzGl8GDMlQijA9jlb0Ghxbn9ZbWd+HoPNDRzEt9sIiKLD0A5+SfgWxqfOV6u+XUPbhaJY/vaQDOQbWSZoc76L9Fhe5UPnibwmjWm+vn/MXYW3N6yaHpJqxqCCuy3U14YI4TEM9HR5/KU4Yt7uqcZkn88a5MNQtWZ8zN4lK/otN6W3ocSN8RW9e54FVbFkp9eP7XfNlYFSnfvwZyuOxsd7akcvIM7OHng+DiGuzBvGxWO0ty2gWTvXiRBNhb5AeuglYoBWivHstzr9M6ciGJwLjvooYhVeACxzb2xAkQ7Q1Q0TltEjO6e+G4GPIIHVW+hVmgZCu0+26M3kIjSfQq00R016X0srduEg5puWY6nijV4R0SSd5g9ygZY80oCTZthYeEkNKrwuRXVxgyiyMsxWSDZlQDD7EcqS5gf1/OyPuAYhCaDrtWttNrbrUBk7yrvCZrcqNj6n69jKFY0oYc+siMmvKrFa3x0HVB9LAL0Tj9x6HJPn3wLoDZQCz+QSqs/D7rga/NUZn33G4KupgPrdwpevCuTK3Z5BlRRe27mDoVOj4Cnvkpfz0EbZ8UsvFUx/Shszgaow+d5aPVqSx9KffSnA=,iv:sqkXFPatFfwBa0uUSoytJm+tFYak7fbenkQ2OyiSMEA=,tag:oy/bHLjYHkQFlqETwIMXlw==,type:str]
+synapse.yaml: ENC[AES256_GCM,data:eQsUW4mwbSPzsoi8HIEngfU5x/PEaqPxvx1AXXJJj7WDX9RsPtQOqQJjuTAEPtz32Hm1nob+VVYuzAXXfCO8Cd0CIHG+xlV4cWNc4JB8wj1YgtMJu9J3yC7iv3HMULT0TL8MxmwWYKqSPKIVarLVN5gQl1G1SAfxEK3ET6qtmkmCD8y6ZVM/84fTR5lxpLe82CaplbUHXEHKk51XwGYLSp5IZsPwtMMFhYuaoqCsEVr65IiSozbD4LKddYNQKUlYmkSfThQsoPpe9ixE7+HS11S+LklyP1q3usWTfOPsQS8k5NJdcGkrCH2A4ddjWkDBAzdav3qauYoQEvbMd8BpoDqD/67lKuvoyXqDoPf5sLrQcxcUl8ObTI1I8zWhabGa9uTuiaTd3wYdMhvMvs/KIfPXNDqcBuIY9sR6LQmY2Zb9+FtYiQVnrr0XmzjB59oN023y1xC/xqkgRyXysndhnj4P1Q+PYbOMQi7hwAjM5xMk/mLkpLn41Ju4u0MqDwHSxA/NXbsEBp/u3Tim2jsrMZqjRZwQHt1n/gtMjm2cMTminM99c/fV2fcvAmcNB9u1KWgEte1JjQSRftg7pkaznYlfrQLyCQYghVu3kgeAJCaSPMewHVWOF/onTauNHYFMlJ8VDUuYOnt2LNJUk1Wap5dGfKm7661mTeYB8aw0h3111YEViuGkSp+oM5A8X6CBI6YsYYOWq5Qd+A3fFJVpcf9hhhdx0JsRmR3EZOupIVx5Y4ruuA6ipj/xMDRNfTZjqukpn3Y1s5xTjUYEo3moLdgd1PYxAVIY/KjPn31pmRThGG1NZpYHZ1yjmptVydtqf/tTd32i3e0WjIjUEZD1NE7Z5AiWJ+XAEaE3S804C6QxN1jHZvqIokA9C4HO+R/es1uDyf2KDvxf1It0hMLg7CAnq1AQcbLCDqXXZaqibSRNfv09lO4jZ3vBe3owvd1wGbK513nqC6m2gh8YDYiHdw7UlXMbMP9+,iv:fvaZQ66VKU+uzvn5AwTIFgzz+F2kJ8/QR2AfmynRfGU=,tag:8c/cAMZ6c7h3J+shh7l7tw==,type:str]
 matrix-signing-key: ENC[AES256_GCM,data:u6miE2oM3TUXaQ7wc776SwSMaOAxJOVlpl2kBW+AjI/aDH5vcGBp0L0uTpZbVfOtIe+RDNEv5E/mKA==,iv:abvwkrNe324QCbWLwiPY0UwqezS0wbyk2Fvi0vs3SI0=,tag:ZmpDB9LHbezQrxuwHNgpRg==,type:str]
 sops:
     kms: []
@@ -25,8 +25,8 @@ sops:
             cHJ5aWIrQ2Zrb1dhbC9yZ1lIMU1jbzgK4mx+S5bF6KBMe6+TrSZfaBcuWEg9cHyd
             tbJty1zxS9pndA/u3qz5EJxDouiAODvyAR07yeegtEcbw1FlG6W/gA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-09-10T15:41:35Z"
-    mac: ENC[AES256_GCM,data:4qy+TtS6iUz8KAgOMx5JVDWk8iHga8srb7m07uJISyHW3osuLUnXxgVh+0A7c91I8fqLOrnBFYLA0RVym7xqarTxK+UnBK6YwBaM8CVu63sbnWlOWXgWE3v/5UvL53GJzROBb0406iaLjQwJfohQs3AbrfZYNfeSDCItmbs+pqA=,iv:bE8sQJ1SS8peAhQ3hVTYx8WhtuN5zhT9bHRpTpExahM=,tag:Jab43t+6XYOfxTwHRLGfaA==,type:str]
+    lastmodified: "2023-09-10T15:48:03Z"
+    mac: ENC[AES256_GCM,data:qFiibBVhEobZOaQbrpVwGuBj4fHUIWNv1lE4Wz0Wfl+tF+75ZROTiXkRK4Wx5hDdkkeyiLmlU+4riidiKuY9CJ6dj3TuoAdFThp8Ac0IEzwlrx46xX56hHTu8mznwcr7mGtUqEYWJM3F6JItpnBayZaTdIeRrVYWP1yD1tZaseM=,iv:+lg8r4YjhTgRjkTDugBPS9xsz2nMMEjy6vEbxhTLwI0=,tag:SPqKUhM9jzDkT+lWN1eDcw==,type:str]
     pgp:
         - created_at: "2023-09-08T14:11:19Z"
           enc: |-
