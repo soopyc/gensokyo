@@ -1,5 +1,5 @@
 comment_unencrypted: See https://github.com/Mic92/sops-nix/issues/120 for synapse.yaml quirks
-synapse.yaml: ENC[AES256_GCM,data:xc8HBDVconhPJHK/YKVSl62pCtnyca3LXcH/pidJkoTKBU5OCkbnYDjoY0O89SJUVTDVgdAw1ANxSWAT+fEjtKzJEZkFdO5EvuWUXAdjMVNrTDeYhoull21hPtBjXMV6jLWH+VjL5FfQiHhh7FkVXJb9B7GpUKTk0hR0vZ8JlfGizVWBnOSc22wl2nSVRXOu0zWST3wPPAqSIHFxBJQrFk/6LvCQ0xT7zw2dCQjK+sNK9OsPCg84AM/aWZrXPodYLAlFhma1TAIE79XRLJ6K+FIKEnCjI7gsw9NPttZESodOyeFCyZcLCY9Fo6/n3Cp/t+yqU6ZqmflM87FFx0HrUUUbQ4myK+BI1DOVf/4X8DprRVasFQkOkIFhL1aAkJorzmcOqMqjzB1kb62Agnrtnd28fQ83u1KXZPtlsvTBankrrPgUHyRUt7jyyBp2qWr9y36utAedcuv47oqGFrVqDZ+eux6Vd6ozfuma3zLla9Hah96ySR8O3gk/7We5/sN9ZlvXY0qysaNLxAxvlXeegSwDm8dYObWkyf+jswuBG8xReIOGkT6nt4PLobiacqwm2lKtzZtXhzLxiQGpq+hvTkLpfz3MxrcHcskPwOzjM/7CVXo3nqEPRSVyHnn5g+eJ9wnXEO50GMuIi7wNjpQPyNH5sljHU3M5SahDeW0G70yP3WBViG53i6+WrD9PuSz5GciXO3klIZhO5ljPaNcT19c/z8UcUdPDAuTpOl4UNcDqoVwl,iv:OAlQ+nweSZxW+Ybq2fKPxawikND/e3KcGgZGKMuaCKo=,tag:imghdy3fRkB+l5SpXC4/qg==,type:str]
+synapse.yaml: ENC[AES256_GCM,data:889nzlShKPYzmBygeHCpedKT42W2FDKV2k4GiPunpbIlf8fGvryUOpeMxgzJkPwgYLjCmtQELDbwQICYO6yxaOfQaWPZP+bsRhvDE1YNJ0/gVHy2RGcT5niKOWLXjqmnN2plD2MgX8fqNoyxgX7T/lt29hpLoJqKBGNizXPzU1QYLvWr//5CmpwKNbLDJe1MyXGWLg9buM1MPWrQHBMLOtBkX/17Sdi6mseF7/pxV7d2yak4FQL7FXlMjvbd5/y4kIxsNZl5DQxz7W4etWWDB+8f5tqlCmDNHsNkWBqnjtcf9X3LmelYsTmzGl8GDMlQijA9jlb0Ghxbn9ZbWd+HoPNDRzEt9sIiKLD0A5+SfgWxqfOV6u+XUPbhaJY/vaQDOQbWSZoc76L9Fhe5UPnibwmjWm+vn/MXYW3N6yaHpJqxqCCuy3U14YI4TEM9HR5/KU4Yt7uqcZkn88a5MNQtWZ8zN4lK/otN6W3ocSN8RW9e54FVbFkp9eP7XfNlYFSnfvwZyuOxsd7akcvIM7OHng+DiGuzBvGxWO0ty2gWTvXiRBNhb5AeuglYoBWivHstzr9M6ciGJwLjvooYhVeACxzb2xAkQ7Q1Q0TltEjO6e+G4GPIIHVW+hVmgZCu0+26M3kIjSfQq00R016X0srduEg5puWY6nijV4R0SSd5g9ygZY80oCTZthYeEkNKrwuRXVxgyiyMsxWSDZlQDD7EcqS5gf1/OyPuAYhCaDrtWttNrbrUBk7yrvCZrcqNj6n69jKFY0oYc+siMmvKrFa3x0HVB9LAL0Tj9x6HJPn3wLoDZQCz+QSqs/D7rga/NUZn33G4KupgPrdwpevCuTK3Z5BlRRe27mDoVOj4Cnvkpfz0EbZ8UsvFUx/Shszgaow+d5aPVqSx9KffSnA=,iv:sqkXFPatFfwBa0uUSoytJm+tFYak7fbenkQ2OyiSMEA=,tag:oy/bHLjYHkQFlqETwIMXlw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -24,8 +24,8 @@ sops:
             cHJ5aWIrQ2Zrb1dhbC9yZ1lIMU1jbzgK4mx+S5bF6KBMe6+TrSZfaBcuWEg9cHyd
             tbJty1zxS9pndA/u3qz5EJxDouiAODvyAR07yeegtEcbw1FlG6W/gA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-09-10T15:22:34Z"
-    mac: ENC[AES256_GCM,data:DDYjyGhk0Cl4V9SuiqQyTUXYJeIusHLACrEZKU8vVLcMw9R9xyTyWLECoKH/+CLUxbJiLf1q6p/GgnTHtJgf18b+FmuHq4H/GgZrqvnMFOGxV+o47lJ20OV14e1fWASF7qq+lVhrhvI3hzWe2QchHlop2TZ9kh2BnGtrAwP6txA=,iv:cA6Nz5yK3AdjNjavi/T+XJ91eO7igLOhXnc+Bm8MKUM=,tag:3Ap/2pOkF9vYnylrnR5qDg==,type:str]
+    lastmodified: "2023-09-10T15:34:26Z"
+    mac: ENC[AES256_GCM,data:+hcp+xHiX9AS7hT8NnSzneeY5NUgsyD1l4U7TgxCXppIagBPiOJ36zO/x4RBgLdbIP466piG/lm1uLyGPDtPC+ndUDcXuAvBzS4P084PeVWGzZORgeHX36gIx695Rvrk7GB2mwVjYgaoIQ5jNTSJp0Me78n2QM9V0lnteSCGXX0=,iv:Ou7z/4QJYJVm2Sdd/SMDnO3Yox2yExb4yp41pyTjiyA=,tag:SSBSzlIrp7A5Qa+FndShUg==,type:str]
     pgp:
         - created_at: "2023-09-08T14:11:19Z"
           enc: |-
