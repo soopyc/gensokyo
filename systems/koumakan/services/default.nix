@@ -8,6 +8,9 @@
 
     ./attic.nix
 
+    # fediverse
+    ./matrix
+
     ./proxies
     ./static-sites
   ];
