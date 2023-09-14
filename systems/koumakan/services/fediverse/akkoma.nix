@@ -49,7 +49,7 @@ in {
           sts = true;
         };
 
-        "configurable_from_database" = true;
+        ":configurable_from_database" = true;
         ":instance" = {
           name = "CassieAkko";
           description = "You should not see this here...";
@@ -59,6 +59,8 @@ in {
           registrations_open = true;
         };
 
+        # TODO: add proper proxy support
+        # also refer to https://meta.akkoma.dev/t/another-vector-for-the-injection-vulnerability-found/483
         ":media_proxy" = {
           enabled = true;
           redirect_on_failure = true;
