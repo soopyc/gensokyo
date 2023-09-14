@@ -10,6 +10,7 @@
   };
 
   hardware.enableRedistributableFirmware = true;
+  services.fwupd.enable = true;
 
   # # Enable crash dumps globally
   # boot.crashDump = {
