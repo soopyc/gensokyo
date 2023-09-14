@@ -2,6 +2,7 @@
   imports = [
     ./global.nix
     ./postgresql.nix
+    ./fediverse.nix
   ];
 
   security.acme = {

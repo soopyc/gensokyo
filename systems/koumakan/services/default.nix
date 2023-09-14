@@ -10,6 +10,7 @@
 
     # fediverse
     ./matrix
+    ./fediverse
 
     ./proxies
     ./static-sites
