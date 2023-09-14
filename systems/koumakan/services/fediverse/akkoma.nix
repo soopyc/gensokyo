@@ -14,6 +14,7 @@
     else {_secret = "/run/secrets/akkoma/${file}";};
   secrets = [
     "joken_default_signer" # can't think of any better name spacing
+    "dist/cookie"
     "search/meili/host_unencrypted"
     "search/meili/key"
     "endpoint/secret_base"
@@ -41,6 +42,7 @@ in {
     # frontends = {
     #   swagger
     # };
+    dist.cookie = mkSecret "dist/cookie";
     config = {
       ":joken".":default_signer" = mkSecret "joken_default_signer";
 
@@ -83,6 +85,11 @@ in {
 
         "Pleroma.Web.Endpoint" = {
           # We don't need to specify http ip/ports here because we use unix sockets
+          # ok we do because it's broken
+          http = {
+            ip = "127.0.0.1";
+            port = 35378;
+          };
           url = {
             host = "a.soopy.moe";
             scheme = "https";
