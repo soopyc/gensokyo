@@ -2,9 +2,7 @@
   imports = [
     ./nginx.nix
 
-    # databases
-    ./postgresql.nix
-    ./redis.nix
+    ./databases
 
     ./attic.nix
 
