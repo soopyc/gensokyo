@@ -3,6 +3,8 @@
 # thank you!
 import sys
 import json
+import time
+import random
 import typing
 import traceback
 from base64 import b64encode
@@ -256,79 +258,91 @@ def main() -> int:
 	success(f'flow token => {flow_token}')
 
 	info('Fetching final account object...')
-	tasks = send_req('post', TASKS_ENDPOINT, headers=request_headers, json=get_tasks_body(flow_token)).json()
-	try:
+	backoff_time = 0
+	exception = None
+	for attempt in range(0, 6):
+		debug(f"Attempt #{attempt + 1}")
+		tasks = send_req('post', TASKS_ENDPOINT, headers=request_headers, json=get_tasks_body(flow_token)).json()
 		try:
-			open_account_task = next(filter(lambda i: i.get('subtask_id') == "OpenAccount", tasks['subtasks']))
-			account = open_account_task['open_account']
-		except StopIteration:
+			try:
+				open_account_task = next(filter(lambda i: i.get('subtask_id') == "OpenAccount", tasks['subtasks']))
+				account = open_account_task['open_account']
+			except StopIteration as e:
+				backoff_time += random.randint(5000,10000) / 1000
+				exception = e
+				warn(f"attempt #{attempt + 1} failed to acquire token, retrying in {backoff_time}s.")
+				time.sleep(backoff_time)
+				continue
+
+			info(f"Attempt #{attempt + 1} succeeded")
+			if args.outfile == "-":
+				debug("outfile is `-`, printing to stdout")
+				print(format_json(account))
+				return 0
+
+			# Sanity checks
+			try:
+				debug(f"attempting to read file: {args.outfile}")
+				with open(args.outfile) as f:
+					old_data = json.load(f)
+			except FileNotFoundError:
+				# that's okay, we might be able to create it later.
+				old_data = []
+			except PermissionError:
+				# that's not okay. we will need to access the file later anyways.
+				error("unable to read file due to a permission error.")
+				error("please make sure this script has read and write access to the file.")
+				print(format_json(account))
+				return 1
+			except json.JSONDecodeError:
+				error("could not parse the provided JSON file.")
+				if not prompt_bool("Do you want to overwrite the file?", default=None):
+					warn("Not overwriting file, printing to stdout instead.")
+					print(format_json(account))
+					return 1
+				debug('assuming old data is an empty array because we are overwriting')
+				old_data = []
+			if type(old_data) != list:
+				error("top-level object of the existing JSON file is not a list.")
+				error("due to the implementation, the file must be overwritten.")
+				if not (prompt_bool("Do you want to overwrite?", default=None)):
+					warn("Not overwriting existing data, printing to stdout instead.")
+					print(format_json(account))
+					return 1
+				debug("assuming old data is an empty array because we are overwriting")
+				old_data = []
+
+			old_data.append(account)
+
+			try:
+				debug("attempting to write file")
+				with open(args.outfile, 'w+') as f:
+					f.write(format_json(old_data))
+				success(f"successfully written to file {args.outfile}")
+				return 0
+			except PermissionError:
+				error("unable to write to file due to permission error.")
+				error("please make sure this script has write access to the file.")
+				print(format_json(account))
+				return 1
+			except Exception as e:
+				error("Unable to write to file due to an uncaught error:", e)
+				tb = ''.join(traceback.TracebackException.from_exception(e).format())
+				debug("exception stacktrace\n" + tb)
+				print(format_json(account))
+
+		except Exception:
 			debug("resulting tasks =>", format_json(tasks), override=True)
-			error("Unable to acquire guest account credentials as it isn't present in the API response.")
-			error("This might be because of a wide variety of reasons, but it most likely is due to your IP being rate-limited.")
-			error("Try again with a new IP address or in 24 hours after this attempt.")
-			return 1
+			error("an unhandled error occurred. the tasks object is printed to avoid losing otherwise successful data.")
+			error("please file a bug report and attach the traceback below.")
+			raise
 
-		if args.outfile == "-":
-			debug("outfile is `-`, printing to stdout")
-			print(format_json(account))
-			return 0
-
-		# Sanity checks
-		try:
-			debug(f"attempting to read file: {args.outfile}")
-			with open(args.outfile) as f:
-				old_data = json.load(f)
-		except FileNotFoundError:
-			# that's okay, we might be able to create it later.
-			old_data = []
-		except PermissionError:
-			# that's not okay. we will need to access the file later anyways.
-			error("unable to read file due to a permission error.")
-			error("please make sure this script has read and write access to the file.")
-			print(format_json(account))
-			return 1
-		except json.JSONDecodeError:
-			error("could not parse the provided JSON file.")
-			if not prompt_bool("Do you want to overwrite the file?", default=None):
-				warn("Not overwriting file, printing to stdout instead.")
-				print(format_json(account))
-				return 1
-			debug('assuming old data is an empty array because we are overwriting')
-			old_data = []
-		if type(old_data) != list:
-			error("top-level object of the existing JSON file is not a list.")
-			error("due to the implementation, the file must be overwritten.")
-			if not (prompt_bool("Do you want to overwrite?", default=None)):
-				warn("Not overwriting existing data, printing to stdout instead.")
-				print(format_json(account))
-				return 1
-			debug("assuming old data is an empty array because we are overwriting")
-			old_data = []
-
-		old_data.append(account)
-
-		try:
-			debug("attempting to write file")
-			with open(args.outfile, 'w+') as f:
-				f.write(format_json(old_data))
-			success(f"successfully written to file {args.outfile}")
-			return 0
-		except PermissionError:
-			error("unable to write to file due to permission error.")
-			error("please make sure this script has write access to the file.")
-			print(format_json(account))
-			return 1
-		except Exception as e:
-			error("Unable to write to file due to an uncaught error:", e)
-			tb = ''.join(traceback.TracebackException.from_exception(e).format())
-			debug("exception stacktrace\n" + tb)
-			print(format_json(account))
-
-	except Exception:
-		debug("resulting tasks =>", format_json(tasks), override=True)
-		error("an unhandled error occurred. the tasks object is printed to avoid losing otherwise successful data.")
-		error("please file a bug report and attach the traceback below.")
-		raise
+	if exception != None:
+		debug("resulting tasks =>", format_json(tasks))
+		error("Unable to acquire guest account credentials with 5 attempts as it isn't present in any of the API responses.")
+		error("This might be because of a wide variety of reasons, but it most likely is due to your IP being rate-limited.")
+		error("Try again with a new IP address or in 24 hours after this attempt.")
+		return 1
 
 	return 0
 
