@@ -1,11 +1,19 @@
 # utility functions
 
 ## `_utils.mkVhost`
+`attrset -> attrset`
 make virtual host with sensible defaults
 
 pass in a set to override the defaults.
 
+### Example
+```nix
+services.nginx.virtualHosts."balls.example" = _utils.mkVhost {};
+```
+
 ## `_utils.mkSimpleProxy`
+`attrset -> attrset`
+
 make a simple reverse proxy
 
 takes a set:
