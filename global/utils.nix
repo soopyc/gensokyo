@@ -1,9 +1,11 @@
 # see /docs/utils.md for a usage guide
 {
-  # inputs,
+  inputs,
   # system,
   ...
-}: rec {
+}: let
+  lib = inputs.nixpkgs.lib;
+in rec {
   mkVhost = {...} @ opts:
     {
       # ideally mkOverride/mkDefault would be used, but i have 0 idea how it works.
@@ -25,4 +27,9 @@
         proxyWebsockets = websockets;
       };
     };
+
+  genSecrets = namespace: files: value:
+    lib.genAttrs (
+      map (x: namespace + lib.optionalString (lib.stringLength namespace != 0) "/" + x) files
+    ) (_: value);
 }

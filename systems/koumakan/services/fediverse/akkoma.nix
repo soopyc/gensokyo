@@ -7,7 +7,6 @@
 }: let
   mkRaw = (pkgs.formats.elixirConf {}).lib.mkRaw;
   # I don't know what i did but i made this abomination
-  genSecrets = namespace: files: value: lib.genAttrs (map (x: namespace + x) files) (_: value);
   mkSecret = file:
     if !lib.elem file secrets
     then throw "Provided secret file ${file} is not in the list of defined secrets."
@@ -32,7 +31,7 @@
   ];
 in {
   # secrets definition
-  sops.secrets = genSecrets "akkoma/" secrets {};
+  sops.secrets = _utils.genSecrets "akkoma" secrets {};
 
   services.akkoma = {
     enable = true;
@@ -42,6 +41,8 @@ in {
     # frontends = {
     #   swagger
     # };
+
+    # TODO: Issue #5
     dist.cookie = mkSecret "dist/cookie";
     config = {
       ":joken".":default_signer" = mkSecret "joken_default_signer";
