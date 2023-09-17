@@ -1,7 +1,7 @@
 {...}: {
   security.pam.yubico = {
     enable = true;
-    id = builtins.readFile ./ykid.cry;
+    id = "91582";
     mode = "client";
     control = "requisite";
   };
