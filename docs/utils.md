@@ -2,7 +2,7 @@
 
 ## `_utils.mkVhost`
 `attrset -> attrset`
-make virtual host with sensible defaults
+make a virtual host with sensible defaults
 
 pass in a set to override the defaults.
 
@@ -22,9 +22,16 @@ takes a set:
   port,
   protocol ? "http",
   location ? "/",
-  websockets ? false
+  websockets ? false,
+  extraConfig ? {}
 }
 ```
+
+It is recommended to override/add attributes with `extraConfig` to
+preserve defaults.
+
+Items in `extraConfig` are merged verbatim to the base attrset with defaults.
+They are overridden based on their order.
 
 ## `_utils.genSecrets`
 `namespace[str] -> files[list[str]] -> value[attrset] -> attrset`
