@@ -1,32 +1,46 @@
 # see /docs/utils.md for a usage guide
 {
   inputs,
-  # system,
+  system,
   ...
 }: let
   lib = inputs.nixpkgs.lib;
 in rec {
-  mkVhost = {...} @ opts:
-    {
-      # ideally mkOverride/mkDefault would be used, but i have 0 idea how it works.
-      forceSSL = true;
-      useACMEHost = "global.c.soopy.moe";
-      kTLS = true;
-    }
-    // opts;
+  mkVhost = opts:
+    lib.mkMerge [
+      {
+        forceSSL = lib.mkDefault true;
+        useACMEHost = lib.mkDefault "global.c.soopy.moe";
+        kTLS = lib.mkDefault true;
+
+        locations."/_cgi/error/" = {
+          alias = "${inputs.mystia.packages.${system}.staticly}/nginx_error_pages/";
+        };
+        extraConfig = ''
+          error_page 503 /_cgi/error/503.html;
+          error_page 502 /_cgi/error/502.html;
+          error_page 404 /_cgi/error/404.html;
+        '';
+      }
+      opts
+    ];
 
   mkSimpleProxy = {
     port,
     protocol ? "http",
     location ? "/",
     websockets ? false,
+    extraConfig ? {},
   }:
-    mkVhost {
-      locations."${location}" = {
-        proxyPass = "${protocol}://localhost:${toString port}";
-        proxyWebsockets = websockets;
-      };
-    };
+    mkVhost (lib.mkMerge [
+      extraConfig
+      {
+        locations."${location}" = {
+          proxyPass = "${protocol}://localhost:${toString port}";
+          proxyWebsockets = websockets;
+        };
+      }
+    ]);
 
   genSecrets = namespace: files: value:
     lib.genAttrs (
