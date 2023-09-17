@@ -39,9 +39,9 @@ in {
     };
   };
 
-  services.nginx.virtualHosts."nonbunary.soopy.moe" =
-    _utils.mkSimpleProxy {port = 38191;}
-    // {
+  services.nginx.virtualHosts."nonbunary.soopy.moe" = _utils.mkSimpleProxy {
+    port = 38191;
+    extraConfig = {
       extraConfig = ''
         client_max_body_size 1G;
         proxy_read_timeout 3h;
@@ -49,4 +49,5 @@ in {
         proxy_send_timeout 3h;
       '';
     };
+  };
 }
