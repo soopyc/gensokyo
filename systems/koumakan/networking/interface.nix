@@ -1,3 +1,3 @@
 {...}: {
-  networking.networkmanager.ethernet.macAddress = builtins.readFile ./nma.cry;
+  networking.networkmanager.ethernet.macAddress = "stable";
 }

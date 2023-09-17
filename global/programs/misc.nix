@@ -18,7 +18,6 @@
     just
 
     attic
-    git-crypt
   ];
 
   programs.mtr.enable = true;
