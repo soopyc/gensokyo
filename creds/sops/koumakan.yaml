@@ -1,4 +1,4 @@
-comment_unencrypted: See https://github.com/Mic92/sops-nix/issues/120 for synapse.yaml quirks
+synapse_comment_unencrypted: See https://github.com/Mic92/sops-nix/issues/120 for synapse.yaml quirks
 synapse.yaml: ENC[AES256_GCM,data:eQsUW4mwbSPzsoi8HIEngfU5x/PEaqPxvx1AXXJJj7WDX9RsPtQOqQJjuTAEPtz32Hm1nob+VVYuzAXXfCO8Cd0CIHG+xlV4cWNc4JB8wj1YgtMJu9J3yC7iv3HMULT0TL8MxmwWYKqSPKIVarLVN5gQl1G1SAfxEK3ET6qtmkmCD8y6ZVM/84fTR5lxpLe82CaplbUHXEHKk51XwGYLSp5IZsPwtMMFhYuaoqCsEVr65IiSozbD4LKddYNQKUlYmkSfThQsoPpe9ixE7+HS11S+LklyP1q3usWTfOPsQS8k5NJdcGkrCH2A4ddjWkDBAzdav3qauYoQEvbMd8BpoDqD/67lKuvoyXqDoPf5sLrQcxcUl8ObTI1I8zWhabGa9uTuiaTd3wYdMhvMvs/KIfPXNDqcBuIY9sR6LQmY2Zb9+FtYiQVnrr0XmzjB59oN023y1xC/xqkgRyXysndhnj4P1Q+PYbOMQi7hwAjM5xMk/mLkpLn41Ju4u0MqDwHSxA/NXbsEBp/u3Tim2jsrMZqjRZwQHt1n/gtMjm2cMTminM99c/fV2fcvAmcNB9u1KWgEte1JjQSRftg7pkaznYlfrQLyCQYghVu3kgeAJCaSPMewHVWOF/onTauNHYFMlJ8VDUuYOnt2LNJUk1Wap5dGfKm7661mTeYB8aw0h3111YEViuGkSp+oM5A8X6CBI6YsYYOWq5Qd+A3fFJVpcf9hhhdx0JsRmR3EZOupIVx5Y4ruuA6ipj/xMDRNfTZjqukpn3Y1s5xTjUYEo3moLdgd1PYxAVIY/KjPn31pmRThGG1NZpYHZ1yjmptVydtqf/tTd32i3e0WjIjUEZD1NE7Z5AiWJ+XAEaE3S804C6QxN1jHZvqIokA9C4HO+R/es1uDyf2KDvxf1It0hMLg7CAnq1AQcbLCDqXXZaqibSRNfv09lO4jZ3vBe3owvd1wGbK513nqC6m2gh8YDYiHdw7UlXMbMP9+,iv:fvaZQ66VKU+uzvn5AwTIFgzz+F2kJ8/QR2AfmynRfGU=,tag:8c/cAMZ6c7h3J+shh7l7tw==,type:str]
 matrix-signing-key: ENC[AES256_GCM,data:u6miE2oM3TUXaQ7wc776SwSMaOAxJOVlpl2kBW+AjI/aDH5vcGBp0L0uTpZbVfOtIe+RDNEv5E/mKA==,iv:abvwkrNe324QCbWLwiPY0UwqezS0wbyk2Fvi0vs3SI0=,tag:ZmpDB9LHbezQrxuwHNgpRg==,type:str]
 akkoma:
@@ -19,7 +19,6 @@ akkoma:
         key: ENC[AES256_GCM,data:t+da4NLEPZBMvq3MQkFEr+Fsj3XMGPMFKUWwbHDWNJAyuUZuiVcn3zX0kw==,iv:yQLu5CFl73GCojMBa2II6OhLrNNinsiVG1aPOAx+HtM=,tag:n0oelXaNFvilyee+MRSB8A==,type:str]
     postgres:
         hostname: ENC[AES256_GCM,data:rFEnhnn/Bw85,iv:GM2SH4Gkvt8tLG8AYIKxfHTZvB1sT+hgIoqkiViH6Es=,tag:yyGY9/nS9WFcJTGXlYpz6Q==,type:str]
-        database_unencrypted: akkoma
         username: ENC[AES256_GCM,data:6skzOqv1,iv:OQ6zNmDn0uqKqNKEqOHWY6VBuT/4/CHog7b0Pf0TAPM=,tag:8HLmGykXg2V4t4RHzB8yaA==,type:str]
         password: ENC[AES256_GCM,data:J3OewVKr2A3TlT7ZUTk7tQr4olFs7bKx47Lus4LGbwGAZfNEmyk9coFTeQ8L/EJ0hpLfPfD1OcGBc+p0ZWK/XQ==,iv:UFe/3H/AfTgSlJikHqE1IED3zINjDuOs5niXpGWXGYE=,tag:MvT0z3TMs1dehg4gp54MyQ==,type:str]
     smtp:
@@ -50,8 +49,8 @@ sops:
             cHJ5aWIrQ2Zrb1dhbC9yZ1lIMU1jbzgK4mx+S5bF6KBMe6+TrSZfaBcuWEg9cHyd
             tbJty1zxS9pndA/u3qz5EJxDouiAODvyAR07yeegtEcbw1FlG6W/gA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-09-14T17:13:38Z"
-    mac: ENC[AES256_GCM,data:Jyx0f+w9fJ+B1lz4jVVkcKxd1xUh3FzxDhk+KaxJLVh0BG/1d8Nx0/cOnxZV1FfJkn5Z2wYiLzBPSvJKe8MjlExOSH1mIAnuXcSP6dvXp21bgX17CXM6OP91Ny6IvwSZriqs6EIpWOkZNdxsEnySwtECoQfgs09ZnA4qmbtb01U=,iv:XHnY20d0WsnaECF1/68eu2/xcGLGeGnzba+/kBxDcc0=,tag:alo+8B2fVHon0lHGsQSUyQ==,type:str]
+    lastmodified: "2023-09-23T16:40:06Z"
+    mac: ENC[AES256_GCM,data:xFk5qmeAHGg2XUnmrDTr+BTDZik1v/ZDM8w8U2JtThVTBf0FMb57gTkw7/+44xwkcNzlEuspqHvhrOzncqsUbFS0s7L8XW3jxCYLPf7lw7j0mO44SmNGGMVI8+tHA1KMAUU67oHkT5Tt4Hhc8xQSgmdQxTlXJFEG7gO8qff89Dg=,iv:jjMd07X3Xf8TZ4pau3S46ASzS9zihvo7pMh6TN1CUFU=,tag:j1jc0AUSl2GYPV9lm1REyg==,type:str]
     pgp:
         - created_at: "2023-09-08T14:11:19Z"
           enc: |-

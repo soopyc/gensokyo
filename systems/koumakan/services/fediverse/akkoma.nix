@@ -71,7 +71,7 @@ in {
 
         "Pleroma.Repo" = {
           adapter = mkRaw "Ecto.Adapters.Postgres";
-          database = mkSecret "postgres/database_unencrypted";
+          database = "akkoma";
           hostname = mkSecret "postgres/hostname";
           username = mkSecret "postgres/username";
           password = mkSecret "postgres/password";
@@ -142,6 +142,18 @@ in {
       # refer to https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/servers/akkoma/emoji/blobs_gg.nix#L29
       # "emoji/Cat_girls_Emoji" = ...
     };
+  };
+
+  services.postgresql = {
+    ensureDatabases = ["akkoma"];
+    ensureUsers = [
+      {
+        name = "akkoma";
+        ensurePermissions = {
+          "database \"akkoma\"" = "all privileges";
+        };
+      }
+    ];
   };
 
   systemd.services.akkoma-config = {
