@@ -22,7 +22,6 @@
     "vapid/pub"
     "vapid/key"
     "postgres/hostname"
-    "postgres/database_unencrypted"
     "postgres/username"
     "postgres/password"
     "smtp/username"
