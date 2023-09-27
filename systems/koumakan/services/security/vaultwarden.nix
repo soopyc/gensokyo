@@ -27,7 +27,7 @@ in {
   sops.templates."vaultwarden.env".content = let
     ph = p: config.sops.placeholder."vaultwarden/${p}";
   in ''
-    DATABASE_URL=postgresql://${ph "database/username"}:${ph "database/password"}/vaultwarden
+    DATABASE_URL=postgresql://${ph "database/username"}:${ph "database/password"}@localhost/vaultwarden
     ADMIN_TOKEN=${ph "admin_token"}
     YUBICO_CLIENT_ID=${ph "yubico/id"}
     YUBICO_SECRET_KEY=${ph "yubico/secret"}
