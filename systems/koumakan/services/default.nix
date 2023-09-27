@@ -10,6 +10,7 @@
     ./matrix
     ./fediverse
 
+    ./security
     ./proxies
     ./static-sites
   ];
