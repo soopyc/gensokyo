@@ -111,7 +111,7 @@ in {
     upstreams = {
       vault-default = {
         servers = {
-          "127.0.0.1:38480" = {};
+          "[::1]:38480" = {};
         };
         extraConfig = ''
           zone vaultwarden 128k;  # XXX: are there any security implications if we reuse the same zone for both webvault and the ws server?
@@ -120,7 +120,7 @@ in {
       };
       vault-ws = {
         servers = {
-          "127.0.0.1:38481" = {};
+          "[::1]:38481" = {};
         };
         extraConfig = ''
           zone vaultwarden;  # see above comment
