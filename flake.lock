@@ -267,11 +267,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695556594,
-        "narHash": "sha256-z245JFMJBYA+WFgRZo4pWnAwgV+sB/hFi9mbPIn6yQ8=",
+        "lastModified": 1695557059,
+        "narHash": "sha256-u3prCfph9eF4d3i2pHlh1/PLY2AOJjXPDdOEImrMalo=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "df9ca7ef49edeb0ece587f9fb62f67baef44712c",
+        "rev": "33c08e7f14aa19b99f9159b276c1fb8f1623d5e2",
         "type": "github"
       },
       "original": {
