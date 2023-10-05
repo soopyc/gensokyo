@@ -1,4 +1,9 @@
-{pkgs, ...}:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 # some items are sourced from https://jackson.dev/post/nix-reasonable-defaults/
 {
   nix.settings = {
@@ -30,4 +35,10 @@
   };
 
   nix.package = pkgs.nixFlakes;
+  nix.registry =
+    {
+      n.flake = inputs.nixpkgs;
+    }
+    // (builtins.mapAttrs (_: flake: {inherit flake;})
+      (lib.filterAttrs (n: _: n != "nixpkgs") inputs));
 }
