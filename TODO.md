@@ -1,4 +1,9 @@
 # Todo Items
+- [ ] migrate firewall to nftables
+  - [ ] setup ipsets and block known abusers
+- [ ] setup port knocking/fwknop
+  - [ ] shield sshd behind fwknop
+- [ ] setup nitter tokens file
 - [ ] setup autoUpgrade
 - [ ] setup patchouli
 - [ ] setup nitter rate limiting (https://github.com/zedeus/nitter/wiki/Rate-Limiting-%E2%80%90-Nginx)
