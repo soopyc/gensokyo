@@ -16,7 +16,7 @@ default_group: &default_group
     - *soopyc_mpxl7a
 
 creation_rules:
-  - path_regex: creds/sops/koumakan.yaml
+  - path_regex: creds/sops/koumakan/.*
     key_groups:
       - <<: *default_group
         age:
