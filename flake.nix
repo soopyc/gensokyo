@@ -61,7 +61,10 @@
     forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
   in {
     nixosConfigurations = {
-      koumakan = import ./systems/koumakan {inherit utils lib inputs;};
+      koumakan = import ./systems/koumakan {
+        inherit utils lib inputs;
+        sopsDir = ./creds/sops/koumakan;
+      };
     };
 
     devShells = forAllSystems (pkgs: {

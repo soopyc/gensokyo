@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  sopsDir,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -38,7 +42,7 @@
   };
 
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.defaultSopsFile = ../../creds/sops/koumakan.yaml;
+  sops.defaultSopsFile = sopsDir + "/default.yaml";
 
   # Just don't change this :p
   system.stateVersion = "23.05"; # Did you read the comment?
