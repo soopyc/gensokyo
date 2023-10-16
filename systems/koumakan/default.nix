@@ -22,6 +22,7 @@ lib.nixosSystem {
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.attic.nixosModules.atticd
     inputs.sops-nix.nixosModules.sops
+    inputs.mystia.nixosModules.fixups
 
     ./configuration.nix
   ];
