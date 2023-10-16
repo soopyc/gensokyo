@@ -3,7 +3,12 @@
   pkgs,
   sopsDir,
   ...
-}: {
+}: let
+  secretHook = pkgs.writeShellScript "nitter-secret-hook" ''
+    echo "Currently running as user $USER"
+    install --owner=$USER -m600 --no-target-directory /run/secrets/nitter.guest_accounts.jsonl /tmp/guest_accounts.jsonl
+  '';
+in {
   sops.secrets."nitter.guest_accounts.jsonl" = {
     sopsFile = sopsDir + "/guest_accounts.jsonl";
     format = "binary";
@@ -30,7 +35,7 @@
     serviceConfig = {
       User = "nitter";
       ExecStartPre = [
-        "!/usr/bin/install --owner=nitter -m600 --no-target-directory /run/secrets/nitter.guest_accounts.jsonl /tmp/guest_accounts.jsonl"
+        "!${secretHook} %u"
       ];
     };
   };
