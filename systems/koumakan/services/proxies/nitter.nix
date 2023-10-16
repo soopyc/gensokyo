@@ -1,9 +1,15 @@
 {
   _utils,
   pkgs,
+  sopsDir,
   ...
 }: {
-  services.nitter = {
+  sops.secrets."nitter.guest_accounts.jsonl" = {
+    sopsFile = sopsDir + "/guest_accounts.jsonl";
+    format = "binary";
+  };
+
+  services.nitterPatched = {
     enable = true;
     redisCreateLocally = false; # why is the default of this `true`??
     server = {
@@ -18,11 +24,15 @@
 
   systemd.services.nitter = {
     environment = {
-      NITTER_ACCOUNTS_FILE = "/run/credentials/nitter.service/guest_accounts.json";
+      NITTER_ACCOUNTS_FILE = "/tmp/guest_accounts.jsonl";
     };
-    serviceConfig.LoadCredential = [
-      "guest_accounts.json:/etc/nitter/guest_accounts.json"
-    ];
+
+    serviceConfig = {
+      User = "nitter";
+      ExecStartPre = [
+        "!/usr/bin/install --owner=nitter -m600 --no-target-directory /run/secrets/nitter.guest_accounts.jsonl /tmp/guest_accounts.jsonl"
+      ];
+    };
   };
 
   services.nginx.virtualHosts."nitter.soopy.moe" = _utils.mkSimpleProxy {
