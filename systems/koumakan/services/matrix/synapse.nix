@@ -1,6 +1,7 @@
 {
   _utils,
   pkgs,
+  lib,
   config,
   ...
 }: {
@@ -14,7 +15,7 @@
     owner = config.users.users.matrix-synapse.name;
   };
 
-  users.users.matrix-synapse.extraGroups = [config.users.groups.keys.name];
+  users.users.matrix-synapse.shell = lib.mkForce pkgs.shadow; # TODO: test functionality
 
   services.matrix-synapse = {
     enable = true;

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services.postgresql = {
     enable = true;
 
@@ -37,4 +41,6 @@
       min_wal_size = "80MB";
     };
   };
+
+  users.users.postgres.useDefaultShell = lib.mkForce false;
 }
