@@ -1,17 +1,14 @@
 {
   _utils,
   pkgs,
+  config,
   sopsDir,
   ...
-}: let
-  secretHook = pkgs.writeShellScript "nitter-secret-hook" ''
-    echo "Currently running as user $USER"
-    install --owner=$USER -m600 --no-target-directory /run/secrets/nitter.guest_accounts.jsonl /tmp/guest_accounts.jsonl
-  '';
-in {
-  sops.secrets."nitter.guest_accounts.jsonl" = {
+}: {
+  sops.secrets."nitter/guest_accounts.jsonl" = {
     sopsFile = sopsDir + "/guest_accounts.jsonl";
     format = "binary";
+    owner = config.users.users.nitter.name;
   };
 
   services.nitterPatched = {
@@ -29,14 +26,7 @@ in {
 
   systemd.services.nitter = {
     environment = {
-      NITTER_ACCOUNTS_FILE = "/tmp/guest_accounts.jsonl";
-    };
-
-    serviceConfig = {
-      User = "nitter";
-      ExecStartPre = [
-        "!${secretHook} %u"
-      ];
+      NITTER_ACCOUNTS_FILE = "/run/secrets/nitter/guest_accounts.jsonl";
     };
   };
 
