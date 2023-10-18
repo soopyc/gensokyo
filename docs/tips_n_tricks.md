@@ -97,6 +97,72 @@ https://github.com/soopyc/nix-on-koumakan/blob/30e65402d22b000a3b5af6c9e5ea48a2b
 
 however i do not think that's the best way lol
 
+## using sops-nix or other stuff to pass big chungus files to services with DynamicUser=true
+afaik this is not possible.
+
+The option that makes the most sense, LoadCredentials only supports files up to 1 MB in size.
+([relevant documentation (`systemd.exec(5)`)](https://www.freedesktop.org/software/systemd/man/systemd.exec.html#LoadCredential=ID:PATH:~:text=Currently%2C%20an,is%20enforced))
+
+without that option, we are only left with giving a user access to the file. doing that is not without
+its pitfalls, however. we cannot get the dynamic user's id in a ExecStartPre hook with the + prefix. The
+user is ran with root privileges and there are no signs of the final ephemeral user id. the same happens with
+ones prefixed with `!`.
+
+<details>
+  <pre>
+cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 1s
+󰁹 97% at 22:04:18 ✗ 1 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true --property="SystemCallFilter=@system-service ~@privileged ~@resources" -pExecStartPre="+env" -pPrivateUsers=true -t bash
+Running as unit: run-u1196.service
+Press ^] three times within 1s to disconnect TTY.
+LANG=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+LOGNAME=run-u1196
+USER=run-u1196
+INVOCATION_ID=df38607fae444d47971fa70b5f55d9a2
+TERM=xterm-256color
+SYSTEMD_EXEC_PID=620896
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/run-u1196.service/memory.pressure
+MEMORY_PRESSURE_WRITE=[...]
+^C%
+
+cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 2s
+󰁹 97% at 22:04:30 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true --property="SystemCallFilter=@system-service ~@privileged ~@resources" -pExecStartPre="\!env" -pPrivateUsers=true -t bash
+Running as unit: run-u1200.service
+Press ^] three times within 1s to disconnect TTY.
+LANG=en_US.UTF-8
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin
+LOGNAME=run-u1200
+USER=run-u1200
+INVOCATION_ID=f6ccef7b2d6a470aa734f0e326adb14a
+TERM=xterm-256color
+SYSTEMD_EXEC_PID=620992
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/run-u1200.service/memory.pressure
+MEMORY_PRESSURE_WRITE=[...]
+^C%
+
+cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 2s
+󰁹 97% at 22:04:42 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true -pSystemCallFilter=@system-service -pSystemCallFilter=~@privileged -pSystemCallFilter=~@resources -pExecStartPre="\!bash -c 'echo \$UID'" -pPrivateUsers=true -t bash -c "ls"
+Running as unit: run-u1236.service
+Press ^] three times within 1s to disconnect TTY.
+0
+^C%
+
+cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 4s
+󰁹 97% at 22:06:49 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true -pSystemCallFilter=@system-service -pSystemCallFilter=~@privileged -pSystemCallFilter=~@resources -pExecStartPre="+bash -c 'echo \$UID'" -pPrivateUsers=true -t bash -c "ls"
+Running as unit: run-u1241.service
+Press ^] three times within 1s to disconnect TTY.
+0
+^C%
+  </pre>
+</details>
+
+So now, we are left with the only option, which is to create a non-ephemeral user, assign it to the unit and disable DynamicUser.
+This step is a little involved, you will have to add a user option to the service and forcibly disable DynamicUser.
+
+I opted to replace the entire module file with my own under a different name, as I had to fix a mistake in it anyways.
+Here's the link to [the modified source file.](https://github.com/soopyc/mystia/blob/a999736/modules/fixups/nitter.nix)
+For clarity's sake, [this is the diff of the changes made.](https://github.com/soopyc/mystia/compare/3be5eef..a999736)
+
 # Common pitfalls
 ## importing nixpkgs with an empty attrset
 
