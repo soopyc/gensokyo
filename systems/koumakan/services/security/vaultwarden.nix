@@ -8,7 +8,6 @@
   #   if !lib.elem file secrets
   #   then throw "Provided secret file ${file} is not in the list of defined secrets."
   #   else "/run/secrets/vaultwarden/${file}";
-
   secrets = [
     # TODO: figure out converting { smtp = ["username_encrypted"]; } to paths
     "admin_token"
