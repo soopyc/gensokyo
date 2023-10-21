@@ -34,8 +34,8 @@ Items in `extraConfig` are merged verbatim to the base attrset with defaults.
 They are overridden based on their order.
 
 ## `_utils.genSecrets`
-`namespace[str] -> files[list[str]] -> value[attrset] -> attrset`
-a
+`namespace<str> -> files<list[str]> -> value<attrset> -> attrset`
+
 generate an attrset to be passed into sops.secrets.
 
 ### Example

@@ -7,4 +7,7 @@ thses sets of files/directories in this repository.
 - `-rw------- /etc/atticd.env`: attic credentials file
 - `-r-------- /etc/lego/desec`: acme credentials
 - `drwx------ /etc/secureboot`: secureboot keys
-- `-r-------- /etc/nitter/guest_accounts.json`: nitter guest account tokens
+
+## changelog
+### as of commit 8501880 (`850188052ea0968e7eb96724c2027ad998cbbefb`)
+- `nitter/guest_tokens.json` managed in-tree
