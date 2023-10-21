@@ -1,9 +1,17 @@
+<!--
+  vim:fileencoding=utf-8:foldmethod=marker
+-->
+
 # tops and bottoms
 this document outlines things that i learned from various sources and some pure guesswork
 
 > To learn Nix is to learn to suffer, and to learn the way of numbing the pain
 >
 > — Cassie circa. 2023
+
+There might be more undocumented things. Interesting things are usually marked with `#‍ HACK:`.
+
+Of course, I might completely miss stuff. in that case, feel free to open an issue.
 
 ## overriding packages
 the pill confused me and i thought i had to make overlays to do overrides but no
@@ -108,6 +116,10 @@ its pitfalls, however. we cannot get the dynamic user's id in a ExecStartPre hoo
 user is ran with root privileges and there are no signs of the final ephemeral user id. the same happens with
 ones prefixed with `!`.
 
+<!--
+  This is a vim fold. press z+o to open, z+c to close.
+  Terminal output {{{
+-->
 <details>
   <pre>
 cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 1s
@@ -124,7 +136,6 @@ SYSTEMD_EXEC_PID=620896
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/run-u1196.service/memory.pressure
 MEMORY_PRESSURE_WRITE=[...]
 ^C%
-
 cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 2s
 󰁹 97% at 22:04:30 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true --property="SystemCallFilter=@system-service ~@privileged ~@resources" -pExecStartPre="\!env" -pPrivateUsers=true -t bash
 Running as unit: run-u1200.service
@@ -139,14 +150,12 @@ SYSTEMD_EXEC_PID=620992
 MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/run-u1200.service/memory.pressure
 MEMORY_PRESSURE_WRITE=[...]
 ^C%
-
 cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 2s
 󰁹 97% at 22:04:42 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true -pSystemCallFilter=@system-service -pSystemCallFilter=~@privileged -pSystemCallFilter=~@resources -pExecStartPre="\!bash -c 'echo \$UID'" -pPrivateUsers=true -t bash -c "ls"
 Running as unit: run-u1236.service
 Press ^] three times within 1s to disconnect TTY.
 0
 ^C%
-
 cassie in marisa in ~ via C v13.2.1-gcc via ☕ v17.0.8 took 4s
 󰁹 97% at 22:06:49 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true -pSystemCallFilter=@system-service -pSystemCallFilter=~@privileged -pSystemCallFilter=~@resources -pExecStartPre="+bash -c 'echo \$UID'" -pPrivateUsers=true -t bash -c "ls"
 Running as unit: run-u1241.service
@@ -155,6 +164,10 @@ Press ^] three times within 1s to disconnect TTY.
 ^C%
   </pre>
 </details>
+
+<!--
+  }}}
+-->
 
 So now, we are left with the only option, which is to create a non-ephemeral user, assign it to the unit and disable DynamicUser.
 This step is a little involved, you will have to add a user option to the service and forcibly disable DynamicUser.
