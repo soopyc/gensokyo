@@ -15,7 +15,16 @@ default_group: &default_group
     # - *soopyc_age302
     - *soopyc_mpxl7a
 
+
+every_key_group: &every_key_group
+  - <<: *default_group
+    age:
+      - *koumakan_ssh
+
 creation_rules:
+  - path_regex: creds/sops/global/.*
+    key_groups: *every_key_group
+
   - path_regex: creds/sops/koumakan/.*
     key_groups:
       - <<: *default_group

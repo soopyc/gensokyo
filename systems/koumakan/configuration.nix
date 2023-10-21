@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
 
     ../../global/core.nix
+    ../../global/users
     ../../global/programs
 
     ./networking
@@ -29,16 +30,6 @@
       netbootxyz.enable = true;
     };
     grub.enable = false;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cassie = {
-    isNormalUser = true;
-    extraGroups = ["wheel"];
-    openssh = {
-      authorizedKeys.keyFiles = [../../creds/ssh/cassie];
-    };
-    # packages = with pkgs; [];
   };
 
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
