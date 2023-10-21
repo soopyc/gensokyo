@@ -71,6 +71,7 @@
       default = pkgs.mkShell {
         packages = [
           (pkgs.python311.withPackages (p: [p.requests]))
+          pkgs.nixos-rebuild
         ];
       };
     });

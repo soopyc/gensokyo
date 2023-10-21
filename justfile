@@ -2,16 +2,16 @@
 # I LOVE justFILE!!!!!!
 
 # build the current configuration
-build:
-	nixos-rebuild build --flake .#
+build system="":
+	nixos-rebuild build --flake .#{{system}}
 
 # build and test the configuration, but don't switch
-test:
-	nixos-rebuild test --flake .#
+test system="":
+	nixos-rebuild test --flake .#{{system}}
 
 # switch to the current configuration
-switch:
-	nixos-rebuild switch --flake .#
+switch system="":
+	nixos-rebuild switch --flake .#{{system}}
 
 # run utility programs
 utils recipe="list":
@@ -22,6 +22,14 @@ utils recipe="list":
 update-input input:
   nix flake lock --update-input {{input}}
 
-# build the flake on a non-nixos platform
-ebuild system:
-  nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.toplevel
+# REMOVED: build a system from the flake on a non-nixos platform
+# ebuild system:
+#   nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.toplevel
+
+# vm system:
+#   nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.vm
+
+# build a vm for a system
+vm system run="true" bootloader="false":
+  nixos-rebuild build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
+  {{if run == "true" {"./result/bin/run-"+system+"-vm"} else {""} }}
