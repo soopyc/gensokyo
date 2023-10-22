@@ -183,7 +183,11 @@ in {
       type = "postgres";
       host = "127.0.0.1";
       name = "gitea";
+      user = "gitea";
       passwordFile = mkSecret "database/pass";
+      # just be smarter 4head
+      # TODO: setup ensure db in postgres config
+      createDatabase = false;
     };
     #}}}
 
