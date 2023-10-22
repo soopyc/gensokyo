@@ -3,6 +3,7 @@
     ./nginx.nix
 
     ./databases
+    ./scm
 
     ./attic.nix
 
