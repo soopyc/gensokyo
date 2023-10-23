@@ -16,7 +16,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/master";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -30,7 +30,8 @@
 
     attic = {
       url = "github:zhaofengli/attic";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # removed because this is turning into gentoo.
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix = {
