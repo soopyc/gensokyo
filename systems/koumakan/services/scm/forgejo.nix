@@ -179,6 +179,7 @@ in {
     lfs.enable = true;
   };
 
+  # Systemd jank {{{
   systemd.services.forgejo.preStart = lib.mkAfter ''
     function additional_secrets {
       chmod u+w ${runConfig}
@@ -195,6 +196,20 @@ in {
     }
     (umask 027; additional_secrets)
   '';
+  # }}}
+
+  # nginx vhost definition {{{
+  # since we use unix sockets, we can't use
+  services.nginx.virtualHosts."patchy.soopy.moe" = _utils.mkVhost {
+    locations."/" = {
+      proxyPass = "http://unix:${config.services.forgejo.settings.server.HTTP_ADDR}";
+    };
+
+    extraConfig = ''
+      client_max_body_size 0;  # managed by forgejo already, might be useful to quickly fail a request
+    '';
+  };
+  # }}}
 }
 # vim:foldmethod=marker
 
