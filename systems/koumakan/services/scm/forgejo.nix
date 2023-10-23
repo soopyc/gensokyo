@@ -32,6 +32,8 @@ in {
     enable = true;
     package = inputs.mystia.packages.${pkgs.system}.forgejo-unstable;
 
+    repositoryRoot = "${config.services.forgejo.stateDir}/data/repositories";
+
     settings = {
       DEFAULT.APP_NAME = "Patchy";
       server = {
