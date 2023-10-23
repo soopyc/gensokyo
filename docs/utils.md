@@ -51,7 +51,7 @@ in {
   sops.secrets = _utils.genSecrets "" secrets {}; # it's recommended to use a namespace, but having none is still fine.
   # -> sops.secrets."secure_secret" = {};
   #    sops.secrets."service/test/secret" = {};
-  sops.secrets = _utils.genSecrets "balls" ["balls_secret"] {owner = "balls"};
+  sops.secrets = _utils.genSecrets "balls" ["balls_secret"] {owner = "balls";};
   # -> sops.secrets."balls/balls_secret" = {owner = "balls";};
 }
 ```
