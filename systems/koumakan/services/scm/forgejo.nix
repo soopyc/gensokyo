@@ -148,6 +148,13 @@ in {
       };
       # }}}
 
+      # Federation {{{
+      federation = {
+        ENABLED = true;
+        MAX_SIZE = 10;
+      };
+      # }}}
+
       # Session {{{
       session = {
         PROVIDER = "db"; # reuse existing db config
