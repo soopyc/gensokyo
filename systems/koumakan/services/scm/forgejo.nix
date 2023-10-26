@@ -11,6 +11,7 @@
     "turnstile/secret"
     "turnstile/sitekey"
     "mailing/host"
+    "mailing/protocol"
     "mailing/from"
     "mailing/user"
     "mailing/pass"
@@ -73,10 +74,12 @@ in {
       # Mailing {{{
       mailer = {
         ENABLED = true;
-        HOST = "#mailerhost#";
+        PROTOCOL = "#mailerproto";
+        SMTP_ADDR = "#mailerhost#";
         FROM = "#mailerfrom#";
         USER = "#maileruser#";
         PASSWD = "#mailerpass#";
+        SEND_AS_PLAIN_TEXT = true;
       };
       # }}}
 
@@ -189,6 +192,7 @@ in {
 
       # to keep stuff in one place, we're not using the mailerPasswordFile option.
       ${replaceSecretBin} "#mailerhost#" ${mkSecret "mailing/host"} ${runConfig}
+      ${replaceSecretBin} "#mailerproto#" ${mkSecret "mailing/protocol"} ${runConfig}
       ${replaceSecretBin} "#mailerfrom#" ${mkSecret "mailing/from"} ${runConfig}
       ${replaceSecretBin} "#maileruser#" ${mkSecret "mailing/user"} ${runConfig}
       ${replaceSecretBin} "#mailerpass#" ${mkSecret "mailing/pass"} ${runConfig}
