@@ -210,7 +210,7 @@ in {
   # }}}
 
   # nginx vhost definition {{{
-  # since we use unix sockets, we can't use
+  # since we use unix sockets, we can't use _utils.mkSimpleProxy.
   services.nginx.virtualHosts."patchy.soopy.moe" = _utils.mkVhost {
     locations."/" = {
       proxyPass = "http://unix:${config.services.forgejo.settings.server.HTTP_ADDR}";
@@ -220,6 +220,18 @@ in {
       client_max_body_size 0;  # managed by forgejo already, might be useful to quickly fail a request
     '';
   };
+  # }}}
+
+  # SSH daemon config {{{
+  services.openssh.extraConfig = lib.mkAfter ''
+    # forgejo specific settings
+    Match User ${config.services.forgejo.user}
+      Banner none
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+      AuthorizedKeysCommand ${lib.getExe config.services.forgejo.package} keys -e forgejo -u %u -t %t -k %k -c ${runConfig}
+      AuthorizedKeysCommandUser ${config.services.forgejo.user}
+  '';
   # }}}
 }
 # vim:foldmethod=marker
