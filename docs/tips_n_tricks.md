@@ -176,6 +176,11 @@ I opted to replace the entire module file with my own under a different name, as
 Here's the link to [the modified source file.](https://github.com/soopyc/mystia/blob/a999736/modules/fixups/nitter.nix)
 For clarity's sake, [this is the diff of the changes made.](https://github.com/soopyc/mystia/compare/3be5eef..a999736)
 
+## what the hell is an IFD??
+IFD stands for import from derivation.
+
+*nixos/nixpkgs really need better and significantly less scattered documentation while improving manual readability.*
+
 # Common pitfalls
 ## importing nixpkgs with an empty attrset
 
