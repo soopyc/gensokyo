@@ -182,10 +182,10 @@ symbol = " "
 symbol = " "
 
 [fossil_branch]
-symbol = ""
+symbol = " "
 
 [git_branch]
-symbol = ""
+symbol = " "
 
 [golang]
 symbol = " "
@@ -200,7 +200,7 @@ symbol = " "
 symbol = "⌘ "
 
 [hg_branch]
-symbol = ""
+symbol = " "
 
 [java]
 symbol = " "
