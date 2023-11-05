@@ -3,11 +3,17 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
+right_format = """$os $custom"""
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = '[➜](bold red)'
+
+[os]
+disabled = false
+style = "bold blue"
+format = "on [$symbol($name)]($style)"
 
 [username]
 show_always = true
@@ -19,13 +25,15 @@ symbol = '✗'
 map_symbol = true
 pipestatus = true
 
-sigint_symbol = '^C'
-not_found_symbol = '?'
-signal_symbol = 'SIG'
+sigint_symbol = '❎'
+not_executable_symbol = "⛔"
+not_found_symbol = '❓'
+signal_symbol = '⚠'
 
-[[battery.display]]
-threshold = 100
-style = "bold green"
+
+[hostname]
+ssh_symbol = " "
+ssh_only = false
 
 [time]
 disabled = false
@@ -33,8 +41,124 @@ disabled = false
 [cmd_duration]
 min_time = 0
 
+[custom.direnv]
+format = "with [direnv]($style) "
+style = "bold yellow"
+when = "printenv DIRENV_FILE"
+
+# Battery display {{{
+[battery]
+full_symbol = " "
+charging_symbol = " "
+discharging_symbol = " "
+unknown_symbol = " "
+empty_symbol = " "
+
+[[battery.display]]
+threshold = 100
+discharging_symbol = " "
+style = "bold green"
+
+[[battery.display]]
+threshold = 90
+charging_symbol = " "
+style = "bold green"
+
+[[battery.display]]
+threshold = 80
+discharging_symbol = " "
+style = "bold green"
+
+[[battery.display]]
+threshold = 70
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 60
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold yellow"
+
+
+[[battery.display]]
+threshold = 50
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 40
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 30
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold red"
+
+[[battery.display]]
+threshold = 20
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold red"
+
+[[battery.display]]
+threshold = 10
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold red"
+
+# }}}
+
+# OS Symbols {{{
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
+# }}}
+
+# Powerline Symbols {{{
 [aws]
-symbol = "  "
+symbol = "AWS"
 
 [buf]
 symbol = " "
@@ -48,9 +172,6 @@ symbol = " "
 [dart]
 symbol = " "
 
-[directory]
-read_only = " 󰌾"
-
 [docker_context]
 symbol = " "
 
@@ -61,10 +182,10 @@ symbol = " "
 symbol = " "
 
 [fossil_branch]
-symbol = " "
+symbol = ""
 
 [git_branch]
-symbol = " "
+symbol = ""
 
 [golang]
 symbol = " "
@@ -79,11 +200,7 @@ symbol = " "
 symbol = "⌘ "
 
 [hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-ssh_only = false
+symbol = ""
 
 [java]
 symbol = " "
@@ -104,72 +221,10 @@ symbol = "󰔷 "
 symbol = "󰆥 "
 
 [nix_shell]
-symbol = " "
+symbol = "❄ "
 
 [nodejs]
 symbol = " "
+# }}}
 
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
-
-[package]
-symbol = "󰏗 "
-
-[pijul_channel]
-symbol = "🪺 "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
-
-[spack]
-symbol = "🅢 "
+# vim:foldmethod=marker
