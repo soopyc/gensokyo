@@ -20,6 +20,8 @@
     "database/password"
     "yubico/id"
     "yubico/secret"
+    "push/installation_id"
+    "push/installation_key"
   ];
 in {
   sops.secrets = _utils.genSecrets "vaultwarden" secrets {};
@@ -36,6 +38,8 @@ in {
     SMTP_HOST=${ph "smtp/host"}
     SMTP_SECURITY=${ph "smtp/security"}
     SMTP_PORT=${ph "smtp/port"}
+    PUSH_INSTALLATION_ID=${ph "push/installation_id"}
+    PUSH_INSTALLATION_KEY${ph "push/installation_key"}
   '';
 
   services.vaultwarden = {
@@ -47,6 +51,7 @@ in {
       DOMAIN = "https://v.soopy.moe";
       IP_HEADER = "X-Real-IP";
       RELOAD_TEMPLATES = false;
+      PUSH_ENABLED = true;
 
       SIGNUPS_ALLOWED = true;
       SIGNUPS_VERIFY = true;
