@@ -3,15 +3,15 @@
 
 # build the current configuration
 build system="":
-	nixos-rebuild build --flake .#{{system}}
+	nixos-rebuild -v -L build --flake .#{{system}}
 
 # build and test the configuration, but don't switch
 test system="":
-	nixos-rebuild test --flake .#{{system}}
+	nixos-rebuild -v -L test --flake .#{{system}}
 
 # switch to the current configuration
 switch system="":
-	nixos-rebuild switch --flake .#{{system}}
+	nixos-rebuild -v -L switch --flake .#{{system}}
 
 # run utility programs
 utils recipe="list":
@@ -31,5 +31,5 @@ update-input input:
 
 # build a vm for a system
 vm system run="true" bootloader="false":
-  nixos-rebuild build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
+  nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
   {{if run == "true" {"./result/bin/run-"+system+"-vm"} else {""} }}
