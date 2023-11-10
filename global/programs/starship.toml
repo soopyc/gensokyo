@@ -3,7 +3,7 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
-right_format = """$os $custom"""
+right_format = """$os $shell ${custom.direnv}"""
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -30,6 +30,22 @@ not_executable_symbol = "⛔"
 not_found_symbol = '❓'
 signal_symbol = '⚠'
 
+[shell]
+disabled = false
+format = 'with [ $indicator]($style)'
+style = 'bold green'
+
+[nix_shell]
+symbol = "❄ "
+format = 'via [$symbol$name$state]($style) '
+impure_msg = ''
+pure_msg = '(pure)'
+unknown_msg = '(?)'
+heuristic = true
+
+[git_status]
+stashed = ""
+deleted = ""
 
 [hostname]
 ssh_symbol = " "
@@ -55,48 +71,9 @@ unknown_symbol = " "
 empty_symbol = " "
 
 [[battery.display]]
-threshold = 100
-discharging_symbol = " "
-style = "bold green"
-
-[[battery.display]]
-threshold = 90
-charging_symbol = " "
-style = "bold green"
-
-[[battery.display]]
-threshold = 80
-discharging_symbol = " "
-style = "bold green"
-
-[[battery.display]]
-threshold = 70
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 60
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold yellow"
-
-
-[[battery.display]]
-threshold = 50
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 40
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 30
-charging_symbol = " "
-discharging_symbol = " "
+threshold = 10
+charging_symbol = " "
+discharging_symbol = " "
 style = "bold red"
 
 [[battery.display]]
@@ -106,10 +83,48 @@ discharging_symbol = " "
 style = "bold red"
 
 [[battery.display]]
-threshold = 10
-charging_symbol = " "
-discharging_symbol = " "
+threshold = 30
+charging_symbol = " "
+discharging_symbol = " "
 style = "bold red"
+
+[[battery.display]]
+threshold = 40
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 50
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 60
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 70
+charging_symbol = " "
+discharging_symbol = " "
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 80
+discharging_symbol = " "
+style = "bold green"
+
+[[battery.display]]
+threshold = 90
+charging_symbol = " "
+style = "bold green"
+
+[[battery.display]]
+threshold = 100
+discharging_symbol = " "
+style = "bold green"
 
 # }}}
 
@@ -158,7 +173,7 @@ Windows = " "
 
 # Powerline Symbols {{{
 [aws]
-symbol = "AWS"
+symbol = "AWS "
 
 [buf]
 symbol = " "
@@ -219,9 +234,6 @@ symbol = "󰔷 "
 
 [nim]
 symbol = "󰆥 "
-
-[nix_shell]
-symbol = "❄ "
 
 [nodejs]
 symbol = " "
