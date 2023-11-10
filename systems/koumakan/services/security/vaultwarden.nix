@@ -39,7 +39,7 @@ in {
     SMTP_SECURITY=${ph "smtp/security"}
     SMTP_PORT=${ph "smtp/port"}
     PUSH_INSTALLATION_ID=${ph "push/installation_id"}
-    PUSH_INSTALLATION_KEY${ph "push/installation_key"}
+    PUSH_INSTALLATION_KEY=${ph "push/installation_key"}
   '';
 
   services.vaultwarden = {
