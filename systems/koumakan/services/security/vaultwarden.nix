@@ -62,10 +62,6 @@ in {
       USER_ATTACHMENT_LIMIT = 100000;
       ORG_ATTACHMENT_LIMIT = 100000;
 
-      WEBSOCKET_ENABLED = true;
-      WEBSOCKET_ADDRESS = "::1";
-      WEBSOCKET_PORT = 38481;
-
       DISABLE_2FA_REMEMBER = false;
       REQUIRE_DEVICE_EMAIL = true;
       PASSWORD_ITERATIONS = 1000000;
@@ -95,15 +91,7 @@ in {
 
       locations."/" = {
         proxyPass = "http://vault-default";
-      };
-      locations."/notifications/hub/negotiate" = {
-        proxyWebsockets = false;
-        proxyPass = "http://vault-default";
-      };
-
-      locations."/notifications/hub" = {
-        proxyPass = "http://vault-ws";
-        proxyWebsockets = true;
+        proxyWebsockets = true;  # in vw 1.30.0, the WS server is integrated into the same port.
       };
     };
 
@@ -115,15 +103,6 @@ in {
         extraConfig = ''
           zone vaultwarden 128k;  # XXX: are there any security implications if we reuse the same zone for both webvault and the ws server?
           keepalive 2;  # FIXME: should we use a higher keepalive?
-        '';
-      };
-      vault-ws = {
-        servers = {
-          "[::1]:38481" = {};
-        };
-        extraConfig = ''
-          zone vaultwarden;  # see above comment
-          keepalive 2;
         '';
       };
     };
