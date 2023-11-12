@@ -107,7 +107,7 @@
     extraConfig = {
       useACMEHost = "proxy.c.soopy.moe";
 
-      locations."~ /" = {
+      locations."= /" = {
         alias = _utils.mkNginxFile "index.html" ''<!doctype html><html><head><title>msc3575 proxy</title><style>html{font-family:monospace;}</style></head><body><h2>Welcome to the sliding sync proxy.</h2><p>This proxy is for internal use only, you will need an account on nue.soopy.moe to use it. Feel free to self host one yourself!!</p></body></html>'';
         tryFiles = "index.html =404";
       };
