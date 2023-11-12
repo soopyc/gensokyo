@@ -94,9 +94,9 @@
     };
 
     locations."= /.well-known/matrix/server" = {
-      alias = builtins.dirOf (pkgs.writeTextDir "server" (builtins.toJSON { # TODO: migrate this monstrosity to utils
+      alias = _utils.mkNginxJSON "server" {
         "m.server" = "nue.soopy.moe:443";
-      }));
+      };
     };
 
     locations."~ ^(/_matrix|/_synapse/client)" = {

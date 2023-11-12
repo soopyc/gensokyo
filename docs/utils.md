@@ -57,3 +57,23 @@ in {
 ```
 
 See https://github.com/soopyc/nix-on-koumakan/blob/b7983776143c15c91df69ef34ba4264a22047ec6/systems/koumakan/services/fedivese/akkoma.nix#L8-L34 for a more extensive example
+
+## `_utils.mkNginxFile`
+`filename<str> -> contents<str> ==> ` *derivation*
+
+Simple file derivation generator to use with nginx aliases.
+
+### Example
+```nix
+services.nginx.virtualHosts."example.com".locations."/" = {
+  alias = _utils.mkNginxFile "index.html" ''
+  <!doctype html><html><body>We've been trying to reach you about your car's Extended Warranty.</body></html>
+  '';
+  tryFiles = "index.html =404";
+};
+```
+
+## `_utils.mkNginxJSON`
+`filename<str> -> attrset ==>` *derivation*
+
+Simple wrapper around `_utils.mkNginxFile` that takes in an attrset and formats it as JSON.
