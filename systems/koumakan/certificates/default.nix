@@ -3,6 +3,7 @@
     ./global.nix
     ./postgresql.nix
     ./fediverse.nix
+    ./proxy.nix
   ];
 
   security.acme = {
