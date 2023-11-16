@@ -51,7 +51,7 @@ in rec {
   mkNginxFile = filename: contents:
     if (builtins.typeOf contents) != "string"
     then throw "argument $contents must be a string, got '${builtins.typeOf contents}' instead."
-    else builtins.toString (pkgs.writeTextDir filename contents);
+    else builtins.toString (pkgs.writeTextDir filename contents) + "/";
 
   mkNginxJSON = filename: attrset:
     if (builtins.typeOf attrset) != "set"
