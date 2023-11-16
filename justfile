@@ -11,7 +11,7 @@ test system="":
 
 # switch to the current configuration
 switch system="":
-	nixos-rebuild -v -L switch --flake .#{{system}}
+	sudo nixos-rebuild -v -L switch --flake .#{{system}}
 
 # run utility programs
 utils recipe="list":
