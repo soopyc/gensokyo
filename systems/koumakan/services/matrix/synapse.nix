@@ -115,15 +115,9 @@
   };
 
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
-    locations."= /config.json" = {
-      alias = "${pkgs.staticly}/configs/";
-      tryFiles = "cinny.json =404";
-      extraConfig = ''
-        add_header access_control_allow_origin "*";
-      '';
-    };
-
     locations."= /.well-known/matrix/server" = {
+      # TODO: move and handle this in the function as well
+      tryFiles = "server =404";
       alias = _utils.mkNginxJSON "server" {
         "m.server" = "nue.soopy.moe:443";
       };
