@@ -1,5 +1,6 @@
 {config, ...}: {
   services.writefreely = {
+    enable = true;
     host = "words.soopy.moe";
     settings = {
       server.port = 31294;
