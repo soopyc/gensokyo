@@ -11,7 +11,7 @@
       "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
       "gensokyo-systems:r/Wx649dPuQrCN9Pgh3Jic526zQNk3oWMqYJHnob/Ok="
     ];
-
+    allow-import-from-derivation = true;
     fallback = true;
   };
 

@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, _utils, ...}: {
   services.writefreely = {
     enable = true;
     host = "words.soopy.moe";
@@ -19,7 +19,7 @@
     admin.name = "soopyc";
   };
 
-  services.nginx.virtualHosts.${config.services.writefreely.host} = {
+  services.nginx.virtualHosts.${config.services.writefreely.host} = _utils.mkVhost {
     useACMEHost = "fedi.c.soopy.moe";
   };
 }
