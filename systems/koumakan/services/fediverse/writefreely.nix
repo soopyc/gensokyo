@@ -1,4 +1,4 @@
-{config, _utils, ...}: {
+{config, _utils, lib, ...}: {
   services.writefreely = {
     enable = true;
     host = "words.soopy.moe";
@@ -20,6 +20,7 @@
   };
 
   services.nginx.virtualHosts.${config.services.writefreely.host} = _utils.mkVhost {
+    forceSSL = lib.mkForce true;
     useACMEHost = "fedi.c.soopy.moe";
   };
 }
