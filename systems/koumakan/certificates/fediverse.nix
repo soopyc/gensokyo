@@ -5,6 +5,7 @@
     extraDomainNames = [
       "a.soopy.moe"
       "m.soopy.moe"
+      "words.soopy.moe"
       "pixie.soopy.moe"
     ];
   };
