@@ -96,7 +96,7 @@ in {
 
       locations."/" = {
         proxyPass = "http://vault-default";
-        proxyWebsockets = true;  # in vw 1.30.0, the WS server is integrated into the same port.
+        proxyWebsockets = true; # in vw 1.30.0, the WS server is integrated into the same port.
       };
     };
 

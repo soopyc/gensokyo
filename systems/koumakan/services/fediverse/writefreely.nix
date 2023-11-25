@@ -1,11 +1,16 @@
-{config, _utils, lib, ...}: {
+{
+  config,
+  _utils,
+  lib,
+  ...
+}: {
   services.writefreely = {
     enable = true;
     host = "words.soopy.moe";
     settings = {
       server.port = 31294;
       app = {
-        host = "https://${config.services.writefreely.host}";  # annoying
+        host = "https://${config.services.writefreely.host}"; # annoying
         site_name = "Kourindou";
         site_description = "Words of Gensokyo, sprinkled with a little bit of technology";
 
