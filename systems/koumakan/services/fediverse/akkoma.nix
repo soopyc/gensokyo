@@ -148,9 +148,7 @@ in {
     ensureUsers = [
       {
         name = "akkoma";
-        ensurePermissions = {
-          "database \"akkoma\"" = "all privileges";
-        };
+        ensureDBOwnership = true;
       }
     ];
   };

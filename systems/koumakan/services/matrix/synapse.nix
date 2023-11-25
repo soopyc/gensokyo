@@ -95,9 +95,7 @@
     ensureUsers = [
       {
         name = "synapse";
-        ensurePermissions = {
-          "database \"synapse\"" = "all privileges";
-        };
+        ensureDBOwnership = true;
       }
     ];
   };
