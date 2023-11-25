@@ -13,6 +13,11 @@
         open_registration = false;
         user_invites = "user";
         default_visibility = "public";
+
+        federation = true;
+        public_stats = true;
+        min_username_len = 5;
+        local_timeline = true;
       };
     };
     nginx.enable = true;
