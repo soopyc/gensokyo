@@ -3,6 +3,7 @@
     ./nix.nix
     ./editors.nix
     ./shells.nix
+    ./roaming-shell.nix
     ./multiplexers.nix
 
     ./compilers.nix
