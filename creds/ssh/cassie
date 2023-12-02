@@ -5,7 +5,7 @@ ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJxpXpPl
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICMjRM3BNkLbU57RyfUx7kOlZeBEj/NByr1PfXri82aP YubiKey #19302432 OpenPGP
 
 # Static devices
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPTbZL0dq0ynBl8fy9yZmrKVWd/fOybZoqBKchP0MPM sophie@marisa
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPTbZL0dq0ynBl8fy9yZmrKVWd/fOybZoqBKchP0MPM sophie@marisa.d.soopy.moe
 
 # Phones
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFcvk4hZi5HTmbngAx5GKWADCQGEDeN+JeVrKhBGZVZh pixel7a@portal2.d.soopy.moe
