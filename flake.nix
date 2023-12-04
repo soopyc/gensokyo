@@ -71,7 +71,7 @@
     };
 
     devShells = forAllSystems (pkgs: {
-      default = pkgs.mkShell {
+      default = pkgs.mkShellNoCC {
         packages = [
           (pkgs.python311.withPackages (p: [p.requests]))
           pkgs.nixos-rebuild
