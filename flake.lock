@@ -265,11 +265,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701703131,
-        "narHash": "sha256-nmVhYxCkECZKruGL9hky/5b6XJXXU9nwA/lOhO0xV+Y=",
+        "lastModified": 1701786969,
+        "narHash": "sha256-q1CedEtgNvPg7ow5dQQ5tzNsq/4zU5Jww6yop8l2Xeo=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "f357241f2daee05f6127b07bd99e4e522fb8e90b",
+        "rev": "bb56fb024e74b3e3106b7f5046b1367ece2c631b",
         "type": "github"
       },
       "original": {
@@ -458,11 +458,11 @@
         "nixpkgs-stable": "nixpkgs-stable_3"
       },
       "locked": {
-        "lastModified": 1701572436,
-        "narHash": "sha256-0anfOQqDend6kSuF8CmOSAZsiAS1nwOsin5VQukh6Q4=",
+        "lastModified": 1701728052,
+        "narHash": "sha256-7lOMc3PtW5a55vFReBJLLLOnopsoi1W7MkjJ93jPV4E=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "8bca48cb9a12bbd8766f359ad00336924e91b7f7",
+        "rev": "e91ece6d2cf5a0ae729796b8f0dedceab5107c3d",
         "type": "github"
       },
       "original": {
