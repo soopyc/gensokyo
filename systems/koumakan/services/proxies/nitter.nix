@@ -2,14 +2,12 @@
   _utils,
   pkgs,
   config,
-  sopsDir,
   ...
 }: {
-  sops.secrets."nitter/guest_accounts.jsonl" = {
-    sopsFile = sopsDir + "/guest_accounts.jsonl";
-    format = "binary";
-    owner = config.users.users.nitter.name;
-  };
+  sops.secrets = _utils.genSecrets "nitter" [
+    "guest_accounts_service/endpoint"
+    "guest_accounts_service/token"
+  ] {};
 
   services.nitterPatched = {
     enable = true;
@@ -25,8 +23,19 @@
   };
 
   systemd.services.nitter = {
+    serviceConfig.ExecStartPre = [
+      (
+        pkgs.writeShellScript "nitter-prestart-tokens" ''
+          GUEST_ACCOUNTS_ENDPOINT=`cat ${config.sops.secrets."nitter/guest_accounts_service/endpoint".path}`
+          GUEST_ACCOUNTS_TOKEN=`cat ${config.sops.secrets."nitter/guest_accounts_service/token".path}`
+          xh "''${GUEST_ACCOUNTS_ENDPOINT}" key==''${GUEST_ACCOUNTS_TOKEN} host==${config.services.nitterPatched.server.hostname} \
+            -o /var/lib/nitter/guest_accounts.jsonl
+          unset GUEST_ACCOUNTS_{ENDPOINT,TOKEN}
+        ''
+      )
+    ];
     environment = {
-      NITTER_ACCOUNTS_FILE = "/run/secrets/nitter/guest_accounts.jsonl";
+      NITTER_ACCOUNTS_FILE = "/var/lib/nitter/guest_accounts.jsonl";
     };
   };
 
