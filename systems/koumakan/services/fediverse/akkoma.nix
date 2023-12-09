@@ -10,7 +10,7 @@
   mkSecret = file:
     if !lib.elem file secrets
     then throw "Provided secret file ${file} is not in the list of defined secrets."
-    else {_secret = "/run/secrets/akkoma/${file}";};
+    else {_secret = config.sops.secrets."akkoma/${file}".path;};
   secrets = [
     "joken_default_signer" # can't think of any better name spacing
     "dist/cookie"
@@ -30,7 +30,9 @@
   ];
 in {
   # secrets definition
-  sops.secrets = _utils.genSecrets "akkoma" secrets {};
+  sops.secrets = _utils.genSecrets "akkoma" secrets {
+    owner = config.services.akkoma.user;
+  };  # we probably don't need to set ownerships, but it's here for good measure
 
   services.akkoma = {
     enable = true;
@@ -153,7 +155,7 @@ in {
     ];
   };
 
-  systemd.services.akkoma-config = {
-    serviceConfig.SupplementaryGroups = [config.users.groups.keys.name];
-  };
+  # systemd.services.akkoma-config = {
+  #   serviceConfig.SupplementaryGroups = [config.users.groups.keys.name];
+  # };
 }
