@@ -32,10 +32,10 @@
       (
         # because we already have a nitter system user, let's make this easier on ourselves
         pkgs.writeShellScript "nitter-prestart-tokens" ''
-          set -euxo pipefail
+          set -uxo pipefail
           GUEST_ACCOUNTS_ENDPOINT=`cat ${config.sops.secrets."nitter/guest_accounts_service/endpoint".path}`
-          xh "''${GUEST_ACCOUNTS_ENDPOINT}" -vv key==@${config.sops.secrets."nitter/guest_accounts_service/token".path} host==${config.services.nitterPatched.server.hostname} \
-            -o /var/lib/nitter/guest_accounts.jsonl
+          xh -vvv "''${GUEST_ACCOUNTS_ENDPOINT}" key==@${config.sops.secrets."nitter/guest_accounts_service/token".path} host==${config.services.nitterPatched.server.hostname} \
+            -do /var/lib/nitter/guest_accounts.jsonl
           echo "Previous exit code: $?"
           sleep 5
           unset GUEST_ACCOUNTS_{ENDPOINT,TOKEN}
