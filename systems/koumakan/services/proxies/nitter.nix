@@ -26,7 +26,7 @@
   systemd.services.nitter = {
     serviceConfig.ExecStartPre = [
       (
-        "!"  # we need this because permissions magic
+        "+"  # we need this because permissions magic
         + pkgs.writeShellScript "nitter-prestart-tokens" ''
           set -euo pipefail
           GUEST_ACCOUNTS_ENDPOINT=`cat ${config.sops.secrets."nitter/guest_accounts_service/endpoint".path}`
