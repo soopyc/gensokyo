@@ -1,7 +1,6 @@
 {
   _utils,
   pkgs,
-  lib,
   config,
   ...
 }: {
@@ -24,15 +23,20 @@
   };
 
   systemd.services.nitter = {
+    path = [
+      pkgs.xh
+    ];
     serviceConfig.ExecStartPre = [
       (
         "+"  # we need this because permissions magic
         + pkgs.writeShellScript "nitter-prestart-tokens" ''
-          set -euo pipefail
+          set -euxo pipefail
           GUEST_ACCOUNTS_ENDPOINT=`cat ${config.sops.secrets."nitter/guest_accounts_service/endpoint".path}`
           GUEST_ACCOUNTS_TOKEN=`cat ${config.sops.secrets."nitter/guest_accounts_service/token".path}`
-          ${lib.getExe' pkgs.xh "xh"} "''${GUEST_ACCOUNTS_ENDPOINT}" key==''${GUEST_ACCOUNTS_TOKEN} host==${config.services.nitterPatched.server.hostname} \
-            -o /var/lib/nitter/guest_accounts.jsonl
+          xh "''${GUEST_ACCOUNTS_ENDPOINT}" key==''${GUEST_ACCOUNTS_TOKEN} host==${config.services.nitterPatched.server.hostname} \
+            -o /var/lib/nitter/guest_accounts.jsonl -ph
+          echo "Previous exit code: $?"
+          sleep 5
           chown ${config.services.nitterPatched.user} /var/lib/nitter/guest_accounts.jsonl
           unset GUEST_ACCOUNTS_{ENDPOINT,TOKEN}
         ''
