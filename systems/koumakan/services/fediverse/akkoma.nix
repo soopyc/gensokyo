@@ -158,4 +158,15 @@ in {
   # systemd.services.akkoma-config = {
   #   serviceConfig.SupplementaryGroups = [config.users.groups.keys.name];
   # };
+  systemd.services.akkoma.serviceConfig = {
+    Restart = "on-failure";
+    RestartSec = "10s";
+    RestartSteps = 5;
+  };
+
+  systemd.services.akkoma-config = {
+    requiredBy = [
+      "akkoma.service"
+    ];
+  };
 }
