@@ -9,20 +9,21 @@ in {
       PasswordAuthentication = false;
     };
     # TODO: disable banner for service users like forgejo
-    banner = ''      -----BEGIN BANNER-----
-          # Welcome to ${config.system.name}
-          # ${nixos.distroName} ${nixos.codeName} (${nixos.label})
-          i Trans rights are human rights
+    banner = ''
+      -----BEGIN BANNER-----
+      # Welcome to ${config.system.name}
+      # ${nixos.distroName} ${nixos.codeName} (${nixos.label})
+      i Trans rights are human rights
 
-          ! You are currently accessing an internal resource. Your connection
-          ! information, including but not limited to your authenticating IP address,
-          ! username and the user you're attempting to log into are recorded.
-          ! Disconnect IMMEDIATELY if you are not an authorized personnel.
+      ! You are currently accessing an internal resource. Your connection
+      ! information, including but not limited to your authenticating IP address,
+      ! username and the user you're attempting to log into are recorded.
+      ! Disconnect IMMEDIATELY if you are not an authorized personnel.
 
-          i Contact:
-          i   [Matrix] @sophie:nue.soopy.moe
-          i    [Email] me@soopy.moe
-          ------END BANNER------
+      i Contact:
+      i   [Matrix] @sophie:nue.soopy.moe
+      i    [Email] me@soopy.moe
+      ------END BANNER------
     '';
   };
 }
