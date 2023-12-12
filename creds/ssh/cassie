@@ -7,5 +7,6 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICMjRM3BNkLbU57RyfUx7kOlZeBEj/NByr1PfXri82aP
 # Static devices
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPTbZL0dq0ynBl8fy9yZmrKVWd/fOybZoqBKchP0MPM sophie@marisa.d.soopy.moe
 
-# Phones
+# Phones and Portables (portals)
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFcvk4hZi5HTmbngAx5GKWADCQGEDeN+JeVrKhBGZVZh pixel7a@portal2.d.soopy.moe
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID41KR2A+6frMVx7VVsONXmPi88RcHLQLOs1QVNngqoY vault.stored@portal.d.soopy.moe
