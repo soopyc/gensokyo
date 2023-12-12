@@ -17,7 +17,7 @@ in rec {
         locations."/_cgi/error/" = {
           alias = "${inputs.mystia.packages.${system}.staticly}/nginx_error_pages/";
         };
-        
+
         extraConfig = ''
           access_log off;
           error_log /var/log/nginx/error.log crit;

@@ -32,7 +32,7 @@ in {
   # secrets definition
   sops.secrets = _utils.genSecrets "akkoma" secrets {
     owner = config.services.akkoma.user;
-  };  # we probably don't need to set ownerships, but it's here for good measure
+  }; # we probably don't need to set ownerships, but it's here for good measure
 
   services.akkoma = {
     enable = true;

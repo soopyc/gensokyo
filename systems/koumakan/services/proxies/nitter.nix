@@ -4,12 +4,13 @@
   config,
   ...
 }: {
-  sops.secrets = _utils.genSecrets "nitter" [
-    "guest_accounts_service/endpoint"
-    "guest_accounts_service/token"
-  ] {
-    owner = "nitter";
-  };
+  sops.secrets =
+    _utils.genSecrets "nitter" [
+      "guest_accounts_service/endpoint"
+      "guest_accounts_service/token"
+    ] {
+      owner = "nitter";
+    };
 
   services.nitterPatched = {
     enable = true;
