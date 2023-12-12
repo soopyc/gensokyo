@@ -1,13 +1,21 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./upgrade-diff.nix
+    ./motd.nix
   ];
+
   # Set default i18n configuration
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
+
+  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or "unknown";
 
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
