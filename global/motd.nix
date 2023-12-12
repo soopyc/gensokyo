@@ -3,6 +3,8 @@
   config,
   ...
 }: let
+  # HACK
+  nixos-version = "/run/current-system/sw/bin/nixos-version";
   motd = pkgs.writeText "motd-custom" ''
     i                                                88
     i                                  ,d            88
@@ -47,8 +49,8 @@ in {
       echo "copying and replacing motd from template."
       cp ${motd} /etc/motd.custom
       sed -i "s/%current_time%/$(date -Ins)/g" /etc/motd.custom
-      sed -i "s/%nixos_rev%/$(nixos-version)/g" /etc/motd.custom
-      sed -i "s/%flake_rev%/$(nixos-version --configuration-revision)/g" /etc/motd.custom
+      sed -i "s/%nixos_rev%/$(${nixos-version})/g" /etc/motd.custom
+      sed -i "s/%flake_rev%/$(${nixos-version} --configuration-revision)/g" /etc/motd.custom
       sed -i "s/%linux_srm%/$(uname -srm)/g" /etc/motd.custom
       sed -i "s/%uptime%/$(uptime | cut -d ' ' -f 5-)/" /etc/motd.custom
       echo "done!"
