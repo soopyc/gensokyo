@@ -39,7 +39,6 @@ in {
     serviceConfig = {
       Type = "oneshot";
       User = "root";
-      RemainAfterExit = true;
     };
     restartTriggers = [
       /etc/static/nix/registry.json
