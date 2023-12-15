@@ -1,15 +1,25 @@
-{_utils, config, ...}: {
+{
+  _utils,
+  config,
+  pkgs,
+  ...
+}: {
   services.cockpit = {
     enable = true;
     settings = {
       Session = {
-        Banner = "/etc/motd.custom";
+        Banner = builtins.toString (pkgs.writeText "cockpit-banner.txt" ''
+          Welcome to Cockpit @ Koumakan.
+        '');
       };
 
       WebService = {
         # provided with the recommended proxy settings
         ProtocolHeader = "X-Forwarded-Proto";
         ForwardedForHeader = "X-Forwarded-For";
+
+        # customization
+        LoginTitle = "Welcome to NixOS";
 
         # hardening
         AllowUnencrypted = false;
