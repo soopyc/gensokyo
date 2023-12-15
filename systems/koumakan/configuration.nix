@@ -15,6 +15,8 @@
     ./certificates
     ./security
     ./services
+
+    ./administration
   ];
 
   nixpkgs.overlays = import ../../global/overlays inputs;
