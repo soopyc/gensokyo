@@ -27,7 +27,7 @@
     root = "/opt/photography/";
     locations."/" = {
       # what's the purpose of $.fastcgiParams when it's barely even usable
-      index = "index.html /_h5ai/public/index.php";
+      index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
