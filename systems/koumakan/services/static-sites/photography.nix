@@ -29,6 +29,10 @@
 
   services.nginx.virtualHosts."photography.soopy.moe" = _utils.mkVhost {
     root = "/opt/photography";
+    extraConfig = ''
+      index index.html index.php /_h5ai/public/index.php;
+    '';
+    
     locations."~ \.php$" = {
       tryFiles = "$fastcgi_script_name =404";
       # what's the purpose of $.fastcgiParams when it's barely even usable
@@ -37,7 +41,6 @@
       #   SCRIPT_FILENAME = "$realpath_root$fastcgi_script_name";
       # };
 
-      index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
         error_log /var/log/nginx/photography.error.log warn;
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
