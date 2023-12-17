@@ -17,6 +17,10 @@
       "pm.start_servers" = 1;
       "pm.min_spare_servers" = 1;
       "pm.max_spare_servers" = 3;
+
+      "php_admin_value[error_log]" = "stderr";
+      "php_admin_flag[log_errors]" = true;
+      "catch_workers_output" = true;
     };
     phpEnv."PATH" = lib.makeBinPath (with pkgs; [
       zip
@@ -34,6 +38,7 @@
 
       index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
+        error_log /var/log/nginx/photography.error.log warn;
         fastcgi_index index.php;
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
       '';
