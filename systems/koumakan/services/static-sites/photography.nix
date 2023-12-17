@@ -19,19 +19,23 @@
       "pm.max_spare_servers" = 3;
     };
     phpEnv."PATH" = lib.makeBinPath (with pkgs; [
-      php
+      zip
     ]);
   };
 
   services.nginx.virtualHosts."photography.soopy.moe" = _utils.mkVhost {
-    root = "/opt/photography/";
+    root = "/opt/photography";
     locations."/" = {
       # what's the purpose of $.fastcgiParams when it's barely even usable
+      fastcgiParams = {
+        DOCUMENT_ROOT = "$realpath_root";
+        SCRIPT_FILENAME = "$realpath_root$fastcgi_script_name";
+      };
+
       index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
-        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_index index.php
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
-        include ${config.services.nginx.package}/conf/fastcgi.conf;
       '';
     };
   };
