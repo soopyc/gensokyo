@@ -53,5 +53,6 @@
   };
   users.groups.photography = {};
 
+  users.users.nginx.extraGroups = ["photography"];
   users.users.cassie.extraGroups = ["photography"];
 }
