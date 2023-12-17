@@ -34,7 +34,7 @@
 
       index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
-        fastcgi_index index.php
+        fastcgi_index index.php;
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
       '';
     };
