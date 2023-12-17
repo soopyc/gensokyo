@@ -15,6 +15,7 @@
     ripgrep
     ack
     du-dust
+    parallel
 
     # deno
     deno
