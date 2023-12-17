@@ -1,4 +1,10 @@
-{config, pkgs, lib, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  _utils,
+  ...
+}: {
   # TODO: we can make this better by just automating everything needed to make a h5ai site.
   services.phpfpm.pools."photography" = {
     user = "photography";
@@ -12,9 +18,22 @@
       "pm.min_spare_servers" = 1;
       "pm.max_spare_servers" = 3;
     };
-    phpEnv."PATH" = lib.makeBinPath (with pkgs;[
+    phpEnv."PATH" = lib.makeBinPath (with pkgs; [
       php
     ]);
+  };
+
+  services.nginx.virtualHosts."photography.soopy.moe" = _utils.mkVhost {
+    root = "/opt/photography/";
+    locations."/" = {
+      # what's the purpose of $.fastcgiParams when it's barely even usable
+      index = "index.html /_h5ai/public/index.php";
+      extraConfig = ''
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
+        include ${config.services.nginx.package}/conf/fastcgi.conf;
+      '';
+    };
   };
 
   users.users.photography = {
