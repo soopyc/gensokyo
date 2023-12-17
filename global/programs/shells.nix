@@ -22,4 +22,9 @@
     enable = true;
     settings = builtins.fromTOML (builtins.readFile ./starship.toml);
   };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }
