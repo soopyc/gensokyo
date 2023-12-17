@@ -23,4 +23,6 @@
     createHome = false;
   };
   users.groups.photography = {};
+
+  users.users.cassie.extraGroups = ["photography"];
 }
