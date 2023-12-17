@@ -39,7 +39,6 @@
       index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
         error_log /var/log/nginx/photography.error.log warn;
-        fastcgi_index index.php;
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
         include ${config.services.nginx.package}/conf/fastcgi.conf;
       '';
