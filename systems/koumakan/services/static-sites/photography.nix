@@ -4,7 +4,9 @@
     user = "photography";
     settings = {
       "listen.owner" = config.services.nginx.user;
-      "pm" = "dynamic";
+      "pm" = "ondemand";
+      "pm.process_idle_timeout" = "3s";
+      "pm.max_children" = 32;
       "pm.max_requests" = 500;
       "pm.start_servers" = 1;
       "pm.min_spare_servers" = 1;
