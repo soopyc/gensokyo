@@ -29,7 +29,8 @@
 
   services.nginx.virtualHosts."photography.soopy.moe" = _utils.mkVhost {
     root = "/opt/photography";
-    locations."/" = {
+    locations."~ \.php$" = {
+      tryFiles = "$fastcgi_script_name =404";
       # what's the purpose of $.fastcgiParams when it's barely even usable
       # fastcgiParams = {
       #   DOCUMENT_ROOT = "$realpath_root";
