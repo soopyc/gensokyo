@@ -31,16 +31,17 @@
     root = "/opt/photography";
     locations."/" = {
       # what's the purpose of $.fastcgiParams when it's barely even usable
-      fastcgiParams = {
-        DOCUMENT_ROOT = "$realpath_root";
-        SCRIPT_FILENAME = "$realpath_root$fastcgi_script_name";
-      };
+      # fastcgiParams = {
+      #   DOCUMENT_ROOT = "$realpath_root";
+      #   SCRIPT_FILENAME = "$realpath_root$fastcgi_script_name";
+      # };
 
       index = "index.html index.php /_h5ai/public/index.php";
       extraConfig = ''
         error_log /var/log/nginx/photography.error.log warn;
         fastcgi_index index.php;
         fastcgi_pass unix:${config.services.phpfpm.pools.photography.socket};
+        include ${config.services.nginx.package}/conf/fastcgi.conf;
       '';
     };
   };
