@@ -13,6 +13,10 @@ test system="":
 switch system="":
 	sudo nixos-rebuild -v -L switch --flake .#{{system}}
 
+# literally nixos-rebuild boot with a different name
+defer system="":
+  sudo nixos-rebuild -v -L boot --flake .#{{system}}
+
 # run utility programs
 utils recipe="list":
   @echo "Running utils/{{recipe}}"
