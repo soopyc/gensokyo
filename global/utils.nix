@@ -12,7 +12,7 @@ in rec {
       {
         forceSSL = lib.mkDefault true;
         useACMEHost = lib.mkDefault "global.c.soopy.moe";
-        kTLS = lib.mkDefault true;
+        kTLS = lib.mkDefault false;
 
         locations."/_cgi/error/" = {
           alias = "${inputs.mystia.packages.${system}.staticly}/nginx_error_pages/";
