@@ -31,7 +31,7 @@ in {
   };
   services.forgejo = {
     enable = true;
-    package = inputs.mystia.packages.${pkgs.system}.forgejo-unstable;
+    package = inputs.mystia.packages.${pkgs.system}.forgejoUnstable;
 
     repositoryRoot = "${config.services.forgejo.stateDir}/data/repositories";
 
