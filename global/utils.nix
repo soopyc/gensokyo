@@ -23,7 +23,7 @@ in rec {
           alias = mkNginxFile "robots.txt" ''
             # Please stop hammering my server with 200 requests per **second**.
             User-Agent: *
-            Disallow: *
+            Disallow: /
           '';
           tryFiles = "robots.txt =502";
         };
