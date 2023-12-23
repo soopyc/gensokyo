@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   imports = [
@@ -19,6 +20,18 @@
 
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
+
+  system.autoUpgrade = lib.mkDefault {
+    enable = true;
+    flake = "https://patchy.soopy.moe/cassie/genso-nix/archive/main.tar.gz";
+    dates = "2.5m";
+    flags = [
+      "--options"
+      "tarball-ttl"
+      "0"
+    ];
+    allowReboot = false; # this breaks our current setup with encrypted secureboot
+  };
 
   # # Enable crash dumps globally
   # boot.crashDump = {
