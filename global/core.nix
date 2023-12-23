@@ -24,7 +24,7 @@
   system.autoUpgrade = lib.mkDefault {
     enable = true;
     flake = "https://patchy.soopy.moe/cassie/genso-nix/archive/main.tar.gz";
-    dates = "2.5m";
+    dates = "*-*-* *:00/2:00";
     flags = [
       "--options"
       "tarball-ttl"

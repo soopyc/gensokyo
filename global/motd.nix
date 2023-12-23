@@ -30,7 +30,8 @@ in {
     wantedBy = ["timers.target"];
     timerConfig = {
       Unit = "gensokyo-refresh-motd.service";
-      OnCalendar = "*:0/5"; # every 5 minutes -- most readable format
+      # OnCalendar = "*:0/5"; # every 5 minutes -- most readable format
+      OnCalendar = "*-*-* *:00/5:00";
       AccuracySec = "2.5min";
     };
   };
