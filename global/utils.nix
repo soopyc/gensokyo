@@ -35,6 +35,7 @@ in rec {
           error_page 503 /_cgi/error/503.html;
           error_page 502 /_cgi/error/502.html;
           error_page 404 /_cgi/error/404.html;
+          add_header strict-transport-security "max-age=63072000; includeSubDomains; preload";
         '';
       }
       opts
