@@ -2,10 +2,13 @@
   config,
   _utils,
   lib,
+  inputs,
+  system,
   ...
 }: {
   services.writefreely = {
     enable = true;
+    package = inputs.nixpkgs-soopy.legacyPackages.${system}.writefreely;
     host = "words.soopy.moe";
     settings = {
       server.port = 31294;
