@@ -287,11 +287,11 @@
     },
     "nixpkgs-soopy": {
       "locked": {
-        "lastModified": 1703431600,
-        "narHash": "sha256-xM9xc63mpZclBaDE8peaBIr5bD/bqP0L34HRlqFgYWo=",
+        "lastModified": 1703434930,
+        "narHash": "sha256-gAi9T97KVRPDcqd3P4rsk69/5FfNQz1xBpjuZA685SI=",
         "owner": "soopyc",
         "repo": "nixpkgs",
-        "rev": "1bb69f92348b739a9b9cc0764673119ef6428b0a",
+        "rev": "f30de6275592d17171c7857ce7652150d1872fd7",
         "type": "github"
       },
       "original": {
