@@ -19,6 +19,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-soopy.url = "github:soopyc/nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
