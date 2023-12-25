@@ -38,6 +38,7 @@
   nix.registry =
     {
       n.flake = inputs.nixpkgs;
+      mystia.flake = inputs.mystia;
     }
     // (builtins.mapAttrs (_: flake: {inherit flake;})
       (lib.filterAttrs (n: _: n != "nixpkgs") inputs));
