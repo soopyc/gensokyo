@@ -79,7 +79,7 @@
     };
   };
 
-  services.matrix-synapse.sliding-sync = {
+  services.matrix-sliding-sync = {
     enable = true;
     createDatabase = true; # let the module handle itself
     settings = {
