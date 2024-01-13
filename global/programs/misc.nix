@@ -16,6 +16,8 @@
     ack
     du-dust
     parallel
+    ouch
+    terraform
 
     # deno
     deno
