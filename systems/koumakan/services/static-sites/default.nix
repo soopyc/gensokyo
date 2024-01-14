@@ -2,6 +2,7 @@
   imports = [
     ./keine.nix
     ./photography.nix
+    ./assets.nix
   ];
 
   # Fallback site
