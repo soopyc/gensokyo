@@ -3,24 +3,23 @@
 
 # build the current configuration
 build system="":
-	nixos-rebuild -v -L build --flake .#{{system}}
+	nixos-rebuild -v build --flake .#{{system}} --log-format internal-json |& nom --json
 
 # build and test the configuration, but don't switch
 test system="":
-	nixos-rebuild -v -L test --flake .#{{system}}
-
+	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json |& nom --json
 # switch to the current configuration
 switch system="":
-	sudo nixos-rebuild -v -L switch --flake .#{{system}}
+	sudo nixos-rebuild -v -L switch --flake .#{{system}} --log-format internal-json |& nom --json
 
 # literally nixos-rebuild boot with a different name
 defer system="":
-  sudo nixos-rebuild -v -L boot --flake .#{{system}}
+  sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json |& nom --json
 
 # run utility programs
 utils recipe="list":
   @echo "Running utils/{{recipe}}"
-  @cd utils && just {{recipe}}
+  @just -d utils -f utils/justfile {{recipe}}
 
 # update an input in the flake lockfile
 update-input input:
