@@ -41,6 +41,7 @@
         ''
       )
     ];
+    serviceConfig.RuntimeMaxSec = "7d";
     environment = {
       NITTER_ACCOUNTS_FILE = "/var/lib/nitter/guest_accounts.jsonl";
     };
