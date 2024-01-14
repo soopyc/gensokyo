@@ -18,7 +18,8 @@
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.follows = "mystia/nixpkgs";
+    # nixpkgs.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -43,7 +44,6 @@
 
     mystia = {
       url = "github:soopyc/mystia";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
