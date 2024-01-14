@@ -10,13 +10,11 @@ test system="":
 	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json |& nom --json
 
 # switch to the current configuration
-switch system="":
-	@sudo true
+switch system="": sudo_cache
 	sudo nixos-rebuild -v -L switch --flake .#{{system}} --log-format internal-json |& nom --json
 
 # literally nixos-rebuild boot with a different name
-defer system="":
-	@sudo true
+defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json |& nom --json
 
 # run utility programs
@@ -39,3 +37,7 @@ update-input input:
 vm system run="true" bootloader="false":
 	nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
 	{{if run == "true" {"./result/bin/run-"+system+"-vm"} else {""} }}
+
+[private]
+sudo_cache:
+	@sudo true
