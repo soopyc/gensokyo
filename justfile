@@ -8,22 +8,25 @@ build system="":
 # build and test the configuration, but don't switch
 test system="":
 	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json |& nom --json
+
 # switch to the current configuration
 switch system="":
+	@sudo true
 	sudo nixos-rebuild -v -L switch --flake .#{{system}} --log-format internal-json |& nom --json
 
 # literally nixos-rebuild boot with a different name
 defer system="":
-  sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json |& nom --json
+	@sudo true
+	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json |& nom --json
 
 # run utility programs
 utils recipe="list":
-  @echo "Running utils/{{recipe}}"
-  @just -d utils -f utils/justfile {{recipe}}
+	@echo "Running utils/{{recipe}}"
+	@just -d utils -f utils/justfile {{recipe}}
 
 # update an input in the flake lockfile
 update-input input:
-  nix flake lock --update-input {{input}}
+	nix flake lock --update-input {{input}}
 
 # REMOVED: build a system from the flake on a non-nixos platform
 # ebuild system:
@@ -34,5 +37,5 @@ update-input input:
 
 # build a vm for a system
 vm system run="true" bootloader="false":
-  nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
-  {{if run == "true" {"./result/bin/run-"+system+"-vm"} else {""} }}
+	nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
+	{{if run == "true" {"./result/bin/run-"+system+"-vm"} else {""} }}
