@@ -9,7 +9,7 @@
         add_header Cache-Control "public";
       '';
 
-      "~* /\.(?!well-known)".extraConfig = ''
+      "~* /\\.(?!well-known)".extraConfig = ''
         deny all;
       '';
     };
