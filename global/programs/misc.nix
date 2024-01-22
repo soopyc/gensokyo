@@ -9,6 +9,7 @@
     wget
     curl
     xh
+    nix-output-monitor
 
     # basic sysadmin utils
     file
