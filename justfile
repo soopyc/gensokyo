@@ -26,6 +26,10 @@ utils recipe="list":
 update-input input:
 	nix flake lock --update-input {{input}}
 
+# update everything in flake.lock and commit that
+flake-update:
+	nix flake update --commit-lock-file
+
 # REMOVED: build a system from the flake on a non-nixos platform
 # ebuild system:
 #   nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.toplevel
