@@ -8,5 +8,5 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICMjRM3BNkLbU57RyfUx7kOlZeBEj/NByr1PfXri82aP
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPTbZL0dq0ynBl8fy9yZmrKVWd/fOybZoqBKchP0MPM sophie@marisa.d.soopy.moe
 
 # Phones and Portables (portals)
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINSPVCgm1yoAU/5ePU+V1ZmCgRaQAu9iuJge4MGIJnec soopyc <pixel7a+Gr@portal.d.soopy.moe> (b19e9e22c34c2903)
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICPydYsQOmcjpsuhwi+w7TD5DRPXIe3pemUYyUbmOLMt pixel7a+graphite@portal.d.soopy.moe
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID41KR2A+6frMVx7VVsONXmPi88RcHLQLOs1QVNngqoY vault.stored@portal.d.soopy.moe
