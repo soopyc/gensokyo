@@ -32,7 +32,7 @@
     extraConfig = ''
       index index.html index.php /_h5ai/public/index.php;
     '';
-    
+
     locations."~ \.php$" = {
       tryFiles = "$fastcgi_script_name =404";
       # what's the purpose of $.fastcgiParams when it's barely even usable
