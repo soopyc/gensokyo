@@ -19,7 +19,7 @@
 
   inputs = {
     nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs-wf.url = "github:soopyc/nixpkgs/writefreely";
+    nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";

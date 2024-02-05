@@ -380,16 +380,16 @@
     },
     "nixpkgs-wf": {
       "locked": {
-        "lastModified": 1707064515,
-        "narHash": "sha256-Y0V8LIdgqkc6OcqsHkKBC9ctDhSzyTVCZ8N1oGyhkRg=",
+        "lastModified": 1707148586,
+        "narHash": "sha256-CmmExnDvUYupYiCPV7bYXkeZ8xPPtvgrQayT9Ms5hTU=",
         "owner": "soopyc",
         "repo": "nixpkgs",
-        "rev": "339224077795960dd66e867a63a1e4aa7d53639e",
+        "rev": "207322e2a26fdfc2227f04e8acb37bbdfe354bd6",
         "type": "github"
       },
       "original": {
         "owner": "soopyc",
-        "ref": "writefreely",
+        "ref": "wf-test",
         "repo": "nixpkgs",
         "type": "github"
       }
