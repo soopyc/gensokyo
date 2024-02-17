@@ -44,4 +44,4 @@ vm system run="true" bootloader="false":
 
 [private]
 sudo_cache:
-	@sudo true
+	@sudo -v
