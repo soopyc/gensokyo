@@ -11,6 +11,7 @@
     ./matrix
     ./fediverse
 
+    ./telemetry
     ./security
     ./proxies
     ./static-sites
