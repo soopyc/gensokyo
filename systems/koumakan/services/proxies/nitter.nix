@@ -1,7 +1,6 @@
 {
   _utils,
   pkgs,
-  config,
   ...
 }: {
   sops.secrets =
@@ -26,21 +25,6 @@
   };
 
   systemd.services.nitter = {
-    path = [
-      pkgs.xh
-    ];
-    serviceConfig.ExecStartPre = [
-      (
-        # because we already have a nitter system user, let's make this easier on ourselves
-        pkgs.writeShellScript "nitter-prestart-tokens" ''
-          set -euxo pipefail
-          GUEST_ACCOUNTS_ENDPOINT=`cat ${config.sops.secrets."nitter/guest_accounts_service/endpoint".path}`
-          xh GET "''${GUEST_ACCOUNTS_ENDPOINT}" key==@${config.sops.secrets."nitter/guest_accounts_service/token".path} host==${config.services.nitterPatched.server.hostname} \
-            -do /var/lib/nitter/guest_accounts.jsonl
-          unset GUEST_ACCOUNTS_{ENDPOINT,TOKEN}
-        ''
-      )
-    ];
     serviceConfig.RuntimeMaxSec = "7d";
     environment = {
       NITTER_ACCOUNTS_FILE = "/var/lib/nitter/guest_accounts.jsonl";
