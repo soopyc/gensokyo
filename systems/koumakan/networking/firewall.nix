@@ -6,5 +6,8 @@
       80
       443 # http[s]
     ];
+    allowedUDPPorts = [
+      443 # https over quic (http3)
+    ];
   };
 }
