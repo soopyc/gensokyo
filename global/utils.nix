@@ -12,7 +12,8 @@ in rec {
       {
         forceSSL = lib.mkDefault true;
         useACMEHost = lib.mkDefault "global.c.soopy.moe";
-        kTLS = lib.mkDefault false;
+        kTLS = lib.mkDefault true;
+        quic = lib.mkDefault true;
 
         locations."/_cgi/error/" = {
           alias = "${inputs.mystia.packages.${system}.staticly}/nginx_error_pages/";
@@ -37,6 +38,7 @@ in rec {
           error_page 502 /_cgi/error/502.html;
           error_page 404 /_cgi/error/404.html;
           add_header strict-transport-security "max-age=63072000; includeSubDomains; preload";
+          add_header alt-svc 'h3=":443";ma=3600, h2=":443";ma=2592000;persist=1'
         '';
       }
       opts

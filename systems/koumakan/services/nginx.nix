@@ -2,7 +2,7 @@
   services.nginx = {
     enable = true;
     enableReload = true;
-    package = pkgs.nginxMainline;
+    package = pkgs.nginxQuic;
 
     clientMaxBodySize = "50m";
 
