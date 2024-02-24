@@ -105,20 +105,15 @@
     extraConfig = {
       useACMEHost = "proxy.c.soopy.moe";
 
-      locations."= /" = {
-        alias = _utils.mkNginxFile "index.html" ''<!doctype html><html><head><title>msc3575 proxy</title><style>html{font-family:monospace;}</style></head><body><h2>Welcome to the sliding sync proxy.</h2><p>This proxy is for internal use only, you will need an account on nue.soopy.moe to use it. Feel free to self host one yourself!!</p></body></html>'';
-        tryFiles = "index.html =404";
+      locations."= /" = _utils.mkNginxFile {
+        content = ''<!doctype html><html><head><title>msc3575 proxy</title><style>html{font-family:monospace;}</style></head><body><h2>Welcome to the sliding sync proxy.</h2><p>This proxy is for internal use only, you will need an account on nue.soopy.moe to use it. Feel free to self host one yourself!!</p></body></html>'';
       };
     };
   };
 
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
-    locations."= /.well-known/matrix/server" = {
-      # TODO: move and handle this in the function as well
-      tryFiles = "server =404";
-      alias = _utils.mkNginxJSON "server" {
+    locations."= /.well-known/matrix/server" = _utils.mkNginxJSON "server" {
         "m.server" = "nue.soopy.moe:443";
-      };
     };
 
     locations."~ ^(/_matrix|/_synapse/client)" = {

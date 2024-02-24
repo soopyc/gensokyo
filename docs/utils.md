@@ -1,7 +1,7 @@
 # utility functions
 
 ## `_utils.mkVhost`
-`attrset -> attrset`
+`freeformAttrset -> freeformAttrset`
 make a virtual host with sensible defaults
 
 pass in a set to override the defaults.
@@ -12,7 +12,7 @@ services.nginx.virtualHosts."balls.example" = _utils.mkVhost {};
 ```
 
 ## `_utils.mkSimpleProxy`
-`attrset -> attrset`
+`{port, protocol, location, websockets, extraConfig} -> freeformAttrset`
 
 make a simple reverse proxy
 
@@ -31,7 +31,7 @@ It is recommended to override/add attributes with `extraConfig` to
 preserve defaults.
 
 Items in `extraConfig` are merged verbatim to the base attrset with defaults.
-They are overridden based on their order.
+They are overridden based on their priority order.
 
 ## `_utils.genSecrets`
 `namespace<str> -> files<list[str]> -> value<attrset> -> attrset`
@@ -59,21 +59,22 @@ in {
 See https://github.com/soopyc/nix-on-koumakan/blob/b7983776143c15c91df69ef34ba4264a22047ec6/systems/koumakan/services/fedivese/akkoma.nix#L8-L34 for a more extensive example
 
 ## `_utils.mkNginxFile`
-`filename<str> -> contents<str> ==> ` *derivation*
-
-Simple file derivation generator to use with nginx aliases.
+`{filename<str> ? "index.html", content<str>, status<int> ? 200} -> {alias<str>, tryFiles<str>}`
+Simple helper function to generate an attrset compatible with a nginx vhost `locations` attribute that serves a single file.
 
 ### Example
 ```nix
-services.nginx.virtualHosts."example.com".locations."/" = {
-  alias = _utils.mkNginxFile "index.html" ''
-  <!doctype html><html><body>We've been trying to reach you about your car's Extended Warranty.</body></html>
+services.nginx.virtualHosts."example.com".locations."/" = _utils.mkNginxFile {
+  content = ''
+    <!doctype html><html><body>We've been trying to reach you about your car's Extended Warranty.</body></html>
   '';
-  tryFiles = "index.html =404";
 };
 ```
 
 ## `_utils.mkNginxJSON`
-`filename<str> -> attrset ==>` *derivation*
+`filename<str> -> freeformAttrset ==> attrset`
 
-Simple wrapper around `_utils.mkNginxFile` that takes in an attrset and formats it as JSON.
+Simple wrapper around `_utils.mkNginxFile` that takes in an attrset and formats it as JSON.\
+
+Note that the function signature is different in that it doesn't take in only one attrset.
+This may change in the future.

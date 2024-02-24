@@ -19,13 +19,14 @@ in rec {
         };
 
         # To override, mkForce {}
-        locations."= /robots.txt" = {
-          alias = mkNginxFile "robots.txt" ''
-            # Please stop hammering my server with 200 requests per **second**.
+        locations."= /robots.txt" = mkNginxFile {
+          status = 502;
+          filename = "robots.txt";
+          content = ''
+            # Please stop hammering and/or scraping our services.
             User-Agent: *
             Disallow: /
           '';
-          tryFiles = "robots.txt =502";
         };
 
         extraConfig = ''
@@ -63,14 +64,21 @@ in rec {
       map (x: namespace + lib.optionalString (lib.stringLength namespace != 0) "/" + x) files
     ) (_: value);
 
-  # TODO: we probably don't need to retype tryFiles and alias every single time we use this. this is inherently unintuitive.
-  mkNginxFile = filename: contents:
-    if (builtins.typeOf contents) != "string"
-    then throw "argument $contents must be a string, got '${builtins.typeOf contents}' instead."
-    else builtins.toString (pkgs.writeTextDir filename contents) + "/";
+  mkNginxFile = {filename ? "index.html", content, status ? 200}: let
+    contentDir =
+      if (builtins.typeOf content) == "string"
+      then builtins.toString (pkgs.writeTextDir filename content) + "/"
+      else throw "parameter `content` must be a string, got `${builtins.typeOf content}` instead.";
+  in {
+    alias = contentDir;
+    tryFiles = "${filename} =${builtins.toString status}";
+  };
 
   mkNginxJSON = filename: attrset:
     if (builtins.typeOf attrset) != "set"
-    then throw "argument"
-    else mkNginxFile filename (builtins.toJSON attrset);
+    then throw "attrset: expected argument type `set`, got `${builtins.typeOf attrset}` instead."
+    else mkNginxFile {
+      inherit filename;
+      content = builtins.toJSON attrset;
+    };
 }
