@@ -1,6 +1,9 @@
 # friendship ended with Makefile
 # I LOVE justFILE!!!!!!
 
+# modules are unstable atm
+# mod utils
+
 # build the current configuration
 build system="":
 	nixos-rebuild -v build --flake .#{{system}} --log-format internal-json |& nom --json
@@ -29,13 +32,6 @@ update-input input:
 # update everything in flake.lock and commit that
 flake-update:
 	nix flake update --commit-lock-file
-
-# REMOVED: build a system from the flake on a non-nixos platform
-# ebuild system:
-#   nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.toplevel
-
-# vm system:
-#   nix build -j8 .#nixosConfigurations."{{system}}".config.system.build.vm
 
 # build a vm for a system
 vm system run="true" bootloader="false":
