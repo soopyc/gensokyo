@@ -1,7 +1,15 @@
 {...}: {
-  services.prometheus.exporters.node = {
-    enable = true;
-    listenAddress = "127.0.0.1";
-    port = 20091;
+  services.prometheus.exporters = {
+    node = {
+      enable = true;
+      listenAddress = "127.0.0.1";
+      port = 20091;
+    };
+
+    nginx = {
+      enable = true;
+      listenAddress = "127.0.0.1";
+      port = 20101;
+    };
   };
 }

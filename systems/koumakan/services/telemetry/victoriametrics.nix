@@ -1,8 +1,39 @@
-{...}: {
+{
+  config,
+  ...
+}: {
   services.victoriametrics = {
     enable = true;
+    listenAddress = "127.0.0.1:20090";
     retentionPeriod = 5 * 12; # 5 years
   };
 
-  # to setup capturing, please use systems.koumakan.administration.telemetry
+  services.vmagent = {
+    enable = true;
+    prometheusConfig = {
+      global = {
+        scrape_interval = "1m";
+      };
+
+      scrape_configs = [
+        {
+          job_name = "vm_koumakan";
+          static_configs = [{targets = ["${builtins.toString config.services.victoriametrics.listenAddress}"];}];
+        }
+
+        # node exporters
+        {
+          job_name = "koumakan";
+          static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
+        }
+
+        # other services' metrics
+        {
+          job_name = "nginx_koumakan";
+          static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}"];}];
+        }
+
+      ];
+    };
+  };
 }
