@@ -19,12 +19,14 @@
       scrape_configs = [
         {
           job_name = "vm_koumakan";
+          scrape_interval = "15s";
           static_configs = [{targets = ["${builtins.toString config.services.victoriametrics.listenAddress}"];}];
         }
 
         # node exporters
         {
           job_name = "koumakan";
+          scrape_interval = "15s";
           static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
         }
 
