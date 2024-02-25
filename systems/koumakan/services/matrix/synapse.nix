@@ -113,7 +113,7 @@
 
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
     locations."= /.well-known/matrix/server" = _utils.mkNginxJSON "server" {
-        "m.server" = "nue.soopy.moe:443";
+      "m.server" = "nue.soopy.moe:443";
     };
 
     locations."~ ^(/_matrix|/_synapse/client)" = {

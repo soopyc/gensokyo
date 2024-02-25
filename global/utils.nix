@@ -66,7 +66,11 @@ in rec {
       map (x: namespace + lib.optionalString (lib.stringLength namespace != 0) "/" + x) files
     ) (_: value);
 
-  mkNginxFile = {filename ? "index.html", content, status ? 200}: let
+  mkNginxFile = {
+    filename ? "index.html",
+    content,
+    status ? 200,
+  }: let
     contentDir =
       if (builtins.typeOf content) == "string"
       then builtins.toString (pkgs.writeTextDir filename content) + "/"
@@ -79,8 +83,9 @@ in rec {
   mkNginxJSON = filename: attrset:
     if (builtins.typeOf attrset) != "set"
     then throw "attrset: expected argument type `set`, got `${builtins.typeOf attrset}` instead."
-    else mkNginxFile {
-      inherit filename;
-      content = builtins.toJSON attrset;
-    };
+    else
+      mkNginxFile {
+        inherit filename;
+        content = builtins.toJSON attrset;
+      };
 }

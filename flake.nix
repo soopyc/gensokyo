@@ -63,7 +63,10 @@
     ];
     forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
   in {
-    lib.x86_64-linux = import ./global/utils.nix {inherit inputs; system = "x86_64-linux";};
+    lib.x86_64-linux = import ./global/utils.nix {
+      inherit inputs;
+      system = "x86_64-linux";
+    };
 
     nixosConfigurations = {
       koumakan = import ./systems/koumakan {

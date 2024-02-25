@@ -1,7 +1,4 @@
-{
-  _utils,
-  ...
-}: {
+{_utils, ...}: {
   services.nginx.virtualHosts."nitter.soopy.moe" = _utils.mkVhost {
     locations."/" = _utils.mkNginxFile {
       content = ''
