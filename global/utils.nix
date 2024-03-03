@@ -61,6 +61,33 @@ in rec {
       }
     ]);
 
+  setupSecrets = _config: {
+    namespace ? (lib.warn "secret namespace left as default, which is empty. it is encouraged to set a namespace for easier secret management. to override, explicitly set this to an empty value." ""),
+    secrets,
+    config ? {},
+  }: let
+    _r_ns = namespace + lib.optionalString (lib.stringLength namespace != 0) "/";
+    check = path:
+      if lib.elem path secrets
+      then path
+      else throw "secret path `${path}` is not defined in namespace `${namespace}`. (resolved: ${_r_ns namespace}/${path})";
+    getRealPath = path: _r_ns + check path;
+  in
+    builtins.addErrorContext "while setting up secrets with namespace ${namespace}" {
+      generate = {sops.secrets = genSecrets namespace secrets config;}; # i love trolling
+      get = path: _config.sops.secrets.${getRealPath path}.path;
+
+      placeholder = path: _config.sops.placeholder.${getRealPath path};
+      getTemplate = file: _config.sops.templates.${file}.path;
+      mkTemplate = file: content:
+        builtins.addErrorContext "while generating sops template ${file}" {
+          sops.templates.${file} =
+            {inherit content;}
+            // (lib.optionalAttrs (builtins.hasAttr "owner" config) {inherit (config) owner;})
+            // (lib.optionalAttrs (builtins.hasAttr "group" config) {inherit (config) group;});
+        };
+    };
+
   genSecrets = namespace: files: value:
     lib.genAttrs (
       map (x: namespace + lib.optionalString (lib.stringLength namespace != 0) "/" + x) files
