@@ -22,7 +22,7 @@
     SYNCV3_SECRET=${config.sops.placeholder."matrix-sliding-sync/secret"}
   '';
 
-  users.users.matrix-synapse.shell = lib.mkForce pkgs.shadow; # TODO: test functionality
+  users.users.matrix-synapse.shell = lib.mkForce pkgs.shadow;
 
   services.matrix-synapse = {
     enable = true;

@@ -24,7 +24,7 @@
   #   else "/run/secrets/${ns}";
 
   runConfig = config.services.forgejo.customDir + "/conf/app.ini";
-  replaceSecretBin = "${pkgs.replace-secret}/bin/replace-secret";
+  replaceSecretBin = lib.getExe pkgs.replace-secret;
 in {
   sops.secrets = _utils.genSecrets ns secrets {
     owner = config.services.forgejo.user;
