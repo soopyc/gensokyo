@@ -1,20 +1,26 @@
-{...}: {
+{_utils, config, ...}: let
+  secrets = _utils.setupSecrets config {
+    namespace = "lego";
+    secrets = ["cf_token"];
+  };
+in {
   imports = [
     ./global.nix
     ./postgresql.nix
     ./fediverse.nix
     ./proxy.nix
+    secrets.generate
   ];
 
   security.acme = {
     defaults = {
       # == lego Configuration ==
-      credentialsFile = "/etc/lego/desec";
-      dnsProvider = "desec";
-      # In a more ideal world we would have an eddsa algo here but oh well
+      credentialFiles = {
+        CLOUDFLARE_API_KEY = secrets.get "cf_token";
+      };
+      dnsProvider = "cloudflare";
+      # In an ideal world we would have an ed/cv25519 algo here but oh well
       keyType = "ec256"; # Ensure we use ec keys
-
-      dnsResolver = "8.8.8.8:53";
 
       # == LE Configuration ==
       email = "me@soopy.moe";
