@@ -10,6 +10,7 @@ Note: most of this document focuses on koumakan.
 - `20xxx`: Prometheus/Metrics
   - `2009x`: core metrics, node metrics
   - `201xx`: service metrics
+<!-- note: grafana uses unix sockets instead. -->
 
 - `3xxxx`: Service ports
   - `35xxx`: exposed docker container ports
