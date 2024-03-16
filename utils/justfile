@@ -6,3 +6,13 @@ list:
 # grab a new nitter guest account and save it
 nitter-token:
   {{python_executable}} nitter-guest-account.py tokens.json
+
+# sync sops config with the nix file
+update-sops-config:
+  #!/bin/bash
+  set -euxo pipefail
+  rm ../.sops.yaml
+  # mv ../.sops.yaml{,.bak} 2>/dev/null || true
+  OUT=$(nix-build --quiet --no-out-link build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix")
+  echo -e "# WARNING: This is a generated file. DO NOT EDIT DIRECTLY!\n# See .sops.nix and utils/build-yaml.nix for more details." \
+    | cat - $OUT > ../.sops.yaml

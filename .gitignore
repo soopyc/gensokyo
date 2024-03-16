@@ -3,3 +3,7 @@ result
 
 .direnv/
 *.qcow2
+
+# backup files
+*.bak
+*.old
