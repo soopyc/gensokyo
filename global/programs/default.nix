@@ -12,6 +12,7 @@
     ./scm.nix
 
     ./gpg.nix
+    ./smartcard.nix
 
     ./misc.nix
   ];
