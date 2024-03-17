@@ -16,7 +16,7 @@ in {
     defaults = {
       # == lego Configuration ==
       credentialFiles = {
-        CLOUDFLARE_API_KEY = secrets.get "cf_token";
+        CLOUDFLARE_DNS_API_TOKEN_FILE = secrets.get "cf_token";
       };
       dnsProvider = "cloudflare";
       # In an ideal world we would have an ed/cv25519 algo here but oh well
