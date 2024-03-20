@@ -1,0 +1,21 @@
+[book]
+authors = ["Cassie Cheung"]
+language = "en"
+multilingual = false
+src = "src"
+title = "genso-nix"
+
+[build]
+build-dir = "./dist"
+
+[output.html]
+preferred-dark-theme = "ayu"
+git-repository-url = "https://patchy.soopy.moe/cassie/genso-nix"
+git-repository-icon = "fa-code-fork"
+edit-url-template = "https://patchy.soopy.moe/cassie/genso-nix/_edit/main/docs/{path}"
+additional-css = ["mdbook-admonish.css"]
+cname = "flake.soopy.moe"
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
