@@ -34,14 +34,15 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
       - name: Install mdBook and dependencies
-        run: |
-          cargo install mdbook mdbook-admonish
+        run: cargo install mdbook mdbook-admonish
       - name: Build site
         run: mdbook build docs
       - name: Upload built site as artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./docs/dist
+      - name: Get some statistics
+        run: ./sccache --show-stats
 
   deploy:
     environment:
