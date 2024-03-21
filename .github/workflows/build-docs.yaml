@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Obtain mdBook
+      - uses: dtolnay/rust-toolchain@nightly
+      - name: Install mdBook and dependencies
         run: |
-          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.37/mdbook-v0.4.37-x86_64-unknown-linux-gnu.tar.gz | tar -xzv
-          chmod +x ./mdbook
+          cargo install mdbook mdbook-admonish
       - name: Build site
-        run: ./mdbook build docs
+        run: mdbook build docs
       - name: Upload built site as artifact
         uses: actions/upload-pages-artifact@v3
         with:
