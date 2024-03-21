@@ -24,7 +24,7 @@ While the `!` syntax do preallocate a dynamic user, we cannot use it to change a
   Terminal output {{{
 -->
 ~~~admonish tldr title="Terminal Output" collapsible=true
-```console
+```ShellSession
 cassie in marisa in ~ took 1s
 ✗ 1 ➜ systemd-run -pPrivateTmp=true -pDynamicUser=true --property="SystemCallFilter=@system-service ~@privileged ~@resources" -pExecStartPre="+env" -pPrivateUsers=true -t bash
 
