@@ -1,3 +1,7 @@
+# Copyright (c) 2023-2024 Cassie Cheung (soopyc)
+# Permission is given to copy and use under the terms of Apache 2.0.
+#
+# you may copy-paste this entire file to anywhere else. just keep the comments.
 # see /docs/utils.md for a usage guide
 {
   inputs,
@@ -45,21 +49,32 @@ in rec {
     ];
 
   mkSimpleProxy = {
-    port,
     protocol ? "http",
+    port ? null,
+    socketPath ? null,
     location ? "/",
     websockets ? false,
     extraConfig ? {},
   }:
-    mkVhost (lib.mkMerge [
-      extraConfig
-      {
-        locations."${location}" = {
-          proxyPass = "${protocol}://localhost:${toString port}";
-          proxyWebsockets = websockets;
-        };
-      }
-    ]);
+    assert lib.assertMsg (port != null || socketPath != null) "one of port or socketPath must be specified";
+    # i dislike logic gates
+    assert lib.assertMsg (!(port != null && socketPath != null)) "only one of port or socketPath may be specified at the same time";
+    assert lib.assertMsg (port != null -> builtins.isInt port) "port must be an integer if specified";
+      mkVhost (lib.mkMerge [
+        extraConfig
+        {
+          locations."${location}" = {
+            proxyPass =
+              "${protocol}://"
+              + (
+                if (socketPath == null)
+                then "localhost:${builtins.toString port}"
+                else "unix:${socketPath}"
+              );
+            proxyWebsockets = websockets;
+          };
+        }
+      ]);
 
   setupSecrets = _config: {
     namespace ? (lib.warn "secret namespace left as default, which is empty. it is encouraged to set a namespace for easier secret management. to override, explicitly set this to an empty value." ""),
@@ -68,9 +83,8 @@ in rec {
   }: let
     _r_ns = namespace + lib.optionalString (lib.stringLength namespace != 0) "/";
     check = path:
-      if lib.elem path secrets
-      then path
-      else throw "secret path `${path}` is not defined in namespace `${namespace}`. (resolved: ${_r_ns namespace}/${path})";
+      assert lib.assertMsg (lib.elem path secrets)
+      "secret path `${path}` is not defined in namespace `${namespace}`. (resolved to: ${_r_ns namespace}/${path})"; path;
     getRealPath = path: _r_ns + check path;
   in
     builtins.addErrorContext "while setting up secrets with namespace ${namespace}" {
@@ -97,22 +111,25 @@ in rec {
     filename ? "index.html",
     content,
     status ? 200,
-  }: let
-    contentDir =
-      if (builtins.typeOf content) == "string"
-      then builtins.toString (pkgs.writeTextDir filename content) + "/"
-      else throw "parameter `content` must be a string, got `${builtins.typeOf content}` instead.";
-  in {
-    alias = contentDir;
-    tryFiles = "${filename} =${builtins.toString status}";
-  };
+  }:
+    builtins.addErrorContext "while creating a static nginx file ${filename}" (
+      let
+        contentDir = assert lib.assertMsg (builtins.typeOf content == "string")
+        "content must be a string, got `${builtins.typeOf content}`";
+          builtins.toString (pkgs.writeTextDir filename content) + "/";
+      in {
+        alias = contentDir;
+        tryFiles = "${filename} =${builtins.toString status}";
+      }
+    );
 
   mkNginxJSON = filename: attrset:
-    if (builtins.typeOf attrset) != "set"
-    then throw "attrset: expected argument type `set`, got `${builtins.typeOf attrset}` instead."
-    else
-      mkNginxFile {
-        inherit filename;
-        content = builtins.toJSON attrset;
-      };
+    builtins.addErrorContext "while creating a static nginx JSON file ${filename}" (
+      assert lib.assertMsg (builtins.typeOf attrset == "set")
+      "expected argument type `set`, got `${builtins.typeOf attrset}` instead.";
+        mkNginxFile {
+          inherit filename;
+          content = builtins.toJSON attrset;
+        }
+    );
 }

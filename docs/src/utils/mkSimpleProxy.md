@@ -6,13 +6,17 @@ make a simple reverse proxy
 takes a set:
 ```nix
 {
-  port,
+  port ? null,
+  socketPath ? null,
   protocol ? "http",
   location ? "/",
   websockets ? false,
   extraConfig ? {}
 }
 ```
+
+Provide either a `socketPath` to a UNIX socket or a `port` to connect to the upstream via TCP.
+Note that both of these options are mutually exclusive in that only one can be specified.
 
 It is recommended to override/add attributes with `extraConfig` to
 preserve defaults.
