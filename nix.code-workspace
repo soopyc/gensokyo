@@ -10,6 +10,9 @@
 	"settings": {
     "deno.enable": true,
 		"deno.lint": true,
-		"deno.unstable": false
+		"deno.unstable": false,
+    "files.exclude": {
+      "result": true
+    }
 	}
 }
