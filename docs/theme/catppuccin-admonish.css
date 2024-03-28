@@ -326,13 +326,13 @@
   background-color: #1e66f5;
 }
 .latte :is(.admonition):is(.admonish-attention, .admonish-caution, .admonish-warning) {
-  border-color: #fe640b;
+  border-color: #c74c05;
 }
 .latte :is(.admonish-attention, .admonish-caution, .admonish-warning) > :is(.admonition-title, summary.admonition-title) {
   background-color: rgba(254, 100, 11, 0.2);
 }
 .latte :is(.admonish-attention, .admonish-caution, .admonish-warning) > :is(.admonition-title, summary.admonition-title)::before {
-  background-color: #fe640b;
+  background-color: #c74c05;
 }
 .latte :is(.admonition):is(.admonish-faq, .admonish-help, .admonish-question) {
   border-color: #179299;

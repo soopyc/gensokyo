@@ -507,10 +507,10 @@
   color: #df8e1d;
 }
 .latte .hljs-literal {
-  color: #fe640b;
+  color: #c74c05;
 }
 .latte .hljs-number {
-  color: #fe640b;
+  color: #c74c05;
 }
 .latte .hljs-operator {
   color: #179299;
@@ -543,7 +543,7 @@
   color: #8839ef;
 }
 .latte .hljs-variable.constant_ {
-  color: #fe640b;
+  color: #c74c05;
 }
 .latte .hljs-title {
   color: #1e66f5;
@@ -564,7 +564,7 @@
   color: #d20f39;
 }
 .latte .hljs-meta {
-  color: #fe640b;
+  color: #c74c05;
 }
 .latte .hljs-section {
   color: #1e66f5;
@@ -766,7 +766,7 @@
   --icons: #9ca0b0;
   --icons-hover: #8c8fa1;
   --links: #1e66f5;
-  --inline-code-color: #fe640b;
+  --inline-code-color: #c74c05;
   --theme-popup-bg: #e6e9ef;
   --theme-popup-border: #9ca0b0;
   --theme-hover: #9ca0b0;
@@ -782,6 +782,6 @@
   --searchresults-header-fg: #4c4f69;
   --searchresults-border-color: #dce0e8;
   --searchresults-li-bg: #eff1f5;
-  --search-mark-bg: #fe640b;
-  --warning-border: #fe640b;
+  --search-mark-bg: #c74c05;
+  --warning-border: #c74c05;
 }
