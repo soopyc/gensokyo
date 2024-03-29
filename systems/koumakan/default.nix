@@ -23,6 +23,7 @@ lib.nixosSystem {
     inputs.attic.nixosModules.atticd
     inputs.sops-nix.nixosModules.sops
     inputs.mystia.nixosModules.fixups
+    inputs.mystia.nixosModules.vmauth
 
     ./configuration.nix
   ];
