@@ -3,15 +3,14 @@
   _utils,
   ...
 }: let
-  secrets =
-    _utils.setupSecrets config {
-      namespace = "vmetrics";
-      secrets = [
-        "agent/akkoma"
+  secrets = _utils.setupSecrets config {
+    namespace = "vmetrics";
+    secrets = [
+      "agent/akkoma"
 
-        "auth/hosts/mail"
-      ];
-    };
+      "auth/hosts/mail"
+    ];
+  };
 in {
   imports = [
     secrets.generate
