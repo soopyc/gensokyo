@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./victoriametrics.nix
+    ./grafana
   ];
 }
