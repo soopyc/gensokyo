@@ -9,6 +9,7 @@
       "agent/akkoma"
 
       "auth/hosts/mail"
+      "auth/hosts/gateway"
     ];
   };
 in {
@@ -20,6 +21,7 @@ in {
 
     (secrets.mkTemplate "vmauth.env" ''
       AUTH_MAIL_TOKEN=${secrets.placeholder "auth/hosts/mail"}
+      AUTH_GATEWAY_TOKEN=${secrets.placeholder "auth/hosts/gateway"}
     '')
   ];
 
@@ -41,24 +43,27 @@ in {
 
       scrape_configs = [
         {
-          job_name = "vm_koumakan";
+          job_name = "victoriametrics";
           scrape_interval = "15s";
           static_configs = [{targets = ["${builtins.toString config.services.victoriametrics.listenAddress}"];}];
         }
 
         # node exporters
         {
-          job_name = "koumakan";
+          job_name = "node";
           scrape_interval = "15s";
           static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
+          relabel_configs = [{target_label = "instance"; replacement = "koumakan";}];
         }
 
-        # mail node uses remote write to vmagent.
+        # external nodes uses remote write
+        #  [mail, gateway]
 
         # other services' metrics
         {
-          job_name = "nginx_koumakan";
+          job_name = "nginx";
           static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}"];}];
+          relabel_configs = [{target_label = "instance"; replacement = "koumakan";}];
         }
 
         {
@@ -83,11 +88,12 @@ in {
     enable = true;
     listenAddress = "127.0.0.1:21000";
     authConfig = {
-      users = [
-        {
-          bearer_token = "%{AUTH_MAIL_TOKEN}";
-          url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
-        }
+      users = builtins.concatMap (token: [{
+        bearer_token = token;
+        url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
+      }]) [
+        "%{AUTH_MAIL_TOKEN}"
+        "%{AUTH_GATEWAY_TOKEN}"
       ];
     };
     environmentFile = secrets.getTemplate "vmauth.env";

@@ -73,6 +73,7 @@ vmetrics:
     auth:
         hosts:
             mail: ENC[AES256_GCM,data:2Y0QcFy3u3cdlxGdxcatlBdGWaNEb56rT1Vy5fQesn5Qmz0gxbMcwVFK8geF6NvaEVRuc8jdBUV1fnre57FeXvx6IFYRMdq//GWHlrJI3ng6TL9O3pH/vdDijXlR6ZQEJoUbwY+fwkChqN4nqofBvhzKf4ICP0YyiEMMrArXAA4Hm/ue6gXdc1xsojl1gCLOOEZgtCNKmX9oJr7xAt5k2e48XzvaBus91IXv2w==,iv:Tm93jST/E4PkSlafzMWBfdOZj7g4J0dzBSeLrS8o4Ow=,tag:uYideP23a0yb4h63m4LRXg==,type:str]
+            gateway: ENC[AES256_GCM,data:C5X+YPh8MbxPHSqPhKUK+W1/7V95bUulXwS7XOZ5VFWOKmiVTVMHh/7oAT7gi1H+qyQZx+8mFIkUjIV3Q7xngKG6PIjrvsKaaNn+v1Y6HkJmuA0m3CV5DDGXZSJPijE0SHFfwXyJ6x8pyp2XYz1oNyseJPY/1Y8wkjBO2CNQlf0q5fgXi8wBJRgzjXc2we3Huuaeq4dYB773s5GscPWR4VJ10FbJfBluEeA35Q==,iv:OEzDSEfyx1iAGZeP1b9HO7aIy5P0kWFTcSsneRDni70=,tag:J1QQi5+x4GUdIgQTvGuDRw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -97,8 +98,8 @@ sops:
             RVBMYWppWDFxYXVNOEI2K3JzaFRZNE0KdspMlVcjpEG3lWz7P8TT3fCStaIDAqfN
             uBx4ISi43uttIAuBht9vncyjTNtVWvt3DTtawPYtBgG9LgnaMOikxQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-03-29T12:52:36Z"
-    mac: ENC[AES256_GCM,data:Q9r73U1jZT+LR3vebVfodua56j6vNayDUe2jgQcQkp2Du+NJQ9bzfZl9hWgOTUViFw+AfrTuz9icyY6TSXm47bJZXRYql94+Ht3adM0hev3D65JQxYFxX1/+4z1rnRRE2ZoOkAGmSYMLQ0vC0rfFPGKLORt/ffvo0NvuqHjQW8w=,iv:Omt5CmiloXPKbpnazaGGYdiyHPVaSu3VXX34pmjBAsE=,tag:Xdpefx4ahaYvy8s5E+Pd4g==,type:str]
+    lastmodified: "2024-03-30T11:54:30Z"
+    mac: ENC[AES256_GCM,data:jdL6s+kHZp3WOIBoxgnEqVzV3WVOr4XeH26xmQn5vNqo60A7ndq62NTAivwHv1PQ3cEvCJ4Eui++oFtOF5XGpS7Rgr1hj+6g4fa7lltA32/eFUY0HdMmhmRZqptoMarl7GQjT0vuLfH6oB4aI6Rz1JCyoacrSag2tdD/VO+qNGE=,iv:q9SjpGKnD46L6H4TNYV48L3WWWX83Q098Zk8DQFGTGI=,tag:cebPvLZo8QBufR9myHN0HA==,type:str]
     pgp:
         - created_at: "2024-03-16T15:25:13Z"
           enc: |-
