@@ -21,9 +21,9 @@ defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json |& nom --json
 
 # run utility programs
-utils recipe="list":
+utils recipe="list" +extras="":
 	@echo "Running utils/{{recipe}}"
-	@just -d utils -f utils/justfile {{recipe}}
+	@just -d utils -f utils/justfile {{recipe}} {{extras}}
 
 # update an input in the flake lockfile
 update-input input:

@@ -63,14 +63,6 @@ in {
         disable_login_form = true;
       };
 
-      "auth.github" = {
-        enabled = true;
-        allow_sign_up = false;
-        client_id = fromSecret "oauth2/github/cid";
-        client_secret = fromSecret "oauth2/github/cse";
-        scopes = "user:email,read:org";
-      };
-
       "auth.generic_oauth" = {
         name = "GensoGateway";
         enabled = true;
@@ -88,6 +80,14 @@ in {
         auth_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/auth";
         token_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/token";
         api_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/userinfo";
+      };
+
+      "auth.github" = {
+        enabled = true;
+        allow_sign_up = false;
+        client_id = fromSecret "oauth2/github/cid";
+        client_secret = fromSecret "oauth2/github/cse";
+        scopes = "user:email,read:org";
       };
     };
   };

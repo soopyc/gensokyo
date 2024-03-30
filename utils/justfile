@@ -1,18 +1,23 @@
 python_executable := if os() == "android" { "python3" } else { "nix develop ..# -c python3" }
 
 list:
-  just -l
+	just -l
 
 # grab a new nitter guest account and save it
 nitter-token:
-  {{python_executable}} nitter-guest-account.py tokens.json
+	{{python_executable}} nitter-guest-account.py tokens.json
 
 # sync sops config with the nix file
 update-sops-config:
-  #!/bin/bash
-  set -euxo pipefail
-  rm ../.sops.yaml
-  # mv ../.sops.yaml{,.bak} 2>/dev/null || true
-  OUT=$(nix-build --quiet --no-out-link build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix")
-  echo -e "# WARNING: This is a generated file. DO NOT EDIT DIRECTLY!\n# See .sops.nix and utils/build-yaml.nix for more details." \
-    | cat - $OUT > ../.sops.yaml
+	#!/bin/bash
+	set -euxo pipefail
+	rm ../.sops.yaml
+	# mv ../.sops.yaml{,.bak} 2>/dev/null || true
+	OUT=$(nix-build --quiet --no-out-link build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix")
+	echo -e "# WARNING: This is a generated file. DO NOT EDIT DIRECTLY!\n# See .sops.nix and utils/build-yaml.nix for more details." \
+		| cat - $OUT > ../.sops.yaml
+
+add-grafana-dashboard id name *title="":
+	xh https://grafana.com/api/dashboards/{{id}} | \
+		jq '.json | .uid="{{name}}" {{ if title != "" {"| .title=\"" + title + "\"" } else {""} }}' \
+			-c > ../systems/koumakan/services/telemetry/grafana/dashboards/{{name}}.json
