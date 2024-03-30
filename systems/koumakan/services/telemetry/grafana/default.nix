@@ -22,6 +22,10 @@ in {
     ./provisioning.nix
   ];
 
+  users.users.grafana.extraGroups = [
+    "nginx"
+  ];
+
   services.grafana = {
     enable = true;
     settings = {
