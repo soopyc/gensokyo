@@ -54,7 +54,7 @@ in {
       };
 
       users = {
-        allow_sign_up = true;
+        allow_sign_up = false;
         allow_org_create = false;
       };
 
@@ -85,9 +85,9 @@ in {
         login_attribute_path = "username";
         name_attribute_path = "username";
 
-        auth_url = "https://gateway.soopy.moe/realms/gensokyo/openid-connect/auth";
-        token_url = "https://gateway.soopy.moe/realms/gensokyo/openid-connect/token";
-        api_url = "https://gateway.soopy.moe/realms/gensokyo/openid-connect/userinfo";
+        auth_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/auth";
+        token_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/token";
+        api_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/userinfo";
       };
     };
   };
