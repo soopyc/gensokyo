@@ -10,6 +10,7 @@ Note: most of this document focuses on koumakan.
 - `20xxx`: Prometheus/Metrics
   - `2009x`: core metrics, node metrics
   - `201xx`: service metrics
+  - `21000`: VMAuth (special case as this is not strictly metrics but a proxy)
 <!-- note: grafana uses unix sockets instead. -->
 
 - `3xxxx`: Service ports
