@@ -1,14 +1,16 @@
 {...}: {
   services.grafana.provision = {
     datasources.settings = {
-      # Note: Misleading config name: this does not define the (grafana) API version, just the config version.
-      apiVersion = 1; # Increment this whenever anything else below is updated.
+      apiVersion = 1; # i am stupid. keep this as 1.
 
       datasources = [
         {
+          version = 2;
           name = "panopticon";
           type = "prometheus";
           uid = "gs_panopticon";
+          url = "http://localhost:20090";
+          isDefault = true;
           jsonData = {prometheusVersion = "2.44.0";};
         }
       ];
