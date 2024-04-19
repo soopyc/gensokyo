@@ -1,5 +1,4 @@
 {lib, ...}: {
-
   # hopefully eradicate suspend
   services.logind = {
     suspendKey = "lock";

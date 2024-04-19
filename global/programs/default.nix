@@ -14,6 +14,7 @@
     ./gpg.nix
     ./smartcard.nix
 
+    ./system-manager
     ./misc.nix
   ];
 }

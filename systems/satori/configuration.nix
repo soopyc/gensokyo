@@ -13,6 +13,10 @@
   ];
 
   gensokyo.traits.gui = true;
+  gensokyo.system-manager = {
+    enable = true;
+    flakeLocation = "/home/cassie/genso-nix";
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -22,7 +26,9 @@
   boot.initrd.luks.fido2Support = true;
   boot.initrd.luks.devices."balls" = {
     fido2 = {
-      credentials = [];
+      credentials = [
+        "88aa01066717b958a2dfd1301cad434d38aa3b39f9623ebcec7a5f3720df97c23629f14dc7de2382f76e67faefb9eead"
+      ];
     };
   };
 
