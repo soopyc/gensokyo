@@ -21,8 +21,17 @@
     nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    catppuccin.url = "github:catppuccin/nix";
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -47,11 +56,7 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     utils = import ./global/utils.nix;
     lib = nixpkgs.lib;
 
@@ -81,6 +86,7 @@
           (pkgs.python311.withPackages (p: [p.requests]))
           pkgs.nixos-rebuild
           pkgs.nix-output-monitor
+          pkgs.nvd
         ];
       };
     });
