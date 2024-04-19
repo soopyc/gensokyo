@@ -78,6 +78,11 @@
         inherit utils lib inputs;
         sopsDir = ./creds/sops/koumakan;
       };
+
+      satori = import ./systems/satori {
+        inherit utils lib inputs;
+        sopsDir = ./creds/sops/satori;
+      };
     };
 
     devShells = forAllSystems (pkgs: {
