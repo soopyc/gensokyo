@@ -10,6 +10,7 @@
     ../users
 
     inputs.sops-nix.nixosModules.sops
+    inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
   ];
 }
