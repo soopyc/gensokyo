@@ -4,8 +4,11 @@
   imports = [
     ./core.nix
     ./programs
+
+    ./home.nix
     ../users
 
     inputs.sops-nix.nixosModules.sops
+    inputs.home-manager.nixosModules.home-manager
   ];
 }
