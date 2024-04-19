@@ -3,6 +3,7 @@
 {inputs, ...}: {
   imports = [
     ./core.nix
+    ./traits
     ./programs
 
     ./home.nix
