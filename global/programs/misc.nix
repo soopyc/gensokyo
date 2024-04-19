@@ -1,14 +1,17 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # Miscellaneous packages that do not have an option.
   # It is recommended to use packages.<package>.enable when possible.
 
-  # To search for a specific package, run this command.
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     # junk
     wget
     curl
     xh
+    nil
     nix-output-monitor
 
     # basic sysadmin utils
@@ -18,6 +21,8 @@
     du-dust
     parallel
     ouch
+    borgbackup
+    yubikey-manager
 
     # deno
     deno
@@ -27,7 +32,7 @@
     just
 
     # attic
-    attic
+    inputs.attic.packages.${pkgs.system}.attic-client
   ];
 
   programs.mtr.enable = true;
