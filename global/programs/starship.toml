@@ -56,7 +56,7 @@ unknown_msg = '(?)'
 heuristic = true
 
 [hostname]
-ssh_symbol = " "
+ssh_symbol = "󰒍 "
 ssh_only = false
 
 [time]
