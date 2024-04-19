@@ -6,19 +6,20 @@
 
 # build the current configuration
 build system="":
-	nixos-rebuild -v build --flake .#{{system}} --log-format internal-json |& nom --json
+	nixos-rebuild -v build --flake .#{{system}} --accept-flake-config --log-format internal-json |& nom --json
+	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
 # build and test the configuration, but don't switch
 test system="":
-	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json |& nom --json
+	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
 
 # switch to the current configuration
 switch system="": sudo_cache
-	sudo nixos-rebuild -v -L switch --flake .#{{system}} --log-format internal-json |& nom --json
+	sudo nixos-rebuild -v -L switch --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
 
 # literally nixos-rebuild boot with a different name
 defer system="": sudo_cache
-	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json |& nom --json
+	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
 
 # run utility programs
 utils recipe="list" +extras="":
