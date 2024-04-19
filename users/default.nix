@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./cassie.nix
+    ./cassie
     ./_tester.nix
   ];
 }

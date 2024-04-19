@@ -3,8 +3,8 @@
 {inputs, ...}: {
   imports = [
     ./core.nix
-    ./users
     ./programs
+    ../users
 
     inputs.sops-nix.nixosModules.sops
   ];

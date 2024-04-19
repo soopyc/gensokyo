@@ -5,6 +5,5 @@
     openssh = {
       authorizedKeys.keyFiles = [../../creds/ssh/cassie];
     };
-    # packages = with pkgs; [];
   };
 }
