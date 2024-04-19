@@ -8,11 +8,11 @@
 		}
 	],
 	"settings": {
-    "deno.enable": true,
+		"deno.enable": true,
 		"deno.lint": true,
 		"deno.unstable": false,
-    "files.exclude": {
-      "result": true
-    }
+		"files.exclude": {
+			"result": true
+		}
 	}
 }

@@ -19,11 +19,13 @@
     dashboards.settings = {
       apiVersion = 1; # same as above
 
-      providers = [{
-        name = "flake";
-        allowUiUpdates = false;
-        options.path = ./dashboards;
-      }];
+      providers = [
+        {
+          name = "flake";
+          allowUiUpdates = false;
+          options.path = ./dashboards;
+        }
+      ];
     };
   };
 }

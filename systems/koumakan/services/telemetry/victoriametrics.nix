@@ -53,7 +53,12 @@ in {
           job_name = "node";
           scrape_interval = "15s";
           static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
-          relabel_configs = [{target_label = "instance"; replacement = "koumakan";}];
+          relabel_configs = [
+            {
+              target_label = "instance";
+              replacement = "koumakan";
+            }
+          ];
         }
 
         # external nodes uses remote write
@@ -63,7 +68,12 @@ in {
         {
           job_name = "nginx";
           static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}"];}];
-          relabel_configs = [{target_label = "instance"; replacement = "koumakan";}];
+          relabel_configs = [
+            {
+              target_label = "instance";
+              replacement = "koumakan";
+            }
+          ];
         }
 
         {
@@ -88,13 +98,16 @@ in {
     enable = true;
     listenAddress = "127.0.0.1:21000";
     authConfig = {
-      users = builtins.concatMap (token: [{
-        bearer_token = token;
-        url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
-      }]) [
-        "%{AUTH_MAIL_TOKEN}"
-        "%{AUTH_GATEWAY_TOKEN}"
-      ];
+      users =
+        builtins.concatMap (token: [
+          {
+            bearer_token = token;
+            url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
+          }
+        ]) [
+          "%{AUTH_MAIL_TOKEN}"
+          "%{AUTH_GATEWAY_TOKEN}"
+        ];
     };
     environmentFile = secrets.getTemplate "vmauth.env";
   };
