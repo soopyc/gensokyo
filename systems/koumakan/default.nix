@@ -25,6 +25,7 @@ in
       inputs.mystia.nixosModules.fixups
       inputs.mystia.nixosModules.vmauth
 
+      ../../global
       ./configuration.nix
     ];
   }

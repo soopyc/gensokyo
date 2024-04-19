@@ -4,12 +4,7 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-
-    ../../global/core.nix
-    ../../global/users
-    ../../global/programs
 
     ./networking
     ./certificates
