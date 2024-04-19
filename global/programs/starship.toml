@@ -3,7 +3,7 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
-right_format = """$os $shell ${custom.direnv}"""
+right_format = """$os $shell $direnv"""
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -15,6 +15,18 @@ disabled = false
 style = "bold blue"
 format = "on [$symbol($name)]($style)"
 
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[[battery.display]]
+threshold = 60
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 80
+style = "bold green"
+
 [username]
 show_always = true
 
@@ -25,27 +37,23 @@ symbol = '✗'
 map_symbol = true
 pipestatus = true
 
-sigint_symbol = '❎'
-not_executable_symbol = "⛔"
-not_found_symbol = '❓'
-signal_symbol = '⚠'
+sigint_symbol = ''
+not_executable_symbol = ""
+not_found_symbol = ''
+signal_symbol = ''
 
 [shell]
 disabled = false
-format = 'with [ $indicator]($style)'
+format = 'with [󰆍 $indicator]($style)'
 style = 'bold green'
 
 [nix_shell]
-symbol = "❄ "
+symbol = " "
 format = 'via [$symbol$name$state]($style) '
 impure_msg = ''
 pure_msg = '(pure)'
 unknown_msg = '(?)'
 heuristic = true
-
-[git_status]
-stashed = ""
-deleted = ""
 
 [hostname]
 ssh_symbol = " "
@@ -57,123 +65,16 @@ disabled = false
 [cmd_duration]
 min_time = 0
 
-[custom.direnv]
-format = "with [direnv]($style) "
-style = "bold yellow"
-when = "printenv DIRENV_FILE"
+[direnv]
+disabled = false
+style = "bold orange"
+format = "with [$symbol$allowed]($style)"
+allowed_msg = "" # loaded and accepted by user
+not_allowed_msg = "" # loaded, user never allowed/denied
+denied_msg = "" # loaded, user explicitly denied
 
-# Battery display {{{
-[battery]
-full_symbol = " "
-charging_symbol = " "
-discharging_symbol = " "
-unknown_symbol = " "
-empty_symbol = " "
-
-[[battery.display]]
-threshold = 10
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold red"
-
-[[battery.display]]
-threshold = 20
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold red"
-
-[[battery.display]]
-threshold = 30
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold red"
-
-[[battery.display]]
-threshold = 40
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 50
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 60
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 70
-charging_symbol = " "
-discharging_symbol = " "
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 80
-discharging_symbol = " "
-style = "bold green"
-
-[[battery.display]]
-threshold = 90
-charging_symbol = " "
-style = "bold green"
-
-[[battery.display]]
-threshold = 100
-discharging_symbol = " "
-style = "bold green"
-
-# }}}
-
-# OS Symbols {{{
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = " "
-# }}}
-
-# Powerline Symbols {{{
 [aws]
-symbol = "AWS "
+symbol = "  "
 
 [buf]
 symbol = " "
@@ -187,6 +88,9 @@ symbol = " "
 [dart]
 symbol = " "
 
+[directory]
+read_only = " 󰌾"
+
 [docker_context]
 symbol = " "
 
@@ -197,10 +101,10 @@ symbol = " "
 symbol = " "
 
 [fossil_branch]
-symbol = " "
+symbol = " "
 
 [git_branch]
-symbol = " "
+symbol = " "
 
 [golang]
 symbol = " "
@@ -215,8 +119,7 @@ symbol = " "
 symbol = "⌘ "
 
 [hg_branch]
-symbol = " "
-
+symbol = " "
 [java]
 symbol = " "
 
@@ -237,6 +140,70 @@ symbol = "󰆥 "
 
 [nodejs]
 symbol = " "
-# }}}
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel] # ????
+symbol = "🪺 "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
 
 # vim:foldmethod=marker
