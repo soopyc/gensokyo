@@ -42,4 +42,8 @@
     }
     // (builtins.mapAttrs (_: flake: {inherit flake;})
       (lib.filterAttrs (n: _: n != "nixpkgs") inputs));
+
+  # nix-index[-database]
+  programs.nix-index.enable = true;
+  programs.nix-index-database.comma.enable = true;
 }

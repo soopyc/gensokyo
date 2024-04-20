@@ -27,4 +27,7 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  # conflicts with comma
+  programs.command-not-found.enable = false;
 }
