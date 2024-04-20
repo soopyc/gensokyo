@@ -10,6 +10,16 @@
         enable = true;
         support32Bit = true;
       };
+
+      extraConfig.pipewire = {
+        "10-force-medium-quantum" = {
+          "context.properties" = {
+            "default.clock.quantum" = 1024;
+            "default.clock.min-quantum" = 256;
+            "default.clock.quantum-floor" = 256;
+          };
+        };
+      };
     };
   };
 }
