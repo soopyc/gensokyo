@@ -11,4 +11,4 @@ thses sets of files/directories in this repository.
 
 ## changelog
 ### as of commit 8501880 (`850188052ea0968e7eb96724c2027ad998cbbefb`)
-- `nitter/guest_tokens.json` managed in-tree
+- ~~`nitter/guest_tokens.json`~~ managed in-tree
