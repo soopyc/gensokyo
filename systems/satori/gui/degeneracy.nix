@@ -3,7 +3,5 @@
     (pkgs.vesktop.override {
       withSystemVencord = false;
     })
-
-    pkgs.osu-lazer-bin
   ];
 }
