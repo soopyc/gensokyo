@@ -96,6 +96,27 @@
       };
     });
 
+    checks = forAllSystems (pkgs: {
+      format-deadcode-check = pkgs.stdenvNoCC.mkDerivation {
+        name = "format_deadcode_check";
+        src = ./.;
+        dontPatch = true;
+        dontConfigure = true;
+
+        buildInputs = with pkgs; [alejandra deadnix];
+        buildPhase = ''
+          set -euo pipefail
+          echo "######## Checking flake ########"
+
+          deadnix -f .
+          alejandra -c . 2>/dev/null
+          echo "All done!"
+        '';
+
+        installPhase = "touch $out";
+      };
+    });
+
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }
