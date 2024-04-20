@@ -12,10 +12,15 @@
     inputs.nixos-hardware.nixosModules.apple-t2
   ];
 
-  gensokyo.traits.gui = true;
-  gensokyo.system-manager = {
-    enable = true;
-    flakeLocation = "/home/cassie/genso-nix";
+  gensokyo = {
+    traits = {
+      gui = true;
+      games = true;
+    };
+    system-manager = {
+      enable = true;
+      flakeLocation = "/home/cassie/genso-nix";
+    };
   };
 
   # Use the systemd-boot EFI boot loader.
