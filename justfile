@@ -21,6 +21,11 @@ switch system="": sudo_cache
 defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
 
+# delete old nixos generations and GCs the store.
+gc older_than="3d": sudo_cache
+	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than {{older_than}}
+	sudo nix store gc -vL
+
 # run utility programs
 utils recipe="list" +extras="":
 	@echo "Running utils/{{recipe}}"
