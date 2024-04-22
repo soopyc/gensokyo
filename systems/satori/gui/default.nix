@@ -6,6 +6,7 @@
     ./fonts.nix
     ./audio.nix
     ./power.nix
+    ./input.nix
 
     ./degeneracy.nix
     ./games

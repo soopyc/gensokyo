@@ -4,7 +4,9 @@
 - [ ] setup autoUpgrade
 - [ ] migrate ~/.yubico/authorized_yubikeys to HM config (via pam.yubico.authorizedYubiKeys.ids)
 
-- [ ] fcitx5
+- [-] fcitx5
+	- [x] enable and configure basic fcitx5 stuff
+	- [ ] migrate rime config to HM
 - [ ] arrpc
 
 - one of
