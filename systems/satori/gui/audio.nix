@@ -42,5 +42,6 @@
       ];
     };
   };
+  security.rtkit.enable = true;
   # systemd.user.services.pipewire-pulse = {};
 }
