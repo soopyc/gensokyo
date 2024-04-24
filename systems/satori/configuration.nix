@@ -36,6 +36,10 @@
     };
   };
 
+  # TODO: move this to a trait
+  nix.settings.trusted-users = [
+    "@wheel"
+  ];
 
   networking.hostName = "satori";
   networking.networkmanager.enable = true;
