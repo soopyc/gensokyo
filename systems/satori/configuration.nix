@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   ...
 }: {
   imports = [
@@ -37,9 +36,6 @@
     };
   };
 
-  # TODO: move this somewhere else
-  services.yubikey-agent.enable = true;
-  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-qt;
 
   networking.hostName = "satori";
   networking.networkmanager.enable = true;

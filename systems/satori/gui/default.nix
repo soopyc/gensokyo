@@ -2,11 +2,12 @@
   imports = [
     ./kde.nix
     ./browser.nix
-    ./development.nix
     ./fonts.nix
     ./audio.nix
     ./power.nix
     ./input.nix
+    ./security.nix
+    ./development.nix
 
     ./degeneracy.nix
     ./games
