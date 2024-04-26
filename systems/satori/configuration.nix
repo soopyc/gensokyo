@@ -18,7 +18,7 @@
     };
     system-manager = {
       enable = true;
-      flakeLocation = "/home/cassie/genso-nix";
+      flakeLocation = "/home/cassie/gensokyo";
     };
   };
 

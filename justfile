@@ -39,6 +39,10 @@ update-input input:
 flake-update:
 	nix flake update --commit-lock-file
 
+# list changes in the current config vs the system config
+diff:
+	nvd diff /run/current-system result
+
 # build a vm for a system
 vm system run="true" bootloader="false":
 	nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
