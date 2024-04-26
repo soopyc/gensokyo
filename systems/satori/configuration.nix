@@ -27,14 +27,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  boot.initrd.luks.fido2Support = true;
-  boot.initrd.luks.devices."balls" = {
-    fido2 = {
-      credentials = [
-        "88aa01066717b958a2dfd1301cad434d38aa3b39f9623ebcec7a5f3720df97c23629f14dc7de2382f76e67faefb9eead"
-      ];
-    };
-  };
+  boot.initrd.systemd.enable = true;
 
   # TODO: move this to a trait
   nix.settings.trusted-users = [
