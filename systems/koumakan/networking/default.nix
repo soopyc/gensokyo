@@ -5,5 +5,4 @@
   ];
 
   networking.hostName = "koumakan";
-  networking.networkmanager.enable = true;
 }

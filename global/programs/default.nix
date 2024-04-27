@@ -8,6 +8,7 @@
 
     ./compilers.nix
 
+    ./networking.nix
     ./ssh.nix
     ./scm.nix
 

@@ -12,6 +12,7 @@
     traits = {
       gui = true;
       games = true;
+      portable = true;
     };
     system-manager = {
       enable = true;
@@ -32,7 +33,6 @@
   ];
 
   networking.hostName = "satori";
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Hong_Kong";
