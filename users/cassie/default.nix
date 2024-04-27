@@ -3,7 +3,7 @@
     isNormalUser = true;
     extraGroups = ["wheel"];
     openssh = {
-      authorizedKeys.keyFiles = [../../creds/ssh/cassie];
+      authorizedKeys.keyFiles = [../../creds/ssh/users/cassie];
     };
   };
 
