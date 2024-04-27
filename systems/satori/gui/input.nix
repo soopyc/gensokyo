@@ -7,7 +7,7 @@
       addons = with pkgs; [
         fcitx5-mozc
         fcitx5-rime
-        
+
         fcitx5-nord
       ];
     };
