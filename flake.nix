@@ -73,6 +73,12 @@
       system = "x86_64-linux";
     };
 
+    packages.x86_64-linux = let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    in {
+      brcmfmac = pkgs.callPackage ./vendor/brcmfmac {};
+    };
+
     nixosConfigurations = {
       koumakan = import ./systems/koumakan {
         inherit utils lib inputs;
