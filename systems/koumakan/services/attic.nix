@@ -1,5 +1,6 @@
 {
   _utils,
+  inputs,
   pkgs,
   ...
 }: let
@@ -9,6 +10,9 @@ in {
   services.atticd = {
     enable = true;
     credentialsFile = "/etc/atticd.env";
+
+    # I don't need more things to ruin my day
+    package = inputs.attic.packages.${pkgs.system}.attic-nixpkgs;
 
     # Per https://github.com/zhaofengli/attic/blob/b43d12082e34bceb26038bdad0438fd68804cfcd/server/src/config.rs#L252
     # we can use the env var ATTIC_SERVER_DATABASE_URL to set the database connection url,
