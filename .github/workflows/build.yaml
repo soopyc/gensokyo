@@ -37,7 +37,8 @@ jobs:
       matrix:
         host:
           - koumakan
-          - satori
+          # TODO: expand storage with the maximize build space action before reenabling this
+          # - satori
 
     steps:
       - name: Checkout
