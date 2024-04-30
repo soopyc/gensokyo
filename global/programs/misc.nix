@@ -13,6 +13,7 @@
     xh
     nil
     nix-output-monitor
+    python3
 
     # basic sysadmin utils
     file
