@@ -7,6 +7,7 @@
     ./power.nix
     ./input.nix
     ./security.nix
+    ./virt.nix
     ./development.nix
 
     ./devices.nix
