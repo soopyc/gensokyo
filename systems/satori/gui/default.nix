@@ -9,6 +9,8 @@
     ./security.nix
     ./development.nix
 
+    ./devices.nix
+
     ./degeneracy.nix
     ./games
   ];
