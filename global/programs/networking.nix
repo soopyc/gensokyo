@@ -1,6 +1,7 @@
 {lib, config, ...}: lib.mkMerge [
   {
     networking.networkmanager.enable = true;
+    networking.domain = "d.soopy.moe";
   }
 
   (lib.mkIf config.gensokyo.traits.portable {
