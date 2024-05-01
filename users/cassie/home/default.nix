@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./dev
+    ./virt.nix
     ./eyecandy.nix
     ./extras.nix
   ];
