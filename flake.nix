@@ -77,8 +77,12 @@
       system = "x86_64-linux";
     in {
       brcmfmac = let
-        pkgs = import nixpkgs {inherit system; config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["brcm-mac-firmware"];};
-      in pkgs.callPackage ./vendor/brcmfmac {};
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) ["brcm-mac-firmware"];
+        };
+      in
+        pkgs.callPackage ./vendor/brcmfmac {};
     };
 
     nixosConfigurations = {

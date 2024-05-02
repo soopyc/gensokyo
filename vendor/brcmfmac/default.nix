@@ -1,8 +1,10 @@
-{ zstd
-, lib
-, fetchzip
-, stdenvNoCC
-}: stdenvNoCC.mkDerivation (final: {
+{
+  zstd,
+  lib,
+  fetchzip,
+  stdenvNoCC,
+}:
+stdenvNoCC.mkDerivation (final: {
   name = "brcm-mac-firmware";
 
   # src = requireFile {
@@ -52,4 +54,3 @@
     platforms = lib.platforms.linux;
   };
 })
-

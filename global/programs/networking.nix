@@ -1,4 +1,9 @@
-{lib, config, ...}: lib.mkMerge [
+{
+  lib,
+  config,
+  ...
+}:
+lib.mkMerge [
   {
     networking.networkmanager.enable = true;
     networking.domain = "d.soopy.moe";
