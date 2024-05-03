@@ -36,6 +36,11 @@ lib.mkMerge [
       auto-optimise-store = true;
     };
 
+    nix.gc = {
+      automatic = true;
+      dates = "weekly";
+    };
+
     nix.package = pkgs.nixFlakes;
     nix.registry =
       {

@@ -10,7 +10,7 @@
 - [-] fcitx5
 	- [x] enable and configure basic fcitx5 stuff
 	- [ ] migrate rime config to HM
-- [ ] arrpc
+- [x] arrpc
 
 - one of
 	- [ ] setup port knocking/fwknop
