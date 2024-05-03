@@ -31,11 +31,6 @@
 
   boot.initrd.systemd.enable = true;
 
-  # TODO: move this to a trait
-  nix.settings.trusted-users = [
-    "@wheel"
-  ];
-
   hardware.firmware = [
     inputs.self.packages.${pkgs.system}.brcmfmac
   ];
