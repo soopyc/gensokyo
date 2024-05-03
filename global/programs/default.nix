@@ -12,8 +12,7 @@
     ./ssh.nix
     ./scm.nix
 
-    ./gpg.nix
-    ./smartcard.nix
+    ./crypto.nix
 
     ./system-manager
     ./misc.nix
