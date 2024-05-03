@@ -16,6 +16,8 @@
 
   nixpkgs.overlays = import ../../global/overlays inputs;
 
+  gensokyo.traits.sensitive = true;
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
