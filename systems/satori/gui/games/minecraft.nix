@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   environment.systemPackages = [
-    pkgs.prismlauncher-qt5
+    pkgs.prismlauncher
   ];
 }

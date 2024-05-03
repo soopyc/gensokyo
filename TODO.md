@@ -1,6 +1,9 @@
 # Todo Items
+- [ ] **!important** flatten nixosSystem definitions
+	- instead of `import ./systems/stuff {}` do `nixosSystem = {...; imports = [./systems/stuff]}`
+
 - [ ] migrate firewall to nftables
-  - [ ] setup ipsets and block known abusers
+	- [ ] setup ipsets and block known abusers
 - [ ] setup autoUpgrade
 - [ ] migrate ~/.yubico/authorized_yubikeys to HM config (via pam.yubico.authorizedYubiKeys.ids)
 
