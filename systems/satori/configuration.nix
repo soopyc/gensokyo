@@ -9,6 +9,7 @@
     # TODO: move this to a global trait config?
     ./gui
 
+    inputs.mystia.nixosModules.arrpc
     inputs.nixos-hardware.nixosModules.apple-t2
   ];
 
