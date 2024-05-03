@@ -92,6 +92,9 @@ in {
     virtualHosts."v.soopy.moe" = _utils.mkVhost {
       extraConfig = ''
         client_max_body_size 100M;
+        proxy_read_timeout 3h;
+        proxy_connect_timeout 3h;
+        proxy_send_timeout 3h;
       '';
 
       locations."/" = {
