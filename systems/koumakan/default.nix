@@ -7,7 +7,7 @@
 }: let
   system = "x86_64-linux";
 in
-  lib.nixosSystem {
+  lib.nixosSystem rec {
     inherit system;
 
     # see docs/tips_n_tricks.md#extra_opts for syntax
@@ -27,5 +27,9 @@ in
 
       ../../global
       ./configuration.nix
+
+      {
+        home-manager.extraSpecialArgs = specialArgs;
+      }
     ];
   }
