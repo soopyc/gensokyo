@@ -4,6 +4,9 @@
     gnupg
     pinentry
     opensc
+
+    rage
+    age-plugin-yubikey
   ];
 
   programs.gnupg.agent.enable = true;
