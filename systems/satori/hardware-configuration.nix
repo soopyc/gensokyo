@@ -30,6 +30,12 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
+  fileSystems."/MACOS_SHARE" = {
+    device = "/dev/disk/by-uuid/1BEC-BD88";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
   swapDevices = [
     {device = "/dev/disk/by-uuid/b7ebcd44-abcf-41b8-9a65-506b5f2e6b2a";}
   ];
