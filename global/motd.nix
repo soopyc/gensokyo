@@ -42,7 +42,7 @@ in {
       User = "root";
     };
     restartTriggers = [
-      /etc/static/nix/registry.json
+      "/etc/static/nix/registry.json"
     ];
     script = ''
       set -euo pipefail
