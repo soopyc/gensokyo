@@ -14,12 +14,17 @@ preferred-dark-theme = "mocha"
 git-repository-url = "https://patchy.soopy.moe/cassie/genso-nix"
 git-repository-icon = "fa-code-fork"
 edit-url-template = "https://patchy.soopy.moe/cassie/genso-nix/_edit/main/docs/{path}"
-additional-css = ["mdbook-admonish.css", "./theme/catppuccin.css", "./theme/catppuccin-admonish.css"]
 cname = "flake.soopy.moe"
+
+additional-js = ["theme/pagetoc.js"]
+additional-css = ["mdbook-admonish.css", "./theme/catppuccin.css", "./theme/catppuccin-admonish.css", "theme/pagetoc.css"]
 
 [preprocessor.admonish]
 command = "mdbook-admonish"
 assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
+
+[preprocessor.pagetoc]
+
 
 # [preprocessor.catppuccin]
 # assets_version = "2.1.0" # DO NOT EDIT: Managed by `mdbook-catppuccin install`
