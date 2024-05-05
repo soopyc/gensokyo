@@ -6,7 +6,7 @@
 
 # build the current configuration
 build system="":
-	nixos-rebuild -v build --flake .#{{system}} --accept-flake-config --log-format internal-json |& nom --json
+	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config --log-format internal-json |& nom --json
 	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
 # build and test the configuration, but don't switch
