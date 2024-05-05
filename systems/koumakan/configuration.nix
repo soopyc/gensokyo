@@ -1,7 +1,4 @@
-{
-  sopsDir,
-  ...
-}: {
+{sopsDir, ...}: {
   imports = [
     ./hardware-configuration.nix
 
