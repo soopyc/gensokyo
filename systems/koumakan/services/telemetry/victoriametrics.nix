@@ -35,7 +35,7 @@ in {
 
   services.vmagent = {
     enable = true;
-    remoteWriteUrl = "http://${config.services.victoriametrics.listenAddress}/api/v1/write";
+    remoteWrite.url = "http://${config.services.victoriametrics.listenAddress}/api/v1/write";
     prometheusConfig = {
       global = {
         scrape_interval = "30s";
