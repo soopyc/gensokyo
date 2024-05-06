@@ -4,6 +4,10 @@
 # modules are unstable atm
 # mod utils
 
+# check the flake
+check:
+	nix flake check
+
 # build the current configuration
 build system="":
 	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config --log-format internal-json |& nom --json
