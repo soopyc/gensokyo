@@ -27,7 +27,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/5F66-17ED";
     fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
+    options = ["fmask=0022" "dmask=0022" "umask=0077"];
   };
 
   fileSystems."/MACOS_SHARE" = {
