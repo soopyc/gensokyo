@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  services.yubikey-agent.enable = true;
+  services.yubikey-agent-socket.enable = true;
   programs.gnupg.agent.pinentryPackage = pkgs.pinentry-qt;
   # FIXME: fix yubikey-agent being stubborn
 
