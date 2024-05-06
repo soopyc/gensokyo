@@ -1,5 +1,14 @@
-{sopsDir, ...}: {
+{
+  hostname,
+  inputs,
+  ...
+}: {
   imports = [
+    inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.attic.nixosModules.atticd
+    inputs.mystia.nixosModules.fixups
+    inputs.mystia.nixosModules.vmauth
+
     ./hardware-configuration.nix
 
     ./networking
@@ -26,7 +35,7 @@
   };
 
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.defaultSopsFile = sopsDir + "/default.yaml";
+  sops.defaultSopsFile = "${inputs.self}/creds/sops/${hostname}/default.yaml";
 
   # Just don't change this :p
   system.stateVersion = "23.05"; # Did you read the comment?

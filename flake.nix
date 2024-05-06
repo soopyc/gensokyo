@@ -57,7 +57,6 @@
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
-    utils = import ./global/utils.nix;
     lib = nixpkgs.lib;
 
     systems = [
@@ -85,17 +84,7 @@
         pkgs.callPackage ./vendor/brcmfmac {};
     };
 
-    nixosConfigurations = {
-      koumakan = import ./systems/koumakan {
-        inherit utils lib inputs;
-        sopsDir = ./creds/sops/koumakan;
-      };
-
-      satori = import ./systems/satori {
-        inherit utils lib inputs;
-        sopsDir = ./creds/sops/satori;
-      };
-    };
+    nixosConfigurations = import systems/default.nix {inherit inputs lib;};
 
     devShells = forAllSystems (pkgs: {
       default = pkgs.mkShellNoCC {

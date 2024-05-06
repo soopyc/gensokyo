@@ -4,14 +4,12 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
-
-    # TODO: move this to a global trait config?
-    ./gui
-
     inputs.mystia.nixosModules.arrpc
     inputs.nixos-hardware.nixosModules.apple-t2
     (inputs.self + "/modules/staging/yubikey-agent.nix")
+
+    # TODO: move this to a global trait config?
+    ./gui
   ];
 
   gensokyo = {
@@ -36,8 +34,6 @@
   hardware.firmware = [
     inputs.self.packages.${pkgs.system}.brcmfmac
   ];
-
-  networking.hostName = "satori";
 
   # muh unfree software!!!!!!!!!!!!!!!!!!
   nixpkgs.config.allowUnfree = true;

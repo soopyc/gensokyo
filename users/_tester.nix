@@ -2,12 +2,12 @@
   lib,
   config,
   options,
-  sopsDir,
+  inputs,
   ...
 }:
 lib.mkIf (options.virtualisation ? qemu) {
   sops.secrets."passwords/_tester" = {
-    sopsFile = sopsDir + "/../global/passwords.yaml";
+    sopsFile = inputs + "/creds/sops/global/passwords.yaml";
     neededForUsers = true;
   };
   users.users._tester = builtins.trace "[vm] building tester user..." {
