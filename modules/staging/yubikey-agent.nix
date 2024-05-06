@@ -1,19 +1,18 @@
 # from https://github.com/NixOS/nixpkgs/blob/e9be42459999a253a9f92559b1f5b72e1b44c13d/nixos/modules/services/security/yubikey-agent.nix
-
-{ config, lib, pkgs, ... }:
-
-with lib;
-
-let
-  cfg = config.services.yubikey-agent-socket;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.services.yubikey-agent-socket;
+in {
   ###### interface
 
-  meta.maintainers = with maintainers; [ philandstuff rawkode jwoudenberg ];
+  meta.maintainers = with maintainers; [philandstuff rawkode jwoudenberg];
 
   options = {
-
     services.yubikey-agent-socket = {
       enable = mkOption {
         type = types.bool;
@@ -27,23 +26,23 @@ in
         '';
       };
 
-      package = mkPackageOption pkgs "yubikey-agent" { };
+      package = mkPackageOption pkgs "yubikey-agent" {};
     };
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
-    systemd.packages = [ cfg.package ];
+    environment.systemPackages = [cfg.package];
+    systemd.packages = [cfg.package];
 
     # This overrides the systemd user unit shipped with the
     # yubikey-agent package
     systemd.user.services.yubikey-agent = mkIf (config.programs.gnupg.agent.pinentryPackage != null) {
-      path = [ config.programs.gnupg.agent.pinentryPackage ];
+      path = [config.programs.gnupg.agent.pinentryPackage];
       # wantedBy = [ "default.target" ];
     };
 
     systemd.user.sockets.yubikey-agent = {
-      wantedBy = [ "sockets.target" ];
+      wantedBy = ["sockets.target"];
       listenStreams = [
         "%t/yubikey-agent/yubikey-agent.sock"
       ];
