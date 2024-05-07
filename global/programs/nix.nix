@@ -23,6 +23,7 @@ lib.mkMerge [
       trusted-substituters = [
         "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
+        "https://nixpkgs.reverse.proxy.internal.soopy.moe/"
       ];
 
       trusted-public-keys = [
