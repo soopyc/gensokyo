@@ -4,10 +4,6 @@
 # modules are unstable atm
 # mod utils
 
-# check the flake
-check:
-	nix flake check
-
 # build the current configuration
 build system="":
 	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config --log-format internal-json |& nom --json
@@ -24,6 +20,10 @@ switch system="": sudo_cache
 # literally nixos-rebuild boot with a different name
 defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
+
+# check the flake
+check:
+	nix flake check
 
 # delete old nixos generations and GCs the store.
 gc older_than="3d": sudo_cache
