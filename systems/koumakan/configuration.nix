@@ -1,8 +1,4 @@
-{
-  hostname,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.attic.nixosModules.atticd
@@ -33,9 +29,6 @@
     };
     grub.enable = false;
   };
-
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.defaultSopsFile = "${inputs.self}/creds/sops/${hostname}/default.yaml";
 
   # Just don't change this :p
   system.stateVersion = "23.05"; # Did you read the comment?

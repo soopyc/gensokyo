@@ -5,6 +5,7 @@
     ./core.nix
     ./traits
     ./programs
+    ./sops.nix
 
     ./home.nix
     ../users
