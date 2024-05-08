@@ -23,7 +23,10 @@
     parallel
     ouch
     borgbackup
+
+    # security
     yubikey-manager
+    sops
 
     # deno
     deno
