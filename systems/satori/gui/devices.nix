@@ -5,4 +5,6 @@
   environment.systemPackages = [
     pkgs.via
   ];
+
+  programs.kdeconnect.enable = true;
 }
