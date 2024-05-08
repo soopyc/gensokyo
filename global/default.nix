@@ -3,7 +3,7 @@
 {inputs, ...}: {
   imports = [
     ./core.nix
-    ./traits
+    ./gensokyo
     ./programs
     ./sops.nix
 
