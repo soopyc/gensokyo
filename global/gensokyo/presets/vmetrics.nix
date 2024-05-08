@@ -10,9 +10,12 @@
     secrets = ["auth"];
   };
 in {
+  # inb4 this causes conflicts
   imports = [secrets.generate];
 
-  config = lib.mkIf config.gensokyo.presets.vmagent {
+  config = lib.mkIf config.gensokyo.presets.vmetrics {
+    services.prometheus.exporters.node.enable = true;
+    services.vmagent.enable = true;
     services.vmagent.remoteWrite.url = "https://panopticon.soopy.moe/api/v1/write";
     services.vmagent.extraArgs = ["-remoteWrite.bearerTokenFile %d/auth_token"];
     services.vmagent.prometheusConfig = {
@@ -22,7 +25,7 @@ in {
         {
           job_name = "node";
           static_configs = [{targets = ["localhost:9100"];}];
-          relabel_configs = [{target_label = ""; replacement = "${hostname}.d.soopy.moe";}];
+          relabel_configs = [{target_label = "instance"; replacement = "${hostname}.d.soopy.moe";}];
         }
       ];
     };

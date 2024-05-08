@@ -1,9 +1,9 @@
 {lib, ...}: {
   imports = [
-    ./vmagent.nix
+    ./vmetrics.nix
   ];
 
   options.gensokyo.presets = {
-    vmagent = lib.mkEnableOption "vmagent presets";
+    vmetrics = lib.mkEnableOption "vmetrics presets";
   };
 }
