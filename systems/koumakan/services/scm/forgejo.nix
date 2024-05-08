@@ -127,7 +127,7 @@ in {
       # OAuth 2.0 and OpenID {{{
       oauth2 = {
         # JWT_SECRET defined automatically, but we don't use it lol
-        ENABLE = true;
+        ENABLED = true;
         JWT_SIGNING_ALGORITHM = "EdDSA";
         JWT_SIGNING_PRIVATE_KEY_FILE = "jwt/oauth.pem";
         # to generate, we're using: nix run n#openssl -- genpkey -algorithm ed25519 -out /var/lib/forgejo/data/jwt/oauth.pem
