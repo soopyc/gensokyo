@@ -1,10 +1,9 @@
 # we could make this into a presets system
 {...}: {
+  gensokyo.presets.nginx = true;
+
   services.nginx = {
     enable = true;
-    enableReload = true;
-    recommendedTlsSettings = true;
-    recommendedProxySettings = true;
     clientMaxBodySize = "5m";
   };
 }
