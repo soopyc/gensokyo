@@ -24,7 +24,7 @@ in {
         scrape_configs = [
           {
             job_name = "node";
-            static_configs = [{targets = ["localhost:9100"];}];
+            static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
             relabel_configs = [
               {
                 target_label = "instance";
