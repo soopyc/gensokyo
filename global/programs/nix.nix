@@ -15,6 +15,13 @@ lib.mkMerge [
         "repl-flake"
       ];
 
+      allowed-uris = [
+        "github:"
+        "git+https://patchy.soopy.moe/"
+        "git+https://github.com/"
+        "git+ssh://github.com/"
+      ];
+
       substituters = [
         "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
