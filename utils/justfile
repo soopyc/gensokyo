@@ -9,7 +9,7 @@ nitter-token:
 
 # sync sops config with the nix file
 update-sops-config:
-	#!/bin/bash
+	#!/usr/bin/env bash
 	set -euxo pipefail
 	rm ../.sops.yaml
 	# mv ../.sops.yaml{,.bak} 2>/dev/null || true
