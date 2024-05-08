@@ -1,5 +1,7 @@
 lego:
     cf_token: ENC[AES256_GCM,data:fZbxTxQAE1v9yCk6DTPriWCxiFx2DKHiZM77x7sL9x3gYGgvHXGtrg==,iv:oO/tPda0vvW564z6EPaqvrS4U2UGQH8nGSPmaQeBtSk=,tag:hWwDnjm9IAWtTG80TADVtA==,type:str]
+vmetrics:
+    auth: ENC[AES256_GCM,data:w5yPni+c5BtOL2eudKfivW8l3wsDQL7gDjuankRxbzbc5WOwu2fuhZxvnWehdOT6vMcxyxFFoLjBcarqePXz/0jSIcxOyEOgQIw3zZkMKQSAVerqhBrDGgtlW+VOobmwafi1pMTNGi0V+RxKDgTUgF/dKBwY4DhcLPEjsxugqBPDmBqHXhxt1CvRwYXQK7/kfMY3MPg5XSqWvIVEPthVHaGOo4pXJ1uy6jUCmA==,iv:w5fvbIwKablXI6xmGAJcVLC1Zb1WrifLyzsEXfA24TY=,tag:W+ETwqal/TNjRQ85Kt0AKg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -33,8 +35,8 @@ sops:
             STVlTzdQUEtTMGZVRW9OUU5WM1B3blkKSYMbjMwVOVyE8+ZKlrATkgOFDmvQiQKy
             Ecls3ahLgVlf7qV3x/MJQxDgYhLstIAIbObhy0horH6EPflMKrIbbQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-05-08T04:49:21Z"
-    mac: ENC[AES256_GCM,data:6+d2Z9TXmedQIQrtT9mkynoKLuM8U0qOg4vww2BYwCuOXNCYBc/VLeTjHs59jjHeAm1eESI408f39INlcvpcZ+LaF+YbRejBjwNhvppW9tl4KFu/JPuwVtPBv0GZCBrnPfbyxP0Vq0Zqd6D0E36GvvwNe1W4b0ZL7WpJc9zs2FM=,iv:wB8FQ1kZngsoFDPlz9QwTI5BF0i4xQ/nhGf445h+Rq8=,tag:hv9hZ645gEOBoj5t4oxYHA==,type:str]
+    lastmodified: "2024-05-08T07:33:10Z"
+    mac: ENC[AES256_GCM,data:LyO1gKBTUGLW3GWmxZItmJ9wV4tFd8TIcgbOpWhBUlfbMFGzRvKMD0aOpuxzAoOOqLAXPNyPYipbrP3yAyuhhXf1C0ihqHUnMNC5WOtQ1Z7eqcoRH9YMYp+dt6T2n864MsDZcZXc/PpfvVbsS3UucmCDxs1WeQ/WTlFea1YWtzI=,iv:tmS5LDlkfTSdPri3wuSNV+XPDfm79WSY3/+IAMQ6OnU=,tag:GsM4us2MfGGJ5Cy0EaaWOA==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.8.1
