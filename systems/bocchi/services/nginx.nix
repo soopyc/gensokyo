@@ -6,4 +6,9 @@
     enable = true;
     clientMaxBodySize = "5m";
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }
