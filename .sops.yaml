@@ -19,5 +19,11 @@ creation_rules:
   - age:
     - age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
     - age1zkafenrdkkmatjh034yykpzjzzs5fx6kft23jlmsung3dwyufcksds59l2
+    - age17sesmv0vs79gc0e2dm66feamph4h6xp4plyatwxkhupucnefnqlsvyk8m3
+  path_regex: creds/sops/satori/.*
+- key_groups:
+  - age:
+    - age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
+    - age1zkafenrdkkmatjh034yykpzjzzs5fx6kft23jlmsung3dwyufcksds59l2
     - age1w7l663nmqq87e46893dngcy8uxpfeuxlp42a3ma0x4wyuxltjddsecy06p
   path_regex: creds/sops/bocchi/.*

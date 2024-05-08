@@ -39,6 +39,7 @@ in {
     }
 
     (mkHost "koumakan" [age.koumakan])
+    (mkHost "satori" [age.satori])
 
     (mkHost "bocchi" [age.bocchi])
   ];
