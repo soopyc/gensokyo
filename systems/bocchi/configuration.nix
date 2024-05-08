@@ -9,5 +9,7 @@
     enable = true;
   };
 
+  gensokyo.presets.vmetrics = true;
+
   system.stateVersion = "23.11";
 }

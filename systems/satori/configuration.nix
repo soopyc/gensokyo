@@ -18,6 +18,9 @@
       games = true;
       portable = true;
     };
+    presets = {
+      vmetrics = true;
+    };
     system-manager = {
       enable = true;
       flakeLocation = "/home/cassie/gensokyo";
