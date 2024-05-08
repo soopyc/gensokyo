@@ -9,7 +9,8 @@
       "agent/akkoma"
 
       "auth/hosts/mail"
-      "auth/hosts/gateway"
+      "auth/hosts/bocchi"
+      "auth/hosts/satori"
     ];
   };
 in {
@@ -21,7 +22,8 @@ in {
 
     (secrets.mkTemplate "vmauth.env" ''
       AUTH_MAIL_TOKEN=${secrets.placeholder "auth/hosts/mail"}
-      AUTH_GATEWAY_TOKEN=${secrets.placeholder "auth/hosts/gateway"}
+      AUTH_BOCCHI_TOKEN=${secrets.placeholder "auth/hosts/bocchi"}
+      AUTH_SATORI_TOKEN=${secrets.placeholder "auth/hosts/satori"}
     '')
   ];
 
@@ -106,7 +108,8 @@ in {
           }
         ]) [
           "%{AUTH_MAIL_TOKEN}"
-          "%{AUTH_GATEWAY_TOKEN}"
+          "%{AUTH_BOCCHI_TOKEN}"
+          "%{AUTH_SATORI_TOKEN}"
         ];
     };
     environmentFile = secrets.getTemplate "vmauth.env";
