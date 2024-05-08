@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./certificates
+    ./services
   ];
 
   boot.tmp.cleanOnBoot = true;
