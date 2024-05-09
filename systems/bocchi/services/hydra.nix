@@ -3,7 +3,8 @@
     namespace = "hydra";
     secrets = ["signing_key"];
     config = {
-      owner = "hydra";
+      owner = config.users.users.hydra-www.name;
+      group = config.users.users.hydra-www.group;
     };
   };
 in {
