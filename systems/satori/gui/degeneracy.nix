@@ -3,6 +3,7 @@
     (pkgs.vesktop.override {
       withSystemVencord = false;
     })
+    pkgs.zoom-us
   ];
 
   services.arrpc.enable = true;
