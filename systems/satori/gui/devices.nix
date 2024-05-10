@@ -7,10 +7,4 @@
   ];
 
   programs.kdeconnect.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-  };
-  # services.blueman.enable = true;
 }
