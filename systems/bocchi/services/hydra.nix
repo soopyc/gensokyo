@@ -1,4 +1,8 @@
-{_utils, config, ...}: let
+{
+  _utils,
+  config,
+  ...
+}: let
   secrets = _utils.setupSecrets config {
     namespace = "hydra";
     secrets = [

@@ -97,8 +97,8 @@ in rec {
         builtins.addErrorContext "while generating sops template ${file}" {
           sops.templates.${file} =
             {inherit content;} // (builtins.removeAttrs config ["content"]);
-            # // (lib.optionalAttrs (builtins.hasAttr "owner" config) {inherit (config) owner;})
-            # // (lib.optionalAttrs (builtins.hasAttr "group" config) {inherit (config) group;});
+          # // (lib.optionalAttrs (builtins.hasAttr "owner" config) {inherit (config) owner;})
+          # // (lib.optionalAttrs (builtins.hasAttr "group" config) {inherit (config) group;});
         };
     };
 

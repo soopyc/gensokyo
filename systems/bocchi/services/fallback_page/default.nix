@@ -1,4 +1,8 @@
-{pkgs, _utils, ...}: {
+{
+  pkgs,
+  _utils,
+  ...
+}: {
   services.nginx.virtualHosts."_" = _utils.mkVhost {
     useACMEHost = "bocchi.c.soopy.moe";
     default = true;

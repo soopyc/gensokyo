@@ -1,4 +1,5 @@
-{stdenvNoCC}: stdenvNoCC.mkDerivation (final: {
+{stdenvNoCC}:
+stdenvNoCC.mkDerivation (final: {
   name = "bocchi-landing";
   src = ./.;
 
