@@ -96,9 +96,9 @@ in rec {
       mkTemplate = file: content:
         builtins.addErrorContext "while generating sops template ${file}" {
           sops.templates.${file} =
-            {inherit content;}
-            // (lib.optionalAttrs (builtins.hasAttr "owner" config) {inherit (config) owner;})
-            // (lib.optionalAttrs (builtins.hasAttr "group" config) {inherit (config) group;});
+            {inherit content;} // (builtins.removeAttrs config ["content"]);
+            # // (lib.optionalAttrs (builtins.hasAttr "owner" config) {inherit (config) owner;})
+            # // (lib.optionalAttrs (builtins.hasAttr "group" config) {inherit (config) group;});
         };
     };
 
