@@ -10,6 +10,11 @@
       21 # ftp
       38562 # webui
     ];
+
+    allowedTCPPortRanges = [
+      # ftp passive mode
+      {from = 50000; to = 50100;}
+    ];
     allowedUDPPorts = [
       443 # https over quic (http3)
     ];
