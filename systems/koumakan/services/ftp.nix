@@ -26,6 +26,13 @@
         }
       ];
 
+      webdavd.bindings = [
+        {
+          port = 38563;
+          address = "192.168.8.16";
+        }
+      ];
+
       mfa.totp = [
         {
           name = "totp_sha256";

@@ -9,11 +9,15 @@
       # sftpgo
       21 # ftp
       38562 # webui
+      38563 # webdav
     ];
 
     allowedTCPPortRanges = [
       # ftp passive mode
-      {from = 50000; to = 50100;}
+      {
+        from = 50000;
+        to = 50100;
+      }
     ];
     allowedUDPPorts = [
       443 # https over quic (http3)
