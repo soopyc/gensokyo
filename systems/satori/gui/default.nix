@@ -9,6 +9,7 @@
     ./security.nix
     ./virt.nix
     ./development.nix
+    ./productivity.nix
 
     ./devices.nix
 
