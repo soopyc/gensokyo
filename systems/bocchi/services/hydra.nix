@@ -49,6 +49,10 @@ in {
       compress_build_logs 1
       binary_cache_secret_key_file ${secrets.get "signing_key"}
 
+      <git-input>
+        timeout = 1800
+      </git-input>
+
       # Includes
       Include ${secrets.getTemplate "hydra-auth.conf"}
     '';
