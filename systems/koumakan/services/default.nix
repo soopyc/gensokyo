@@ -5,7 +5,9 @@
     ./databases
     ./scm
 
+    # Gensokyo local stuff
     ./attic.nix
+    ./ftp.nix
 
     # fediverse
     ./matrix
