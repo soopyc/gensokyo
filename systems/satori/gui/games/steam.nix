@@ -6,4 +6,8 @@
       pkgs.proton-ge-bin
     ];
   };
+
+  environment.systemPackages = [
+    pkgs.protontricks
+  ];
 }

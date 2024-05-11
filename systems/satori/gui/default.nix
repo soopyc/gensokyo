@@ -10,6 +10,8 @@
     ./virt.nix
     ./development.nix
     ./productivity.nix
+    ./finance.nix
+    ./media.nix
 
     ./devices.nix
 
