@@ -20,6 +20,8 @@
   };
 
   inputs = {
+    mystia.url = "github:soopyc/mystia";
+
     nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
 
@@ -53,8 +55,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mystia = {
-      url = "github:soopyc/mystia";
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
