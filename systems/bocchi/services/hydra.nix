@@ -45,7 +45,6 @@ in {
       # Includes
       Include ${secrets.getTemplate "hydra-auth.conf"}
     '';
-
   };
 
   services.nginx.virtualHosts."hydra.soopy.moe" = _utils.mkSimpleProxy {
