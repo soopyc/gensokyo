@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+lib.mkIf config.gensokyo.traits.gui {
   # other devices support modules
 
   hardware.keyboard.qmk.enable = true;

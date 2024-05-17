@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+lib.mkIf config.gensokyo.traits.gui {
   fonts.packages = [
     (
       pkgs.nerdfonts.override {

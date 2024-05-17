@@ -1,4 +1,9 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}:
+lib.mkIf config.gensokyo.traits.gui {
   # hopefully eradicate suspend
   services.logind = {
     suspendKey = "lock";

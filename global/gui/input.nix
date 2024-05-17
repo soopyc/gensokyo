@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+lib.mkIf config.gensokyo.traits.gui {
   i18n.inputMethod = {
     enabled = "fcitx5";
 
