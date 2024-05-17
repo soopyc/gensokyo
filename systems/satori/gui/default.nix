@@ -11,7 +11,6 @@
     ./power.nix
     ./input.nix
     ./security.nix
-    ./virt.nix
     ./development.nix
     ./productivity.nix
     ./finance.nix
@@ -20,7 +19,6 @@
     ./devices.nix
 
     ./degeneracy.nix
-    ./games
   ];
 
   environment.sessionVariables = {
