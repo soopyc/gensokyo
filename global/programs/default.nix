@@ -12,7 +12,7 @@
     ./ssh.nix
     ./scm.nix
 
-    ./crypto.nix
+    ./security
 
     ./system-manager
     ./misc.nix
