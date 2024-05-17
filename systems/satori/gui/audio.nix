@@ -11,24 +11,6 @@
         support32Bit = true;
       };
 
-      # extraConfig = {
-      #   pipewire = {
-      #     "10-force-quantum" = {
-      #       "context.properties" = {
-      #         "default.clock.quantum" = 2048;
-      #         "default.clock.min-quantum" = 1024;
-      #         "default.clock.quantum-floor" = 1024;
-      #       };
-      #     };
-      #   };
-
-      #   pipewire-pulse = {
-      #     "stream.properties" = {
-      #       "node.latency" = "256/48000";
-      #     };
-      #   };
-      # };
-
       wireplumber.configPackages = [
         # why aren't these consistent
         (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/50-disable-alsa-suspend.conf" ''
@@ -43,5 +25,4 @@
     };
   };
   security.rtkit.enable = true;
-  # systemd.user.services.pipewire-pulse = {};
 }
