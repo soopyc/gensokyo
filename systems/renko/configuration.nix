@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.mystia.nixosModules.arrpc
     (inputs.self + "/modules/staging/yubikey-agent.nix")
@@ -11,6 +15,7 @@
     traits = {
       gui = true;
       games = true;
+      secure = true;
     };
     presets = {
       vmetrics = false;

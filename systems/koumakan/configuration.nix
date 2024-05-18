@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.attic.nixosModules.atticd
     inputs.mystia.nixosModules.fixups
     inputs.mystia.nixosModules.vmauth
@@ -15,7 +14,10 @@
     ./administration
   ];
 
-  gensokyo.traits.sensitive = true;
+  gensokyo.traits = {
+    sensitive = true;
+    secure = true;
+  };
 
   boot.loader = {
     efi = {

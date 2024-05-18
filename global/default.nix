@@ -14,6 +14,7 @@
 
     inputs.sops-nix.nixosModules.sops
     inputs.catppuccin.nixosModules.catppuccin
+    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.home-manager.nixosModules.home-manager
     inputs.nix-index-database.nixosModules.nix-index
   ];

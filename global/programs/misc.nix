@@ -22,6 +22,7 @@
     du-dust
     parallel
     ouch
+    cryptsetup
     borgbackup
 
     # security
