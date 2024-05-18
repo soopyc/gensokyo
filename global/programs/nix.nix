@@ -22,7 +22,8 @@ lib.mkMerge [
         "git+ssh://github.com/"
       ];
 
-      substituters = [
+      substituters = lib.mkForce [
+        "https://cache.nixos.org"
         "https://hydra.soopy.moe"
         "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
