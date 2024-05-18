@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{inputs, pkgs, ...}: {
   imports = [
     inputs.mystia.nixosModules.arrpc
     (inputs.self + "/modules/staging/yubikey-agent.nix")
@@ -20,6 +20,8 @@
       flakeLocation = "/home/cassie/gensokyo";
     };
   };
+
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_9;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
