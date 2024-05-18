@@ -37,8 +37,9 @@ jobs:
       matrix:
         host:
           - koumakan
-          # TODO: expand storage with the maximize build space action before reenabling this
-          # - satori
+          - satori
+          - bocchi
+          - renko
 
     steps:
       - name: Checkout
@@ -62,4 +63,4 @@ jobs:
           skip-push: ${{ github.event_name == 'pull_request' }}
 
       - name: Build configuration
-        run: nix build .#nixosConfigurations."${{ matrix.host }}".config.system.build.toplevel
+        run: nix run github:Mic92/nix-fast-build -- --no-nom --skip-cached --flake .#nixosConfigurations."${{ matrix.host }}".config.system.build.toplevel
