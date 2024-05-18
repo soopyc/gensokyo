@@ -6,14 +6,12 @@
       "https://hydra.soopy.moe"
       "https://nonbunary.soopy.moe/gensokyo-global"
       "https://nonbunary.soopy.moe/gensokyo-systems"
-      "https://cache.garnix.io"
     ];
 
     extra-trusted-public-keys = [
       "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q="
       "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
       "gensokyo-systems:r/Wx649dPuQrCN9Pgh3Jic526zQNk3oWMqYJHnob/Ok="
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
     ];
     allow-import-from-derivation = true;
     fallback = true;
