@@ -1,13 +1,5 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    inputs.mystia.nixosModules.arrpc
-    (inputs.self + "/modules/staging/yubikey-agent.nix")
-
-    # TODO: move this to a global trait config?
     ./gui
   ];
 
