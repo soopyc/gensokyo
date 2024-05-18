@@ -12,6 +12,8 @@ lib.mkMerge [
       enable = true;
       nssmdns4 = true;
     };
+
+    services.tailscale.enable = true;
   }
 
   (lib.mkIf config.gensokyo.traits.portable {
