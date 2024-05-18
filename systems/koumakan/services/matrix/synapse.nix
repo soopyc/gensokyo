@@ -41,10 +41,28 @@
       serve_server_wellknown = true;
       allow_public_rooms_over_federation = true;
       federation_client_minimum_tls_version = 1.2;
+
+      listeners = [
+        {
+          path = "/run/matrix-synapse/synapse.sock";
+          resources = [
+            {
+              names = [
+                "client" # implies ["media" "static"]
+                "consent"
+                "federation"
+                "keys"
+                "openid"
+                "replication"
+              ];
+            }
+          ];
+        }
+      ];
+
       # TODO: Setup TURN servers
       # TODO: Setup OIDC providers
       # TODO: Configure email
-      # TODO: Setup opentracing
       url_preview_enabled = true;
       enable_registration = false;
       session_lifetime = "99y";
@@ -111,13 +129,14 @@
     };
   };
 
+  users.users.nginx.extraGroups = ["matrix-synapse"];
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
     locations."= /.well-known/matrix/server" = _utils.mkNginxJSON "server" {
       "m.server" = "nue.soopy.moe:443";
     };
 
     locations."~ ^(/_matrix|/_synapse/client)" = {
-      proxyPass = "http://localhost:8008";
+      proxyPass = "http://unix:/run/matrix-synapse/synapse.sock";
       extraConfig = ''
         client_max_body_size 100M;
       '';
