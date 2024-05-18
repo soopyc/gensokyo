@@ -26,6 +26,8 @@
 
   services.matrix-synapse = {
     enable = true;
+    enableRegistrationScript = false;
+    
     withJemalloc = true;
     extras = [
       "jwt"
