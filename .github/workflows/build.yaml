@@ -37,7 +37,6 @@ jobs:
       matrix:
         host:
           - koumakan
-          - satori
           - bocchi
           - renko
 
