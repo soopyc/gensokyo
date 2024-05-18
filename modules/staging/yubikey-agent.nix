@@ -38,14 +38,8 @@ in {
     # yubikey-agent package
     systemd.user.services.yubikey-agent = mkIf (config.programs.gnupg.agent.pinentryPackage != null) {
       path = [config.programs.gnupg.agent.pinentryPackage];
-      # wantedBy = [ "default.target" ];
-    };
-
-    systemd.user.sockets.yubikey-agent = {
-      wantedBy = ["sockets.target"];
-      listenStreams = [
-        "%t/yubikey-agent/yubikey-agent.sock"
-      ];
+      wantedBy = [ "default.target" ];
+      after = [ "graphical-session.target" ];
     };
 
     # Yubikey-agent expects pcsd to be running in order to function.
