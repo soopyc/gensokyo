@@ -27,7 +27,7 @@
   services.matrix-synapse = {
     enable = true;
     enableRegistrationScript = false;
-    
+
     withJemalloc = true;
     extras = [
       "jwt"
@@ -51,7 +51,6 @@
             {
               names = [
                 "client" # implies ["media" "static"]
-                "consent"
                 "federation"
                 "keys"
                 "openid"
