@@ -15,13 +15,13 @@
       ftpd.bindings = [
         {
           port = 21;
-          address = "192.168.8.16";
+          address = "100.100.16.16";
         }
       ];
 
       httpd.bindings = [
         {
-          address = "192.168.8.16";
+          address = "100.100.16.16";
           port = 38562;
         }
       ];
@@ -29,7 +29,7 @@
       webdavd.bindings = [
         {
           port = 38563;
-          address = "192.168.8.16";
+          address = "100.100.16.16";
         }
       ];
 

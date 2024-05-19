@@ -5,13 +5,9 @@
 
     matchBlocks = {
       # most intuitive design /s
-      koumakan = {
-        # host is set to the match block name by default but it is not in the manual/option docs.
-        hostname = "cirno.soopy.moe";
-      };
-
       patchy = {
-        hostname = "patchy.soopy.moe";
+        # host is set to the match block name by default but it is not in the manual/option docs.
+        hostname = "koumakan";
         user = "forgejo";
       };
 
