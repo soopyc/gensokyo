@@ -12,6 +12,7 @@ in {
     secrets.generate
 
     ./bocchi.nix
+    ./gateway.nix
   ];
 
   security.acme = {
