@@ -16,6 +16,7 @@
     python3
 
     # basic sysadmin utils
+    jq
     file
     ripgrep
     ack
