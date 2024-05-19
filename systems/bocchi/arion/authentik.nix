@@ -22,10 +22,10 @@
 
       AUTHENTIK_EMAIL__HOST = "mail.soopy.moe";
       AUTHENTIK_EMAIL__PORT = 587;
-      AUTHENTIK_EMAIL__USERNAME = "gateway@service.soopy.moe";
+      AUTHENTIK_EMAIL__USERNAME = "gateway@services.soopy.moe";
       AUTHENTIK_EMAIL__USE_TLS = "true"; # https://github.com/compose-spec/compose-spec/blob/55b450aee50799a2f33cc99e1d714518babe305e/05-services.md#environment
       AUTHENTIK_EMAIL__TIMEOUT = 10;
-      AUTHENTIK_EMAIL__FROM = "gateway@service.soopy.moe";
+      AUTHENTIK_EMAIL__FROM = "gateway@services.soopy.moe";
     };
 
     ports = {
