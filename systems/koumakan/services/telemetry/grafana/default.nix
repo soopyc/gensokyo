@@ -45,7 +45,7 @@ in {
         disable_initial_admin_creation = true;
         disable_gravatar = false;
         cookie_secure = true;
-        cookie_samesite = "strict";
+        cookie_samesite = "lax";
       };
 
       dashboards = {
