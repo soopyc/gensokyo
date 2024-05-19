@@ -147,7 +147,7 @@ in rec {
     // {
       settings.imports = [
         (
-          f: builtins.trace f builtins.removeAttrs fixed directOptions
+          f: builtins.removeAttrs fixed directOptions
         )
       ];
     };

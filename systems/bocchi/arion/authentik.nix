@@ -5,7 +5,7 @@
 }: let
   secrets = _utils.setupSecrets config {
     namespace = "gateway";
-    secrets = ["env"];
+    secrets = ["db_pass" "secret_key" "email_pass"];
   };
   fromDocker = image: "docker.io/library/${image}";
 
@@ -13,19 +13,17 @@
     redisHost = "redis";
     dbHost = "postgresql";
     dbUser = "authentik";
-    dbPass = "\${G_DB_PASS:?db password required}";
 
     authentik = {
       AUTHENTIK_REDIS__HOST = redisHost;
       AUTHENTIK_POSTGRESQL__HOST = dbHost;
       AUTHENTIK_POSTGRESQL__USER = dbUser;
       AUTHENTIK_POSTGRESQL__NAME = dbUser;
-      AUTHENTIK_POSTGRESQL__PASSWORD = dbPass;
 
       AUTHENTIK_EMAIL__HOST = "mail.soopy.moe";
       AUTHENTIK_EMAIL__PORT = 587;
       AUTHENTIK_EMAIL__USERNAME = "gateway@service.soopy.moe";
-      AUTHENTIK_EMAIL__USE_TLS = "true"; # arion bug: should accept booleans
+      AUTHENTIK_EMAIL__USE_TLS = "true"; # https://github.com/compose-spec/compose-spec/blob/55b450aee50799a2f33cc99e1d714518babe305e/05-services.md#environment
       AUTHENTIK_EMAIL__TIMEOUT = 10;
       AUTHENTIK_EMAIL__FROM = "gateway@service.soopy.moe";
     };
@@ -40,7 +38,16 @@
     postgres = "16-alpine";
   };
 in {
-  imports = [secrets.generate];
+  imports = [
+    secrets.generate
+    (secrets.mkTemplate "authentik.env" ''
+      POSTGRES_PASSWORD=${secrets.placeholder "db_pass"}
+      AUTHENTIK_POSTGRESQL__PASSWORD=${secrets.placeholder "db_pass"}
+
+      AUTHENTIK_SECRET_KEY=${secrets.placeholder "secret_key"}
+      AUTHENTIK_EMAIL__PASSWORD=${secrets.placeholder "email_pass"}
+    '')
+  ];
 
   virtualisation.arion.projects.authentik = _utils.mkArionProject (config': {
     services = {
@@ -57,9 +64,8 @@ in {
         environment = {
           POSTGRES_DB = commonEnv.dbUser;
           POSTGRES_USER = commonEnv.dbUser;
-          POSTGRES_PASSWORD = commonEnv.dbPass;
         };
-        env_file = [(secrets.get "env")];
+        env_file = [(secrets.getTemplate "authentik.env")];
 
         volumes = ["/var/lib/authentik/db:/var/lib/postgresql/data"];
       };
@@ -84,7 +90,7 @@ in {
         command = "server";
 
         environment = commonEnv.authentik;
-        env_file = [(secrets.get "env")];
+        env_file = [(secrets.getTemplate "authentik.env")];
 
         depends_on = [commonEnv.dbHost commonEnv.redisHost];
 
@@ -102,7 +108,7 @@ in {
         user = "root"; # ok authentik
 
         environment = commonEnv.authentik;
-        env_file = [(secrets.get "env")];
+        env_file = [(secrets.getTemplate "authentik.env")];
 
         volumes = [
           "/var/run/docker.sock:/var/run/docker.sock"
