@@ -1,7 +1,8 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ./certificates
     ./services
+    ./arion
   ];
 
   boot.tmp.cleanOnBoot = true;

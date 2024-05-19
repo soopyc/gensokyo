@@ -12,6 +12,7 @@
 
     ./gui
 
+    inputs.arion.nixosModules.arion
     inputs.sops-nix.nixosModules.sops
     inputs.catppuccin.nixosModules.catppuccin
     inputs.lanzaboote.nixosModules.lanzaboote

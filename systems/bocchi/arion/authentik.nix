@@ -1,0 +1,139 @@
+{
+  _utils,
+  config,
+  ...
+}: let
+  secrets = _utils.setupSecrets config {
+    namespace = "gateway";
+    secrets = ["env"];
+  };
+  fromDocker = image: "docker.io/library/${image}";
+
+  commonEnv = rec {
+    redisHost = "redis";
+    dbHost = "postgresql";
+    dbUser = "authentik";
+    dbPass = "\${G_DB_PASS:?db password required}";
+
+    authentik = {
+      AUTHENTIK_REDIS__HOST = redisHost;
+      AUTHENTIK_POSTGRESQL__HOST = dbHost;
+      AUTHENTIK_POSTGRESQL__USER = dbUser;
+      AUTHENTIK_POSTGRESQL__NAME = dbUser;
+      AUTHENTIK_POSTGRESQL__PASSWORD = dbPass;
+
+      AUTHENTIK_EMAIL__HOST = "mail.soopy.moe";
+      AUTHENTIK_EMAIL__PORT = 587;
+      AUTHENTIK_EMAIL__USERNAME = "gateway@service.soopy.moe";
+      AUTHENTIK_EMAIL__USE_TLS = "true"; # arion bug: should accept booleans
+      AUTHENTIK_EMAIL__TIMEOUT = 10;
+      AUTHENTIK_EMAIL__FROM = "gateway@service.soopy.moe";
+    };
+
+    ports = {
+      http = 32841;
+      metrics = 34218;
+    };
+  };
+  versions = {
+    authentik = "2024.4.2";
+    postgres = "16-alpine";
+  };
+in {
+  imports = [secrets.generate];
+
+  virtualisation.arion.projects.authentik = _utils.mkArionProject (config': {
+    services = {
+      ${commonEnv.dbHost}.service = {
+        image = fromDocker "postgres:${versions.postgres}";
+        restart = "unless-stopped";
+        healthcheck = {
+          test = ["CMD-SHELL" "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"];
+          start_period = "20s";
+          interval = "30s";
+          retries = 5;
+          timeout = "5s";
+        };
+        environment = {
+          POSTGRES_DB = commonEnv.dbUser;
+          POSTGRES_USER = commonEnv.dbUser;
+          POSTGRES_PASSWORD = commonEnv.dbPass;
+        };
+        env_file = [(secrets.get "env")];
+
+        volumes = ["/var/lib/authentik/db:/var/lib/postgresql/data"];
+      };
+
+      ${commonEnv.redisHost}.service = {
+        image = fromDocker "redis:alpine";
+        command = "--save 60 1 --loglevel warning";
+        restart = "unless-stopped";
+        healthcheck = {
+          test = ["CMD-SHELL" "redis-cli ping | grep PONG"];
+          start_period = "10s";
+          interval = "30s";
+          retries = 5;
+          timeout = "2s";
+        };
+        volumes = ["/var/lib/authentik/redis:/data"];
+      };
+
+      ak_server.service = {
+        image = "ghcr.io/goauthentik/server:${versions.authentik}";
+        restart = "unless-stopped";
+        command = "server";
+
+        environment = commonEnv.authentik;
+        env_file = [(secrets.get "env")];
+
+        depends_on = [commonEnv.dbHost commonEnv.redisHost];
+
+        volumes = ["/var/lib/authentik/media:/media"];
+        ports = [
+          "127.0.0.1:${toString commonEnv.ports.http}:9000"
+          "127.0.0.1:${toString commonEnv.ports.metrics}:9300"
+        ];
+      };
+
+      ak_worker.service = {
+        image = "ghcr.io/goauthentik/server:${versions.authentik}";
+        restart = "unless-stopped";
+        command = "worker";
+        user = "root"; # ok authentik
+
+        environment = commonEnv.authentik;
+        env_file = [(secrets.get "env")];
+
+        volumes = [
+          "/var/run/docker.sock:/var/run/docker.sock"
+          "/var/lib/authentik/media:/media"
+          "/var/lib/authentik/certs:/certs"
+        ];
+        depends_on = [commonEnv.dbHost commonEnv.redisHost];
+      };
+    };
+  });
+
+  services.nginx.virtualHosts."gateway.soopy.moe" = _utils.mkSimpleProxy {
+    port = commonEnv.ports.http;
+    websockets = true;
+
+    extraConfig = {
+      useACMEHost = "gateway.soopy.moe";
+    };
+  };
+
+  # TODO: refactor this to a utils function if it works.
+  services.vmagent.prometheusConfig.scrape_configs = [
+    {
+      job_name = "authentik";
+      static_configs = [{targets = ["localhost:${builtins.toString commonEnv.ports.metrics}"];}];
+      relabel_configs = [
+        {
+          target_label = "instance";
+          replacement = "${config.networking.fqdnOrHostName}";
+        }
+      ];
+    }
+  ];
+}
