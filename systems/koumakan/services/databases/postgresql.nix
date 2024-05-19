@@ -35,7 +35,7 @@
       datestyle = "iso, dmy";
       log_timezone = "Asia/Hong_Kong";
       timezone = "Asia/Hong_Kong";
-      default_text_search_config = "pc_catalog.english";
+      default_text_search_config = "pg_catalog.english";
 
       max_wal_size = "2GB";
       min_wal_size = "80MB";
