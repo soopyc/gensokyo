@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./authentik.nix
   ];
 
   virtualisation.arion = {
