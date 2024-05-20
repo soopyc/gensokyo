@@ -63,28 +63,28 @@ in {
         disable_login_form = true;
       };
 
-      "auth.generic_oauth" = {
-        name = "GensoGateway";
-        enabled = true;
+      # "auth.generic_oauth" = {
+      #   name = "GensoGateway";
+      #   enabled = true;
 
-        allow_sign_up = true;
+      #   allow_sign_up = true;
 
-        client_id = fromSecret "oauth2/gateway/cid";
-        client_secret = fromSecret "oauth2/gateway/cse";
-        scopes = "openid email profile offline_access roles";
+      #   client_id = fromSecret "oauth2/gateway/cid";
+      #   client_secret = fromSecret "oauth2/gateway/cse";
+      #   scopes = "openid email profile offline_access roles";
 
-        email_attribute_path = "email";
-        login_attribute_path = "username";
-        name_attribute_path = "username";
+      #   email_attribute_path = "email";
+      #   login_attribute_path = "username";
+      #   name_attribute_path = "username";
 
-        auth_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/auth";
-        token_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/token";
-        api_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/userinfo";
-      };
+      #   auth_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/auth";
+      #   token_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/token";
+      #   api_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/userinfo";
+      # };
 
       "auth.github" = {
         enabled = true;
-        allow_sign_up = false;
+        allow_sign_up = true; # TODO: disable this when we're done with gensogateway
         client_id = fromSecret "oauth2/github/cid";
         client_secret = fromSecret "oauth2/github/cse";
         scopes = "user:email,read:org";
