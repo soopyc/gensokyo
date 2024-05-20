@@ -21,7 +21,10 @@
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_9;
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    consoleMode = "max";
+  };
   boot.initrd.systemd.enable = true;
 
   boot.loader.efi.canTouchEfiVariables = true;
