@@ -32,6 +32,7 @@
 
     # deno
     deno
+    devenv
 
     # command runners and utilities
     nvd
