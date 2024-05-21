@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./gui
+    ./docker.nix
   ];
 
   gensokyo = {
