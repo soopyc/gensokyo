@@ -6,6 +6,7 @@
     ./multiplexers.nix
 
     ./compilers.nix
+    ./compat.nix
 
     ./networking.nix
     ./ssh.nix
