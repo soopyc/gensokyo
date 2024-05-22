@@ -14,6 +14,7 @@ lib.mkMerge [
     };
 
     services.tailscale.enable = true;
+    services.tailscale.useRoutingFeatures = "both";
   }
 
   (lib.mkIf config.gensokyo.traits.portable {
