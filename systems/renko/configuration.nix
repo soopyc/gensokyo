@@ -11,7 +11,7 @@
       secure = true;
     };
     presets = {
-      vmetrics = false;
+      vmetrics = true;
     };
     system-manager = {
       enable = true;

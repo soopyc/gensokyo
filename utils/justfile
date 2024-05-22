@@ -17,6 +17,8 @@ update-sops-config:
 	echo -e "# WARNING: This is a generated file. DO NOT EDIT DIRECTLY!\n# See .sops.nix and utils/build-yaml.nix for more details." \
 		| cat - $OUT > ../.sops.yaml
 
+	for file in ../creds/sops/*/default.yaml; do sops updatekeys $file; done
+
 add-grafana-dashboard id name *title="":
 	xh https://grafana.com/api/dashboards/{{id}} | \
 		jq '.json | .uid="{{name}}" {{ if title != "" {"| .title=\"" + title + "\"" } else {""} }}' \

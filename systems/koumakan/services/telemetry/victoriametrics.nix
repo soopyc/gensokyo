@@ -1,17 +1,18 @@
 {
   config,
+  lib,
   _utils,
   ...
 }: let
+  monitoredHosts = [
+    "mail"
+    "bocchi"
+    "satori"
+    "renko"
+  ];
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";
-    secrets = [
-      "agent/akkoma"
-
-      "auth/hosts/mail"
-      "auth/hosts/bocchi"
-      "auth/hosts/satori"
-    ];
+    secrets = ["agent/akkoma"] ++ builtins.map (f: "auth/hosts/" + f) monitoredHosts;
   };
 in {
   imports = [
@@ -20,11 +21,12 @@ in {
       VMA_AKKOMA_CRED=${secrets.placeholder "agent/akkoma"}
     '')
 
-    (secrets.mkTemplate "vmauth.env" ''
-      AUTH_MAIL_TOKEN=${secrets.placeholder "auth/hosts/mail"}
-      AUTH_BOCCHI_TOKEN=${secrets.placeholder "auth/hosts/bocchi"}
-      AUTH_SATORI_TOKEN=${secrets.placeholder "auth/hosts/satori"}
-    '')
+    (secrets.mkTemplate "vmauth.env" (
+      lib.concatLines (builtins.map (
+          host: "AUTH_${lib.toUpper host}_TOKEN=${secrets.placeholder "auth/hosts/${host}"}"
+        )
+        monitoredHosts)
+    ))
   ];
 
   services.victoriametrics = {
@@ -100,17 +102,12 @@ in {
     enable = true;
     listenAddress = "127.0.0.1:21000";
     authConfig = {
-      users =
-        builtins.concatMap (token: [
-          {
-            bearer_token = token;
-            url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
-          }
-        ]) [
-          "%{AUTH_MAIL_TOKEN}"
-          "%{AUTH_BOCCHI_TOKEN}"
-          "%{AUTH_SATORI_TOKEN}"
-        ];
+      users = builtins.concatMap (token: [
+        {
+          bearer_token = token;
+          url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
+        }
+      ]) (builtins.map (host: "%{AUTH_${lib.toUpper host}_TOKEN}") monitoredHosts);
     };
     environmentFile = secrets.getTemplate "vmauth.env";
   };

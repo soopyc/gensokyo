@@ -8,6 +8,7 @@ let
   age.koumakan = "age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt";
   age.satori = "age17sesmv0vs79gc0e2dm66feamph4h6xp4plyatwxkhupucnefnqlsvyk8m3";
   age.bocchi = "age1w7l663nmqq87e46893dngcy8uxpfeuxlp42a3ma0x4wyuxltjddsecy06p";
+  age.renko = "age1p6n5yh9fy09xspwf29klfsa4zdrhp04q22gvxkz2vvm88vt9tunsdn020s";
 
   everything = [
     {
@@ -40,6 +41,7 @@ in {
 
     (mkHost "koumakan" [age.koumakan])
     (mkHost "satori" [age.satori])
+    (mkHost "renko" [age.renko])
 
     (mkHost "bocchi" [age.bocchi])
   ];
