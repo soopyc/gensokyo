@@ -51,6 +51,13 @@ in {
     port = 3000;
     extraConfig = {
       useACMEHost = "bocchi.c.soopy.moe";
+
+      locations."= /pubkey" = {
+        extraConfig = ''
+          add_header content-type text/plain always;
+        '';
+        return = "200 hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=";
+      };
     };
   };
 }
