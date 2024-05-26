@@ -27,6 +27,7 @@
     borgbackup
 
     # security
+    openssl
     yubikey-manager
     sops
 
