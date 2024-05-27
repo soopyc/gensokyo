@@ -5,8 +5,10 @@
 # mod utils
 
 # build the current configuration
-build system="":
-	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config --log-format internal-json |& nom --json
+build system="" nom="true" +extra_args="":
+	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config \
+		{{extra_args}} \
+		{{ if nom == "true" {"--log-format internal-json |& nom --json"} else {""} }}
 	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
 # build and test the configuration, but don't switch
