@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./nix.nix
+    ./dist-builds.nix
     ./editors.nix
     ./shells.nix
     ./multiplexers.nix
