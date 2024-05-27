@@ -69,6 +69,7 @@ lib.mkMerge [
   (lib.mkIf (!config.gensokyo.traits.sensitive) {
     nix.settings.trusted-users = [
       "@wheel"
+      "builder"
     ];
   })
 ]
