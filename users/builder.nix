@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }:
 lib.mkIf (!config.gensokyo.traits.sensitive) {
@@ -14,5 +15,9 @@ lib.mkIf (!config.gensokyo.traits.sensitive) {
     isNormalUser = false;
     isSystemUser = true;
     group = "nixbld";
+
+    # allow builders to actually access nix
+    # todo: harden this somehow
+    shell = pkgs.zsh;
   };
 }
