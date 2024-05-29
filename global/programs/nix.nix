@@ -53,7 +53,7 @@ lib.mkMerge [
       dates = "weekly";
     };
 
-    nix.package = pkgs.nixVersions.latest;
+    nix.package = pkgs.nixVersions.nix_2_20;
     nix.registry =
       {
         n.flake = inputs.nixpkgs;
