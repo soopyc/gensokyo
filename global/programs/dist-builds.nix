@@ -11,7 +11,7 @@
         hostName = name;
         system = "x86_64-linux";
 
-        protocol = "ssh-ng";
+        protocol = "ssh";
         sshUser = "builder";
         sshKey = config.sops.secrets.builder_key.path;
 
