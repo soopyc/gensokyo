@@ -34,4 +34,12 @@ in {
     };
     bocchi.publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
   };
+
+  services.openssh.extraConfig = lib.mkAfter ''
+    # forgejo specific settings
+    Match User builder
+      Banner none
+      PasswordAuthentication no
+      KbdInteractiveAuthentication no
+  '';
 }
