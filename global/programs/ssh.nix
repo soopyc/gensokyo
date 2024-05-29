@@ -26,4 +26,8 @@ in {
       ------END BANNER------
     '';
   };
+
+  programs.ssh.extraConfig = ''
+    ConnectTimeout 5
+  ''; # if things exceed 5 seconds to connect something has gone wrong. Fail fast to not wait.
 }
