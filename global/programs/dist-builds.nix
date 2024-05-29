@@ -28,7 +28,10 @@ in {
 
   nix.distributedBuilds = true;
   nix.buildMachines = mkBuildMachines {
-    renko.speedFactor = 5;
-    bocchi = {};
+    renko = {
+      speedFactor = 5;
+      publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
+    };
+    bocchi.publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
   };
 }
