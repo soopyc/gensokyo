@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./upgrade-diff.nix
-    ./motd.nix
   ];
 
   # Set default i18n configuration
