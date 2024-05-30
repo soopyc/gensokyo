@@ -11,7 +11,7 @@
   in
     lib.mapAttrsToList (name: value:
       {
-        hostName = name;
+        hostName = name + ".mist-nessie.ts.net";
 
         protocol = "ssh";
         sshUser = "builder";
@@ -41,12 +41,12 @@ in {
 
   nix.distributedBuilds = true;
   nix.buildMachines = mkBuildMachines {
-    "renko.mist-nessie.ts.net" = {
+    renko = {
       supportedFeatures = ["kvm" "nixos-test"];
       speedFactor = 5;
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
     };
-    "bocchi.mist-nessie.ts.net".publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
+    bocchi.publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
   };
 
   services.openssh.extraConfig = lib.mkAfter ''
