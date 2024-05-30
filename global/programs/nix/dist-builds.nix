@@ -12,7 +12,6 @@
     lib.mapAttrsToList (name: value:
       {
         hostName = name;
-        system = "x86_64-linux";
 
         protocol = "ssh";
         sshUser = "builder";
@@ -20,9 +19,20 @@
 
         speedFactor = 1;
         maxJobs = 2;
+
+        systems = ["i686-linux" "x86_64-linux"];
       }
       // value)
-    cleanAttr;
+    cleanAttr
+    ++ [
+      {
+        hostName = "localhost";
+        protocol = null;
+        speedFactor = 1;
+        maxJobs = 1;
+        system = "x86_64-linux";
+      }
+    ];
 in {
   sops.secrets.builder_key = {
     sopsFile = inputs.self + "/creds/sops/global/id_builder";
@@ -31,12 +41,12 @@ in {
 
   nix.distributedBuilds = true;
   nix.buildMachines = mkBuildMachines {
-    localhost.protocol = null;
-    renko = {
+    "renko.mist-nessie.ts.net" = {
+      supportedFeatures = ["kvm" "nixos-test"];
       speedFactor = 5;
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
     };
-    bocchi.publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
+    "bocchi.mist-nessie.ts.net".publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
   };
 
   services.openssh.extraConfig = lib.mkAfter ''
