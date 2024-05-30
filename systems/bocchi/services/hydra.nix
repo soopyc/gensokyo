@@ -28,6 +28,8 @@ in {
     '')
   ];
 
+  sops.secrets.builder_key.owner = config.users.users.hydra-queue-runner.name;
+
   services.hydra = {
     enable = true;
     package = inputs.hydra.packages.${pkgs.system}.hydra.override {nix = config.nix.package;};
