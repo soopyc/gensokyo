@@ -2,6 +2,7 @@
   _utils,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   secrets = _utils.setupSecrets config {
@@ -29,7 +30,7 @@ in {
 
   services.hydra = {
     enable = true;
-    package = pkgs.hydra-unstable.override {nix = config.nix.package;};
+    package = inputs.hydra.packages.${pkgs.system}.hydra.override {nix = config.nix.package;};
     listenHost = "127.0.0.1";
     useSubstitutes = true;
     hydraURL = "https://hydra.soopy.moe";
