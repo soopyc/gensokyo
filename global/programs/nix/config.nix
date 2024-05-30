@@ -8,6 +8,8 @@
 # some items are sourced from https://jackson.dev/post/nix-reasonable-defaults/
 lib.mkMerge [
   {
+    nix.package = pkgs.nixVersions.latest;
+
     nix.settings = {
       experimental-features = [
         "nix-command"
@@ -53,7 +55,6 @@ lib.mkMerge [
       dates = "weekly";
     };
 
-    nix.package = pkgs.nixVersions.nix_2_20;
     nix.registry =
       {
         n.flake = inputs.nixpkgs;
