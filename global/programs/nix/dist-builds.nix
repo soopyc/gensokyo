@@ -6,6 +6,10 @@
   hostname,
   ...
 }: let
+  baselineFeatures = [
+    "big-parallel"
+  ];
+
   mkBuildMachines = attr: let
     cleanAttr = builtins.removeAttrs attr [hostname];
   in
@@ -19,6 +23,7 @@
 
         speedFactor = 1;
         maxJobs = 2;
+        supportedFeatures = baselineFeatures;
 
         systems = ["i686-linux" "x86_64-linux"];
       }
@@ -31,6 +36,7 @@
         speedFactor = 1;
         maxJobs = 1;
         system = "x86_64-linux";
+        supportedFeatures = baselineFeatures;
       }
     ];
 in {
@@ -42,7 +48,7 @@ in {
   nix.distributedBuilds = true;
   nix.buildMachines = mkBuildMachines {
     renko = {
-      supportedFeatures = ["kvm" "nixos-test"];
+      supportedFeatures = baselineFeatures ++ ["kvm" "nixos-test"];
       speedFactor = 5;
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
     };
