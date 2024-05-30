@@ -23,7 +23,7 @@
     nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
 
-    nixos-hardware.url = "github:soopyc/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -55,6 +55,11 @@
 
     arion = {
       url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hydra = {
+      url = "github:nixos/hydra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
