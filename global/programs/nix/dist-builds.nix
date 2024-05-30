@@ -31,7 +31,7 @@ in {
 
   nix.distributedBuilds = true;
   nix.buildMachines = mkBuildMachines {
-    # localhost.protocol = null;
+    localhost.protocol = null;
     renko = {
       speedFactor = 5;
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
