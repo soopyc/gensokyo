@@ -7,8 +7,9 @@ in {
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
+      PubkeyAcceptedAlgorithms = "sk-ssh-ed25519@openssh.com,ssh-ed25519";
     };
-    # TODO: disable banner for service users like forgejo
+
     banner = ''
       -----BEGIN BANNER-----
       # Welcome to ${config.system.name}
@@ -29,7 +30,7 @@ in {
 
   programs.ssh = {
     startAgent = true;
-    pubkeyAcceptedKeyTypes = ["ssh-ed25519"];
+    pubkeyAcceptedKeyTypes = ["ssh-ed25519" "sk-ssh-ed25519@openssh.com"];
     enableAskPassword = true;
 
     extraConfig = ''
