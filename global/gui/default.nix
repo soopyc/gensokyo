@@ -10,7 +10,6 @@
     ./fonts.nix
 
     ./browser.nix
-    ./security.nix
     ./development.nix
 
     ./degeneracy.nix

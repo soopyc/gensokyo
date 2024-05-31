@@ -20,6 +20,5 @@
     inputs.nix-index-database.nixosModules.nix-index
 
     inputs.mystia.nixosModules.arrpc
-    (inputs.self + "/modules/staging/yubikey-agent.nix")
   ];
 }

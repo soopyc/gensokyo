@@ -1,11 +1,9 @@
 # If I had an option, I would not use ecdsa keys.
 # SmartCards
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvCpt7yWIptJ9XFBhwVIj9zR30OzkWI976B/P5+0whD YubiKey #13901056 OpenPGP
+# ssh-keygen -t ed25519-sk -C "YubiKey #${invalid:?gock}" -O{resident,verify-required}
 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJxpXpPlPEZPfnw2mIuWJEy/C/5h1bb6pIMeFsHAICQ+lLdEkbBSeDXQuA8feLN0MJw8KaB9jqrJbYgFadV/nVA= YubiKey #19302295 PIV Slot 9a
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICMjRM3BNkLbU57RyfUx7kOlZeBEj/NByr1PfXri82aP YubiKey #19302432 OpenPGP
-
-# Static devices
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIPTbZL0dq0ynBl8fy9yZmrKVWd/fOybZoqBKchP0MPM sophie@marisa.d.soopy.moe
+sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIEP1oum6r6bTb4My/ZRqhVWxYKYGEqDyijUqqL1ZCIWjAAAABHNzaDo= YubiKey #13901056
+sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILJ3mxaweLrFL//bYIJvE1XVmjQf2Dq/CjKIPkIVmDpXAAAABHNzaDo= YubiKey #19302295
 
 # Phones and Portables (portals)
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICPydYsQOmcjpsuhwi+w7TD5DRPXIe3pemUYyUbmOLMt pixel7a+graphite@portal.d.soopy.moe
