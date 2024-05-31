@@ -2,6 +2,7 @@
   programs.ssh = {
     enable = true;
     hashKnownHosts = true;
+    forwardAgent = true;
 
     matchBlocks = {
       # most intuitive design /s
