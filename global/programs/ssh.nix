@@ -31,7 +31,7 @@ in {
   programs.ssh = {
     startAgent = true;
     pubkeyAcceptedKeyTypes = ["ssh-ed25519" "sk-ssh-ed25519@openssh.com"];
-    enableAskPassword = true;
+    # enableAskPassword = true;
 
     extraConfig = ''
       ConnectTimeout 5
