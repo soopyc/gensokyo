@@ -39,6 +39,8 @@ in {
     notificationSender = "hydra@services.soopy.moe";
     smtpHost = "mail.soopy.moe";
 
+    logo = ./hydra.png;
+
     extraConfig = ''
       compress_build_logs 1
       binary_cache_secret_key_file ${secrets.get "signing_key"}
