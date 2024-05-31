@@ -19,7 +19,7 @@ in {
       ! You are currently accessing an internal resource. Your connection
       ! information, including but not limited to your authenticating IP address,
       ! username and the user you're attempting to log into are recorded.
-      ! Disconnect IMMEDIATELY if you are not an authorized personnel.
+      ! Disconnect IMMEDIATELY if you are not part of the authorized personnel.
 
       i Contact:
       i   [Matrix] @sophie:nue.soopy.moe
