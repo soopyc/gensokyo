@@ -421,17 +421,16 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1716477701,
-        "narHash": "sha256-LJ41BUxpwuvcWfOlSetyhSfJHcAqeqqkoyiO3cBP0h8=",
+        "lastModified": 1716479415,
+        "narHash": "sha256-WAJJ4UL3hsqsfZ05cHthjEwItnv7Xy84r2y6lzkBMh8=",
         "owner": "nixos",
         "repo": "hydra",
-        "rev": "91bb72e3236218f0d3f68d9658f36641e39f61d8",
+        "rev": "b3e0d9a8b78d55e5fea394839524f5a24d694230",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
         "repo": "hydra",
-        "rev": "91bb72e3236218f0d3f68d9658f36641e39f61d8",
         "type": "github"
       }
     },
@@ -511,15 +510,16 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1716472735,
-        "narHash": "sha256-506pEWmMufBGD9hM99WZynH9Vxkv3o3IJJsPiVAs4T4=",
+        "lastModified": 1713874370,
+        "narHash": "sha256-gW1mO/CvsQQ5gvgiwzxsGhPFI/tx30NING+qgF5Do0s=",
         "owner": "NixOS",
         "repo": "nix",
-        "rev": "2c42e7b8d9ea32e59c01334852599b548b214d31",
+        "rev": "1c8150ac312b5f9ba1b3f6768ff43b09867e5883",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
+        "ref": "2.22-maintenance",
         "repo": "nix",
         "type": "github"
       }
