@@ -32,7 +32,7 @@ in {
 
   services.hydra-dev = {
     enable = true;
-    package = inputs.hydra.packages.${pkgs.system}.hydra.override {nix = config.nix.package;};
+    package = inputs.hydra.packages.${pkgs.system}.hydra; #.override {nix = config.nix.package;};
     listenHost = "127.0.0.1";
     useSubstitutes = true;
     hydraURL = "https://hydra.soopy.moe";
