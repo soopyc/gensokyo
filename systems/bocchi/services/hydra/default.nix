@@ -30,7 +30,7 @@ in {
 
   sops.secrets.builder_key.owner = config.users.users.hydra-queue-runner.name;
 
-  services.hydra = {
+  services.hydra-dev = {
     enable = true;
     package = inputs.hydra.packages.${pkgs.system}.hydra.override {nix = config.nix.package;};
     listenHost = "127.0.0.1";

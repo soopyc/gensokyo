@@ -1,8 +1,10 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ./certificates
     ./services
     ./arion
+
+    inputs.hydra.nixosModules.hydra
   ];
 
   boot.tmp.cleanOnBoot = true;

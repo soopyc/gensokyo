@@ -1,8 +1,8 @@
 {...}: {
   imports = [
-    ./hydra.nix
     ./nginx.nix
 
+    ./hydra
     ./fallback_page
   ];
 }
