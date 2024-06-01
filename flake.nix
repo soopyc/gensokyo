@@ -59,7 +59,7 @@
     };
 
     hydra = {
-      url = "github:nixos/hydra";
+      url = "github:nixos/hydra/nix-next";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
