@@ -1,11 +1,13 @@
 {
   _utils,
   config,
+  lib,
   ...
 }: let
   secrets = _utils.setupSecrets config {
     namespace = "hydra";
     secrets = [
+      "s3"
       "signing_key"
       "auth/gitea/cassie"
     ];
@@ -26,6 +28,10 @@ in {
     '')
   ];
 
+  sops.secrets."hydra/s3" = {
+    owner = lib.mkForce config.users.users.hydra-queue-runner.name;
+    path = config.users.users.hydra-queue-runner.home + "/.aws/credentials";
+  };
   sops.secrets.builder_key.owner = config.users.users.hydra-queue-runner.name;
 
   services.hydra-dev = {
@@ -50,8 +56,11 @@ in {
     '';
 
     extraConfig = ''
-      compress_build_logs 1
-      binary_cache_secret_key_file ${secrets.get "signing_key"}
+      # compress_build_logs 1
+      #binary_cache_secret_key_file ${secrets.get "signing_key"} ## !! deprecated setting
+
+      upload_logs_to_binary_cache = true
+      store_uri = s3://nixos-cache?scheme=https&endpoint=2857eeff8794176be771f0e5567219f1.r2.cloudflarestorage.com&compression=zstd&parallel-compression=true&write-nar-listing=1&ls-compression=br&log-compression=br&region=auto&secret-key=${secrets.get "signing_key"}
 
       <git-input>
         timeout = 1800
