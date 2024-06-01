@@ -5,5 +5,11 @@
     git = true;
   };
 
+  catppuccin = {
+    enable = true;
+    accent = "pink";
+    flavor = "latte";
+  };
+
   programs.zsh.enable = true;
 }

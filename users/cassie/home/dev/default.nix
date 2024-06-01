@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./ssh.nix
+    ./editors.nix
   ];
 
   home.packages = with pkgs; [
