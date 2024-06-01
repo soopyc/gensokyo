@@ -41,6 +41,16 @@ in {
 
     logo = ./hydra.png;
 
+    # wow so tracker
+    tracker = ''
+      <link rel="icon" type="image/png" href="/logo" />
+      <style>
+        .logo {
+          margin-top: unset !important;
+        }
+      </style>
+    '';
+
     extraConfig = ''
       compress_build_logs 1
       binary_cache_secret_key_file ${secrets.get "signing_key"}
