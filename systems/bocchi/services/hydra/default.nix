@@ -1,8 +1,6 @@
 {
   _utils,
   config,
-  pkgs,
-  inputs,
   ...
 }: let
   secrets = _utils.setupSecrets config {
