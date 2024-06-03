@@ -14,6 +14,7 @@
     nil
     nix-output-monitor
     python3
+    ffmpeg
 
     # basic sysadmin utils
     jq
