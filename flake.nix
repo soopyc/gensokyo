@@ -3,7 +3,7 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://hydra.soopy.moe"
+      "https://cache.soopy.moe"
       "https://nonbunary.soopy.moe/gensokyo-global"
       "https://nonbunary.soopy.moe/gensokyo-systems"
     ];

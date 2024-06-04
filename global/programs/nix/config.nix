@@ -26,13 +26,13 @@ lib.mkMerge [
 
       substituters = lib.mkForce [
         "https://cache.nixos.org"
-        "https://hydra.soopy.moe"
+        "https://cache.soopy.moe"
         "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
       ];
 
       trusted-substituters = [
-        "https://hydra.soopy.moe"
+        "https://cache.soopy.moe"
         "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
         "https://nixpkgs.reverse.proxy.internal.soopy.moe/"
