@@ -61,7 +61,7 @@ in {
       #binary_cache_secret_key_file ${secrets.get "signing_key/local"} ## !! deprecated setting
 
       upload_logs_to_binary_cache = true
-      store_uri = s3://nixos-cache?scheme=https&endpoint=2857eeff8794176be771f0e5567219f1.r2.cloudflarestorage.com&compression=zstd&parallel-compression=true&write-nar-listing=1&ls-compression=br&log-compression=br&region=auto&secret-key=${secrets.get "signing_key/r2"}
+      store_uri = s3://nixos-cache?scheme=https&endpoint=2857eeff8794176be771f0e5567219f1.r2.cloudflarestorage.com&priority=50&compression=zstd&parallel-compression=true&write-nar-listing=true&ls-compression=br&log-compression=br&region=auto&want-mass-query=true&secret-key=${secrets.get "signing_key/r2"}
 
       <git-input>
         timeout = 1800
