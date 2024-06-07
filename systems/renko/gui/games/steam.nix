@@ -1,13 +1,11 @@
-{pkgs, ...}: {
+{pkgs, lib, config, ...}: lib.mkIf config.gensokyo.traits.games {
   programs.steam = {
     enable = true;
 
     extraCompatPackages = [
       pkgs.proton-ge-bin
     ];
-  };
 
-  environment.systemPackages = [
-    pkgs.protontricks
-  ];
+    protontricks.enable = true;
+  };
 }
