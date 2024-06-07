@@ -4,6 +4,7 @@
     ./obs.nix
     ./virt.nix
     ./eyecandy.nix
+    ./media.nix
     ./extras.nix
   ];
 
