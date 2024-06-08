@@ -4,7 +4,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  getSocket = file: "/run/matrix-synapse/${file}.sock";
+in {
   sops.secrets."synapse.yaml" = {
     mode = "0400";
     owner = config.users.users.matrix-synapse.name;
@@ -27,6 +29,7 @@
   services.matrix-synapse = {
     enable = true;
     enableRegistrationScript = false;
+    configureRedisLocally = true; # workers support
 
     withJemalloc = true;
     extras = [
@@ -38,6 +41,11 @@
       "/run/secrets/synapse.yaml"
     ];
 
+    workers = {
+      federation-sender-0 = {};
+      pusher-0 = {};
+    };
+
     settings = {
       server_name = "nue.soopy.moe";
       serve_server_wellknown = true;
@@ -46,7 +54,7 @@
 
       listeners = [
         {
-          path = "/run/matrix-synapse/synapse.sock";
+          path = getSocket "mistress";
           resources = [
             {
               names = [
@@ -59,6 +67,15 @@
             }
           ];
         }
+      ];
+
+      # workers
+      instance_map.main.path = getSocket "mistress";
+      federation_sender_instances = [
+        "federation-sender-0"
+      ];
+      pusher_instances = [
+        "pusher-0"
       ];
 
       # TODO: Setup TURN servers
@@ -98,17 +115,6 @@
     };
   };
 
-  services.matrix-sliding-sync = {
-    enable = true;
-    createDatabase = true; # let the module handle itself
-    settings = {
-      SYNCV3_SERVER = "https://${config.services.matrix-synapse.settings.server_name}";
-      SYNCV3_BINDADDR = "[::1]:12723";
-      SYNCV3_DB = lib.mkForce "";
-    };
-    environmentFile = config.sops.templates."matrix-sliding-sync-env".path;
-  };
-
   services.postgresql = {
     ensureDatabases = ["synapse"];
     ensureUsers = [
@@ -119,17 +125,6 @@
     ];
   };
 
-  services.nginx.virtualHosts."sliding.proxy.production.matrix.soopy.moe" = _utils.mkSimpleProxy {
-    port = 12723;
-    extraConfig = {
-      useACMEHost = "proxy.c.soopy.moe";
-
-      locations."= /" = _utils.mkNginxFile {
-        content = ''<!doctype html><html><head><title>msc3575 proxy</title><style>html{font-family:monospace;}</style></head><body><h2>Welcome to the sliding sync proxy.</h2><p>This proxy is for internal use only, you will need an account on nue.soopy.moe to use it. Feel free to self host one yourself!!</p></body></html>'';
-      };
-    };
-  };
-
   users.users.nginx.extraGroups = ["matrix-synapse"];
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
     locations."= /.well-known/matrix/server" = _utils.mkNginxJSON "server" {
@@ -137,7 +132,7 @@
     };
 
     locations."~ ^(/_matrix|/_synapse/client)" = {
-      proxyPass = "http://unix:/run/matrix-synapse/synapse.sock";
+      proxyPass = "http://unix:${getSocket "mistress"}";
       extraConfig = ''
         client_max_body_size 100M;
       '';
@@ -151,6 +146,29 @@
     locations."/" = {
       root = "${pkgs.staticly}/pages/matrix/landing/";
       tryFiles = "$uri $uri/index.html $uri.html =404";
+    };
+  };
+
+  # Sliding sync proxy
+  services.matrix-sliding-sync = {
+    enable = true;
+    createDatabase = true; # let the module handle itself
+    settings = {
+      SYNCV3_SERVER = "https://${config.services.matrix-synapse.settings.server_name}";
+      SYNCV3_BINDADDR = "[::1]:12723";
+      SYNCV3_DB = lib.mkForce "";
+    };
+    environmentFile = config.sops.templates."matrix-sliding-sync-env".path;
+  };
+
+  services.nginx.virtualHosts."sliding.proxy.production.matrix.soopy.moe" = _utils.mkSimpleProxy {
+    port = 12723;
+    extraConfig = {
+      useACMEHost = "proxy.c.soopy.moe";
+
+      locations."= /" = _utils.mkNginxFile {
+        content = ''<!doctype html><html><head><title>msc3575 proxy</title><style>html{font-family:monospace;}</style></head><body><h2>Welcome to the sliding sync proxy.</h2><p>This proxy is for internal use only, you will need an account on nue.soopy.moe to use it. Feel free to self host one yourself!!</p></body></html>'';
+      };
     };
   };
 }
