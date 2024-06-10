@@ -63,7 +63,7 @@ in {
         ":media_proxy" = {
           enabled = true;
           redirect_on_failure = true;
-          base_url = "https://a-mproxy.soopy.moe/proxy";
+          base_url = "https://a-mproxy.soopy.moe";
         };
 
         "Pleroma.Repo" = {
@@ -144,7 +144,7 @@ in {
   };
 
   services.nginx = {
-    appendHttpConfig = "proxy_cache_path /tmp/akkoma-media-cache levels=1:2 keys_zone=akkoma_media_cache:10m max_size=10g inactive=720m use_temp_path=off";
+    appendHttpConfig = "proxy_cache_path /tmp/akkoma-media-cache levels=1:2 keys_zone=akkoma_media_cache:10m max_size=10g inactive=720m use_temp_path=off;";
     virtualHosts."a-mproxy.soopy.moe" = _utils.mkVhost {
       locations."/proxy" = {
         proxyPass = "http://127.0.0.1:${builtins.toString config.services.akkoma.config.":pleroma"."Pleroma.Web.Endpoint".http.port}";
