@@ -13,7 +13,7 @@
 
     "webdav.scan.htpasswd" = {
       sopsFile = inputs.self + "/creds/sops/koumakan/webdav.scan.htpasswd";
-      owner = config.services.webdav-server-rs.user;
+      owner = config.users.users.vsftpd.name;
       format = "binary";
     };
   };
@@ -29,7 +29,7 @@
     localRoot = "/var/www/ftp";
     localUsers = true;
 
-    userDbPath = config.sops.secrets."webdav.scan.htpasswd".path;
+    userDbPath = "/run/secrets/vsftpdUsers";
     userlistEnable = true;
     userlist = [
       "brother_scan"
@@ -51,6 +51,7 @@
         {
           path = "/*path";
           auth = "true";
+          handler = "filesystem";
 
           directory = "/var/www/ftp";
         }

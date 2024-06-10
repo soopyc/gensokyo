@@ -38,12 +38,7 @@ in {
     enable = true;
     initSecrets = false;
     initDb.enable = false;
-    # TODO: figure out how to add swagger ui
-    # frontends = {
-    #   swagger
-    # };
 
-    # TODO: Issue #5
     dist.cookie = mkSecret "dist/cookie";
     config = {
       ":joken".":default_signer" = mkSecret "joken_default_signer";
@@ -68,6 +63,7 @@ in {
         ":media_proxy" = {
           enabled = true;
           redirect_on_failure = true;
+          base_url = "https://a-mproxy.soopy.moe/proxy";
         };
 
         "Pleroma.Repo" = {
@@ -79,8 +75,9 @@ in {
         };
 
         "Pleroma.Upload" = {
+          base_url = "https://a-mproxy.soopy.moe/media";
           filters = [
-            (mkRaw "Pleroma.Upload.Filter.Exiftool")
+            (mkRaw "Pleroma.Upload.Filter.Exiftool.StripMetadata")
             (mkRaw "Pleroma.Upload.Filter.Dedupe")
           ];
         };
@@ -129,6 +126,7 @@ in {
 
     nginx = _utils.mkVhost {
       useACMEHost = "fedi.c.soopy.moe";
+      locations."/proxy".return = "404";
       extraConfig = ''
         client_max_body_size 100M;
       '';
@@ -142,6 +140,20 @@ in {
       '';
       # refer to https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/servers/akkoma/emoji/blobs_gg.nix#L29
       # "emoji/Cat_girls_Emoji" = ...
+    };
+  };
+
+  services.nginx = {
+    appendConfig = "proxy_cache_path /tmp/akkoma-media-cache levels=1:2 keys_zone=akkoma_media_cache:10m max_size=10g inactive=720m use_temp_path=off;";
+    virtualHosts."a-mproxy.soopy.moe" = _utils.mkVhost {
+      locations."/proxy" = {
+        proxyPass = "http://127.0.0.1:${builtins.toString config.services.akkoma.config.":pleroma"."Pleroma.Web.Endpoint".http.port}";
+      };
+
+      locations."/media/" = {
+        tryFiles = "$uri =404";
+        alias = config.services.akkoma.config.":pleroma".":instance".upload_dir + "/";
+      };
     };
   };
 
