@@ -1,43 +1,58 @@
 # {inputs, config, hostname, ...}: {
-{...}: {
-  services.sftpgo = {
+{
+  config,
+  inputs,
+  ...
+}: {
+  sops.secrets = {
+    "vsftpdUsers.db" = {
+      sopsFile = inputs.self + "/creds/sops/koumakan/vsftpdUsers.db";
+      owner = config.users.users.vsftpd.name;
+      format = "binary";
+    };
+
+    "webdav.scan.htpasswd" = {
+      sopsFile = inputs.self + "/creds/sops/koumakan/webdav.scan.htpasswd";
+      owner = config.services.webdav-server-rs.user;
+      format = "binary";
+    };
+  };
+
+  users = {
+    users.vsftpd.uid = 3000;
+    groups.vsftpd.gid = 3000;
+  };
+
+  services.vsftpd = {
     enable = true;
+    enableVirtualUsers = true;
+    localRoot = "/var/www/ftp";
+    localUsers = true;
 
+    userDbPath = config.sops.secrets."webdav.scan.htpasswd".path;
+    userlistEnable = true;
+    userlist = [
+      "brother_scan"
+    ];
+  };
+
+  services.webdav-server-rs = {
+    user = "vsftpd";
+    group = "vsftpd";
+    enable = true;
     settings = {
-      common = {
-        upload_mode = 2;
-      };
+      server.listen = ["100.100.16.16:38563"];
+      accounts.auth-type = "htpasswd.default";
 
-      # data_provider = {
-      #   driver = "postgresql";
-      # };
+      htpasswd.default.htpasswd = config.sops.secrets."webdav.scan.htpasswd".path;
+      unix.min-uid = 1000;
 
-      ftpd.bindings = [
+      location = [
         {
-          port = 21;
-          address = "100.100.16.16";
-        }
-      ];
+          path = "/*path";
+          auth = "true";
 
-      httpd.bindings = [
-        {
-          address = "100.100.16.16";
-          port = 38562;
-        }
-      ];
-
-      webdavd.bindings = [
-        {
-          port = 38563;
-          address = "100.100.16.16";
-        }
-      ];
-
-      mfa.totp = [
-        {
-          name = "totp_sha256";
-          issuer = "Gensokyo File Shares";
-          algo = "sha256";
+          directory = "/var/www/ftp";
         }
       ];
     };
