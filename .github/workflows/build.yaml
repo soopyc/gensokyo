@@ -63,13 +63,13 @@ jobs:
             netrc-file = /etc/nix/netrc
             experimental-features = nix-command flakes
 
-      - name: Setup attic cache
-        uses: ryanccn/attic-action@v0.2.1
-        with:
-          endpoint: https://nonbunary.soopy.moe
-          cache: gensokyo-systems
-          token: ${{ secrets.ATTIC_TOKEN }}
-          skip-push: ${{ github.event_name == 'pull_request' }}
+      # - name: Setup attic cache
+      #   uses: ryanccn/attic-action@v0.2.1
+      #   with:
+      #     endpoint: https://nonbunary.soopy.moe
+      #     cache: gensokyo-systems
+      #     token: ${{ secrets.ATTIC_TOKEN }}
+      #     skip-push: ${{ github.event_name == 'pull_request' }}
 
       - name: Build configuration
         run: nix run github:Mic92/nix-fast-build -- --no-nom --skip-cached --flake .#nixosConfigurations."${{ matrix.host }}".config.system.build.toplevel
