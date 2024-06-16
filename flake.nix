@@ -58,7 +58,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hydra.url = "github:nixos/hydra";
+    hydra.url = "github:nixos/hydra/nix-next";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
