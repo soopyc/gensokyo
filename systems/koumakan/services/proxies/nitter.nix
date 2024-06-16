@@ -1,4 +1,9 @@
-{_utils, inputs, pkgs, ...}: {
+{
+  _utils,
+  inputs,
+  pkgs,
+  ...
+}: {
   services.nitterStable = {
     enable = true;
     redisCreateLocally = true;
