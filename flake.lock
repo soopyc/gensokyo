@@ -485,11 +485,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1718522246,
-        "narHash": "sha256-qcM/rjXBjmcxJGX3nikAHkyKFIleAvtLY8NftZtTXvQ=",
+        "lastModified": 1718524922,
+        "narHash": "sha256-x+UKL6EZr53Fyey/wKNuVwDVNG6K+YLCPWyTL0kK5ZM=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "3695eea846f948285a8f90e4d7e8ae1f8c68ed55",
+        "rev": "b93c3eda89ac5b66ec27f3c612abdbf989e79ab7",
         "type": "github"
       },
       "original": {
