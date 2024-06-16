@@ -28,17 +28,17 @@
         systems = ["i686-linux" "x86_64-linux"];
       }
       // value)
-    cleanAttr
-    ++ [
-      {
-        hostName = "localhost";
-        protocol = null;
-        speedFactor = 1;
-        maxJobs = 1;
-        system = "x86_64-linux";
-        supportedFeatures = baselineFeatures;
-      }
-    ];
+    cleanAttr;
+    # ++ [
+    #   {
+    #     hostName = "localhost";
+    #     protocol = null;
+    #     speedFactor = 1;
+    #     maxJobs = 1;
+    #     system = "x86_64-linux";
+    #     supportedFeatures = baselineFeatures;
+    #   }
+    # ];
 in {
   sops.secrets.builder_key = {
     sopsFile = inputs.self + "/creds/sops/global/id_builder";
