@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./gui
-    ./docker.nix
+    ./development
   ];
 
   gensokyo = {

@@ -7,8 +7,4 @@
   users.groups.docker.members = [
     "cassie"
   ];
-
-  system.activationScripts.lock-docker-group = {
-    text = "gpasswd -R docker";
-  };
 }
