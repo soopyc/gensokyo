@@ -39,6 +39,7 @@
     # command runners and utilities
     nvd
     just
+    inotify-tools
 
     # attic
     inputs.attic.packages.${pkgs.system}.attic-client
