@@ -6,7 +6,7 @@
 }: {
   services.nitterStable = {
     enable = true;
-    redisCreateLocally = true;
+    redisCreateLocally = false;
     server = {
       title = "NSM";
       port = 36325;
