@@ -32,10 +32,10 @@ in {
     repositoryRoot = "${config.services.forgejo.stateDir}/data/repositories";
 
     secrets = {
-      service = {
-        CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
-        CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
-      };
+      # service = {
+        # CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
+        # CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
+      # };
 
       mailer = {
         PROTOCOL = mkSecret "mailing/protocol";
@@ -77,6 +77,8 @@ in {
 
         ENABLE_CAPTCHA = true;
         CAPTCHA_TYPE = "cfturnstile";
+        CF_TURNSTILE_SITEKEY = "3x00000000000000000000FF";
+        CF_TURNSTILE_SECRET = "1x0000000000000000000000000000000AA";
       };
       # }}}
 
