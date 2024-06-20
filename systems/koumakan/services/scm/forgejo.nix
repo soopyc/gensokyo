@@ -77,8 +77,6 @@ in {
 
         ENABLE_CAPTCHA = true;
         CAPTCHA_TYPE = "cfturnstile";
-        CF_TURNSTILE_SECRET = "#cfturnstile_secret#";
-        CF_TURNSTILE_SITEKEY = "#cfturnstile_sitekey#";
       };
       # }}}
 
