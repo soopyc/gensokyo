@@ -1,5 +1,4 @@
 {
-  pkgs,
   _utils,
   lib,
   config,
@@ -23,7 +22,6 @@
   #   else "/run/secrets/${ns}";
 
   runConfig = config.services.forgejo.customDir + "/conf/app.ini";
-  replaceSecretBin = lib.getExe pkgs.replace-secret;
 in {
   sops.secrets = _utils.genSecrets ns secrets {
     owner = config.services.forgejo.user;
@@ -32,6 +30,21 @@ in {
     enable = true;
 
     repositoryRoot = "${config.services.forgejo.stateDir}/data/repositories";
+
+    secrets = {
+      service = {
+        CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
+        CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
+      };
+
+      mailer = {
+        PROTOCOL = mkSecret "mailing/protocol";
+        SMTP_ADDR = mkSecret "mailing/host";
+        FROM = mkSecret "mailing/from";
+        USER = mkSecret "mailing/user";
+        PASSWD = mkSecret "mailing/pass";
+      };
+    };
 
     settings = {
       DEFAULT.APP_NAME = "Patchy";
@@ -72,11 +85,6 @@ in {
       # Mailing {{{
       mailer = {
         ENABLED = true;
-        PROTOCOL = "#mailerproto";
-        SMTP_ADDR = "#mailerhost#";
-        FROM = "#mailerfrom#";
-        USER = "#maileruser#";
-        PASSWD = "#mailerpass#";
         SEND_AS_PLAIN_TEXT = true;
       };
       # }}}
@@ -191,26 +199,6 @@ in {
 
     lfs.enable = true;
   };
-
-  # Systemd jank {{{
-  systemd.services.forgejo.preStart = lib.mkAfter ''
-    function additional_secrets {
-      chmod u+w ${runConfig}
-      # replace cf turnstile keys
-      ${replaceSecretBin} "#cfturnstile_secret#" ${mkSecret "turnstile/secret"} ${runConfig}
-      ${replaceSecretBin} "#cfturnstile_sitekey#" ${mkSecret "turnstile/sitekey"} ${runConfig}
-
-      # to keep stuff in one place, we're not using the mailerPasswordFile option.
-      ${replaceSecretBin} "#mailerhost#" ${mkSecret "mailing/host"} ${runConfig}
-      ${replaceSecretBin} "#mailerproto#" ${mkSecret "mailing/protocol"} ${runConfig}
-      ${replaceSecretBin} "#mailerfrom#" ${mkSecret "mailing/from"} ${runConfig}
-      ${replaceSecretBin} "#maileruser#" ${mkSecret "mailing/user"} ${runConfig}
-      ${replaceSecretBin} "#mailerpass#" ${mkSecret "mailing/pass"} ${runConfig}
-      chmod u-w ${runConfig}
-    }
-    (umask 027; additional_secrets)
-  '';
-  # }}}
 
   # nginx vhost definition {{{
   services.nginx.virtualHosts."patchy.soopy.moe" = _utils.mkSimpleProxy {
