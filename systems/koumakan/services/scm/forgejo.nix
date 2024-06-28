@@ -33,8 +33,8 @@ in {
 
     secrets = {
       # service = {
-        # CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
-        # CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
+      # CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
+      # CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
       # };
 
       mailer = {
@@ -66,6 +66,13 @@ in {
         SSH_CREATE_AUTHORIZED_PRINCIPALS_FILE = false;
         # }}}
       };
+
+      # Indexer {{{
+      indexer = {
+        REPO_INDEXER_ENABLED = true; # good bye hdd health
+        REPO_INDEXER_REPO_TYPES = "sources,forks,templates";
+      };
+      # }}}
 
       # Service {{{
       service = {
