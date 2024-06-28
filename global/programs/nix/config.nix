@@ -24,23 +24,19 @@ lib.mkMerge [
         "git+ssh://github.com/"
       ];
 
-      substituters = lib.mkForce [
-        "https://cache.nixos.org"
+      substituters = [
         "https://cache.soopy.moe"
-        "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
       ];
 
       trusted-substituters = [
         "https://cache.soopy.moe"
-        "https://nonbunary.soopy.moe/gensokyo-systems/"
         "https://nonbunary.soopy.moe/gensokyo-global/"
         "https://nixpkgs.reverse.proxy.internal.soopy.moe/"
       ];
 
       trusted-public-keys = [
         "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
-        "gensokyo-systems:r/Wx649dPuQrCN9Pgh3Jic526zQNk3oWMqYJHnob/Ok="
         "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
       ];
 
