@@ -34,6 +34,8 @@
     inputs.self.packages.${pkgs.system}.brcmfmac
   ];
 
+  zramSwap.enable = true;
+
   # muh unfree software!!!!!!!!!!!!!!!!!!
   nixpkgs.config.allowUnfree = true;
 
