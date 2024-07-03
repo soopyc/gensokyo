@@ -6,7 +6,7 @@ creation_rules:
     - age1w7l663nmqq87e46893dngcy8uxpfeuxlp42a3ma0x4wyuxltjddsecy06p
     - age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
     - age1p6n5yh9fy09xspwf29klfsa4zdrhp04q22gvxkz2vvm88vt9tunsdn020s
-    - age17sesmv0vs79gc0e2dm66feamph4h6xp4plyatwxkhupucnefnqlsvyk8m3
+    - age1ezx4f7szu3mf4e84de7vlw0aaxshfr3tjt6dm356g578ujkck9mqy6ff8v
     - age1zkafenrdkkmatjh034yykpzjzzs5fx6kft23jlmsung3dwyufcksds59l2
     - age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
   path_regex: creds/sops/global/.*
@@ -20,7 +20,7 @@ creation_rules:
   - age:
     - age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
     - age1zkafenrdkkmatjh034yykpzjzzs5fx6kft23jlmsung3dwyufcksds59l2
-    - age17sesmv0vs79gc0e2dm66feamph4h6xp4plyatwxkhupucnefnqlsvyk8m3
+    - age1ezx4f7szu3mf4e84de7vlw0aaxshfr3tjt6dm356g578ujkck9mqy6ff8v
   path_regex: creds/sops/satori/.*
 - key_groups:
   - age:

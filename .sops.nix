@@ -6,7 +6,7 @@ let
 
   # hosts
   age.koumakan = "age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt";
-  age.satori = "age17sesmv0vs79gc0e2dm66feamph4h6xp4plyatwxkhupucnefnqlsvyk8m3";
+  age.satori = "age1ezx4f7szu3mf4e84de7vlw0aaxshfr3tjt6dm356g578ujkck9mqy6ff8v";
   age.bocchi = "age1w7l663nmqq87e46893dngcy8uxpfeuxlp42a3ma0x4wyuxltjddsecy06p";
   age.renko = "age1p6n5yh9fy09xspwf29klfsa4zdrhp04q22gvxkz2vvm88vt9tunsdn020s";
 
