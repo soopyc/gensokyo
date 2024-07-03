@@ -40,9 +40,6 @@
     nvd
     just
     inotify-tools
-
-    # attic
-    inputs.attic.packages.${pkgs.system}.attic-client
   ];
 
   programs.mtr.enable = true;

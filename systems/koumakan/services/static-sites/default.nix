@@ -3,6 +3,7 @@
     ./keine.nix
     ./photography.nix
     ./assets.nix
+    ./nonbunary.nix
   ];
 
   # Fallback site

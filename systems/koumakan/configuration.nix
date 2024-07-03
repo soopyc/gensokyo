@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.attic.nixosModules.atticd
     inputs.mystia.nixosModules.fixups
     inputs.mystia.nixosModules.vmauth
 

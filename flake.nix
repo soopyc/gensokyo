@@ -4,14 +4,10 @@
   nixConfig = {
     extra-substituters = [
       "https://cache.soopy.moe"
-      "https://nonbunary.soopy.moe/gensokyo-global"
-      "https://nonbunary.soopy.moe/gensokyo-systems"
     ];
 
     extra-trusted-public-keys = [
       "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
-      "gensokyo-global:XiCN0D2XeSxF4urFYTprR+1Nr/5hWyydcETwZtPG6Ec="
-      "gensokyo-systems:r/Wx649dPuQrCN9Pgh3Jic526zQNk3oWMqYJHnob/Ok="
     ];
     allow-import-from-derivation = true;
     fallback = true;
@@ -39,12 +35,6 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.3.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    attic = {
-      url = "github:zhaofengli/attic";
-      # added back because it's gentoo either way
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
