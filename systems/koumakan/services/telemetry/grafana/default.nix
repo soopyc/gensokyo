@@ -63,6 +63,11 @@ in {
         disable_login_form = true;
       };
 
+      snapshots = {
+        enabled = true;
+        external_enabled = true;
+      };
+
       # "auth.generic_oauth" = {
       #   name = "GensoGateway";
       #   enabled = true;
