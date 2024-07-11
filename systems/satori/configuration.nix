@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./steam.nix
+    "${inputs.self}/modules/tiny-dfr"
     inputs.nixos-hardware.nixosModules.apple-t2
   ];
 
@@ -30,6 +31,12 @@
 
   boot.initrd.systemd.enable = true;
 
+  services.tiny-dfr = {
+    enable = true;
+    settings = {
+      FontTemplate = "monospace";
+    };
+  };
   hardware.firmware = [
     inputs.self.packages.${pkgs.system}.brcmfmac
   ];
