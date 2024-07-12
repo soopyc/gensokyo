@@ -18,6 +18,7 @@
 
     nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple/t2/extract-tiny-dfr";
 
