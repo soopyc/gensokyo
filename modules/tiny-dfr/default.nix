@@ -15,11 +15,7 @@ in {
   options = {
     services.tiny-dfr = {
       enable = lib.mkEnableOption "tiny-dfr, a tiny Apple touchbar daemon";
-      package = mkOption {
-        description = "The tiny-dfr package to use.";
-        type = types.package;
-        default = pkgs.callPackage ./package.nix {};
-      };
+      package = lib.mkPackageOption pkgs "tiny-dfr" {};
 
       settings = mkOption {
         description = ''
@@ -64,18 +60,17 @@ in {
               example = ":bold";
             };
             AdaptiveBrightness = mkOption {
-              description = "Whether to change the brightness of the touchbar screen";
+              description = "Whether the touchbar screen should follow the primary screen's brightness.";
               type = types.nullOr types.bool;
               default = null;
               example = true;
             };
             ActiveBrightness = mkOption {
+              description = "The brightness to use when adaptive brightness is disabled.";
               type = types.nullOr types.ints.u8;
               default = null;
               example = 155;
             };
-            # PrimaryLayerKeys = mkOption { };
-            # MediaLayerKeys = mkOption { };
           };
         };
       };
@@ -85,9 +80,10 @@ in {
   config = lib.mkIf cfg.enable {
     services.udev.packages = [cfg.package];
 
+    # TODO: migrate to systemd.packages
     systemd.services.tiny-dfr = {
       enable = true;
-      description = "Tiny Apple Silicon touch bar daemon";
+      description = "Tiny Apple silicon touch bar daemon";
       after = [
         "systemd-user-sessions.service"
         "getty@tty1.service"
@@ -100,11 +96,15 @@ in {
       ];
       startLimitIntervalSec = 30;
       startLimitBurst = 2;
-      script = "${cfg.package}/bin/tiny-dfr";
       restartTriggers = [
         cfg.package
         configFile
       ];
+
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = lib.getExe cfg.package;
+      };
     };
 
     environment.etc."tiny-dfr/config.toml" = {
