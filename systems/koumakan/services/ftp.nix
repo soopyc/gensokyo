@@ -19,7 +19,10 @@
   };
 
   users = {
-    users.vsftpd.uid = 3000;
+    users.vsftpd = {
+      uid = 3000;
+      home = "/var/www/ftp";
+    };
     groups.vsftpd.gid = 3000;
   };
 
@@ -28,12 +31,19 @@
     enableVirtualUsers = true;
     localRoot = "/var/www/ftp";
     localUsers = true;
+    virtualUseLocalPrivs = true;
+    writeEnable = true;
 
     userDbPath = "/run/secrets/vsftpdUsers";
     userlistEnable = true;
     userlist = [
       "brother_scan"
     ];
+
+    extraConfig = ''
+      pasv_min_port=50000
+      pasv_max_port=50100
+    '';
   };
 
   services.webdav-server-rs = {
