@@ -59,9 +59,10 @@
 
       location = [
         {
-          path = "/*path";
+          route = ["/*path"];
           auth = "true";
           handler = "filesystem";
+          methods = ["webdav-rw"];
 
           directory = "/var/www/ftp";
         }
