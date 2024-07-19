@@ -29,6 +29,16 @@
       }
       // value)
     cleanAttr;
+  # ++ [
+  #   {
+  #     hostName = "localhost";
+  #     protocol = null;
+  #     speedFactor = 1;
+  #     maxJobs = 1;
+  #     system = "x86_64-linux";
+  #     supportedFeatures = baselineFeatures;
+  #   }
+  # ];
 in {
   sops.secrets.builder_key = {
     sopsFile = inputs.self + "/creds/sops/global/id_builder";
@@ -43,10 +53,6 @@ in {
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
     };
     bocchi.publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBoNklmemNReHE0Si92aW1BY1JVbW5qUzZhRkN0ay9TeXRnN1lzUnNCVlkgCg==";
-    kita = {
-      publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU9BTkErdFU4Y2c4RUhNRC9LZmpaRGR6cW9Xd1VVUHVLdFUwSjEzSEZHK0wgcm9vdEBtYWlsLW5peG9zLWhlbDEK";
-      systems = ["aarch64-linux"];
-    };
   };
 
   services.openssh.extraConfig = lib.mkAfter ''

@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -42,7 +43,7 @@
   # muh unfree software!!!!!!!!!!!!!!!!!!
   nixpkgs.config.allowUnfree = true;
 
-  # nix.distributedBuilds = lib.mkForce false;
+  nix.distributedBuilds = lib.mkForce false;
 
   system.stateVersion = "23.11"; # Did you read the comment? Yes.
 }

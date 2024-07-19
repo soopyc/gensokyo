@@ -5,10 +5,9 @@
 # mod utils
 
 # build the current configuration
-build system="" build_on_host="false" nom="true" +extra_args="":
-	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config --use-substitutes \
+build system="" nom="true" +extra_args="":
+	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config \
 		{{extra_args}} \
-		{{ if build_on_host == "true" {"--build-host " + system} else {""} }} \
 		{{ if nom == "true" {"--log-format internal-json |& nom --json"} else {""} }}
 	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
@@ -16,9 +15,8 @@ build system="" build_on_host="false" nom="true" +extra_args="":
 test system="":
 	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
 
-deploy system build_on_host="false":
-	nixos-rebuild switch --flake .#{{system}} --target-host {{system}} --use-remote-sudo --use-substitutes -v -L \
-		{{ if build_on_host == "true" {"--build-host " + system} else {""} }} \
+deploy system:
+	nixos-rebuild switch --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L
 
 dry-deploy system:
 	nixos-rebuild build --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L
