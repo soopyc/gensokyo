@@ -81,19 +81,17 @@ in {
     services.udev.packages = [cfg.package];
 
     # TODO: migrate to systemd.packages
-    systemd.services.tiny-dfr = {
-      enable = true;
-      description = "Tiny Apple silicon touch bar daemon";
-      after = [
-        "systemd-user-sessions.service"
-        "getty@tty1.service"
-        "plymouth-quit.service"
-        "systemd-logind.service"
-      ];
-      bindsTo = [
+    systemd.services.tiny-dfr = let
+      backlightDevices = [
         "dev-tiny_dfr_display.device"
         "dev-tiny_dfr_backlight.device"
+        "dev-tiny_dfr_display_backlight.device"
       ];
+    in {
+      enable = true;
+      description = "Tiny Apple Silicon touch bar daemon";
+      after = backlightDevices;
+      bindsTo = backlightDevices;
       startLimitIntervalSec = 30;
       startLimitBurst = 2;
       restartTriggers = [
@@ -105,6 +103,11 @@ in {
         Type = "simple";
         ExecStart = lib.getExe cfg.package;
       };
+    };
+
+    systemd.units = {
+      "systemd-backlight@backlight:228200000.display-pipe.0.service" = {};
+      "systemd-backlight@backlight:appletb_backlight.service" = {};
     };
 
     environment.etc."tiny-dfr/config.toml" = {
