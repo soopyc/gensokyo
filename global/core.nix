@@ -36,6 +36,11 @@
     allowReboot = false; # this breaks our current setup with encrypted secureboot
   };
 
+  boot.tmp = {
+    useTmpfs = true;
+    cleanOnBoot = true;
+  };
+
   # # Enable crash dumps globally
   # boot.crashDump = {
   #   enable = true;
