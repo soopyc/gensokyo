@@ -31,5 +31,4 @@ in {
   satori = mkSystem "satori" "x86_64-linux";
   renko = mkSystem "renko" "x86_64-linux";
   bocchi = mkSystem "bocchi" "x86_64-linux";
-  kita = mkSystem "kita" "aarch64-linux";
 }
