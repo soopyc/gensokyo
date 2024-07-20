@@ -11,13 +11,16 @@ nitter-token:
 update-sops-config:
 	#!/usr/bin/env bash
 	set -euxo pipefail
-	rm ../.sops.yaml
+	rm ../.sops.yaml || true
 	# mv ../.sops.yaml{,.bak} 2>/dev/null || true
-	OUT=$(nix-build --quiet --no-out-link build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix")
+	OUT=$(nix-instantiate --eval build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix" | jq -r)
 	echo -e "# WARNING: This is a generated file. DO NOT EDIT DIRECTLY!\n# See .sops.nix and utils/build-yaml.nix for more details." \
 		| cat - $OUT > ../.sops.yaml
 
-	for file in ../creds/sops/*/default.yaml; do sops updatekeys $file; done
+	for file in ../creds/sops/**/*; do sops updatekeys $file; done
+
+rotate-sops-keys:
+	for file in ../creds/sops/**/*; do sops -i -r $file; done
 
 add-grafana-dashboard id name *title="":
 	xh https://grafana.com/api/dashboards/{{id}} | \
