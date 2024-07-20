@@ -1,6 +1,8 @@
 {...}: {
   imports = [
     ./certificates
+    ./services
+    
     ./networking.nix
   ];
 
