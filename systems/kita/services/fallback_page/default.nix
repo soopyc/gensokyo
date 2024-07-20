@@ -4,7 +4,7 @@
   ...
 }: {
   services.nginx.virtualHosts."_" = _utils.mkVhost {
-    useACMEHost = "mx-nbg.c.soopy.moe";
+    useACMEHost = "kita-web.c.soopy.moe";
     default = true;
 
     locations."/" = {
