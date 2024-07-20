@@ -5,15 +5,14 @@
 # mod utils
 
 # build the current configuration
-build system="" nom="true" +extra_args="":
+build system="" +extra_args="":
 	nixos-rebuild -v build --flake .#{{system}} --keep-going --accept-flake-config \
-		{{extra_args}} \
-		{{ if nom == "true" {"--log-format internal-json |& nom --json"} else {""} }}
+		{{extra_args}}
 	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
 # build and test the configuration, but don't switch
 test system="":
-	nixos-rebuild -v -L test --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
+	nixos-rebuild -v -L test --flake .#{{system}} --accept-flake-config
 
 deploy system:
 	nixos-rebuild switch --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L
@@ -23,11 +22,11 @@ dry-deploy system:
 
 # switch to the current configuration
 switch system="": sudo_cache
-	sudo nixos-rebuild -v -L switch --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
+	sudo nixos-rebuild -v -L switch --flake .#{{system}} --accept-flake-config
 
 # literally nixos-rebuild boot with a different name
 defer system="": sudo_cache
-	sudo nixos-rebuild -v -L boot --flake .#{{system}} --log-format internal-json --accept-flake-config |& nom --json
+	sudo nixos-rebuild -v -L boot --flake .#{{system}} --accept-flake-config
 
 # check the flake
 check:
