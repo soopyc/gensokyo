@@ -1,8 +1,8 @@
 {...}: {
   imports = [
-    ./nginx.nix
-
     ./hydra
     ./fallback_page
   ];
+
+  gensokyo.presets.nginx = true;
 }
