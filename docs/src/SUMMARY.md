@@ -21,3 +21,7 @@
 - ["Private" use]()
   - [Ports](./internal/ports.md)
   - [External Untracked Files](./internal/ext-files.md)
+  - [Presets]()
+    - [`certificates`](./internal/presets/certificates.md)
+    - [`nginx`](./internal/presets/nginx.md)
+    - [`vmetrics`](./internal/presets/vmetrics.md)
