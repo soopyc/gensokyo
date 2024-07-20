@@ -33,7 +33,7 @@
 
   services.tiny-dfr = {
     enable = true;
-    package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.tiny-dfr.overrideAttrs (prev: final: {
+    package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.tiny-dfr.overrideAttrs (_: _: {
       version = "0.3.0-unstable-2024-17-18";
       src = pkgs.fetchFromGitHub {
         name = "tiny-dfr-source";
