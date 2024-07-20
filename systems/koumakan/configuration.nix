@@ -17,6 +17,7 @@
     sensitive = true;
     secure = true;
   };
+  gensokyo.presets.certificates = true;
 
   boot.loader = {
     efi = {
