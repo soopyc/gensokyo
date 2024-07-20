@@ -30,6 +30,8 @@ in {
   koumakan = mkSystem "koumakan" "x86_64-linux";
   satori = mkSystem "satori" "x86_64-linux";
   renko = mkSystem "renko" "x86_64-linux";
+
+  # cloud servers
   bocchi = mkSystem "bocchi" "x86_64-linux";
   kita = mkSystem "kita" "x86_64-linux";
 }

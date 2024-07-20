@@ -19,6 +19,11 @@ in
         recommendedTlsSettings = lib.mkDefault true;
         recommendedProxySettings = lib.mkDefault true;
       };
+
+      networking.firewall.allowedTCPPorts = [
+        80
+        443
+      ];
     }
 
     (lib.mkIf presetConf.vmetrics {
