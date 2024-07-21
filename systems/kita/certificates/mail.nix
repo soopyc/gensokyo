@@ -3,7 +3,6 @@
     extraLegoRenewFlags = [
       "--reuse-key"
     ];
-    group = "nginx";
     extraDomainNames = [
       "mx2.soopy.moe"
     ];
