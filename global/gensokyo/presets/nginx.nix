@@ -27,6 +27,7 @@ in
     }
 
     (lib.mkIf presetConf.vmetrics {
+      services.prometheus.exporters.nginx.enable = true;
       services.vmagent.prometheusConfig.scrape_configs = [
         {
           job_name = "nginx";
