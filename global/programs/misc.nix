@@ -19,9 +19,9 @@
     ack
     du-dust
     parallel
-    ouch
     cryptsetup
     borgbackup
+    doggo
 
     # security
     openssl
