@@ -37,7 +37,7 @@
   };
 
   boot.tmp = {
-    useTmpfs = true;
+    useTmpfs = false; # this causes oom on kernel builds
     cleanOnBoot = true;
   };
 
