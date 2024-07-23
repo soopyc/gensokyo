@@ -65,7 +65,7 @@ in {
 
   # stupid fucking cunt
   nixpkgs.overlays = [
-    (final: prev: {
+    (_: prev: {
       postfix = prev.postfix.override {withPgSQL = true;};
     })
   ];
