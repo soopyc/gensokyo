@@ -4,5 +4,6 @@
     ./mail
 
     ./dns.nix
+    ./postgresql.nix
   ];
 }
