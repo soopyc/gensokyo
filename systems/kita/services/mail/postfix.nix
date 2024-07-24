@@ -1,5 +1,6 @@
 {config, ...}: let
   cfg = config.services.postfix;
+  queueDir = config.services.postfix.config.queue_directory;
 in {
   services.postfix = {
     enable = true;
@@ -54,6 +55,17 @@ in {
       smtpd_relay_restrictions = [
         "permit_sasl_authenticated"
         "reject_unauth_destination"
+      ];
+      smtpd_recipient_restrictions = [
+        "reject_unknown_recipient_domain"
+        "reject_unverified_recipient" # dovecot lmtp check, requires dovecot
+      ];
+
+      # dovecot integration with lmtp
+      virtual_transport = "lmtp:unix:${queueDir}/dovecot-lmtp";
+      virtual_mailbox_domains = [
+        "soopy.moe"
+        "services.soopy.moe"
       ];
     };
   };

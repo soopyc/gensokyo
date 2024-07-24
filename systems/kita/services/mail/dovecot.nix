@@ -2,7 +2,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  postfixQueueDir = config.services.postfix.config.queue_directory;
+in {
   # IMPORTANT: needed for ssh_dh in dovecot.
   security.dhparams = {
     enable = true;
@@ -37,6 +39,31 @@
       # maildir configs location
       mail_location = maildir:~/Mail
       maildir_copy_with_hardlinks = yes
+
+      # protocols
+      protocols = imap lmtp
+      auth_mechanisms = plain login # since we enforce ssl/tls we can safely use plain.
+
+      # lmtp config w/ postfix
+      service lmtp {
+        unix_listener ${postfixQueueDir}/dovecot-lmtp {
+          user = postfix
+          group = postfix
+          mode = 0600
+        }
+      }
+
+      # user/password databases
+      passdb {
+        driver = sql
+        args = ${config.sops.templates."dovecot-sql.conf".path} # see bottom
+      }
+
+      userdb {
+        # for mail_location see above.
+        driver = static
+        args = uid=${builtins.toString config.users.users.vmail.uid} gid=${builtins.toString config.users.groups.vmail.gid} home=/var/vmail/%d/%n
+      }
 
       # namespaces (mailboxes)
       # see dovecot/doc/example-config/conf.d/{10-mail,15-mailboxes}.conf for details
@@ -76,7 +103,25 @@
   };
   users.groups.vmail.gid = 3000;
 
+  sops.secrets."dovecot/db_password" = {};
+  sops.templates."dovecot-sql.conf".content = ''
+    driver = pgsql
+    connect = host=localhost dbname=maildb user=maildb password=${config.sops.placeholder."dovecot/db_password"}
+
+    password_query = SELECT username, domain, passwd AS password FROM users WHERE username = '%n' AND domain = '%d'
+    # this doesn't work because we need a sql userdb for iterative queries
+    #iterate_query = SELECT username, domain FROM users
+    # user_query not needed since we handle that staticly with a template.
+  '';
+
   networking.firewall.allowedTCPPorts = [
     993 # imaps
+  ];
+
+  # 最低
+  nixpkgs.overlays = [
+    (final: prev: {
+      dovecot = prev.dovecot.override {withPgSQL = true;};
+    })
   ];
 }
