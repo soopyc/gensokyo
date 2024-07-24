@@ -4,5 +4,6 @@
 
     # HELL
     ./postfix.nix
+    ./dovecot.nix
   ];
 }
