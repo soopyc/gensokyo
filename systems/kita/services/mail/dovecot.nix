@@ -12,9 +12,9 @@
   services.dovecot2 = {
     enable = true;
 
-    createMailUser = true;
-    mailUser = "vmail";
-    mailGroup = "vmail";
+    createMailUser = false; # we'll handle that
+    mailUser = config.users.users.vmail.name;
+    mailGroup = config.users.groups.vmail.name;
 
     # we ignore nixos options and do our own config because order matters.
     configFile = pkgs.writeText "dovecot.conf" ''
@@ -30,10 +30,13 @@
 
       # default configurations
       base_dir = /run/dovecot2
-      maildir_copy_with_hardlinks = yes
-      sendmail_path = /run/wrappers/bin/sendmail
       default_internal_user = dovecot2  # nixos weirdness
       default_internal_group = dovecot2  # nixos weirdness
+      sendmail_path = /run/wrappers/bin/sendmail
+
+      # maildir configs location
+      mail_location = maildir:~/Mail
+      maildir_copy_with_hardlinks = yes
 
       # namespaces (mailboxes)
       # see dovecot/doc/example-config/conf.d/{10-mail,15-mailboxes}.conf for details
@@ -62,6 +65,16 @@
       }
     '';
   };
+
+  users.users.vmail = {
+    uid = 3000;
+    description = "Virtual Mail User";
+    group = config.users.groups.vmail.name;
+    isSystemUser = true;
+    home = "/var/vmail";
+    createHome = true;
+  };
+  users.groups.vmail.gid = 3000;
 
   networking.firewall.allowedTCPPorts = [
     993 # imaps
