@@ -1,6 +1,6 @@
 {config, ...}: let
   cfg = config.services.postfix;
-  queueDir = config.services.postfix.config.queue_directory;
+  queueDir = "/var/lib/postfix/queue";
 in {
   services.postfix = {
     enable = true;
@@ -27,6 +27,8 @@ in {
     enableSubmissions = true;
 
     config = {
+      queue_directory = queueDir;
+
       # smtpd security
       smtpd_tls_chain_files = config.security.acme.certs."kita.c.soopy.moe".directory + "/full.pem";
       smtpd_tls_security_level = "may"; # RFC 2487 and 3207 tells me I shouldn't reject mail without STARTTLS.
