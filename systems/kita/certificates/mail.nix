@@ -5,6 +5,8 @@
     ];
     extraDomainNames = [
       "mx2.soopy.moe"
+      "imap.soopy.moe"
+      "smtp.soopy.moe"
     ];
   };
 }
