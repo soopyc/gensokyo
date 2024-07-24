@@ -26,13 +26,13 @@ in {
     enableSubmissions = true;
 
     config = {
-      # security
+      # smtpd security
       smtpd_tls_chain_files = config.security.acme.certs."kita.c.soopy.moe".directory + "/full.pem";
       smtpd_tls_security_level = "may"; # RFC 2487 and 3207 tells me I shouldn't reject mail without STARTTLS.
       smtpd_tls_auth_only = true;
       smtpd_tls_mandatory_ciphers = "high";
       smtpd_tls_mandatory_protocols = ">=TLSv1.2";
-
+      # smtp security
       smtp_tls_protocols = ">=TLSv1.2";
       smtp_tls_security_level = "dane";
       smtp_dns_support_level = "dnssec";
@@ -42,8 +42,9 @@ in {
       smtpd_helo_required = true;
       smtpd_client_restrictions = [
         "reject_unknown_client_hostname"
-        "reject_rbl_client zen.spamhaus.org=127.0.[0..2].[0..255]" # TODO: maybe move to postscreen
-        "permit_dnswl_client list.dnswl.org" # TODO: move to postscreen
+        "permit_dnswl_client list.dnswl.org"
+        # "reject_rbl_client zen.spamhaus.org=127.0.[0..2].[0..255]" # this also bans our own main server - blame linode
+        "reject_rbl_client all.spamrats.com=127.0.0.[36..38]"
       ];
       smtpd_helo_restrictions = [
         # postscreen doesn't handle HELO stuff.
@@ -61,12 +62,5 @@ in {
     25 # smtp
     465 # submissions (secure)
     # 587 # submission (starttls)
-  ];
-
-  # stupid fucking cunt
-  nixpkgs.overlays = [
-    (_: prev: {
-      postfix = prev.postfix.override {withPgSQL = true;};
-    })
   ];
 }
