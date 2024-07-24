@@ -48,19 +48,19 @@
         # special mailboxes
         mailbox Drafts {
           special_use = \Drafts
-          auto = create
+          auto = subscribe
         }
         mailbox Junk {
           special_use = \Junk
-          auto = create
+          auto = subscribe
         }
         mailbox Trash {
           special_use = \Trash
-          auto = create
+          auto = subscribe
         }
         mailbox Sent {
           special_use = \Sent
-          auto = create
+          auto = subscribe
         }
       }
     '';
