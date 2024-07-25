@@ -1,6 +1,5 @@
 {config, ...}: let
   cfg = config.services.postfix;
-  queueDir = "/var/lib/postfix/queue";
 in {
   services.postfix = {
     enable = true;
@@ -27,8 +26,6 @@ in {
     enableSubmissions = true;
 
     config = {
-      queue_directory = queueDir;
-
       # smtpd security
       smtpd_tls_chain_files = config.security.acme.certs."kita.c.soopy.moe".directory + "/full.pem";
       smtpd_tls_security_level = "may"; # RFC 2487 and 3207 tells me I shouldn't reject mail without STARTTLS.
@@ -64,12 +61,17 @@ in {
       ];
 
       # dovecot integration with lmtp
-      virtual_transport = "lmtp:unix:${queueDir}/dovecot-lmtp";
+      virtual_transport = "lmtp:unix:dovecot-lmtp"; # we placed the socket in the queue directory and this is resolved from that dir.
       virtual_mailbox_domains = [
         "soopy.moe"
         "services.soopy.moe"
       ];
     };
+
+    virtual = ''
+      # catchall
+      @soopy.moe cassie@soopy.moe
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [
