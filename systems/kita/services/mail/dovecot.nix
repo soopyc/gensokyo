@@ -77,6 +77,10 @@ in {
           special_use = \Drafts
           auto = subscribe
         }
+        mailbox Archive {
+          special_use = \Archive
+          auto = subscribe
+        }
         mailbox Junk {
           special_use = \Junk
           auto = subscribe
