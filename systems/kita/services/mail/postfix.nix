@@ -37,24 +37,36 @@ in {
       smtp_tls_security_level = "dane";
       smtp_dns_support_level = "dnssec";
 
+      # fuckup remediation
+      smtpd_reject_footer = "\c; If not intended, please contact the postmaster with methods listed in https://soopy.moe/about with the following data: client=$client_address, server=$server_name}";
+
       # front-line spam protection
       disable_vrfy_command = true;
       smtpd_helo_required = true;
+      # Pre-everything checks
       smtpd_client_restrictions = [
-        "reject_unknown_client_hostname"
-        "permit_dnswl_client list.dnswl.org"
-        # "reject_rbl_client zen.spamhaus.org=127.0.[0..2].[0..255]" # this also bans our own main server - blame linode
-        "reject_rbl_client all.spamrats.com=127.0.0.[36..38]"
+        "reject_unknown_client_hostname" # reject clients with unmatching PTR records
+        "permit_dnswl_client list.dnswl.org" # allowlist clients in the dnswl list to communicate
+        "reject_rbl_client all.spamrats.com=127.0.0.[36..38]" # reject clients in the spamrats lists
       ];
+      # HELO/EHLO command checks
       smtpd_helo_restrictions = [
-        # postscreen doesn't handle HELO stuff.
-        "reject_unknown_helo_hostname"
-        "reject_non_fqdn_helo_hostname"
+        # postscreen shouldn't handle HELO stuff.
+        "reject_unknown_helo_hostname" # reject clients that sends HELO with domain without an MX/A record
+        "reject_non_fqdn_helo_hostname" # self-explanatory
       ];
+      # MAIL FROM command checks
+      smtpd_sender_restrictions = [
+        "reject_non_fqdn_sender" # self-explanatory
+        "reject_unknown_sender_domain" # reject if mail from domain has invalid mx records
+      ];
+      # I don't know how different these 2 are
+      # RCPT TO command checks (relay policy)
       smtpd_relay_restrictions = [
-        "permit_sasl_authenticated"
+        # "permit_sasl_authenticated" # handled under masterConfig.submissions
         "reject_unauth_destination"
       ];
+      # RCPT TO command checks (spam policy)
       smtpd_recipient_restrictions = [
         "reject_unknown_recipient_domain"
         "reject_unverified_recipient" # dovecot lmtp check, requires dovecot
