@@ -28,6 +28,7 @@
         'newmail_notifier',
         'reconnect',
         'carddav',
+        'managesieve',
       ];
     '';
   };
