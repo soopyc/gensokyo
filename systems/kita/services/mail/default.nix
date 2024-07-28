@@ -5,5 +5,6 @@
     # HELL
     ./postfix.nix
     ./dovecot.nix
+    ./mta-sts.nix
   ];
 }
