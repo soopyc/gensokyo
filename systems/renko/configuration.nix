@@ -23,7 +23,7 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_9;
+  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_10;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot = {
