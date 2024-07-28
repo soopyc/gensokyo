@@ -4,6 +4,8 @@ lego:
     cf_token: ENC[AES256_GCM,data:Mdbow7N8R+SDCjYCO/8nwitXAJsark+xEoKdJkvigkC4WICvG56AJA==,iv:mSrMj7ze50ue7V5/3PO29Wq38iUDxzXJ96DUeZU1RwU=,tag:/pnnP6oTcdCXFtvO1Qb/Ag==,type:str]
 dovecot:
     db_password: ENC[AES256_GCM,data:1sBvlYMg12mc62D0SE8fJjROZJJr/s8IC5lFPHM9WGa1Jowy++eUWDtOLyGYwSLb1ghr0+ZpkKcMallbus2w9doQKgw0JrBtJBAIT1VACusuxLBGpbMYSRXu68I4h4nV,iv:dX6HkDhz3r4huRWtP9UlxhKycQg5TMG+Wwei9rtVz0I=,tag:obblyLF4XFEhoP7YJ43CBQ==,type:str]
+rspamd:
+    controller_passwd: ENC[AES256_GCM,data:waeRFuJ0mBSpAdfTu/Yk51CUOk0wAenN3/pVmcibpR6SS7codK4rBcVruG3GVIdFIHNBAgktXi6g9KfcvOzIh/l0nqJNQutzdy1khYVD+s3wHhZveoHLFw==,iv:Tp0vQji0u7aPydZLB6ARMhkLv5BGj4KjOzVKkWXCUlQ=,tag:/mO5UD9dSlkLwbUD6l1Rjw==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -37,8 +39,8 @@ sops:
             R3BvNDMzK0c2UUlxWmRoWGpodFc3NkUKFCg/Fu40Qq8aE1IChae19F4tJQVn9AeA
             yQPw/uO+wRpv/DfYH/sRUtr8UhSk7vGGBCRcddK2T5X9lzLN1kbKPw==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-07-24T07:48:36Z"
-    mac: ENC[AES256_GCM,data:2ZhQImOCoYr1I47pEX5oJxz/KBOw4F6KgWL9kDUkVrS2V4tHUBvbIrp2YbJYFcho21d+8kUIUmByRPdVBcHEgtQrWhFVkbYTx56CttebGiYiQv94Hw/Mr/dYHnLAhWVofuQeHK/hTuDZAOITsMljEUJ66/VY+XfKssSXfO/y6xk=,iv:7q2cxzVUNgC/Rj9mOf0PD964h4xmKGCP9N1GVE6ZbCU=,tag:/v5VB9MBQMw9k+8Db+AYFg==,type:str]
+    lastmodified: "2024-07-26T09:16:03Z"
+    mac: ENC[AES256_GCM,data:YBYruewNvo6O1ABN/I54zxsqanjXUJTsouV5gUw+R+YV3hg/84PSBO8KapYlBsE2IuIVxZdZD9rFV+bg2/BbWh3VdtrJwsdl3Y2pmNGtey/Vu/gOmdL299A7/AHp/xs2fOq8o93PFwEzoWB8bsSUUC2v0PFzGgFVYICSScIQS1Y=,iv:n3goYJpwFITRlzOD2aHmYosKjUvYEaa68EVpo49XGwQ=,tag:lcOhuRaLfR31jT7nLXldZQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
