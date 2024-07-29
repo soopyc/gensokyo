@@ -28,14 +28,15 @@ in {
     config = {
       # smtpd security
       smtpd_tls_chain_files = config.security.acme.certs."kita.c.soopy.moe".directory + "/full.pem";
-      smtpd_tls_security_level = "may"; # RFC 2487 and 3207 tells me I shouldn't reject mail without STARTTLS.
-      smtpd_tls_auth_only = true;
+      smtpd_tls_security_level = "may"; # RFC 2487 and 3207 tells me I mustn't reject mail without encryption. Set to may to support opportunistic TLS.
+      smtpd_tls_auth_only = true; # don't announce/accept SASL AUTH over plaintext/unencrypted channels
       smtpd_tls_mandatory_ciphers = "high";
       smtpd_tls_mandatory_protocols = ">=TLSv1.2";
+      smtpd_tls_received_header = "yes"; # add TLS related headers to the Postfix Received: header
       # smtp security
       smtp_tls_protocols = ">=TLSv1.2";
-      smtp_tls_security_level = "dane";
-      smtp_dns_support_level = "dnssec";
+      smtp_tls_security_level = "dane"; # fallbacks to may. would be great if this could give me a notification
+      smtp_dns_support_level = "dnssec"; # enable dnssec lookups
 
       # fuckup remediation
       smtpd_reject_footer = "\c; If not intended, please contact the postmaster with methods listed in https://soopy.moe/about with the following data: client=$client_address, server=$server_name}";
@@ -69,8 +70,10 @@ in {
       # RCPT TO command checks (spam policy)
       smtpd_recipient_restrictions = [
         "reject_unknown_recipient_domain"
-        "reject_unverified_recipient" # dovecot lmtp check, requires dovecot
+        "reject_unverified_recipient" # FIXME: move back to a postgresql query method since this doesn't work well
       ];
+
+      # Message filtering done at rspamd, milters added via NixOS module.
 
       # dovecot integration with lmtp
       virtual_transport = "lmtp:unix:dovecot-lmtp"; # we placed the socket in the queue directory and this is resolved from that dir.
