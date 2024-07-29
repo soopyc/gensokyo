@@ -27,7 +27,7 @@ in {
 
       "milter_headers.conf".text = ''
         extended_spam_headers = true;
-        use = ["x-spamd-bar", "authentication-results"];
+        use = ["x-spamd-bar", "authentication-results", "x-spam-status"];
       '';
 
       # global options, which is different from sections
