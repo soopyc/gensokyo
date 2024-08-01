@@ -5,7 +5,6 @@
     extraDomainNames = [
       "sliding.proxy.production.matrix.soopy.moe"
       "sliding.proxy.staging.matrix.soopy.moe"
-      "nixpkgs.reverse.proxy.internal.soopy.moe"
     ];
   };
 }

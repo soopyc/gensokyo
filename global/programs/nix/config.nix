@@ -31,7 +31,6 @@ lib.mkMerge [
 
       trusted-substituters = [
         "https://cache.soopy.moe"
-        "https://nixpkgs.reverse.proxy.internal.soopy.moe/"
       ];
 
       trusted-public-keys = [
