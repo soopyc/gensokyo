@@ -2,5 +2,7 @@
 {
   name,
   content,
-}:
-builtins.toFile name (builtins.toJSON content)
+}: let
+  pkgs = import <nixpkgs> {}; # uses builtins.currentSystem
+in
+  pkgs.writeText name (builtins.toJSON content)

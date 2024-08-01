@@ -13,7 +13,7 @@ update-sops-config:
 	set -euxo pipefail
 	rm ../.sops.yaml || true
 	# mv ../.sops.yaml{,.bak} 2>/dev/null || true
-	OUT=$(nix-instantiate --eval build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix" | jq -r)
+	OUT=$(nix-build build-yaml.nix --argstr name ".sops.yaml" --arg content "import ../.sops.nix")
 	echo -e "# WARNING: This is a generated file. DO NOT EDIT DIRECTLY!\n# See .sops.nix and utils/build-yaml.nix for more details." \
 		| cat - $OUT > ../.sops.yaml
 
