@@ -39,7 +39,8 @@ in {
       smtp_dns_support_level = "dnssec"; # enable dnssec lookups
 
       # fuckup remediation
-      smtpd_reject_footer = "\c; If not intended, please contact the postmaster with methods listed in https://soopy.moe/about with the following data: client=$client_address, server=$server_name}";
+      smtpd_reject_footer = "\\c; If not intended, please contact the postmaster with methods listed in https://soopy.moe/about with the following data: client=$client_address, server=$server_name}";
+      notify_classes = ["resource" "software" "bounce"];
 
       # front-line spam protection
       disable_vrfy_command = true;
