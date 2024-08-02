@@ -29,6 +29,24 @@ in {
         use = ["x-spamd-result", "x-spamd-bar", "authentication-results", "x-spam-status"];
       '';
 
+      "dkim_signing.conf".text = ''
+        domain {
+          soopy.moe {
+            selectors = [
+              {selector: "2029-rsa"},
+              {selector: "2029-ed"}
+            ]
+          }
+
+          services.soopy.moe {
+            selectors = [
+              {selector: "2029-rsa"},
+              {selector: "2029-ed"}
+            ]
+          }
+        }
+      '';
+
       # global options, which is different from sections
       "options.inc".text = ''
         dns {
