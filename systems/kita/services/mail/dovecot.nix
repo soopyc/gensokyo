@@ -10,6 +10,7 @@ in {
     enable = true;
     params.dovecot2 = {};
   };
+  security.pam.services.dovecot2 = {}; # enough to activate pam for dovecot2
 
   services.dovecot2 = {
     enable = true;
@@ -52,6 +53,8 @@ in {
           mode = 0600
         }
       }
+      lmtp_add_received_header = no # postfix already added one
+
 
       # user/password databases
       ## virtual first then pam, so we don't get pam errors
