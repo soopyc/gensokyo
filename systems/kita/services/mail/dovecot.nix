@@ -54,15 +54,32 @@ in {
       }
 
       # user/password databases
+      ## virtual first then pam, so we don't get pam errors
+      ## virtual lookup
       passdb {
         driver = sql
         args = ${config.sops.templates."dovecot-sql.conf".path} # see bottom
+      }
+
+      ## pam/passwd lookup for local users
+      passdb {
+        driver = pam
+        args = dovecot2 # to be consistent w/ upstream
+      }
+
+      # passwd first before static so static doesn't apply to passwd users (i think that's how it works)
+      userdb {
+        driver = passwd
+        # https://doc.dovecot.org/configuration_manual/authentication/user_database_extra_fields/
+        override_fields = mail=maildir:/var/mail/%u
+        result_internalfail = return-fail
       }
 
       userdb {
         # for mail_location see above.
         driver = static
         args = uid=${builtins.toString config.users.users.vmail.uid} gid=${builtins.toString config.users.groups.vmail.gid} home=/var/vmail/%d/%n
+        # no need to set maildir here again apparantly
       }
 
       # namespaces (mailboxes)
