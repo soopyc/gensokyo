@@ -33,16 +33,7 @@
 
   services.tiny-dfr = {
     enable = true;
-    package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.tiny-dfr.overrideAttrs (_: _: {
-      version = "0.3.0-unstable-2024-17-18";
-      src = pkgs.fetchFromGitHub {
-        name = "tiny-dfr-source";
-        owner = "soopyc";
-        repo = "tiny-dfr";
-        rev = "1ffc883703f42ec6cc585d927bec2fc65a66e583";
-        hash = "sha256-sVDSkBDfEOsTnLWPw0TQzOOQjPbU/hWzECNAqJ5TQtg=";
-      };
-    });
+    package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.tiny-dfr;
     settings = {
       FontTemplate = "monospace";
     };
