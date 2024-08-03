@@ -87,7 +87,6 @@
         packages = [
           (pkgs.python311.withPackages (p: [p.requests]))
           pkgs.nixos-rebuild
-          pkgs.nix-output-monitor
           pkgs.nvd
         ];
       };
