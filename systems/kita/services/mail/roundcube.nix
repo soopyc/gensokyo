@@ -12,7 +12,6 @@
     extraConfig = ''
       // ssl means implicit tls, NOT ssl. see roundcube docs for details.
       $config['imap_host'] = [
-        'tls://mail.soopy.moe:143' => '(Deprecated) mail.soopy.moe',
         'ssl://mx2.soopy.moe:993' => 'Gensokyo Mail Exchange',
       ];
       // TODO: setup smtp and add related stuff here
