@@ -8,7 +8,6 @@
         version: STSv1
         mode: enforce
         max_age: 604800
-        mx: mail.soopy.moe
         mx: mx2.soopy.moe
       '';
       filename = "mta-sts.txt";
