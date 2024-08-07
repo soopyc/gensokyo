@@ -3,7 +3,6 @@
     group = "nginx";
     extraDomainNames = [
       "kita.soopy.moe"
-      "dav.soopy.moe"
       "webmail.soopy.moe"
       "mta-sts.soopy.moe"
     ];
