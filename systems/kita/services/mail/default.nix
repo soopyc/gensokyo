@@ -2,9 +2,7 @@
   imports = [
     ./roundcube.nix
 
-    # HELL
-    ./postfix.nix
-    ./dovecot.nix
+    ./maddy.nix
     ./rspamd.nix
     ./mta-sts.nix
   ];
