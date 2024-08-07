@@ -26,25 +26,7 @@ in {
       '';
 
       "milter_headers.conf".text = ''
-        use = ["x-spamd-result", "x-spamd-bar", "authentication-results", "x-spam-status"];
-      '';
-
-      "dkim_signing.conf".text = ''
-        domain {
-          soopy.moe {
-            selectors = [
-              {selector: "2029-rsa"},
-              {selector: "2029-ed"}
-            ]
-          }
-
-          services.soopy.moe {
-            selectors = [
-              {selector: "2029-rsa"},
-              {selector: "2029-ed"}
-            ]
-          }
-        }
+        use = ["x-spamd-result", "x-spamd-bar", "x-spam-status"];
       '';
 
       # global options, which is different from sections
