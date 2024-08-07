@@ -166,4 +166,10 @@
       }
     '';
   };
+
+  networking.firewall.allowedTCPPorts = [
+    25 # smtp
+    465 # submissions
+    993 # imaps
+  ];
 }
