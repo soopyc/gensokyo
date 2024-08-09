@@ -5,5 +5,6 @@
 
     ./dns.nix
     ./postgresql.nix
+    ./radicale.nix
   ];
 }

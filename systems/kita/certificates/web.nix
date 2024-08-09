@@ -5,6 +5,7 @@
       "kita.soopy.moe"
       "webmail.soopy.moe"
       "mta-sts.soopy.moe"
+      "dav.soopy.moe"
     ];
   };
 }
