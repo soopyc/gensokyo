@@ -19,7 +19,6 @@ in {
   ];
   services.rspamd = {
     enable = true;
-    postfix.enable = true;
     locals = {
       "redis.conf".text = ''
         servers = "${config.services.redis.servers.rspamd.unixSocket}";
