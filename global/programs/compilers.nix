@@ -2,7 +2,8 @@
   environment.systemPackages = with pkgs; [
     luajit
     binutils
-    libclang
+    # libclang
+    clang
     libgccjit
     gnumake
   ];
