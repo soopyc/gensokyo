@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./dev
+    ./path.nix
     ./obs.nix
     ./virt.nix
     ./eyecandy.nix
