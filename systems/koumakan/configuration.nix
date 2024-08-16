@@ -22,12 +22,12 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot";
     };
     systemd-boot = {
       enable = true;
       graceful = true;
-      netbootxyz.enable = true;
+      # netbootxyz.enable = true;
     };
     grub.enable = false;
   };
