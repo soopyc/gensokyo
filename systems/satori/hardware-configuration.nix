@@ -17,32 +17,24 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/c062d337-7c87-4269-90e6-13379a3f400f";
+    device = "/dev/disk/by-uuid/f4bb41e2-b477-49e7-ae96-61fd80a63b2e";
     fsType = "btrfs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/5F66-17ED";
+    device = "/dev/disk/by-uuid/3231-A446";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022" "umask=0077"];
   };
 
-  fileSystems."/MACOS_SHARE" = {
-    device = "/dev/disk/by-uuid/1BEC-BD88";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
-  };
-
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/b7ebcd44-abcf-41b8-9a65-506b5f2e6b2a";}
-  ];
+  swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s13f0u1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s13f0u2.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp230s0f1u1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
