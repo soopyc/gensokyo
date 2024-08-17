@@ -12,10 +12,10 @@
     traits = {
       gui = true;
       games = true;
-      secure = true;
     };
     presets = {
       vmetrics = true;
+      secureboot = true;
     };
     system-manager = {
       enable = true;

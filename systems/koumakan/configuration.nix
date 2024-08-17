@@ -15,8 +15,8 @@
 
   gensokyo.traits = {
     sensitive = true;
-    secure = true;
   };
+  gensokyo.presets.secureboot = true;
   gensokyo.presets.certificates = true;
 
   boot.loader = {
