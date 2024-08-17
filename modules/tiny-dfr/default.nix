@@ -90,7 +90,14 @@ in {
     in {
       enable = true;
       description = "Tiny Apple Silicon touch bar daemon";
-      after = backlightDevices;
+      after =
+        [
+          "systemd-user-sessions.service"
+          "getty@tty1.service"
+          "plymouth-quit.service"
+          "systemd-logind.service"
+        ]
+        ++ backlightDevices;
       bindsTo = backlightDevices;
       startLimitIntervalSec = 30;
       startLimitBurst = 2;
