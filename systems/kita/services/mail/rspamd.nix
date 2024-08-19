@@ -38,6 +38,8 @@ in {
     workers."controller".extraConfig = ''
       .include(try=false; priority=10) "${secrets.getTemplate "rspamd-controller-pwd.inc"}"
     '';
+
+    workers."normal".bindSockets = ["127.0.0.1:11333"];
   };
 
   services.redis.servers.rspamd.enable = true;
