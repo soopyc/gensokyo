@@ -117,9 +117,20 @@
               deliver_to &local_routing
           }
           default_destination {
+              # https://maddy.email/reference/modifiers/dkim/
               modify {
-                  dkim $(primary_domain) $(local_domains) default
+                modify.dkim {
+                  domains $(primary_domain) $(local_domains)
+                  selector 240821-rsa
+                  newkey_algo rsa2048
+                }
+                modify.dkim {
+                  domains $(primary_domain) $(local_domains)
+                  selector 240821-ed
+                  newkey_algo ed25519
+                }
               }
+
               deliver_to &remote_queue
           }
         }
