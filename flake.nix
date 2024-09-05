@@ -20,7 +20,7 @@
     nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
-    nixos-hardware.url = "github:soopyc/nixos-hardware";
+    nixos-hardware.url = "github:soopyc/nixos-hardware/apple/t2/extract-tiny-dfr";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

@@ -493,15 +493,16 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1725458852,
-        "narHash": "sha256-r59yDYgrgSC2TctxSHbsUhod31biYHaylA+dnishi2E=",
+        "lastModified": 1725462684,
+        "narHash": "sha256-c4poOQu7yR3/lXms2W08AmccjwfpBKQImRL4V/bZ2Sk=",
         "owner": "soopyc",
         "repo": "nixos-hardware",
-        "rev": "847013d88720f7d100224c7c35072dcbe07fc2ee",
+        "rev": "f367b6305c1f0a2ece5957e8924a75d3f3ef4cba",
         "type": "github"
       },
       "original": {
         "owner": "soopyc",
+        "ref": "apple/t2/extract-tiny-dfr",
         "repo": "nixos-hardware",
         "type": "github"
       }
