@@ -32,7 +32,7 @@
   boot.initrd.systemd.enable = true;
 
   services.tiny-dfr = {
-    enable = true;
+    enable = false;
     package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.tiny-dfr;
     settings = {
       FontTemplate = "monospace";
