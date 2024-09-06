@@ -11,6 +11,7 @@
     # fediverse
     ./matrix
     ./fediverse
+    ./feeds
 
     ./telemetry
     ./security
