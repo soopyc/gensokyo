@@ -6,6 +6,8 @@ dovecot:
     db_password: ENC[AES256_GCM,data:W7Wq4G+cRpPSSgj93ZraEKQrD1bzev+Gzjj7Z5/BHpr/7guu3FQUZVwBUNj0VtAO7GPSU7LqPwFqw0yyBWGPXsqXsF/rbACgS1eWxL0KTG+fSU9rk9+DAfYPDYH/0Ipp,iv:dX6HkDhz3r4huRWtP9UlxhKycQg5TMG+Wwei9rtVz0I=,tag:/NfNuuKae3arWymXMOtULw==,type:str]
 rspamd:
     controller_passwd: ENC[AES256_GCM,data:eOd42iMz82eC9Ntavi9PUGNu7C258kirgxtcGXDiJKR98DuSNZk/oGjNU8X1HkiaGCnOvTNvSQE6p6okHXH0NMjkdnsh9+aiaBnmHUKn4rpIcAcR/CUbLg==,iv:Tp0vQji0u7aPydZLB6ARMhkLv5BGj4KjOzVKkWXCUlQ=,tag:klJHk3cdL4+X+BbX6G34rA==,type:str]
+keycloak:
+    db_password: ENC[AES256_GCM,data:t0avCZw9/QMYDCYJ7Ze26olpHKueCEbbMqCTrqy5XjMXOC7TGNc79dIXWU4=,iv:DZYnh2gXk4dLWEQiiJQ+264yyXgIKaPQ/KjLirNCMJw=,tag:y4cjEnWGdeWt3hKxd4Dy7g==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -39,8 +41,8 @@ sops:
             aUp0RzdGVnd4b21POFE2SlpHZWpRaWMKwrHS97XKl88gZMCPzJpL3FsVx9SLc8rp
             sgS2BnnrycdRtmm6wUnX/z2BO+XJIuK/P4J2Z6HlIWUNxBZU0EhPfA==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-08-17T10:27:47Z"
-    mac: ENC[AES256_GCM,data:NrdAkdcDfeGCTEnoKvwQm79X2gKesxCwO0al0QUn0QBBZW3wH9aHp0fukM4u/bw5BTjZjRlR0nFclma0EzKJqu5HpsQly71z0DZZ1U17MMvC4a7SheJpCyZma3h+3CKo6LiuvTMCXUgR10j3NraIfnUy3aaipj5DqtfGvkcZRZU=,iv:sAtD1sHD0JFYSRTP7yzZqvMb5RadASjgZVMARS8noGs=,tag:oK1Z9Io0YUi4kVUUvDFCGQ==,type:str]
+    lastmodified: "2024-09-06T12:25:55Z"
+    mac: ENC[AES256_GCM,data:c+JgH0+Vz3kEqEo6JbB98WqMnyoPMG4scwcy5SzZIBC3Rv9+HC3P859oszv4J7cgVfRm6g9RQnawPaThElljs0FecsyHwX3OUrvk+ZTcFwpLDjx35PorpLXvj8LsweRyKGpD8EybefMVDv5Eyc2LsEAjh9FZxJHvJsjNm31rQBo=,iv:iaeq0CEVCoc5SYlt7eAXYdT67op59B6OJ6D5UOLH2mY=,tag:vKmQaNGteuzumP4vgOjwBw==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.0
