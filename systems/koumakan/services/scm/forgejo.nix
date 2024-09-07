@@ -2,6 +2,7 @@
   _utils,
   lib,
   config,
+  pkgs,
   ...
 }: let
   secrets = [
@@ -28,6 +29,7 @@ in {
   };
   services.forgejo = {
     enable = true;
+    package = pkgs.forgejo;
 
     repositoryRoot = "${config.services.forgejo.stateDir}/data/repositories";
 
