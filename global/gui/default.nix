@@ -5,6 +5,8 @@
     ./input.nix
     ./audio.nix
 
+    ./wine.nix
+
     ./wayland.nix
     ./kde.nix
     ./fonts.nix
