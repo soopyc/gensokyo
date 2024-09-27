@@ -62,6 +62,7 @@ in {
       # compress_build_logs 1
       #binary_cache_secret_key_file ${secrets.get "signing_key/local"} ## !! deprecated setting
 
+      max_output_size = 5368709120 # 5 << 30 (5 GiB)
       upload_logs_to_binary_cache = true
       store_uri = s3://nixos-cache?scheme=https&endpoint=2857eeff8794176be771f0e5567219f1.r2.cloudflarestorage.com&priority=50&compression=zstd&parallel-compression=true&write-nar-listing=true&ls-compression=br&log-compression=br&region=auto&want-mass-query=true&secret-key=${secrets.get "signing_key/r2"}
 
