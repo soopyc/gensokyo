@@ -10,8 +10,12 @@
       userName = "Cassie Cheung";
       userEmail = "me@soopy.moe";
 
-      difftastic.enable = true;
+      # difftastic.enable = true;
       # delta.enable = true;
+      diff-so-fancy = {
+        enable = true;
+        stripLeadingSymbols = false;
+      };
     }
 
     (lib.mkIf traits.gui {

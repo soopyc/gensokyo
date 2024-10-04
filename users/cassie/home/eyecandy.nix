@@ -11,5 +11,6 @@
     flavor = "latte";
   };
 
+  # programs.bat.enable = true;
   programs.zsh.enable = true;
 }
