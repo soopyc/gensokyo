@@ -49,7 +49,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hydra.url = "github:soopyc/hydra/master";
+    hydra.url = "github:NixOS/hydra/nix-next";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
