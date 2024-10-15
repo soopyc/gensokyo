@@ -33,7 +33,7 @@
 
   services.tiny-dfr = {
     enable = false;
-    package = inputs.nixpkgs-master.legacyPackages.${pkgs.system}.tiny-dfr;
+    package = pkgs.tiny-dfr;
     settings = {
       FontTemplate = "monospace";
     };
