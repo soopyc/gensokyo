@@ -17,8 +17,7 @@
     mystia.url = "github:soopyc/mystia";
 
     nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs-wf.url = "github:soopyc/nixpkgs/wf-test";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-wf.url = "github:soopyc/nixpkgs/writefreely-0.15.1";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple/t2/extract-tiny-dfr";
 
