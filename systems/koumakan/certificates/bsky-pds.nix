@@ -1,9 +1,10 @@
 {...}: {
   # Certificate for fedi services
-  security.acme.certs."fedi.c.soopy.moe" = {
+  security.acme.certs."bsky.c.soopy.moe" = {
     group = "nginx";
     extraDomainNames = [
-      "words.soopy.moe"
+      "bsky.soopy.moe"
+      "*.bsky.soopy.moe"
     ];
   };
 }
