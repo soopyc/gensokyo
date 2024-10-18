@@ -14,7 +14,7 @@
   };
 
   inputs = {
-    mystia.url = "github:soopyc/mystia";
+    mystia.url = "github:soopyc/mystia/bsky-pds";
 
     nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-wf.url = "github:soopyc/nixpkgs/writefreely-0.15.1";
