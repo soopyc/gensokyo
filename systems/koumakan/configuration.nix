@@ -2,6 +2,7 @@
   imports = [
     inputs.mystia.nixosModules.fixups
     inputs.mystia.nixosModules.vmauth
+    inputs.mystia.nixosModules.bsky-pds
 
     ./hardware-configuration.nix
 
