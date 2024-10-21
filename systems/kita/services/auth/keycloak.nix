@@ -34,7 +34,7 @@ in {
   services.nginx.virtualHosts."gateway.soopy.moe" = _utils.mkVhost {
     useACMEHost = "gateway.soopy.moe";
     locations = {
-      "/".return = "301 https://kita.soopy.moe";
+      "/".return = "301 /realms/gensokyo/account/";
       "/admin".return = "444";
       "/metrics".return = "444";
       "/health".return = "444";

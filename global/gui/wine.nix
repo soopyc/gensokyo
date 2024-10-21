@@ -6,7 +6,7 @@
 }:
 lib.mkIf config.gensokyo.traits.gui {
   environment.systemPackages = [
-    pkgs.wineWowPackages.waylandFull
+    pkgs.wineWowPackages.stagingFull
     pkgs.winetricks
   ];
 }

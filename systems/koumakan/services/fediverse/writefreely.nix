@@ -3,11 +3,12 @@
   _utils,
   lib,
   inputs,
+  pkgs,
   ...
 }: {
   services.writefreely = {
     enable = true;
-    package = inputs.nixpkgs-wf.legacyPackages.x86_64-linux.writefreely;
+    package = inputs.nixpkgs-wf.legacyPackages.${pkgs.system}.writefreely;
     host = "words.soopy.moe";
     settings = {
       server.port = 31294;

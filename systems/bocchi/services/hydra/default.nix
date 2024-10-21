@@ -80,6 +80,10 @@ in {
     extraConfig = {
       useACMEHost = "bocchi.c.soopy.moe";
 
+      locations."/metrics" = {
+        return = "444";
+      };
+
       locations."= /pubkey" = {
         extraConfig = ''
           add_header content-type text/plain always;
