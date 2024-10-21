@@ -34,10 +34,10 @@ in {
     repositoryRoot = "${config.services.forgejo.stateDir}/data/repositories";
 
     secrets = {
-      # service = {
-      # CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
-      # CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
-      # };
+      service = {
+        CF_TURNSTILE_SECRET = mkSecret "turnstile/secret";
+        CF_TURNSTILE_SITEKEY = mkSecret "turnstile/sitekey";
+      };
 
       mailer = {
         PROTOCOL = mkSecret "mailing/protocol";
@@ -86,8 +86,6 @@ in {
 
         ENABLE_CAPTCHA = true;
         CAPTCHA_TYPE = "cfturnstile";
-        CF_TURNSTILE_SITEKEY = "3x00000000000000000000FF";
-        CF_TURNSTILE_SECRET = "1x0000000000000000000000000000000AA";
       };
       # }}}
 
@@ -120,7 +118,7 @@ in {
 
       # Web UI {{{
       "ui.meta" = {
-        AUTHOR = "Patchy - Git with a touch of knowledge";
+        AUTHOR = "Patchy";
         DESCRIPTION = "Patchouli Knowledge, holder of code repos";
       };
       "ui.svg" = {
@@ -155,8 +153,8 @@ in {
       };
 
       openid = {
-        ENABLE_OPENID_SIGNIN = true;
-        ENABLE_OPENID_SIGNUP = true;
+        ENABLE_OPENID_SIGNIN = false;
+        ENABLE_OPENID_SIGNUP = false;
       };
       # }}}
 
@@ -165,6 +163,7 @@ in {
       # Logging {{{
       log = {
         ROOT_PATH = "/var/log/forgejo/";
+        "logger.router.MODE" = "";
       };
       # }}}
 
