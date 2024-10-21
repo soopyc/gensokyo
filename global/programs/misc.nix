@@ -22,11 +22,14 @@
     cryptsetup
     borgbackup
     doggo
+    libarchive
+    man-pages
 
     # security
     openssl
     yubikey-manager
     sops
+    opensc
 
     # deno
     deno
