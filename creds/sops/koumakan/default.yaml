@@ -59,7 +59,7 @@ miniflux:
 pds:
     email:
         address: ENC[AES256_GCM,data:4GAp7aW4JtTlfKc7bohYRyY+6KeJjAXJW/R6lpF22qMEbOTNZA==,iv:GG9N8u6Tlse+rVTQ4Na3KhA85stsFSF874/5/TKlw38=,tag:NfW/5VqIX5raz411Jji6rQ==,type:str]
-        url: ENC[AES256_GCM,data:pfJR8sxgYfH9uqREfl0eidAjYsoxrDo1T5doLziVwpQL3jhq7tV/gnhvbE6OstAAT7w70VQFaFp3pD2wumBteRFxAGNfT5i19yNIKBELjiCgmMTo5Y5Am4Rp62IP2gSLapniyQEbZqaHkHe6u1E=,iv:NVKn8hcdqW61ZAyWexfxCdm6zYV2zeHnXxtSARUwbsM=,tag:MgUO7lO3U16RSxOWFKoKyg==,type:str]
+        url: ENC[AES256_GCM,data:wXRXEjrLeCVyrsTWfAHw0D95byOWHABU6SvIHguiOUW7r1fljAt8f0QkaSaaIg1AUN0jeSYESkoQG9yk8cxL7/vqLwK421j+Q/LZsWATbpLtkSHHdzX6YQUDw77MXqGON88YkTpk3Ur6P/ereQz2iBP9Ph8=,iv:nwED4OY1R3VWSjgNy79FbiuNQ5qKgOX3YPHhZJKTf9A=,tag:fVJtQwAr9rEtDcREXVqgwg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -93,8 +93,8 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-10-25T02:46:29Z"
-    mac: ENC[AES256_GCM,data:e0Qazw5Bf4U3za6w56Sv+HaodPcP28STdOG6TQxP8O5i3szKCUQSxLlKK8+nR0J6aWiwyp0zZQPG3ACItXyun3Sua0vz2Eg9uAlMaAqUXktSP8wtsxpCEcTvHyzOj4BkEo85IRbNLHaNK+Cn8q0NJU8TOFtTN8BWasJwC80yXJQ=,iv:HfT+ba4NCjKR1cGrNx8qu2IIg55CPu11ZbuU1UfxBzo=,tag:TH429fJbP4gTlrrnGUM6RQ==,type:str]
+    lastmodified: "2024-10-25T09:41:18Z"
+    mac: ENC[AES256_GCM,data:ZRek6JezWrlAYyKpFsOzCOTiwU9/kpch2kDxGLx+npaK17gXdKB8xWm6xVPdTrPR/usaNnSxDRe1ClqayWFPlwwZ3D5DrnwQxqjiLepWLTcJH2ChG3Y2VAG+xbaFMf4BFnb7b3ZHuajKi35J/jLsBQK1/qlfs1SDlpyq6ikkGbM=,iv:+mVTNT0WdL2BeRjeXJTojjBR+4wuaH26C2AGeSDDOIQ=,tag:9uq50OGys+qjVWW9EdbdWQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.1
