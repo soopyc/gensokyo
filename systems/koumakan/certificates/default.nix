@@ -4,6 +4,5 @@
     ./postgresql.nix
     ./fediverse.nix
     ./bsky-pds.nix
-    ./proxy.nix
   ];
 }
