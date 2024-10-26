@@ -4,13 +4,14 @@
   config,
   _utils,
   ...
-}: let 
+}: let
   secrets = _utils.setupSecrets config {
     namespace = "pds";
     secrets = [
       "email/address"
       "email/url"
     ];
+    config.owner = config.services.bsky-pds.user;
   };
 in {
   imports = [secrets.generate];
