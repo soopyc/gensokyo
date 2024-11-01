@@ -23,7 +23,8 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_10;
+  # boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_6_10;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot = {
@@ -38,6 +39,11 @@
   fileSystems."/".options = [
     "compress=zstd:5"
     "autodefrag"
+  ];
+
+  networking.firewall.allowedTCPPorts = [
+    25565
+    25566
   ];
 
   # muh unfree software!!!!!!!!!!!!!!!!!!
