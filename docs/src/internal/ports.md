@@ -14,4 +14,5 @@ Note: most of this document focuses on koumakan.
 <!-- note: grafana uses unix sockets instead. -->
 
 - `3xxxx`: Service ports
+  - `34723`: miniflux
   - `35xxx`: exposed docker container ports
