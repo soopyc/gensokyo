@@ -5,6 +5,7 @@
     ./arion
 
     inputs.hydra.nixosModules.hydra
+    inputs.mystia.nixosModules.bsky-pds
   ];
 
   boot.tmp.cleanOnBoot = true;
