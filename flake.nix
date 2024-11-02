@@ -19,7 +19,7 @@
     nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-wf.url = "github:soopyc/nixpkgs/writefreely-0.15.1";
 
-    nixos-hardware.url = "github:soopyc/nixos-hardware/apple/t2/extract-tiny-dfr";
+    nixos-hardware.url = "github:soopyc/nixos-hardware";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
