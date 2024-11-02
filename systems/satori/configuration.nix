@@ -30,10 +30,9 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
 
   boot.initrd.systemd.enable = true;
-
-  services.tiny-dfr = {
-    enable = false;
-    package = pkgs.tiny-dfr;
+  hardware.apple-t2.enableTinyDfr = false;
+  hardware.apple.touchBar = {
+    enable = true;
     settings = {
       FontTemplate = "monospace";
     };
