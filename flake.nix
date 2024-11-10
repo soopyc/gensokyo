@@ -17,7 +17,6 @@
     mystia.url = "github:soopyc/mystia";
 
     nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs-wf.url = "github:soopyc/nixpkgs/writefreely-0.15.1";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware";
 
