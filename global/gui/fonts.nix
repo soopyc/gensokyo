@@ -14,6 +14,7 @@ lib.mkIf config.gensokyo.traits.gui {
         ];
       }
     )
+    pkgs.cozette
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-emoji-blob-bin
