@@ -15,7 +15,6 @@ lib.mkMerge [
         "nix-command"
         "flakes"
         "ca-derivations"
-        # "repl-flake"
       ];
 
       allowed-uris = [
