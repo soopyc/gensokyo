@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./steam.nix
-    "${inputs.self}/modules/tiny-dfr"
     inputs.nixos-hardware.nixosModules.apple-t2
   ];
 
