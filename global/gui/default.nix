@@ -7,8 +7,10 @@
 
     ./wine.nix
 
+    ./dm.nix
     ./wayland.nix
     ./kde.nix
+    ./gnome.nix
     ./fonts.nix
 
     ./browser.nix
