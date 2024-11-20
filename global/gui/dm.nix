@@ -1,15 +1,8 @@
 {config, lib, ...}:
 lib.mkIf config.gensokyo.traits.gui {
-  services.displayManager.ly = {
+  services.displayManager.sddm = {
     enable = true;
-    settings = {
-      animation = "matrix";
-    };
+    autoNumlock = true;
+    wayland.enable = true;
   };
-
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   autoNumlock = true;
-  #   wayland.enable = true;
-  # };
 }
