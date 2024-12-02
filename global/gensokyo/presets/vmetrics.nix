@@ -11,13 +11,12 @@
   };
 in {
   # inb4 this causes conflicts
-
   config = lib.mkIf config.gensokyo.presets.vmetrics (lib.mkMerge [
     {
       services.prometheus.exporters.node.enable = true;
       services.vmagent.enable = true;
       services.vmagent.remoteWrite.url = "https://panopticon.soopy.moe/api/v1/write";
-      services.vmagent.extraArgs = ["-remoteWrite.bearerTokenFile %d/auth_token"];
+      services.vmagent.extraArgs = ["-remoteWrite.bearerTokenFile=%d/auth_token"];
       services.vmagent.prometheusConfig = {
         global.scrape_interval = "30s";
 
