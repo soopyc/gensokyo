@@ -40,11 +40,12 @@ lib.mkMerge [
           light = "Catppuccin Latte";
           dark = "Catppuccin Mocha";
         };
-        
+
         # editing settings
         base_keymap = "VSCode";
         hard_tabs = true;
-        vim_mode = true;
+        vim_mode = false;
+        autosave = "on_focus_change";
 
         # nix stuff
         load_direnv = "shell_hook";
