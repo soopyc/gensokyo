@@ -6,14 +6,9 @@
 }:
 lib.mkIf config.gensokyo.traits.gui {
   fonts.packages = [
-    (
-      pkgs.nerdfonts.override {
-        fonts = [
-          "Hermit"
-          "FiraMono"
-        ];
-      }
-    )
+    pkgs.nerd-fonts.hurmit
+    pkgs.nerd-fonts.fira-mono
+
     pkgs.cozette
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
