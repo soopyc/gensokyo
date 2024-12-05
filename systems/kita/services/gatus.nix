@@ -1,4 +1,8 @@
-{_utils, config, ...}: let
+{
+  _utils,
+  config,
+  ...
+}: let
   mkHttpEndpoint = name: group: url: {
     inherit name url group;
     enabled = true;
