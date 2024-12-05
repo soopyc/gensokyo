@@ -33,7 +33,7 @@ in {
   services.victoriametrics = {
     enable = true;
     listenAddress = "127.0.0.1:20090";
-    retentionPeriod = 5 * 12; # 5 years
+    retentionPeriod = "5y"; # 5 years
   };
 
   systemd.services.vmagent.serviceConfig.EnvironmentFile = secrets.getTemplate "vmagent.env";
@@ -79,14 +79,6 @@ in {
               replacement = "koumakan";
             }
           ];
-        }
-
-        {
-          job_name = "akkoma";
-          static_configs = [{targets = ["a.soopy.moe"];}];
-          scheme = "https";
-          authorization = {credentials = "%{VMA_AKKOMA_CRED}";};
-          metrics_path = "/api/v1/akkoma/metrics";
         }
       ];
     };
