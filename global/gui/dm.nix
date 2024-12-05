@@ -1,4 +1,8 @@
-{config, lib, ...}:
+{
+  config,
+  lib,
+  ...
+}:
 lib.mkIf config.gensokyo.traits.gui {
   services.displayManager.sddm = {
     enable = true;
