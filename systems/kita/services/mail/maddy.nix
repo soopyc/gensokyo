@@ -100,8 +100,8 @@
         }
       }
 
-      # enable port 465 implicit tls and disable starttls
-      submission tls://0.0.0.0:465 {
+      # enable port 465 implicit tls and 587 submission
+      submission tls://0.0.0.0:465 tcp://0.0.0.0:587 {
         limits {
           all rate 50 1s
         }
@@ -181,6 +181,7 @@
   networking.firewall.allowedTCPPorts = [
     25 # smtp
     465 # submissions
+    587 # submission (starttls)
     993 # imaps
   ];
 }
