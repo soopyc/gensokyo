@@ -124,7 +124,7 @@ in {
       "m.server" = "nue.soopy.moe:443";
     };
 
-    locations."~ ^(/_matrix|/_synapse/client)" = {
+    locations."~ ^(/_matrix|/_synapse/client|/health)" = {
       proxyPass = "http://unix:${getSocket "mistress"}";
       extraConfig = ''
         client_max_body_size 100M;
