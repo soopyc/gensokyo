@@ -6,6 +6,8 @@
       "webmail.soopy.moe"
       "mta-sts.soopy.moe"
       "dav.soopy.moe"
+      "miku.soopy.moe"
+      "status.soopy.moe"
     ];
   };
 }
