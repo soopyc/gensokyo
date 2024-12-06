@@ -281,11 +281,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1732607593,
-        "narHash": "sha256-Qhc5GSthVBnFc3ZO0c+7oXYGlIFAylPnm731G+CMT2Y=",
+        "lastModified": 1733444895,
+        "narHash": "sha256-r+t/0U8Pp6/Lvi3s3v8nDB9xCggvxFsnCEJ9TuZvVJc=",
         "owner": "NixOS",
         "repo": "hydra",
-        "rev": "3b16941b140ca8ec0943be9cb8449d2bbf980502",
+        "rev": "250668a19fa4d8ff9a6176ee6c44ca3003adedf1",
         "type": "github"
       },
       "original": {
@@ -444,11 +444,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1732357054,
-        "narHash": "sha256-7zFNBqJ0+v5/9O3cXPqlH31EJMOiQqfiWa0e6OG2cfA=",
+        "lastModified": 1733460946,
+        "narHash": "sha256-0LMcDOOdGiZGU2sNn4tjqRGxdUyRzh29dh0h9oN0VpA=",
         "owner": "soopyc",
         "repo": "nixos-hardware",
-        "rev": "ce4f035a691ed79db6c7ec3c6da2e6216c3e39e0",
+        "rev": "266fdc25c28283e114f6f811a722dde9219c2344",
         "type": "github"
       },
       "original": {
