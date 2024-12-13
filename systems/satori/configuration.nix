@@ -29,7 +29,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
 
   boot.initrd.systemd.enable = true;
-  hardware.apple-t2.enableTinyDfr = false;
   hardware.apple.touchBar = {
     enable = true;
     settings = {
