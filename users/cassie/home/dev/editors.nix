@@ -38,7 +38,7 @@ lib.mkMerge [
         theme = {
           mode = "system";
           light = "Catppuccin Latte";
-          dark = "Catppuccin Mocha";
+          dark = lib.mkForce "Catppuccin Mocha";
         };
 
         # editing settings
