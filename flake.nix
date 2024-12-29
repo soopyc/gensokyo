@@ -17,15 +17,19 @@
     mystia.url = "github:soopyc/mystia";
 
     nixpkgs.follows = "mystia/nixpkgs";
-
     nixos-hardware.url = "github:soopyc/nixos-hardware";
+    catppuccin.url = "github:catppuccin/nix";
+    hydra.url = "github:NixOS/hydra";
+
+    ghostty ={ 
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+    };
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    catppuccin.url = "github:catppuccin/nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -46,8 +50,6 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hydra.url = "github:NixOS/hydra";
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
