@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -27,6 +28,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+
+  # eduroam
+  networking.wireless.iwd.enable = lib.mkForce false;
+  networking.networkmanager.wifi.backend = lib.mkForce "wpa_supplicant";
+
+  # development
+  services.redis.servers."".enable = true;
 
   boot.initrd.systemd.enable = true;
   hardware.apple.touchBar = {
