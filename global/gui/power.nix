@@ -10,7 +10,7 @@ lib.mkIf config.gensokyo.traits.gui {
     extraConfig = ''
       IdleAction=lock
     '';
-    killUserProcesses = true;
+    killUserProcesses = false;
   };
 
   systemd.targets = lib.genAttrs [
