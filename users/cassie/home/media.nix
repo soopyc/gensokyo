@@ -6,7 +6,7 @@
 }:
 lib.mkIf traits.gui {
   home.packages = [
-    pkgs.gimp-with-plugins
+    pkgs.gimp
     pkgs.kdePackages.kdenlive
   ];
 }

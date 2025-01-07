@@ -26,7 +26,7 @@
   # FIXME: doesn't seem to actually update anything
   system.autoUpgrade = lib.mkDefault {
     enable = false;
-    flake = "https://patchy.soopy.moe/cassie/genso-nix/archive/main.tar.gz";
+    flake = "https://patchy.soopy.moe/cassie/gensokyo/archive/main.tar.gz";
     dates = "*-*-* *:00/15:00";
     flags = [
       "--options"

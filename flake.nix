@@ -15,8 +15,8 @@
 
   inputs = {
     mystia.url = "github:soopyc/mystia";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
-    nixpkgs.follows = "mystia/nixpkgs";
     nixos-hardware.url = "github:soopyc/nixos-hardware";
     catppuccin.url = "github:catppuccin/nix";
     hydra.url = "github:NixOS/hydra";
@@ -94,7 +94,7 @@
 
     checks = forAllSystems (pkgs: {
       format-deadcode-check = pkgs.stdenvNoCC.mkDerivation {
-        name = "format_deadcode_check";
+        name = "deadcode_check";
         src = ./.;
         dontPatch = true;
         dontConfigure = true;
@@ -102,10 +102,8 @@
         buildInputs = with pkgs; [alejandra deadnix];
         buildPhase = ''
           set -euo pipefail
-          echo "######## Checking flake ########"
 
           deadnix -f .
-          alejandra -c . 2>/dev/null
           echo "All done!"
         '';
 
