@@ -14,7 +14,7 @@
 
   inputs = {
     mystia.url = "github:soopyc/mystia";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs.follows = "mystia/nixpkgs";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware";
     catppuccin.url = "github:catppuccin/nix";
