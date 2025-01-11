@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   ...
 }: {
   imports = [
@@ -23,29 +22,10 @@
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
 
-  # FIXME: doesn't seem to actually update anything
-  system.autoUpgrade = lib.mkDefault {
-    enable = false;
-    flake = "https://patchy.soopy.moe/cassie/gensokyo/archive/main.tar.gz";
-    dates = "*-*-* *:00/15:00";
-    flags = [
-      "--options"
-      "tarball-ttl"
-      "0"
-    ];
-    allowReboot = false; # this breaks our current setup with encrypted secureboot
-  };
-
   boot.tmp = {
     useTmpfs = false; # this causes oom on kernel builds
     cleanOnBoot = true;
   };
-
-  # # Enable crash dumps globally
-  # boot.crashDump = {
-  #   enable = true;
-  #   reservedMemory = "128M";
-  # };
 
   time.timeZone = "Asia/Hong_Kong";
 

@@ -9,7 +9,6 @@
     extra-trusted-public-keys = [
       "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
     ];
-    allow-import-from-derivation = true;
     fallback = true;
   };
 
@@ -21,7 +20,7 @@
     catppuccin.url = "github:catppuccin/nix";
     hydra.url = "github:NixOS/hydra";
 
-    ghostty ={ 
+    ghostty = {
       url = "github:ghostty-org/ghostty";
       inputs.nixpkgs-unstable.follows = "nixpkgs";
     };
@@ -50,9 +49,19 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    self,
+    nixpkgs,
+    treefmt-nix,
+    ...
+  } @ inputs: let
     lib = nixpkgs.lib;
 
     systems = [
@@ -61,7 +70,8 @@
       "x86_64-darwin"
       "aarch64-darwin"
     ];
-    forAllSystems = fn: lib.genAttrs systems (s: fn nixpkgs.legacyPackages.${s});
+    forAllSystems = fn: lib.genAttrs systems (system: fn nixpkgs.legacyPackages.${system});
+    treefmt = forAllSystems (pkgs: treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix);
   in {
     lib.x86_64-linux = import ./global/utils.nix {
       inherit inputs;
@@ -82,35 +92,14 @@
 
     nixosConfigurations = import systems/default.nix {inherit inputs lib;};
 
-    devShells = forAllSystems (pkgs: {
-      default = pkgs.mkShellNoCC {
-        packages = [
-          (pkgs.python311.withPackages (p: [p.requests]))
-          pkgs.nixos-rebuild
-          pkgs.nvd
-        ];
-      };
-    });
+    devShells = forAllSystems (pkgs: import ./nix/devshell.nix {inherit pkgs inputs;});
 
-    checks = forAllSystems (pkgs: {
-      format-deadcode-check = pkgs.stdenvNoCC.mkDerivation {
-        name = "deadcode_check";
-        src = ./.;
-        dontPatch = true;
-        dontConfigure = true;
+    checks = forAllSystems (pkgs:
+      (import ./nix/checks.nix {inherit pkgs inputs;})
+      // {
+        formatting = treefmt.${pkgs.system}.config.build.check self;
+      });
 
-        buildInputs = with pkgs; [alejandra deadnix];
-        buildPhase = ''
-          set -euo pipefail
-
-          deadnix -f .
-          echo "All done!"
-        '';
-
-        installPhase = "touch $out";
-      };
-    });
-
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter = forAllSystems (pkgs: treefmt.${pkgs.system}.config.build.wrapper);
   };
 }
