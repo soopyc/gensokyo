@@ -4,7 +4,7 @@
 # Cow
 ![a yak on some grass](docs/src/images/quaritsch-photography-1_6rJHQ2Gmw-unsplash.jpg)
 
-*Gracefully provided by [Quaritsch Photography](https://unsplash.com/@quaritsch) on Unsplash, via https://unsplash.com/photos/1_6rJHQ2Gmw*
+*Picture by [Quaritsch Photography](https://unsplash.com/@quaritsch) on Unsplash, via https://unsplash.com/photos/1_6rJHQ2Gmw*
 
 # NixOS Configuration
 This is a bare minimum nix configuration for koumakan.
