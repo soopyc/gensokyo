@@ -5,7 +5,7 @@
 https://unsplash.com/photos/1_6rJHQ2Gmw*
 
 # NixOS Configuration
-This is a bare minimum nix configuration for koumakan.
+This is a bare minimum nix configuration for various gensokyo servers.
 
 I'm still very, very new to Nix and its ecosystem so pointers to better
 way of doing things are very much appreciated.
