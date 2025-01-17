@@ -30,10 +30,7 @@ lib.mkMerge [
   }
 
   (lib.mkIf config.gensokyo.traits.portable {
-    networking = {
-      wireless.iwd.enable = true;
-      networkmanager.wifi.backend = "iwd"; # iwd works significantly better than wpa_supplicant. however w_s has hotspot support and iwd doesn't. though w_s' hotspot is like, not usable so whatever.
-    };
+      networking.networkmanager.wifi.backend = lib.mkForce "wpa_supplicant";
   })
 
   (lib.mkIf (!config.gensokyo.traits.sensitive) {
