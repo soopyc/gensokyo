@@ -10,6 +10,7 @@
     "satori"
     "renko"
     "kita"
+    "ryo"
   ];
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";
