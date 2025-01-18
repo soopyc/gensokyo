@@ -34,4 +34,5 @@ in {
   # cloud servers
   bocchi = mkSystem "bocchi" "x86_64-linux";
   kita = mkSystem "kita" "x86_64-linux";
+  ryo = mkSystem "ryo" "x86_64-linux";
 }
