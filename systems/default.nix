@@ -7,7 +7,6 @@
 
   mkSystem = hostname: system:
     lib.nixosSystem {
-      inherit system;
       specialArgs = {
         inherit inputs;
 
@@ -23,6 +22,7 @@
         {
           home-manager.extraSpecialArgs = {inherit inputs;};
           networking.hostName = hostname;
+          nixpkgs.hostPlatform = lib.mkDefault system; # ensure we detect conflicts
         }
       ];
     };

@@ -2,7 +2,7 @@
 # Permission is given to copy and use under the terms of Apache 2.0.
 #
 # you may copy-paste this entire file to anywhere else. just keep the comments.
-# see /docs/utils.md for a usage guide
+# see /docs/src/utils/ for a usage guide
 {
   inputs,
   system,
