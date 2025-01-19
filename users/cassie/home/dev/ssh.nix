@@ -19,10 +19,10 @@
     };
 
     # extraConfig is config for the Host * block.
+    ## n.b.: identitesonly and identityfile makes bootstrapping other devices hard esp.
+    ##       if they're embedded or resource constrained.
     extraConfig = ''
       VisualHostKey yes
-      IdentitiesOnly yes
-      IdentityFile ${../../../../creds/ssh/auth}
-    ''; # ^ least insane relative directory link
+    '';
   };
 }
