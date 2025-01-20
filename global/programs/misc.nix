@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   # Miscellaneous packages that do not have an option.
   # It is recommended to use packages.<package>.enable when possible.
 
@@ -11,6 +11,7 @@
     nix-output-monitor
     python3
     ffmpeg
+    inputs.ghostty.packages.${pkgs.system}.default.terminfo
 
     # basic sysadmin utils
     jq
