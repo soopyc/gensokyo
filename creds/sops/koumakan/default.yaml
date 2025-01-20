@@ -1,9 +1,6 @@
 synapse_comment_unencrypted: See https://github.com/Mic92/sops-nix/issues/120 for synapse.yaml quirks
 synapse.yaml: ENC[AES256_GCM,data:F7MTc16PBofllp0Ij/nHjaMQIboXj0aj3SzbHiNpAKSrZVsrWCcH/Qv0PT+3Exhz7xaUdAiF3e8Fi5XP0J55rXY7B6JDj0+/GMW99UPcRk2vTfpg84VDsFK1v5k8k5yEgV8xEUvhkLjR4AO6Y0ufVu3XE92Ubzi4HFCsTChbZ8ZgvEuTHzHXUFCQWHLJEjVtGmcZzsXCvonq/0YvTDpzPrp79Xbfd89hhTyN8qymLnwgOv0LKycFDDPmd+tO3pgo1uu5qOsj6e6Zn5U3wYQvXyWJX20SLBOkN4DYHUoiXXLIPf537qUdvOyYrGYh4MBwwJpTuWmHrQ/f0NmAmY4fsBsVSciGLeXGYs9fUY54tK09ShxHXFVpvdfVVf/9QLH69XpKIP4Sa49Hp+LeodPfKpS5Yz1F3bHYrAFHZDWvPAsFhglhvY0f/+yn+rp2cROxIXRhAdrswtj8IpC8rNtlfO+AeQyWEgocqYbCrPxUSwtEM2QcFs1Pa0IJm89EbL7KU/k44JaU3wNTT3GY5iPqnVQJciBJ0CW3flC4RTt8QqgaqiTLxifLtn6T2rAjxbVW422nYuTlVRLXXwuRawb7uiv9i/Ax50ekRv/lOUT1ypAFFQS2i99TgwVygQC9frYPCPw/AHscGB0tUCZ67X0tcvcGmuSKIQAOKxMQvqfieA4MCDztDtBltW4iJxtDGIlk/p/78aVA3a0KIGxd7pJVtDUnZvdQSKmQmyvIJcDWpMuFwkhI/cfnwANn0YQFvfARjEKE0EP/XAgazakv1uUcP8PpZBTbEGr/uFQOOUJIjhkdop2B1sBzjE29HfFE/Q4pZslK4iGe8fnFCw/aqPHqVv/ukK/JyPs55spAdqOmlgEpTxWvUB1oAfn5MgrEksEOK10u72+Ub8hkzoevfnZTEgv8CqVtFfhwahBhePZx9YhUVtE/lVBsK1mEGiRLJLKSQUYb6kxR/BGUXperQyr13TqFaahCiLI3,iv:fvaZQ66VKU+uzvn5AwTIFgzz+F2kJ8/QR2AfmynRfGU=,tag:XV4bWmYZFKadeZ7k3dNv3g==,type:str]
 matrix-signing-key: ENC[AES256_GCM,data:BeTwWMxbwC314CMn6BxPUKtnr48ipV2pbewRI0l8yNEuzbSFPNwU8a3i41viOoRS6Mg2jEHTSWDRMw==,iv:abvwkrNe324QCbWLwiPY0UwqezS0wbyk2Fvi0vs3SI0=,tag:1MkrL33pWhmdVUSJQviITg==,type:str]
-matrix-sliding-sync:
-    secret: ENC[AES256_GCM,data:9WoG0trBuANRdON5wvN6UXW11lwwp62KCg3m2hubjilCRDvKevAjV6cE3ketDf5jcsmPuePtfpRfddsvC9MAkGYAKmcRNM2BrqA5a5Yvor8Fc2TzGUrgEF9HXCCPASM3sQTup7NCJRVvkQsVRQqC6TFju5PMGsScZjvLtsVTIwifh1r6w2Pwr4fBl92x2g4CLAFQ6gk2QQm3YUj31BG0UcLtopaAH1+jRQIMDhgp+dk3umM2HSJHpm4gMG9uhEZI7daMsw7dc9pXK4jevRyShaT87JiFqCEKM57OJadKuV88DE0wvybN4g4FM4lUYm8ZjGkpVfIWKIcm9yayCEv0SQ==,iv:JR9Hz+rmfGeJ+JfDugkI7bzh3wb/o/5CdrzKPXfVTL8=,tag:09bnhNkYi8FRFN08AjcKuQ==,type:str]
-    db_pass: ENC[AES256_GCM,data:iAFXDwyX1ujsj6lFBX9YL2iR/vh6JOzhr3Wvx4zv4+aF1CcgYtar9m7ZvCdO+ZWF5bIvK34SwBHkmtq665lp3iQgETc8jUN+45/tP4nHH2rg9nMipuGs9A==,iv:fKdDDkfGhzCeSB/wBcz9YJwJ7pF7hYP8chAJ04GZRDk=,tag:b9bXib9UNkTM9cLCH/M7ZQ==,type:str]
 vaultwarden:
     admin_token: ENC[AES256_GCM,data:SLO0d6zZhC3t8vSx99mUlhUSkWcx5P+fKrNZvzy0SBGT+Ga4puHtteCXk3xALlTQJ2LmQTNg+uj9vI5XC0+4eNT+kjl4gmZvberT+6/ANQwylKWkL+IXMjfjMzRuX8yRJGH1R1j11fZDgtSWpGvNqMicDkasuA==,iv:BbBjgsHh1pl904COKCMAh41uI7UH9kHcyy79zKYcM8E=,tag:8goYKIdtE9QX92VgZpA9tQ==,type:str]
     smtp:
@@ -34,7 +31,7 @@ forgejo:
         user: ENC[AES256_GCM,data:71ZJuyuFeT+YHCdYZ96ogP6NfErYnXLr+g==,iv:242pszmIpJzoaX4Rx+7nYSD8xoDt1aqViQeBCUH0SlQ=,tag:EOsPhFvozIFkqdA8/B03FQ==,type:str]
         pass: ENC[AES256_GCM,data:K7AwpFI5KNJC7lyTipnus2ynkAmbYikDeX17qUutun/EAprDgr2dufB7mlhvvsejj+m7b7toh8BcHYfjN8oqSjYpB74=,iv:qBqTOLuzS0E0uBQyUK8vsF9uAhKyCf0Q/Iuy22twGEk=,tag:43Ug+zcCDEPyWcOPDkpAdw==,type:str]
 lego:
-    cf_token: ENC[AES256_GCM,data:08Ysg8RNHjDNWKs+/oFoJIm3skJ4Yd9kouq6fzw0z9FHzstpI7r+BA==,iv:utJunj8wewHFdOaD+EOgpN5/RpXyCdsl5Lr6kBbXsvw=,tag:2f6KRuQUJeRjYt6CPAEalQ==,type:str]
+    cf_token: ENC[AES256_GCM,data:b/04yeqgfzo3A6kx7ddnYCzRv+5hkDdbBNJNgCHceUPv8x98KQQDmg==,iv:uaOjV7F2ENE7PDt3z46JwSaT9prH6XAr8/XaDCzDXEc=,tag:92bnvrjciGWlD+sUwY9u1Q==,type:str]
 grafana:
     oauth2:
         github:
@@ -94,8 +91,8 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-01-18T16:34:35Z"
-    mac: ENC[AES256_GCM,data:Mq6Y3HJjLVeE+WrpU1Tl2FJF+bETCrMHqYq2oRJloMlTQDwUI3PNdsaQ7nspQMhI7Yp+ECCmXOWa+kuHu5guUikWYOHVjN2Kb4i6P8LldPpyh1/NOEYsu/nBSGpl9657f5iIBqqiW5bFVFviEdBIUzlzOAZD5NRxnaZ3uEdtao0=,iv:T6l4ffisrB/Qj4jbWndf3x3ZMxmcXW4MsZvYB83Vgms=,tag:ruTqOWmnQLtql4q9vpyo6Q==,type:str]
+    lastmodified: "2025-01-20T13:09:05Z"
+    mac: ENC[AES256_GCM,data:KLI27LDfb3WElcYo+/MJwgWsJQ+WBynBFp+dZgwIr0+QyMPQ4Qax03AhWqYrCqJZxKzlmOzyYOwBaf6XJ2yuvKZIDD0tS6ok91+/5XSpGhMCjYhbaM2FSBtPHg+sQDunYg+MchcLj1L95vdPm4EmwJ5cQrWi7szDOl30XTgR5rw=,iv:5AWmzR/DutmW/HuyPqYN6aO/+7OlcNAaSXt4jNIoYpw=,tag:K1p2FSM3qhFMeIN0bxVv1A==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.2
