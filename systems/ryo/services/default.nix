@@ -1,6 +1,6 @@
 {...}: {
   imports = [
     ./novnc.nix
-    # ./thefunny.nix
+    ./thefunny.nix
   ];
 }
