@@ -2,7 +2,6 @@
 # DO NOT copy anything done on this host, it's insecure by design.
 {...}: {
   imports = [
-    ./certificates
     ./services
   ];
 
