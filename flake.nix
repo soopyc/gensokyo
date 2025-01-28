@@ -16,7 +16,7 @@
     mystia.url = "github:soopyc/mystia";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
-    nixos-hardware.url = "github:soopyc/nixos-hardware";
+    nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix";
     hydra.url = "github:NixOS/hydra";
 
