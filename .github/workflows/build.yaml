@@ -19,9 +19,6 @@ jobs:
           extra-conf: |
             experimental-features = nix-command flakes
 
-      - name: Setup Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@v4
-
       - name: Run nix flake check
         run: nix flake check
 
@@ -37,8 +34,10 @@ jobs:
       matrix:
         host:
           - koumakan
-          - bocchi
           - renko
+          - bocchi
+          - kita
+          - ryo
 
     steps:
       - name: Maximize build space
