@@ -5,6 +5,9 @@
     ./databases
     ./scm
 
+    # "containers" in a burning text gif
+    ./arion
+
     # Gensokyo local stuff
     ./ftp.nix
 

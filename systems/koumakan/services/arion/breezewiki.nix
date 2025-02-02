@@ -1,0 +1,23 @@
+{_utils, ...}: {
+  virtualisation.arion.projects.breezewiki.settings = {
+    services.breezewiki = {
+      service = {
+        image = "quay.io/pussthecatorg/breezewiki";
+        ports = ["35612:10416"];
+        environment = {
+          bw_canonical_origin = "https://bw.soopy.moe";
+          bw_log_outgoing = "false";
+          bw_strict_proxy = "true";
+          bw_feature_search_suggestions = "true";
+        };
+      };
+    };
+  };
+
+  services.nginx.virtualHosts.".bw.soopy.moe" = _utils.mkSimpleProxy {
+    port = 35612;
+    extraConfig = {
+      useACMEHost = "bw.c.soopy.moe";
+    };
+  };
+}
