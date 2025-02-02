@@ -2,7 +2,6 @@
   imports = [
     ./certificates
     ./services
-    ./arion
 
     inputs.hydra.nixosModules.hydra
     inputs.mystia.nixosModules.bsky-pds

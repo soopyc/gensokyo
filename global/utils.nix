@@ -132,25 +132,4 @@ in rec {
           content = builtins.toJSON attrset;
         }
     );
-
-  # mkArionProject = options: let
-  #   directOptions = ["serviceName"];
-  # in lib.filterAttrs (key: _: builtins.elem key directOptions) options // {
-  #   settings = builtins.removeAttrs options directOptions;
-  # };
-
-  mkArionProject = func: let
-    directOptions = ["serviceName"];
-    fixed = lib.fix func;
-  in
-    lib.filterAttrs (key: _: builtins.elem key directOptions) fixed
-    // {
-      settings.imports = [
-        (
-          _: builtins.removeAttrs fixed directOptions
-        )
-      ];
-    };
-
-  # mkArionProject = lib.fix _mkArionProject;
 }
