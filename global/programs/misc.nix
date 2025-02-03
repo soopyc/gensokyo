@@ -28,6 +28,7 @@
     borgbackup
     doggo
     libarchive
+    unar
     man-pages
 
     # security
