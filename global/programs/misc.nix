@@ -11,7 +11,9 @@
     wget
     curl
     xh
+    gh
     nil
+    nvd
     nix-output-monitor
     python3
     ffmpeg
@@ -39,10 +41,8 @@
 
     # deno
     deno
-    devenv
 
     # command runners and utilities
-    nvd
     just
     inotify-tools
   ];
