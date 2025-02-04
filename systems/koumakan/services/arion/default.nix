@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./breezewiki.nix
+    ./pixivfe.nix
   ];
 
   virtualisation.arion.backend = "podman-socket";

@@ -58,6 +58,8 @@ pds:
     email:
         address: ENC[AES256_GCM,data:4GAp7aW4JtTlfKc7bohYRyY+6KeJjAXJW/R6lpF22qMEbOTNZA==,iv:GG9N8u6Tlse+rVTQ4Na3KhA85stsFSF874/5/TKlw38=,tag:NfW/5VqIX5raz411Jji6rQ==,type:str]
         url: ENC[AES256_GCM,data:wXRXEjrLeCVyrsTWfAHw0D95byOWHABU6SvIHguiOUW7r1fljAt8f0QkaSaaIg1AUN0jeSYESkoQG9yk8cxL7/vqLwK421j+Q/LZsWATbpLtkSHHdzX6YQUDw77MXqGON88YkTpk3Ur6P/ereQz2iBP9Ph8=,iv:nwED4OY1R3VWSjgNy79FbiuNQ5qKgOX3YPHhZJKTf9A=,tag:fVJtQwAr9rEtDcREXVqgwg==,type:str]
+pixivfe:
+    token: ENC[AES256_GCM,data:N90DOJ0mip8FuuQD2iHA2OMDIePuM6tddLRLCjgNXpnp4PnRBFgt7UOvY/163DYphRtI/dl6Dl2odlpJ7UDtqYUKmNVtzGUGHLz38XQMCXN4rXnCXQ==,iv:3w5L2p+yQvKxusT3LBG/YXwQMrYhz+km1RuWmr4ZeO8=,tag:YHAHqrgqzq3K0x3XcNizwg==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -91,8 +93,8 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-01-20T13:09:05Z"
-    mac: ENC[AES256_GCM,data:KLI27LDfb3WElcYo+/MJwgWsJQ+WBynBFp+dZgwIr0+QyMPQ4Qax03AhWqYrCqJZxKzlmOzyYOwBaf6XJ2yuvKZIDD0tS6ok91+/5XSpGhMCjYhbaM2FSBtPHg+sQDunYg+MchcLj1L95vdPm4EmwJ5cQrWi7szDOl30XTgR5rw=,iv:5AWmzR/DutmW/HuyPqYN6aO/+7OlcNAaSXt4jNIoYpw=,tag:K1p2FSM3qhFMeIN0bxVv1A==,type:str]
+    lastmodified: "2025-02-04T14:53:56Z"
+    mac: ENC[AES256_GCM,data:1RhaDTblBs6s7xavwatyQlP3sHBRqDaH99MCaFcIk2hUxb7iFE7FwqLa7KlSSXJ7wWUQpiCdovLewn2jRQKt3Jz2vtA1++6n6AedeDlZin/CRbQLWSVRzN6DF/m5qvF8pKI88/bQR50DH4B5wTGPnmrImznWh5DQk5Lo3SGfnCk=,iv:Dp7CaZmoQSxORxtUAMOPD99M33fZz5e3HVxVpCEqeto=,tag:gcLA0Vkh0r3GWBcI76Y+oQ==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
-    version: 3.9.2
+    version: 3.9.4
