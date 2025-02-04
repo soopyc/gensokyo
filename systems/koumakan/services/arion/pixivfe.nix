@@ -44,7 +44,7 @@ in {
       keysZoneName = "pximg";
     };
 
-    virtualHosts."pximg.soopy.moe" = {
+    virtualHosts."pximg.soopy.moe" = _utils.mkVhost {
       locations."/" = {
         recommendedProxySettings = false;
         proxyPass = "https://i.pximg.net";
@@ -62,6 +62,11 @@ in {
           proxy_cache_valid 404 5m;
           proxy_cache_revalidate on;
           proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+        '';
+      };
+      locations."= /" = _utils.mkNginxFile {
+        content = ''
+          the knowers will know, the clueless will never know.
         '';
       };
     };
