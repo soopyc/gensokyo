@@ -37,6 +37,7 @@ in {
       ui.search_on_category_select = false;
 
       server = {
+        secret_key = "@SEARXNG_SECRET@";
         public_instance = true;
         base_url = "https://s.soopy.moe";
         image_proxy = true;
