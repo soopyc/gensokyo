@@ -16,7 +16,7 @@ in {
     '')
   ];
 
-  users.users.nginx.extraGroups = [config.users.users.searx.name];
+  users.users.nginx.extraGroups = [config.users.groups.searx.name];
 
   services.searx = {
     enable = true;
@@ -24,10 +24,22 @@ in {
     environmentFile = secrets.getTemplate "searxng.env";
     redisCreateLocally = true;
     uwsgiConfig = {
-      socket = "/run/searx/searxng.sock";
+      http = "/run/searx/searxng.sock";
       chmod-socket = "660";
       disable-logging = true;
     };
+
+    # FIXME: this doesn't work atm because it's not read i think? add a symlink from /run/searx/limiter.toml pointing to /etc/searx/limiter.toml
+    limiterSettings = {
+      real_ip = {
+        x_for = 1;
+        ipv4_prefix = 32;
+        ipv6_prefix = 48;
+      };
+      botdetection.ip_limit.link_token = true;
+      botdetection.ip_lists.pass_searxng_org = true;
+    };
+
     settings = {
       use_default_settings = true;
       general.contact_Url = "mailto:cassie@soopy.moe";
