@@ -42,6 +42,7 @@ in {
         (mkHttpEndpoint "Bluesky PDS" "koumakan" "https://bsky.soopy.moe/xrpc/_health")
         (mkHttpEndpoint "Blog (Writefreely)" "koumakan" "https://words.soopy.moe")
         (mkHttpEndpoint "Vaultwarden" "koumakan" "https://v.soopy.moe")
+        (mkHttpEndpoint "BreezeWiki" "koumakan" "https://bw.soopy.moe")
 
         (mkHttpEndpoint "Webmail" "kita" "https://webmail.soopy.moe")
         (mkHttpEndpoint "Radicale" "kita" "https://dav.soopy.moe/.web/")
@@ -58,6 +59,8 @@ in {
         }
 
         (mkHttpEndpoint "Hydra" "bocchi" "https://hydra.soopy.moe")
+
+        (mkHttpEndpoint "noVNC" "ryo" "https://ryo.soopy.moe/vnc_lite.html")
       ];
     };
   };
