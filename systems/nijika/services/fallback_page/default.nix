@@ -3,7 +3,7 @@
   _utils,
   ...
 }: {
-  services.nginx.virtualHosts."_" = _utils.mkVhost {
+  services.nginx.virtualHosts."nijika.soopy.moe" = _utils.mkVhost {
     useACMEHost = null;
     enableACME = true;
     default = true;
