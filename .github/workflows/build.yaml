@@ -38,6 +38,7 @@ jobs:
           - bocchi
           - kita
           - ryo
+          - nijika
 
     steps:
       - name: Maximize build space

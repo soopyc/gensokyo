@@ -1,0 +1,5 @@
+{...}: {
+  imports = [
+    ./fallback_page
+  ];
+}

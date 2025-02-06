@@ -11,6 +11,7 @@
     "renko"
     "kita"
     "ryo"
+    "nijika"
   ];
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";
@@ -114,7 +115,7 @@ in {
 
     locations."= /".extraConfig = ''
       add_header content-type text/plain;
-      return 200 "big sister is watching you.\n\nhttps://http.cat/101";
+      return 200 "200 big sister is watching you.";
     '';
 
     # Allow only the write route

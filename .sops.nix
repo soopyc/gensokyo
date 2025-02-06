@@ -11,6 +11,7 @@ let
   age.bocchi = "age1kdctxllje2rw3kwpzell0rt6t7mruc3h3j5zfjelnpmahchjlaqs9v9vm9";
   age.kita = "age1qzma7prftj6d4atqcmatdl9le0tuuqzegm6f8e9gkwrp3pja0aaqs49g7n";
   age.ryo = "age1tdatk0rrr6uf89g5vpq96wjcjcetkrs6yadkxv47v76q8qhtva2sn7tun2";
+  age.nijika = "age1hfx22rxmqsc6yzecnyld9lw7x6sqxrhx2svaz80ll2wevnfsvqpqzuy9sf";
 
   everything = [
     {
@@ -48,5 +49,6 @@ in {
     (mkHost "bocchi" [age.bocchi])
     (mkHost "kita" [age.kita])
     (mkHost "ryo" [age.ryo])
+    (mkHost "nijika" [age.nijika])
   ];
 }
