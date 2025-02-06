@@ -20,6 +20,7 @@
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix";
     hydra.url = "github:NixOS/hydra";
+    buildbot-nix.url = "github:nix-community/buildbot-nix";
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -53,11 +54,6 @@
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    buildbot-nix = {
-      url = "github:nix-community/buildbot-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
