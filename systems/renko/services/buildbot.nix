@@ -1,4 +1,9 @@
-{_utils, config, lib, ...}: let
+{
+  _utils,
+  config,
+  lib,
+  ...
+}: let
   secrets = _utils.setupSecrets config {
     namespace = "buildbot";
     secrets = lib.singleton "token";
