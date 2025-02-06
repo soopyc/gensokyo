@@ -17,6 +17,7 @@
     inputs.catppuccin.nixosModules.catppuccin
     inputs.lanzaboote.nixosModules.lanzaboote
     inputs.home-manager.nixosModules.home-manager
+    inputs.buildbot-nix.nixosModules.buildbot-worker
     inputs.nix-index-database.nixosModules.nix-index
 
     inputs.mystia.nixosModules.arrpc
