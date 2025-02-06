@@ -87,6 +87,8 @@ in {
         room_name = "Server Notices";
       };
 
+      allow_device_name_lookup_over_federation = true;
+
       trusted_key_servers = [
         {
           server_name = "matrix.org";
