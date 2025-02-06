@@ -6,6 +6,7 @@
   imports = [
     ./gui
     ./development
+    ./services
   ];
 
   gensokyo = {
