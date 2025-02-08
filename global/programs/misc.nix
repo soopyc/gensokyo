@@ -19,6 +19,10 @@
     ffmpeg
     inputs.ghostty.packages.${pkgs.system}.default.terminfo
 
+    # irc
+    catgirl
+    pounce
+
     # basic sysadmin utils
     jq
     file
