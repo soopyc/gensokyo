@@ -6,6 +6,7 @@
     ./audio.nix
 
     ./wine.nix
+    ./locale.nix
 
     ./dm.nix
     ./wayland.nix
