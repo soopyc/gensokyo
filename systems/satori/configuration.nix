@@ -13,6 +13,7 @@
       gui = true;
       games = true;
       portable = true;
+      hidpi = true;
     };
     presets = {
       vmetrics = true;
@@ -35,7 +36,7 @@
   hardware.apple.touchBar = {
     enable = true;
     settings = {
-      FontTemplate = "monospace";
+      FontTemplate = "Hurmit Nerd Font";
     };
   };
   hardware.firmware = [
