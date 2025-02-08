@@ -12,7 +12,7 @@ lib.mkIf traits.gui {
     settings = {
       theme = "catppuccin-latte";
       font-family = "CozetteVector";
-      font-size = if traits.hidpi then 20 else 10;
+      font-size = 14;
       window-decoration = "client";
     };
   };
