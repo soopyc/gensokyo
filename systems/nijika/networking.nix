@@ -28,7 +28,7 @@
             prefixLength = 64;
           }
           {
-            address = "fe80::9400:4ff:fe0c:1c84";
+            address = "fe80::9400:4ff:fe0e:e3d";
             prefixLength = 64;
           }
         ];
@@ -48,6 +48,6 @@
     };
   };
   services.udev.extraRules = ''
-    ATTR{address}=="96:00:04:0c:1c:84", NAME="eth0"
+    ATTR{address}=="96:00:04:0e:0e:3d", NAME="eth0"
   '';
 }

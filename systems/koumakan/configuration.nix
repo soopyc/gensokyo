@@ -3,6 +3,7 @@
     inputs.mystia.nixosModules.fixups
     inputs.mystia.nixosModules.vmauth
     inputs.mystia.nixosModules.bsky-pds
+    inputs.buildbot-nix.nixosModules.buildbot-master
 
     ./hardware-configuration.nix
 

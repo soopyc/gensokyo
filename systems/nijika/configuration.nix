@@ -2,8 +2,6 @@
   imports = [
     ./services
     ./networking.nix # generated at runtime by nixos-infect
-
-    inputs.buildbot-nix.nixosModules.buildbot-master
   ];
 
   gensokyo.presets = {

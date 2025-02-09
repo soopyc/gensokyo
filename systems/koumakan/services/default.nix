@@ -4,6 +4,7 @@
 
     ./databases
     ./scm
+    ./ci
 
     # "containers" in a burning text gif
     ./arion

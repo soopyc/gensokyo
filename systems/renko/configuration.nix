@@ -6,7 +6,6 @@
   imports = [
     ./gui
     ./development
-    ./services
   ];
 
   gensokyo = {
@@ -15,6 +14,7 @@
       games = true;
     };
     presets = {
+      buildbot = true;
       vmetrics = true;
       secureboot = true;
     };
