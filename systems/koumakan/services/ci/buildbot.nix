@@ -13,6 +13,7 @@
       "gitea/webhook_secret"
 
       "workers/renko"
+      "workers/nijika"
     ];
   };
   mkWorker = name: cores: {
@@ -24,6 +25,7 @@ in {
     secrets.generate
     (secrets.mkTemplate "buildbot.workers.json" (builtins.toJSON [
       (mkWorker "renko" 12)
+      (mkWorker "nijika" 2)
     ]))
   ];
 
