@@ -17,7 +17,7 @@
       {
         hostName = name + ".mist-nessie.ts.net";
 
-        protocol = "ssh";
+        protocol = "ssh-ng"; # fuck off hydra basically
         sshUser = "builder";
         sshKey = config.sops.secrets.builder_key.path;
 
@@ -29,16 +29,6 @@
       }
       // value)
     cleanAttr;
-  # ++ [
-  #   {
-  #     hostName = "localhost";
-  #     protocol = null;
-  #     speedFactor = 1;
-  #     maxJobs = 1;
-  #     system = "x86_64-linux";
-  #     supportedFeatures = baselineFeatures;
-  #   }
-  # ];
 in {
   sops.secrets.builder_key = {
     sopsFile = inputs.self + "/creds/sops/global/id_builder";
@@ -52,7 +42,10 @@ in {
       speedFactor = 5;
       publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUoreGNleXA4YnRVNnd0dThpRUFKMkZ4cm5rZlBsS1M3TWFJL2xLT0ZuUDEgcm9vdEByZW5rbwo=";
     };
-    bocchi.publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUlTd0wxazBTeUZmUy9ZbmllTWcrOTh1ODBEMElYdFpMSkJwMGNHa1lpdXMgCg==";
+    nijika = {
+      systems = ["aarch64-linux"];
+      publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSVBsWGZ5MnMxejRIQ05oem92Rk55UzBhcCtyMEF2ZzAzNDlKeFFjMW0xaFEK";
+    };
   };
 
   services.openssh.extraConfig = lib.mkAfter ''
