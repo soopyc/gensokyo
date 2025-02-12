@@ -6,8 +6,8 @@
 
 # build the current configuration
 build system="" +extra_args="":
-	nixos-rebuild -v -L build --flake .#{{system}} --keep-going --accept-flake-config \
-		{{extra_args}}
+	nixos-rebuild -v -L --keep-going --accept-flake-config --log-format internal-json --flake .#{{system}} build \
+		{{extra_args}} |& nom --json
 	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
 # build and test the configuration, but don't switch
@@ -27,6 +27,9 @@ switch system="": sudo_cache
 # literally nixos-rebuild boot with a different name
 defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --accept-flake-config
+
+build-all: (for-all-systems 'build' 'true')
+deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive')
 
 # check the flake
 check:
@@ -62,3 +65,11 @@ vm system run="true" bootloader="false":
 [private]
 sudo_cache:
 	@sudo -v
+
+[private]
+for-all-systems recipe filter:
+	#!/usr/bin/env bash
+	set -euxo pipefail
+	for system in $(nix eval --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: !system.config.gensokyo.traits.sensitive) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
+		just {{recipe}} ${system}
+	done
