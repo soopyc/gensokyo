@@ -6,9 +6,9 @@
 lib.mkMerge [
   (lib.mkIf (!config.gensokyo.traits.sensitive) {
     security.pam = {
-      sshAgentAuth.enable = true;
+      rssh.enable = true;
 
-      services.sudo.sshAgentAuth = true;
+      services.sudo.rssh = true;
     };
   })
 ]
