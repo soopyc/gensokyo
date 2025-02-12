@@ -36,6 +36,7 @@ in {
   };
 
   nix.distributedBuilds = true;
+  nix.settings.builders-use-substitutes = true;
   nix.buildMachines = mkBuildMachines {
     renko = {
       supportedFeatures = baselineFeatures ++ ["kvm" "nixos-test"];
