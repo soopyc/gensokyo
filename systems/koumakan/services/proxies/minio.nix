@@ -34,7 +34,7 @@
       locations."/".proxyPass = "http://renko:26531/nix-cache/";
 
       locations."= /" = {
-        tryFiles = "listing.html =500";
+        tryFiles = "/listing.html =500";
         root = inputs.mystia.packages.x86_64-linux.s3-listing.override {
           bucketName = "nix-cache";
           bucketUrl = "https://s3.soopy.moe/nix-cache/";
