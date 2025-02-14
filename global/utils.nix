@@ -25,7 +25,6 @@ in rec {
 
         # To override, mkForce {}
         locations."= /robots.txt" = mkNginxFile {
-          status = 502;
           filename = "robots.txt";
           content = ''
             # Please stop hammering and/or scraping our services.
@@ -50,6 +49,7 @@ in rec {
 
   mkSimpleProxy = {
     protocol ? "http",
+    host ? "localhost",
     port ? null,
     socketPath ? null,
     location ? "/",
@@ -59,6 +59,7 @@ in rec {
     assert lib.assertMsg (port != null || socketPath != null) "one of port or socketPath must be specified";
     # i dislike logic gates
     assert lib.assertMsg (!(port != null && socketPath != null)) "only one of port or socketPath may be specified at the same time";
+    assert lib.assertMsg (socketPath != null -> host == "localhost") "setting host has no effect when socketPath is set";
     assert lib.assertMsg (port != null -> builtins.isInt port) "port must be an integer if specified";
       mkVhost (lib.mkMerge [
         extraConfig
@@ -68,7 +69,7 @@ in rec {
               "${protocol}://"
               + (
                 if (socketPath == null)
-                then "localhost:${builtins.toString port}"
+                then "${host}:${builtins.toString port}"
                 else "unix:${socketPath}"
               );
             proxyWebsockets = websockets;
@@ -110,7 +111,6 @@ in rec {
   mkNginxFile = {
     filename ? "index.html",
     content,
-    status ? 200,
   }:
     builtins.addErrorContext "while creating a static nginx file ${filename}" (
       let
@@ -119,7 +119,7 @@ in rec {
           builtins.toString (pkgs.writeTextDir filename content) + "/";
       in {
         alias = contentDir;
-        tryFiles = "${filename} =${builtins.toString status}";
+        tryFiles = "${filename} =500"; # if it can't find the file something has gone wrong.
       }
     );
 

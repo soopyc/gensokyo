@@ -1,11 +1,12 @@
 # `_utils.mkSimpleProxy`
-`{port, protocol, location, websockets, extraConfig} -> freeformAttrset`
+`attrSet -> freeformAttrset`
 
 make a simple reverse proxy
 
 takes a set:
 ```nix
 {
+  host ? "localhost", # proxying servers on the network
   port ? null,
   socketPath ? null,
   protocol ? "http",
