@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./buildbot.nix
+    ./hydra
   ];
 }

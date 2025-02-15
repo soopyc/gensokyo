@@ -9,10 +9,10 @@
   secrets = _utils.setupSecrets config {
     namespace = "hydra";
     secrets = [
-      "s3"
-      "signing_key/local"
-      "signing_key/r2"
-      "auth/gitea/cassie"
+      "s3/key_id"
+      "s3/key_secret"
+      "signing_key/v1"
+      # "auth/gitea/cassie"
     ];
     config = {
       owner = config.users.users.hydra-www.name;
@@ -24,14 +24,19 @@ in {
   imports = [
     secrets.generate
 
-    (secrets.mkTemplate "hydra-auth.conf" ''
-      <gitea_authorization>
-        cassie = ${secrets.placeholder "auth/gitea/cassie"}
-      </gitea_authorization>
+    # (secrets.mkTemplate "hydra-auth.conf" ''
+    #   <gitea_authorization>
+    #     cassie = ${secrets.placeholder "auth/gitea/cassie"}
+    #   </gitea_authorization>
+    # '')
+    (secrets.mkTemplate "hydra-s3-creds" ''
+      [default]
+      aws_access_key_id = ${secrets.placeholder "s3/key_id"}
+      aws_secret_access_key = ${secrets.placeholder "s3/key_secret"}
     '')
   ];
 
-  sops.secrets."hydra/s3" = {
+  sops.templates."hydra-s3-creds" = {
     owner = lib.mkForce config.users.users.hydra-queue-runner.name;
     path = config.users.users.hydra-queue-runner.home + "/.aws/credentials";
   };
@@ -40,14 +45,14 @@ in {
   services.hydra-dev = {
     enable = true;
     package = inputs.hydra.packages.${pkgs.system}.hydra;
+
     listenHost = "127.0.0.1";
-    useSubstitutes = true;
     hydraURL = "https://hydra.soopy.moe";
-    notificationSender = "hydra@services.soopy.moe";
-    smtpHost = "mail.soopy.moe";
+    
+    useSubstitutes = true;
+    notificationSender = "hydra+noreply@services.soopy.moe";
 
     logo = ./hydra.png;
-
     # wow so tracker
     tracker = ''
       <link rel="icon" type="image/png" href="/logo" />
@@ -60,35 +65,25 @@ in {
 
     extraConfig = ''
       # compress_build_logs 1
-      #binary_cache_secret_key_file ${secrets.get "signing_key/local"} ## !! deprecated setting
 
       max_output_size = 5368709120 # 5 << 30 (5 GiB)
       upload_logs_to_binary_cache = true
-      store_uri = s3://nixos-cache?scheme=https&endpoint=2857eeff8794176be771f0e5567219f1.r2.cloudflarestorage.com&priority=50&compression=zstd&parallel-compression=true&write-nar-listing=true&ls-compression=br&log-compression=br&region=auto&want-mass-query=true&secret-key=${secrets.get "signing_key/r2"}
+      store_uri = s3://nix-cache?scheme=https&endpoint=s3.soopy.moe&compression=zstd&parallel-compression=true&write-nar-listing=true&ls-compression=br&log-compression=br&region=ap-east-1&secret-key=${secrets.get "signing_key/v1"}
 
       <git-input>
         timeout = 1800
       </git-input>
 
-      # Includes
-      Include ${secrets.getTemplate "hydra-auth.conf"}
+      # Secrets
+      # Include ''${secrets.getTemplate "hydra-auth.conf"}
     '';
   };
 
   services.nginx.virtualHosts."hydra.soopy.moe" = _utils.mkSimpleProxy {
     port = 3000;
     extraConfig = {
-      useACMEHost = "bocchi.c.soopy.moe";
-
       locations."/metrics" = {
         return = "444";
-      };
-
-      locations."= /pubkey" = {
-        extraConfig = ''
-          add_header content-type text/plain always;
-        '';
-        return = "200 hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=";
       };
     };
   };
