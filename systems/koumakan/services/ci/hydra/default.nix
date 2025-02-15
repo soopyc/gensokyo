@@ -48,7 +48,7 @@ in {
 
     listenHost = "127.0.0.1";
     hydraURL = "https://hydra.soopy.moe";
-    
+
     useSubstitutes = true;
     notificationSender = "hydra+noreply@services.soopy.moe";
 
