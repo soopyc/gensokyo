@@ -19,6 +19,14 @@ in
         recommendedTlsSettings = lib.mkDefault true;
         recommendedProxySettings = lib.mkDefault true;
 
+        logError = "/var/log/nginx/error.log crit"; # override so we don't log to stderr.
+        commonHttpConfig = ''
+          log_format anonymized_combined '0.0.0.0 - - [$time_local] "$request" '
+                                         '$status $body_bytes_sent "-" '
+                                         '"$http_user_agent" "host=$host"';
+          access_log /var/log/nginx/access.log anonymized_combined;
+        '';
+
         # prevent people from just being able to take the server down immediately
         eventsConfig = ''
           worker_connections 1024;

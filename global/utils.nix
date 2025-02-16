@@ -34,9 +34,6 @@ in rec {
         };
 
         extraConfig = ''
-          access_log off;
-          error_log /var/log/nginx/error.log crit;
-
           error_page 503 /_cgi/error/503.html;
           error_page 502 /_cgi/error/502.html;
           error_page 404 /_cgi/error/404.html;
