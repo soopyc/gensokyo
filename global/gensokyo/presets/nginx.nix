@@ -23,7 +23,7 @@ in
         commonHttpConfig = ''
           log_format anonymized_combined '0.0.0.0 - - [$time_local] "$request" '
                                          '$status $body_bytes_sent "-" '
-                                         '"$http_user_agent" "host=$host"';
+                                         '"$http_user_agent" "host=$host;timing=$request_time"';
           access_log /var/log/nginx/access.log anonymized_combined;
         '';
 
