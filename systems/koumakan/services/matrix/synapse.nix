@@ -122,6 +122,10 @@ in {
 
   users.users.nginx.extraGroups = ["matrix-synapse"];
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
+    extraConfig = ''
+      access_log off;
+    '';
+
     locations."= /.well-known/matrix/server" = _utils.mkNginxJSON "server" {
       "m.server" = "nue.soopy.moe:443";
     };
