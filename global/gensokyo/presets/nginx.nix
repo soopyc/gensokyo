@@ -18,6 +18,14 @@ in
         clientMaxBodySize = lib.mkDefault "5m";
         recommendedTlsSettings = lib.mkDefault true;
         recommendedProxySettings = lib.mkDefault true;
+
+        # prevent people from just being able to take the server down immediately
+        eventsConfig = ''
+          worker_connections 1024;
+        '';
+        appendConfig = ''
+          worker_processes auto;
+        '';
       };
 
       networking.firewall.allowedTCPPorts = [
