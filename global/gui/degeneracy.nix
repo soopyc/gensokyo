@@ -6,9 +6,6 @@
 }:
 lib.mkIf config.gensokyo.traits.gui {
   environment.systemPackages = [
-    (pkgs.vesktop.override {
-      withSystemVencord = false;
-    })
     pkgs.dosage-tracker
     pkgs.zoom-us
   ];
