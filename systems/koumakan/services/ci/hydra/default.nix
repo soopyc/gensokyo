@@ -64,11 +64,15 @@ in {
     '';
 
     extraConfig = ''
+      # conflicts with upload_logs_to_binary_cache
       # compress_build_logs 1
 
       max_output_size = 5368709120 # 5 << 30 (5 GiB)
       upload_logs_to_binary_cache = true
-      store_uri = s3://nix-cache?scheme=https&endpoint=s3.soopy.moe&compression=zstd&parallel-compression=true&write-nar-listing=true&ls-compression=br&log-compression=br&region=ap-east-1&secret-key=${secrets.get "signing_key/v1"}
+      store_uri = s3://nix-cache?scheme=https&endpoint=s3.soopy.moe&compression=zstd&parallel-compression=true&multipart-upload=true&write-nar-listing=true&ls-compression=br&log-compression=br&region=ap-east-1&secret-key=${secrets.get "signing_key/v1"}
+
+      binary_cache_public_uri = https://cache.soopy.moe
+      log_prefix = https://cache.soopy.moe/
 
       <git-input>
         timeout = 1800
