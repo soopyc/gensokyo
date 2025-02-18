@@ -9,7 +9,7 @@
       port = 26531;
       extraConfig = {
         extraConfig = ''
-          client_max_body_size 5G;
+          client_max_body_size 32G;
         '';
 
         locations."= /" = _utils.mkNginxFile {
