@@ -8,6 +8,10 @@
       host = "renko";
       port = 26531;
       extraConfig = {
+        extraConfig = ''
+          client_max_body_size 5G;
+        '';
+
         locations."= /" = _utils.mkNginxFile {
           content = ''
             <!doctype html>
