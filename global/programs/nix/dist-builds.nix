@@ -17,7 +17,7 @@
       {
         hostName = name + ".mist-nessie.ts.net";
 
-        protocol = "ssh-ng"; # fuck off hydra basically
+        protocol = "ssh"; # nevermind we need hydra
         sshUser = "builder";
         sshKey = config.sops.secrets.builder_key.path;
 
