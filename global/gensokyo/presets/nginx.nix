@@ -21,6 +21,9 @@ in
 
         logError = "/var/log/nginx/error.log crit"; # override so we don't log to stderr.
         commonHttpConfig = ''
+          # we already set this, hide that from proxied servers that set the header.
+          proxy_hide_header strict-transport-security;
+
           log_format anonymized_combined '0.0.0.0 - - [$time_local] "$request" '
                                          '$status $body_bytes_sent "-" '
                                          '"$http_user_agent" "host=$host;timing=$request_time"';
