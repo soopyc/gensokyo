@@ -29,7 +29,7 @@ defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --accept-flake-config
 
 build-all: (for-all-systems 'build' 'true')
-deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive')
+deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)')
 
 # check the flake
 check:
@@ -70,6 +70,6 @@ sudo_cache:
 for-all-systems recipe filter:
 	#!/usr/bin/env bash
 	set -euxo pipefail
-	for system in $(nix eval --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: {{filter}}) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
+	for system in $(nix eval --impure --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: {{filter}}) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
 		just {{recipe}} ${system}
 	done
