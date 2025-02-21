@@ -39,6 +39,7 @@
       FontTemplate = "Hurmit Nerd Font";
     };
   };
+  hardware.apple-t2.kernelChannel = "latest";
   hardware.firmware = [
     inputs.self.packages.${pkgs.system}.brcmfmac
   ];
