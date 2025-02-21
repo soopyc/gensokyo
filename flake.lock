@@ -352,7 +352,6 @@
       "original": {
         "owner": "NixOS",
         "repo": "hydra",
-        "rev": "18c0d762109549351ecf622cde34514351a72492",
         "type": "github"
       }
     },
