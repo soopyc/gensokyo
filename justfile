@@ -70,6 +70,6 @@ sudo_cache:
 for-all-systems recipe filter:
 	#!/usr/bin/env bash
 	set -euxo pipefail
-	for system in $(nix eval --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: !system.config.gensokyo.traits.sensitive) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
+	for system in $(nix eval --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: {{filter}}) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
 		just {{recipe}} ${system}
 	done
