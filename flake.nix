@@ -102,7 +102,7 @@
         formatting = treefmt.${pkgs.system}.config.build.check self;
       });
 
-    buildbotJobs =
+    hydraJobs =
       {inherit (self) checks;}
       // (lib.mapAttrs'
         (
