@@ -27,6 +27,8 @@
     cleanOnBoot = true;
   };
 
+  boot.crashDump.enable = true;
+
   time.timeZone = "Asia/Hong_Kong";
 
   # Lock root account
