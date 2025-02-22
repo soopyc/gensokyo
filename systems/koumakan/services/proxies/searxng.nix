@@ -108,5 +108,8 @@ in {
 
   services.nginx.virtualHosts."s.soopy.moe" = _utils.mkSimpleProxy {
     socketPath = "/run/searx/searxng.sock";
+    extraConfig.extraConfig = ''
+      access_log off;
+    '';
   };
 }
