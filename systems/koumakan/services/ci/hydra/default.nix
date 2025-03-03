@@ -12,7 +12,6 @@
       "s3/key_id"
       "s3/key_secret"
       "signing_key/v1"
-      # "auth/gitea/cassie"
     ];
     config = {
       owner = config.users.users.hydra-www.name;
@@ -23,12 +22,6 @@
 in {
   imports = [
     secrets.generate
-
-    # (secrets.mkTemplate "hydra-auth.conf" ''
-    #   <gitea_authorization>
-    #     cassie = ${secrets.placeholder "auth/gitea/cassie"}
-    #   </gitea_authorization>
-    # '')
     (secrets.mkTemplate "hydra-s3-creds" ''
       [default]
       aws_access_key_id = ${secrets.placeholder "s3/key_id"}
@@ -78,8 +71,6 @@ in {
         timeout = 1800
       </git-input>
 
-      # Secrets
-      # Include ''${secrets.getTemplate "hydra-auth.conf"}
     '';
   };
 
