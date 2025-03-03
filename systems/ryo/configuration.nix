@@ -10,6 +10,11 @@
     certificates = true;
     nginx = true;
   };
-  zramSwap.enable = true;
+  swapDevices = [
+    {
+      device = "/Swapfile";
+      size = 2048;
+    }
+  ];
   system.stateVersion = "23.11";
 }
