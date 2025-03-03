@@ -4,6 +4,8 @@
 # modules are unstable atm
 # mod utils
 
+true := "true"
+
 # build the current configuration
 build system="" +extra_args="":
 	nixos-rebuild -v -L --keep-going --accept-flake-config --log-format internal-json --flake .#{{system}} build \
@@ -29,7 +31,7 @@ defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --accept-flake-config
 
 build-all: (for-all-systems 'build' 'true')
-deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)')
+deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)' true)
 
 # check the flake
 check:
@@ -60,16 +62,21 @@ diff:
 # build a vm for a system
 vm system run="true" bootloader="false":
 	nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
-	{{if run == "true" {"./result/bin/run-"+system+"-vm"} else {""} }}
+	{{if run == true {"./result/bin/run-"+system+"-vm"} else {""} }}
 
 [private]
 sudo_cache:
 	@sudo -v
 
 [private]
-for-all-systems recipe filter:
+for-all-systems recipe filter ignore_failure="false":
 	#!/usr/bin/env bash
 	set -euxo pipefail
 	for system in $(nix eval --impure --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: {{filter}}) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
+		set +e
 		just {{recipe}} ${system}
+		if [ {{ if ignore_failure == true {""} else {"$? -ne 0 -o"} }} $? -eq 130 ]; then
+			exit 1;
+		fi
+		set -e
 	done
