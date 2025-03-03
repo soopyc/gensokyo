@@ -19,6 +19,14 @@
       mode = "0440";
     };
   };
+
+  webhookScript = pkgs.writeShellApplication {
+    name = "hydra-webhook";
+    runtimeInputs = with pkgs; [xh];
+    text = ''
+      xh :8000 @"$1"
+    '';
+  };
 in {
   imports = [
     secrets.generate
@@ -71,6 +79,12 @@ in {
         timeout = 1800
       </git-input>
 
+      # ad hoc webhook
+      <runcommand>
+        job = *:*:*
+        #command = ${webhookScript} $HYDRA_JSON
+        command = cat $HYDRA_JSON >> runcommand.json
+      </runcommand>
     '';
   };
 
