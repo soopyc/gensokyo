@@ -9,7 +9,10 @@ lib.mkIf config.gensokyo.traits.gui {
     pkgs.dosage-tracker
     pkgs.zoom-us
 
-    (pkgs.discord.override { withVencord = true; withOpenASAR = true; })
+    (pkgs.discord.override {
+      withVencord = true;
+      withOpenASAR = true;
+    })
   ];
 
   services.arrpc.enable = true;
