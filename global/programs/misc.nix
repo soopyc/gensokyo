@@ -17,7 +17,7 @@
     nix-output-monitor
     python3
     ffmpeg
-    inputs.ghostty.packages.${pkgs.system}.default.terminfo
+    ghostty.terminfo
 
     # irc
     catgirl
