@@ -39,10 +39,12 @@
       FontTemplate = "Hurmit Nerd Font";
     };
   };
-  hardware.apple-t2.kernelChannel = "latest";
   hardware.firmware = [
     inputs.self.packages.${pkgs.system}.brcmfmac
   ];
+
+  hardware.apple-t2.kernelChannel = "stable";
+  specialisation.latest-kernel.configuration.hardware.apple-t2.kernelChannel = "latest";
 
   zramSwap.enable = true;
 
