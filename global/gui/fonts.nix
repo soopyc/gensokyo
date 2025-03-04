@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
@@ -13,6 +14,8 @@ lib.mkIf config.gensokyo.traits.gui {
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-emoji-blob-bin
+
+    inputs.mystia.packages.${pkgs.system}.nishiki-teki
   ];
 
   fonts.fontconfig = {
