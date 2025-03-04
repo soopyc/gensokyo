@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -44,7 +45,7 @@
   ];
 
   hardware.apple-t2.kernelChannel = "stable";
-  specialisation.latest-kernel.configuration.hardware.apple-t2.kernelChannel = "latest";
+  specialisation.latest-kernel.configuration.hardware.apple-t2.kernelChannel = lib.mkForce "latest";
 
   zramSwap.enable = true;
 
