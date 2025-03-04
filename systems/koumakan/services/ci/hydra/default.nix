@@ -83,7 +83,7 @@ in {
       <runcommand>
         job = *:*:*
         #command = ${webhookScript} $HYDRA_JSON
-        command = cat $HYDRA_JSON >> runcommand.json
+        command = cat $HYDRA_JSON >> /tmp/hydra-notify-runcommand.json
       </runcommand>
     '';
   };
