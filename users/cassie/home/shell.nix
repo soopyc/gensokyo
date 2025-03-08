@@ -7,7 +7,7 @@
       update_check = false;
       workspaces = true;
       sync_address = "https://atuin.soopy.moe";
-      filter_mode = "session";
+      filter_mode_shell_up_key_binding = "session";
       enter_accept = true;
       inline_height = 10;
 
