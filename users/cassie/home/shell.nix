@@ -24,6 +24,7 @@
         "git"
         "go"
         "ip"
+        "just"
         "kubectl"
         "nix"
         "nmcli"
