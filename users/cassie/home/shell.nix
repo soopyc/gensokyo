@@ -3,10 +3,11 @@
     enable = true;
     daemon.enable = true;
     settings = {
-      search_mode = "prefix";
+      search_mode = "fuzzy";
       update_check = false;
       workspaces = true;
       sync_address = "https://atuin.soopy.moe";
+      search_mode_shell_up_key_binding = "prefix";
       filter_mode_shell_up_key_binding = "session";
       enter_accept = true;
       inline_height = 10;
