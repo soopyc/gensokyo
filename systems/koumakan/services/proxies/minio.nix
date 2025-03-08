@@ -5,7 +5,7 @@
 }: {
   services.nginx.virtualHosts = {
     "s3.soopy.moe" = _utils.mkSimpleProxy {
-      host = "renko";
+      host = "renko.mist-nessie.ts.net";
       port = 26531;
       extraConfig = {
         extraConfig = ''
