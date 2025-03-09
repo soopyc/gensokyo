@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "anubis-unix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1741512250,
+        "narHash": "sha256-qWwClgAnSNtwYATjnmlV76MOSu7et7mzQ30rUivONKA=",
+        "owner": "soopyc",
+        "repo": "anubis-unix",
+        "rev": "c3e7287810462546c81e4b84c07caaaa455dacbb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soopyc",
+        "repo": "anubis-unix",
+        "type": "github"
+      }
+    },
     "arion": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -384,21 +400,23 @@
     },
     "mystia": {
       "inputs": {
+        "anubis-unix": "anubis-unix",
         "flake-compat": "flake-compat_3",
         "nix-update-soopy": "nix-update-soopy",
         "nixpkgs": "nixpkgs_4",
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1741334526,
-        "narHash": "sha256-X1KnK3i5h3lriG5YsKNUu5gV2XWbS75BwPU9IxGvG1w=",
+        "lastModified": 1741515766,
+        "narHash": "sha256-Rq419UITF9dHKJ0COOSpR264HS0GJRAntvN9Xwp6KkY=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "5ad3fb05e1bab655a0928a6475888a8670a018a7",
+        "rev": "0f2d01bd3a056525a024e38621748cffb84012b9",
         "type": "github"
       },
       "original": {
         "owner": "soopyc",
+        "ref": "nixos/anubis",
         "repo": "mystia",
         "type": "github"
       }
