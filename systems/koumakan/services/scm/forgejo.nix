@@ -52,7 +52,10 @@ in {
       DEFAULT.APP_NAME = "Patchy";
       server = {
         # Basic settings {{{
-        PROTOCOL = "http+unix";
+        # PROTOCOL = "http+unix"; # anubis ATM requires tcp sockets
+        PROTOCOL = "http";
+        HTTP_ADDR = "127.0.0.1";
+        HTTP_PORT = 33421;
         DOMAIN = "patchy.soopy.moe";
         ROOT_URL = "https://patchy.soopy.moe";
         OFFLINE_MODE = false;
@@ -208,9 +211,10 @@ in {
     lfs.enable = true;
   };
 
-  # nginx vhost definition {{{
+  # nginx vhost and anubis definition {{{
+  services.anubis.instances."forgejo".settings.TARGET = "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
   services.nginx.virtualHosts."patchy.soopy.moe" = _utils.mkSimpleProxy {
-    socketPath = config.services.forgejo.settings.server.HTTP_ADDR;
+    socketPath = config.services.anubis.instances."forgejo".settings.BIND;
     extraConfig.extraConfig = ''
       client_max_body_size 0; # managed by forgejo already, might be useful to quickly fail a request
     '';
