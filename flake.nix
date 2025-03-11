@@ -13,7 +13,7 @@
   };
 
   inputs = {
-    mystia.url = "github:soopyc/mystia/nixos/anubis";
+    mystia.url = "github:soopyc/mystia";
     nixpkgs.follows = "mystia/nixpkgs";
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
