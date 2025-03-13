@@ -3,6 +3,8 @@
     enable = true;
     newSession = true;
     keyMode = "vi";
+    escapeTime = 0; # why
+    terminal = "tmux-direct";
     historyLimit = 10000;
 
     # Rationale: being able to keep sessions open is more important than
