@@ -15,12 +15,11 @@
   inputs = {
     mystia.url = "github:soopyc/mystia";
     nixpkgs.follows = "mystia/nixpkgs";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix";
     hydra.url = "github:NixOS/hydra/881462bb4efeb28c970aab7d3d0515c7b7c8b5de";
-    buildbot-nix.url = "github:nix-community/buildbot-nix";
+    buildbot-nix.url = "github:nix-community/buildbot-nix"; # TODO: eradicate
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -49,6 +48,11 @@
 
     arion = {
       url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    knotserver-module = {
+      url = "git+https://tangled.sh/@soopy.moe/knotserver-module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
