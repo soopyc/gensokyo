@@ -22,3 +22,11 @@ couldn't find what you needed? suffer with me! see the
 
 ## Todo
 See ./TODO.md
+
+## Tangled
+
+Viewing on <https://tangled.sh>? The SSH clone URL below is not correct for our knotserver. Use this instead:
+
+```sh
+git clone knot@enanan.staging.soopy.moe:soopy.moe/gensokyo
+```
