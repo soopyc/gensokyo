@@ -80,6 +80,9 @@ hydra:
     s3:
         key_id: ENC[AES256_GCM,data:ONhytMHluXYgZw0hErBid5PmD+o=,iv:j6NPjLPIPN3rNs/RSDoqhYqGaZ11ZZwyM3Q4SoXviKY=,tag:oc+L6+TwAy/OLKQVfZsdww==,type:str]
         key_secret: ENC[AES256_GCM,data:41QIwGRJP3Pw2fsYgZIG3wk6GLCy3EeJszwM+kdGrjriIfCXs6D45g==,iv:sWMgzhIh9VnBbiuv1jg+ZIfolHtuaxamthp3OKwOVgc=,tag:JLIHG5f4tdjaJxP5Il+nFA==,type:str]
+tangled:
+    knot:
+        key: ENC[AES256_GCM,data:c592aVa7BI0LArjgeKv2S3keUOiJw5CPCUIH/tiedeHVXbUqSQZGzNu7NfXoGdVnnkv/qW8FQGK8w5QWI0YxEw==,iv:KOePG824ljudnHk5DjFYGg6KhRXTPsw4SjXdwyx4/js=,tag:fioM69c2dTvxbIhtTM2gwA==,type:str]
 sops:
     kms: []
     gcp_kms: []
@@ -113,8 +116,8 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-02-15T09:47:22Z"
-    mac: ENC[AES256_GCM,data:ISdAk0PXufIAziqFBB5Oq3kfJ9SMk9EQsMIO0fc2G7ysDKRUvBpoV3chMUPevRdxtAclxNHMwBsUFsU+qUIgcpTLMqcEq9CFIkno+sBovRw5/5A9+OUdwPmjI2HGRG9K+iISYrSghir9oeuW+DjvZEvWTpPSsMSfvXF6y8Xi/tY=,iv:m8XCdKFOh26Vvl3Bl9qJCINRwwyvOJdzlDpPP5zO8hc=,tag:JaGqHWCIlswjIuslZEDeIg==,type:str]
+    lastmodified: "2025-03-11T17:05:46Z"
+    mac: ENC[AES256_GCM,data:Vg4XtRaANJw34c5ExKD4IL7xRmdGA9Ax/cHVdSNlX6jFD7BCcmmDm4kKD1DfHxgsKv+E0ZrPaxvJ3gKsn9TY4nQ2bOH76wIyrfWhBi9OBAHiP8+ZuURmWs1bt2muM/lMdxF2qYdmEEbZDQOmyLRRJxhB8FJECqq0Aqwen//kad0=,iv:VamakU+pvisODZi8Evc93x3do/sflVYZECZdou1hMsg=,tag:q0hmlV/A0zwP4uMXpwWtrg==,type:str]
     pgp: []
     unencrypted_suffix: _unencrypted
     version: 3.9.4
