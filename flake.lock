@@ -64,11 +64,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1741641627,
-        "narHash": "sha256-AkMboWm5a666QLh8ioLJaZlaee7oBOvkbjZZSVTU17Q=",
+        "lastModified": 1741818059,
+        "narHash": "sha256-TxCi0pazPhj1dUKc+eR8jqvXwMiPQMdEt/YRffZOYig=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "4f56f4da1d6927eca769b78b1e22fcefd5ffaa73",
+        "rev": "da6d41516d7b70799b3c1d9b2d9e7731c5f8cb04",
         "type": "github"
       },
       "original": {
@@ -271,6 +271,28 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
+          "knotserver-module",
+          "tangledCore",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1709087332,
+        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "gitignore_2": {
+      "inputs": {
+        "nixpkgs": [
           "lanzaboote",
           "pre-commit-hooks-nix",
           "nixpkgs"
@@ -338,17 +360,29 @@
         ]
       },
       "locked": {
-        "lastModified": 1741635347,
-        "narHash": "sha256-2aYfV44h18alHXopyfL4D9GsnpE5XlSVkp4MGe586VU=",
+        "lastModified": 1741791118,
+        "narHash": "sha256-4Y427uj0eql4yRU5rely3EcOlB9q457UDbG9omPtXiA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7fb8678716c158642ac42f9ff7a18c0800fea551",
+        "rev": "18780912345970e5b546b1b085385789b6935a83",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
         "type": "github"
+      }
+    },
+    "htmx-src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-nm6avZuEBg67SSyyZUhjpXVNstHHgUxrtBHqJgowU08=",
+        "type": "file",
+        "url": "https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"
       }
     },
     "hydra": {
@@ -370,6 +404,59 @@
         "repo": "hydra",
         "rev": "881462bb4efeb28c970aab7d3d0515c7b7c8b5de",
         "type": "github"
+      }
+    },
+    "ia-fonts-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1686932517,
+        "narHash": "sha256-2T165nFfCzO65/PIHauJA//S+zug5nUwPcg8NUEydfc=",
+        "owner": "iaolo",
+        "repo": "iA-Fonts",
+        "rev": "f32c04c3058a75d7ce28919ce70fe8800817491b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iaolo",
+        "repo": "iA-Fonts",
+        "type": "github"
+      }
+    },
+    "indigo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738491661,
+        "narHash": "sha256-+njDigkvjH4XmXZMog5Mp0K4x9mamHX6gSGJCZB9mE4=",
+        "owner": "oppiliappan",
+        "repo": "indigo",
+        "rev": "feb802f02a462ac0a6392ffc3e40b0529f0cdf71",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oppiliappan",
+        "repo": "indigo",
+        "type": "github"
+      }
+    },
+    "knotserver-module": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "tangledCore": "tangledCore"
+      },
+      "locked": {
+        "lastModified": 1741844641,
+        "narHash": "sha256-6UufFkujmbVjtdkAfCxP+RBC+MM88SnN/A92gm6uV8s=",
+        "ref": "refs/heads/mistress",
+        "rev": "efc0a6ddc658fe02975f25342ec65f364414108a",
+        "revCount": 8,
+        "type": "git",
+        "url": "https://tangled.sh/@soopy.moe/knotserver-module"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://tangled.sh/@soopy.moe/knotserver-module"
       }
     },
     "lanzaboote": {
@@ -396,6 +483,18 @@
         "ref": "v0.4.2",
         "repo": "lanzaboote",
         "type": "github"
+      }
+    },
+    "lucide-src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-SE1Dh++H90uJL6w8mMRw0Afbx0CK7HMLp1gCIfWu0+U=",
+        "type": "file",
+        "url": "https://unpkg.com/lucide@0.479.0"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://unpkg.com/lucide@0.479.0"
       }
     },
     "mystia": {
@@ -518,11 +617,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1741653174,
-        "narHash": "sha256-bhpbBdEXby2QgttNkbPru75wDMLZ2QKJ7XOuyfEqpwE=",
+        "lastModified": 1741844352,
+        "narHash": "sha256-lil7IOpNUoKqJHrY3WAtokFoNHcgZuaGZva4/kID/xk=",
         "owner": "soopyc",
         "repo": "nixos-hardware",
-        "rev": "4419294c227a549763ef3a9b5462eeba33b113f8",
+        "rev": "fd2fd1ed2713877dd1d873078607b94bd25e3936",
         "type": "github"
       },
       "original": {
@@ -634,7 +733,7 @@
           "lanzaboote",
           "flake-compat"
         ],
-        "gitignore": "gitignore",
+        "gitignore": "gitignore_2",
         "nixpkgs": [
           "lanzaboote",
           "nixpkgs"
@@ -663,6 +762,7 @@
         "ghostty": "ghostty",
         "home-manager": "home-manager",
         "hydra": "hydra",
+        "knotserver-module": "knotserver-module",
         "lanzaboote": "lanzaboote",
         "mystia": "mystia",
         "nix-index-database": "nix-index-database",
@@ -729,6 +829,32 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "tangledCore": {
+      "inputs": {
+        "gitignore": "gitignore",
+        "htmx-src": "htmx-src",
+        "ia-fonts-src": "ia-fonts-src",
+        "indigo": "indigo",
+        "lucide-src": "lucide-src",
+        "nixpkgs": [
+          "knotserver-module",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741644644,
+        "narHash": "sha256-wAeSEDs89G+2S/CDO8pwgA1OQWj62s61UU62+u6chw4=",
+        "ref": "refs/heads/master",
+        "rev": "cc344af0da418b803282054aee90e03b994437d7",
+        "revCount": 295,
+        "type": "git",
+        "url": "https://tangled.sh/@tangled.sh/core"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://tangled.sh/@tangled.sh/core"
       }
     },
     "treefmt-nix": {
