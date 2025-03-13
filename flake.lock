@@ -446,10 +446,10 @@
         "tangledCore": "tangledCore"
       },
       "locked": {
-        "lastModified": 1741898015,
-        "narHash": "sha256-7xAxPf37kMDA6X2v4LaS6CpwAWwAqIcrh4Vpv8IQu2Y=",
+        "lastModified": 1741898916,
+        "narHash": "sha256-aO7yNQ7oxz63zusKnXnkHG6nQZcrUR3Wyk4oFGp0qJs=",
         "ref": "refs/heads/mistress",
-        "rev": "6764785c77aa9fca8caa6fe7925d5742d79d2c7f",
+        "rev": "429f166a23be59162d819ef311afb4e2a6ba6667",
         "revCount": 10,
         "type": "git",
         "url": "https://tangled.sh/@soopy.moe/knotserver-module"
