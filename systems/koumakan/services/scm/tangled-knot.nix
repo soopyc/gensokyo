@@ -27,6 +27,7 @@ in {
       PasswordAuthentication no
       KbdInteractiveAuthentication no
     '';
+    environmentFile = secrets.getTemplate "knotserver.env";
   };
 
   services.nginx.virtualHosts."enanan.staging.soopy.moe" = _utils.mkSimpleProxy {
