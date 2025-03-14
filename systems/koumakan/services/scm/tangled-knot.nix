@@ -1,14 +1,19 @@
-{_utils, config, ...}: let
+{
+  _utils,
+  config,
+  ...
+}: let
   secrets = _utils.setupSecrets config {
     namespace = "tangled";
     secrets = ["knot/key"];
   };
 in {
-  imports = [secrets.generate
+  imports = [
+    secrets.generate
 
-  (secrets.mkTemplate "knotserver.env" ''
-    KNOT_SERVER_SECRET=${secrets.placeholder "knot/key"}
-  '')
+    (secrets.mkTemplate "knotserver.env" ''
+      KNOT_SERVER_SECRET=${secrets.placeholder "knot/key"}
+    '')
   ];
 
   services.tangled-knotserver = {

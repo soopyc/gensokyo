@@ -1,13 +1,20 @@
-{_utils, config, ...}: let
+{
+  _utils,
+  config,
+  ...
+}: let
   secrets = _utils.setupSecrets config {
     namespace = "wastebasket";
     secrets = ["key"];
   };
 in {
   # figure out a way to disable encryption, i don't trust the impl.
-  imports = [secrets.generate (secrets.mkTemplate "wastebin.env" ''
-    WASTEBIN_SIGNING_KEY=${secrets.placeholder "key"}
-  '')];
+  imports = [
+    secrets.generate
+    (secrets.mkTemplate "wastebin.env" ''
+      WASTEBIN_SIGNING_KEY=${secrets.placeholder "key"}
+    '')
+  ];
   services.wastebin = {
     enable = true;
     settings = {
