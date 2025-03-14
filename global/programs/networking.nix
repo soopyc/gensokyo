@@ -38,4 +38,10 @@ lib.mkMerge [
       publish.enable = true;
     };
   })
+
+  {
+    networking.hosts = {
+      "62.176.231.184" = ["codeberg.org"];
+    };
+  }
 ]
