@@ -228,9 +228,17 @@ in {
       Banner none
       PasswordAuthentication no
       KbdInteractiveAuthentication no
-      AuthorizedKeysCommand ${lib.getExe config.services.forgejo.package} keys -e forgejo -u %u -t %t -k %k -c ${runConfig}
+      AuthorizedKeysCommand ${config.security.wrapperDir}/forgejo-keys keys -e forgejo -u %u -t %t -k %k -c ${runConfig}
       AuthorizedKeysCommandUser ${config.services.forgejo.user}
   '';
+
+  # get around openssh restrictions
+  security.wrappers.forgejo-keys = {
+    owner = "root";
+    group = config.users.groups.forgejo.name;
+    permissions = "u+rx,g+x,o-rwx";
+    source = lib.getExe config.services.forgejo.package;
+  };
   # }}}
 }
 # vim:foldmethod=marker
