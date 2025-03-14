@@ -64,11 +64,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1741860468,
-        "narHash": "sha256-ArG3mnjHmcal5ny72VZvCqHchz9RsWiUBCRSGS0FXlA=",
+        "lastModified": 1741914590,
+        "narHash": "sha256-R8Bxh/AMD6nvmQrC43DkUkuwDmTWlyvNAzJ0Riq5w5U=",
         "owner": "catppuccin",
         "repo": "nix",
-        "rev": "50abeb976eb85fe6695a2888ec4c274675563c15",
+        "rev": "1e3fe44bc13809f62c2ef0aa864a304a6c8ebea4",
         "type": "github"
       },
       "original": {
@@ -255,11 +255,11 @@
         "zig2nix": "zig2nix"
       },
       "locked": {
-        "lastModified": 1741886369,
-        "narHash": "sha256-PupKttqs+AQYQnyQuQKBLTiBTs1DtQB5J2LrTi6qBO0=",
+        "lastModified": 1741925921,
+        "narHash": "sha256-z9bvVIi653N+06lW2nrFAfnclt8me6l0j9/WyLHOT7A=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "73c7943fff38f679a9a434457b5089bc5722411d",
+        "rev": "8eacde92e6b63924f4d6c5392fd2a31af248381f",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741894454,
-        "narHash": "sha256-Mu2YXrGr/8Cid6W44AXci/YYnASoXjGrMV9Sjs66oyc=",
+        "lastModified": 1741914680,
+        "narHash": "sha256-Vu4DIZvgfWMzhUyxbHUrJaQb5232S5vuwxQ2sBcBVHk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "0b0baed7b2bf6a5e365d4cba042b580a2bc32e34",
+        "rev": "30cce6848a5aa41ceb5fb33185b84868cc3e9bef",
         "type": "github"
       },
       "original": {
@@ -446,11 +446,11 @@
         "tangledCore": "tangledCore"
       },
       "locked": {
-        "lastModified": 1741898916,
-        "narHash": "sha256-aO7yNQ7oxz63zusKnXnkHG6nQZcrUR3Wyk4oFGp0qJs=",
+        "lastModified": 1741931176,
+        "narHash": "sha256-+NsFg4OoQ9b94aLHWZhRMlnmGOSviaQKcD/+Ze9MkeA=",
         "ref": "refs/heads/mistress",
-        "rev": "429f166a23be59162d819ef311afb4e2a6ba6667",
-        "revCount": 10,
+        "rev": "07e3ef98a936c08cbe2b25fed29970244163f8d7",
+        "revCount": 11,
         "type": "git",
         "url": "https://tangled.sh/@soopy.moe/knotserver-module"
       },
