@@ -255,11 +255,11 @@
         "zig2nix": "zig2nix"
       },
       "locked": {
-        "lastModified": 1741925921,
-        "narHash": "sha256-z9bvVIi653N+06lW2nrFAfnclt8me6l0j9/WyLHOT7A=",
+        "lastModified": 1741965273,
+        "narHash": "sha256-YBu2aPyK7wvHrpubKATK2bBSAL469OPHVoi/pAtf1Pw=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "8eacde92e6b63924f4d6c5392fd2a31af248381f",
+        "rev": "f37d1fd7eda5596226582e6e43c01c3251fd6eb9",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741914680,
-        "narHash": "sha256-Vu4DIZvgfWMzhUyxbHUrJaQb5232S5vuwxQ2sBcBVHk=",
+        "lastModified": 1741955947,
+        "narHash": "sha256-2lbURKclgKqBNm7hVRtWh0A7NrdsibD0EaWhahUVhhY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "30cce6848a5aa41ceb5fb33185b84868cc3e9bef",
+        "rev": "4e12151c9e014e2449e0beca2c0e9534b96a26b4",
         "type": "github"
       },
       "original": {
@@ -446,11 +446,11 @@
         "tangledCore": "tangledCore"
       },
       "locked": {
-        "lastModified": 1741933668,
-        "narHash": "sha256-aY3i00yJLvKKd3XEQK3hsTx7IaNqA+1ZRzMWRf2t1Zs=",
+        "lastModified": 1741952556,
+        "narHash": "sha256-qWWHiBVAshjAclMqb47C2o60b8D3TJidWz9WoelO8AE=",
         "ref": "refs/heads/mistress",
-        "rev": "12277d8a1f185c3cb061c65c79288af4d3d4182f",
-        "revCount": 12,
+        "rev": "aa4fb2a9719efe26562acf19d9988f52c26f8dc7",
+        "revCount": 13,
         "type": "git",
         "url": "https://tangled.sh/@soopy.moe/knotserver-module"
       },
@@ -506,11 +506,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1741671600,
-        "narHash": "sha256-79gH3rHZz20x/8/+3Vg11gnokmx9TZESrYv0nmopABA=",
+        "lastModified": 1741960956,
+        "narHash": "sha256-mPvLyVqjQZ24Nk7SiZwv7O+iO0xhnzbINGlulljxeJQ=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "3350923aec0fafa5918f4795dc4bc9f611215fc5",
+        "rev": "1d336d0553be62757155a61bc56fd697f10bb985",
         "type": "github"
       },
       "original": {
@@ -714,11 +714,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1741513245,
-        "narHash": "sha256-7rTAMNTY1xoBwz0h7ZMtEcd8LELk9R5TzBPoHuhNSCk=",
+        "lastModified": 1741851582,
+        "narHash": "sha256-cPfs8qMccim2RBgtKGF+x9IBCduRvd/N5F4nYpU0TVE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e3e32b642a31e6714ec1b712de8c91a3352ce7e1",
+        "rev": "6607cf789e541e7873d40d3a8f7815ea92204f32",
         "type": "github"
       },
       "original": {
