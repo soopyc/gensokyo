@@ -8,6 +8,7 @@
 }: let
   baselineFeatures = [
     "big-parallel"
+    "ca-derivations"
   ];
 
   mkBuildMachines = attr: let
