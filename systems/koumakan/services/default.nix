@@ -17,6 +17,7 @@
     ./fediverse
     ./feeds
 
+    ./anubis.nix
     ./telemetry
     ./security
     ./proxies
