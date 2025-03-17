@@ -6,7 +6,6 @@
 }: let
   monitoredHosts = [
     "mail"
-    "bocchi"
     "satori"
     "renko"
     "kita"
@@ -20,10 +19,10 @@
 in {
   imports = [
     secrets.generate
+
     (secrets.mkTemplate "vmagent.env" ''
       VMA_AKKOMA_CRED=${secrets.placeholder "agent/akkoma"}
     '')
-
     (secrets.mkTemplate "vmauth.env" (
       lib.concatLines (builtins.map (
           host: "AUTH_${lib.toUpper host}_TOKEN=${secrets.placeholder "auth/hosts/${host}"}"
@@ -52,20 +51,24 @@ in {
         {
           job_name = "victoriametrics";
           scrape_interval = "15s";
-          static_configs = [{targets = ["${builtins.toString config.services.victoriametrics.listenAddress}"];}];
+          static_configs = lib.singleton {
+            targets = lib.singleton "${builtins.toString config.services.victoriametrics.listenAddress}";
+          };
         }
 
         # node exporters
         {
           job_name = "node";
           scrape_interval = "15s";
-          static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.node.port}"];}];
-          relabel_configs = [
+          static_configs = lib.singleton {
+            targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
+          };
+          relabel_configs =
+            lib.singleton
             {
               target_label = "instance";
               replacement = "koumakan";
-            }
-          ];
+            };
         }
 
         # external nodes uses remote write
@@ -74,13 +77,13 @@ in {
         # other services' metrics
         {
           job_name = "nginx";
-          static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}"];}];
-          relabel_configs = [
+          static_configs = lib.singleton {targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}";};
+          relabel_configs =
+            lib.singleton
             {
               target_label = "instance";
               replacement = "koumakan";
-            }
-          ];
+            };
         }
       ];
     };
@@ -91,18 +94,19 @@ in {
   # some may wonder why we can't just use nginx directly instead of another module
   # i mean, yeah. vmauth is honestly just another nginx. whatever, i do not care. i'm tired.
 
-  # TODO: (frontend, ugh) write a lightweight search engine for flake modules.
-  #  -> has to be reasonably sandboxed so people can't run random shit on my systems
+  # module search: https://mystia.soopy.moe
   services.vmauth = {
     enable = true;
     listenAddress = "127.0.0.1:21000";
     authConfig = {
-      users = builtins.concatMap (token: [
-        {
-          bearer_token = token;
-          url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
-        }
-      ]) (builtins.map (host: "%{AUTH_${lib.toUpper host}_TOKEN}") monitoredHosts);
+      users = builtins.concatMap (
+        token:
+          lib.singleton
+          {
+            bearer_token = token;
+            url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
+          }
+      ) (builtins.map (host: "%{AUTH_${lib.toUpper host}_TOKEN}") monitoredHosts);
     };
     environmentFile = secrets.getTemplate "vmauth.env";
   };
