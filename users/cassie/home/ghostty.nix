@@ -15,7 +15,9 @@ lib.mkIf traits.gui {
       font-size = 14;
       window-decoration = "client";
 
-      minimum-contrast = 1.1;
+      # great feature, but breaks a bit too many things :(
+      # minimum-contrast = 1.1;
+      async-backend = "epoll"; # see if this fixes iowait "bug"
     };
   };
 }
