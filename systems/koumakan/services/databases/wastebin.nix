@@ -20,6 +20,7 @@ in {
     settings = {
       WASTEBIN_ADDRESS_PORT = "127.0.0.1:34682";
       WASTEBIN_BASE_URL = "https://akyuu.soopy.moe";
+      WASTEBIN_MAX_BODY_SIZE = 10240;
     };
     secretFile = secrets.getTemplate "wastebin.env";
   };
