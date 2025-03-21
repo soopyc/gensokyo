@@ -14,7 +14,10 @@
   # neither VM nor Prom supports scraping unix domain sockets and i currently cba writing a custom scraper for it
   # prom: https://github.com/prometheus/prometheus/issues/12024
   # TODO: do that
-  services.anubis.defaultOptions.settings.METRICS_BIND_NETWORK = "tcp";
+  services.anubis.defaultOptions.settings = {
+    METRICS_BIND_NETWORK = "tcp";
+    DIFFICULTY = 4;
+  };
 
   services.vmagent.prometheusConfig.scrape_configs = lib.mapAttrsToList (k: v: {
     job_name = "anubis";
