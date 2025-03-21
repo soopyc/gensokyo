@@ -18,7 +18,7 @@ in {
 
   services.tangled-knotserver = {
     enable = true;
-    gitUser = "knot";
+    user = "knot";
 
     repo.mainBranch = "meow";
     server = {

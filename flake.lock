@@ -271,8 +271,8 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "knotserver-module",
-          "tangledCore",
+          "lanzaboote",
+          "pre-commit-hooks-nix",
           "nixpkgs"
         ]
       },
@@ -293,8 +293,7 @@
     "gitignore_2": {
       "inputs": {
         "nixpkgs": [
-          "lanzaboote",
-          "pre-commit-hooks-nix",
+          "tangled-core",
           "nixpkgs"
         ]
       },
@@ -443,7 +442,9 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "tangledCore": "tangledCore"
+        "tangledCore": [
+          "tangled-core"
+        ]
       },
       "locked": {
         "lastModified": 1742290927,
@@ -733,7 +734,7 @@
           "lanzaboote",
           "flake-compat"
         ],
-        "gitignore": "gitignore_2",
+        "gitignore": "gitignore",
         "nixpkgs": [
           "lanzaboote",
           "nixpkgs"
@@ -772,6 +773,7 @@
           "nixpkgs"
         ],
         "sops-nix": "sops-nix",
+        "tangled-core": "tangled-core",
         "treefmt-nix": "treefmt-nix_4"
       }
     },
@@ -831,24 +833,23 @@
         "type": "github"
       }
     },
-    "tangledCore": {
+    "tangled-core": {
       "inputs": {
-        "gitignore": "gitignore",
+        "gitignore": "gitignore_2",
         "htmx-src": "htmx-src",
         "ia-fonts-src": "ia-fonts-src",
         "indigo": "indigo",
         "lucide-src": "lucide-src",
         "nixpkgs": [
-          "knotserver-module",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1742252247,
-        "narHash": "sha256-4P2cyFbmfi4vO+cH5Rs8T0HjyIM9my7DDehMavPQ4ms=",
+        "lastModified": 1742419422,
+        "narHash": "sha256-RqgZ6oi+0rmm/uZzEsSigZKedYF6CsXBkOQGRKtHr98=",
         "ref": "refs/heads/master",
-        "rev": "d27004cb9772260c5a2005fe1f53f1e44884f79e",
-        "revCount": 336,
+        "rev": "ccdb336f315941ff8530a839dbaf0efc07c0871e",
+        "revCount": 342,
         "type": "git",
         "url": "https://tangled.sh/@tangled.sh/core"
       },

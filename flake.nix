@@ -51,9 +51,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tangled-core = {
+      url = "git+https://tangled.sh/@tangled.sh/core";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     knotserver-module = {
       url = "git+https://tangled.sh/@soopy.moe/knotserver-module";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.tangledCore.follows = "tangled-core";
     };
 
     treefmt-nix = {
