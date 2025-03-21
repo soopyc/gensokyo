@@ -3,11 +3,11 @@
     "anubis-unix": {
       "flake": false,
       "locked": {
-        "lastModified": 1742495310,
-        "narHash": "sha256-zgnCf7PkAgRAKWlkfdCwQEN17P0vmEmx/dlIfIg2g4s=",
+        "lastModified": 1742530678,
+        "narHash": "sha256-rCg1g3+a/sQSoYkAy6wWdsd8ylWjvTqQFMVTAoCt3TI=",
         "owner": "soopyc",
         "repo": "anubis-unix",
-        "rev": "451d4c0e1731bd03ee9df2bb60af91d666f1b74a",
+        "rev": "43c4c8c6552355c9834abb57e05004f5b06d7e2a",
         "type": "github"
       },
       "original": {
@@ -359,11 +359,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742508854,
-        "narHash": "sha256-vQQTIl4+slrcu7ftVKNBql9ngBdY0dcYGujdT7zIVp0=",
+        "lastModified": 1742530487,
+        "narHash": "sha256-yjBjRn294NpPagPAQCio20X5BzBXiOoz2+xF3/YmEkU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "da0181819479ddc034a3db9a77ed21ea3bcc0668",
+        "rev": "d61711497be9ad6a6633aaf203b038b5a970621f",
         "type": "github"
       },
       "original": {
@@ -507,11 +507,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1742524794,
-        "narHash": "sha256-Zo63qPDlUwexu593RkR+0W3qGWUa9YwrR7+1qyRNlc4=",
+        "lastModified": 1742530714,
+        "narHash": "sha256-o9/KOr2brP8QMAUYIY2I1BcxKsWim8qe0moFNmdqOd8=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "6947740a9480230566bd74c8e17a5805af090826",
+        "rev": "cf179bf324305653806b99b6eb060dcc2b14375f",
         "type": "github"
       },
       "original": {
