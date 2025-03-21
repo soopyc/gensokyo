@@ -52,10 +52,7 @@ in {
       DEFAULT.APP_NAME = "Patchy";
       server = {
         # Basic settings {{{
-        # PROTOCOL = "http+unix"; # anubis ATM requires tcp sockets
-        PROTOCOL = "http";
-        HTTP_ADDR = "127.0.0.1";
-        HTTP_PORT = 33421;
+        PROTOCOL = "http+unix";
         DOMAIN = "patchy.soopy.moe";
         ROOT_URL = "https://patchy.soopy.moe";
         OFFLINE_MODE = false;
@@ -213,7 +210,7 @@ in {
 
   # nginx vhost and anubis definition {{{
   services.anubis.instances."forgejo".settings = {
-    TARGET = "http://localhost:${toString config.services.forgejo.settings.server.HTTP_PORT}";
+    TARGET = "unix://${config.services.forgejo.settings.server.HTTP_ADDR}";
     METRICS_BIND = "127.0.0.1:17001"; # FIXME: hopefully we can eradicate tcp sockets when vm supports that.
   };
   services.nginx.virtualHosts."patchy.soopy.moe" = _utils.mkSimpleProxy {
