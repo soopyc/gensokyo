@@ -7,6 +7,7 @@
   imports = [
     ./steam.nix
     inputs.nixos-hardware.nixosModules.apple-t2
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
   ];
 
   gensokyo = {

@@ -1,8 +1,10 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ./gui
     ./development
     ./services
+    inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
   ];
 
   gensokyo = {
