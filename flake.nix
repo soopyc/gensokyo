@@ -112,15 +112,6 @@
         formatting = treefmt.${pkgs.system}.config.build.check self;
       });
 
-    hydraJobs =
-      {inherit (self) checks;}
-      // (lib.mapAttrs'
-        (
-          hostname: system:
-            lib.nameValuePair "nixosSystem.${hostname}" system.config.system.build.toplevel
-        )
-        self.nixosConfigurations);
-
     formatter = forAllSystems (pkgs: treefmt.${pkgs.system}.config.build.wrapper);
   };
 }
