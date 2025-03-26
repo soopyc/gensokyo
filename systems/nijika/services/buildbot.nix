@@ -1,3 +1,0 @@
-{...}: {
-  gensokyo.presets.buildbot = true;
-}

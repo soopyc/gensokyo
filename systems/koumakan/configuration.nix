@@ -5,7 +5,6 @@
     inputs.mystia.nixosModules.bsky-pds
     inputs.mystia.nixosModules.anubis
     inputs.hydra.nixosModules.hydra
-    inputs.buildbot-nix.nixosModules.buildbot-master
     inputs.knotserver-module.nixosModules.default
 
     ./hardware-configuration.nix

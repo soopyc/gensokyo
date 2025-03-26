@@ -13,7 +13,6 @@
       games = true;
     };
     presets = {
-      buildbot = true;
       vmetrics = true;
       secureboot = true;
     };
