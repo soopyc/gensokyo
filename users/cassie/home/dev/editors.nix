@@ -18,7 +18,7 @@ lib.mkMerge [
           enabled = false;
         };
         features = {
-          inline_completion_provider = "none"; # no copilot
+          edit_prediction_provider = "none"; # no copilot
         };
         telemetry = {
           metrics = false;
@@ -27,7 +27,7 @@ lib.mkMerge [
         # display
         ui_font_size = 20;
         buffer_font_size = 16;
-        buffer_font_family = "Hurmit Nerd Font";
+        buffer_font_family = "Cascadia Code";
         preferred_line_length = 120;
         wrap_guides = [120];
         show_whitespaces = "all";
@@ -40,6 +40,7 @@ lib.mkMerge [
           # light = "Catppuccin Latte";
           dark = lib.mkForce "Catppuccin Mocha (pink)";
         };
+        diagnostics.inline.enable = true;
 
         # editing settings
         base_keymap = "VSCode";

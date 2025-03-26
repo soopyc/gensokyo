@@ -11,6 +11,7 @@ lib.mkIf config.gensokyo.traits.gui {
     pkgs.nerd-fonts.fira-mono
 
     pkgs.cozette
+    pkgs.cascadia-code
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
     pkgs.noto-fonts-emoji-blob-bin
