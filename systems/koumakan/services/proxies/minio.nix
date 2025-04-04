@@ -35,7 +35,7 @@
     };
 
     "cache.soopy.moe" = _utils.mkVhost {
-      locations."/".proxyPass = "http://renko:26531/nix-cache/";
+      locations."/".proxyPass = "http://renko.mist-nessie.ts.net:26531/nix-cache/";
 
       locations."= /" = {
         tryFiles = "/listing.html =500";

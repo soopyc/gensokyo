@@ -12,7 +12,7 @@
     nvd
     nix-output-monitor
     python3
-    ffmpeg
+    ffmpeg-full
     ghostty.terminfo
 
     # irc
