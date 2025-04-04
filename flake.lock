@@ -424,11 +424,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1743747264,
-        "narHash": "sha256-dXHDBW/+0gg81E6nuAwQIPK35MUZxtak3Q3Q9nmZ8RI=",
+        "lastModified": 1743751355,
+        "narHash": "sha256-ha2wcmBjPVFiIrJspr8REN/8QqmbFSJstNVgxxfNS14=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "ba3e2f6776ee5f1b0c3cb75eea0ba5648b027d52",
+        "rev": "88293f448b9ca6515e8e13ad9c0cbc7e38eb78d1",
         "type": "github"
       },
       "original": {
@@ -704,11 +704,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743604509,
-        "narHash": "sha256-Hf5aYGP3hP+uNbcd4NrEMUAR+1o518uGzoeVyMzzJwo=",
+        "lastModified": 1743750430,
+        "narHash": "sha256-ZwEpd2ZqimTaFUNkapLWVsNvSEBTIPOq2W2z2aMFC+k=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "4521de68fba1a36fae8caebce3d6e047179661f7",
+        "rev": "9bc9b59644585aa2f6c96a1abf50d937b433be83",
         "type": "github"
       },
       "original": {
@@ -807,11 +807,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1743677901,
-        "narHash": "sha256-eWZln+k+L/VHO69tUTzEmgeDWNQNKIpSUa9nqQgBrSE=",
+        "lastModified": 1743748085,
+        "narHash": "sha256-uhjnlaVTWo5iD3LXics1rp9gaKgDRQj6660+gbUU3cE=",
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "rev": "57dabe2a6255bd6165b2437ff6c2d1f6ee78421a",
+        "rev": "815e4121d6a5d504c0f96e5be2dd7f871e4fd99d",
         "type": "github"
       },
       "original": {
