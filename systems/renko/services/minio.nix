@@ -25,4 +25,10 @@ in {
     listenAddress = ":26531"; # will be proxied by koumakan
     rootCredentialsFile = secrets.getTemplate "minio.env";
   };
+
+  # stupid module design
+  systemd.services.minio.environment = {
+    MINIO_BROWSER_REDIRECT_URL = "https://s3.soopy.moe/_static";
+    MINIO_BROWSER_LOGIN_ANIMATION = "false";
+  };
 }
