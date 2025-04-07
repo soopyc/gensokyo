@@ -3,6 +3,7 @@
     ./nginx.nix
 
     ./databases
+    ./storage
     ./scm
     ./ci
 
