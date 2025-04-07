@@ -74,11 +74,13 @@ tangled:
         key: ENC[AES256_GCM,data:c592aVa7BI0LArjgeKv2S3keUOiJw5CPCUIH/tiedeHVXbUqSQZGzNu7NfXoGdVnnkv/qW8FQGK8w5QWI0YxEw==,iv:KOePG824ljudnHk5DjFYGg6KhRXTPsw4SjXdwyx4/js=,tag:fioM69c2dTvxbIhtTM2gwA==,type:str]
 wastebasket:
     key: ENC[AES256_GCM,data:tvlRsZkX+jrJWJXXxBcFnZtweaiK6V+1YV6evN2ppu14I7h4vPOOTpqav9lvzol5y8PwJ98Uw1kXFUZWTZfUda204aK1G0o4n8OS/Q403xrWzouusUI+06Jm91L75a9+/M3ql5/sQOtR0/gTMAN/10gEcTSJGnCQQVy9MDe76ppkmXnp+Bk919S8qhh3kIJ2brRnZ98RmejpJsJKG/2D10e4k9pA8uiN4vhhWg==,iv:CBzRc7Oltetqo29M29cuUr6aI/Hu5tHkbRLInDFCRzc=,tag:m7GR8ZG7ymFhQRQfQIdodw==,type:str]
+zipline:
+    core:
+        secret: ENC[AES256_GCM,data:9Yro0dKRoW/q3nAJeBi2/DBVzq2l9Q8cNjg+ZlDf/ssn1oDNnxeBtW6C+VpChUssP59behc7NQAdEH1XnhE/5YITiRw0SpMclLBDO74KmSmfhoGvQBDWU0rRQqHoSg/8WpDJcVUs9iIU2LzUoKf2ZAPqRzS9IdegaKQA8l2djsgW1Io6fGeUAH7UdLh+QTYhRzhga0vRInDcRbm9dzrRW8rB41ff9Tsm++hYCA==,iv:loOALkfZFg0sd9t0k6XR5ckV0ix5Oda9X3H+7bnA2xs=,tag:NL+gyDxW5fS0TmYtiB6HLw==,type:str]
+    s3:
+        access_key: ENC[AES256_GCM,data:dwV+xA+2MYAizNMuHZptqDFv62s=,iv:MDmcEGAA3gdhDBA4ie4A5nlBwJElek/7qSvzFrGP9FI=,tag:pDIU8LTNagJrVwPw700XQQ==,type:str]
+        access_secret: ENC[AES256_GCM,data:ID9NA21++yUNmF/UGWudyxXuZXbMPfViGnariYe8H06aKZias9OK2A==,iv:PMXdLwkz+JpBJ0ZrVwaUdcqDxew/+Yv9AbVrX1EUfWE=,tag:4puu4oyZVGdfvaZpkdKFFQ==,type:str]
 sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
     age:
         - recipient: age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
           enc: |
@@ -107,8 +109,7 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-03-25T02:22:17Z"
-    mac: ENC[AES256_GCM,data:FCdvrE5aXGioCrx+V8/UKkU7ifgI6VslZuNAzBZlavJ8AnW8pcX+CPodlvK1/0ZK0b4f8XUcJeB2qFI6EXlgxBrlqsSfgTvVg+bGPjD1r4QlNsEP+EFNLJLIw2HZNFURsc2AVsdoqu+Z/YxUkLOq7XIVyg0yoe9zmLGPTebz9DM=,iv:d/BkL8oIEHKGTUTpoKfgBDeog7hV4qs6VwbZWiCXHx8=,tag:FwTeWiICt96OcNVzPEUtRA==,type:str]
-    pgp: []
+    lastmodified: "2025-04-07T08:00:02Z"
+    mac: ENC[AES256_GCM,data:q0y16grUnIP1EteFS0UrAQN77U6IM00ADbTMoPZek2gklsc9EQnRMfne1sRFfAxxVB9lWRVrmIfWFAZ9SdyQs/sGPrbbzqNT1gGggvgCTcATNUprybMnno4iUDhWjn2B2d6sM4Y9HdcDEKuEnz9JjvVfOQyd95uvMjA8rBAt7rE=,iv:yT9icU+kQUUdBtmLnCQIfk5xSqHfsr1y2XZxIgCqtxY=,tag:bqxuI/KSmnLWODsB6830CQ==,type:str]
     unencrypted_suffix: _unencrypted
-    version: 3.9.4
+    version: 3.10.0
