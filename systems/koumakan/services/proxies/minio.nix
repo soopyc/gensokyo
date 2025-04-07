@@ -12,7 +12,7 @@
           client_max_body_size 32G;
         '';
 
-        locations."= /" = _utils.mkNginxFile {
+        locations."= /_static" = _utils.mkNginxFile {
           content = ''
             <!doctype html>
             <html lang="en">
@@ -26,6 +26,7 @@
               <h1>gensokyo filedump - public buckets</h1>
               <ul>
                 <li><a href="//cache.soopy.moe">nix-cache</a></li>
+                <li>lwjgl-nix</li>
               </ul>
             </body>
             </html>
