@@ -9,6 +9,8 @@
         add_header Cache-Control "public";
       '';
 
+      "= /empty.gif".extraConfig = "empty_gif;";
+
       "~* /\\.(?!well-known)".extraConfig = ''
         deny all;
       '';
