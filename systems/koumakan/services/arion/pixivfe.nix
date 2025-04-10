@@ -3,12 +3,14 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "pixivfe";
-    secrets = ["token"];
+    secrets = [ "token" ];
   };
-in {
+in
+{
   imports = [
     secrets.generate
     (secrets.mkTemplate "pixivfe.env" ''

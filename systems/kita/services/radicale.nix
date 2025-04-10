@@ -1,4 +1,5 @@
-{_utils, ...}: {
+{ _utils, ... }:
+{
   services.radicale = {
     enable = true;
     settings = {

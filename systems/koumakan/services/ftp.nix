@@ -3,7 +3,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   sops.secrets = {
     "vsftpdUsers.db" = {
       sopsFile = inputs.self + "/creds/sops/koumakan/vsftpdUsers.db";
@@ -51,7 +52,7 @@
     group = "vsftpd";
     enable = true;
     settings = {
-      server.listen = ["100.100.16.16:38563"];
+      server.listen = [ "100.100.16.16:38563" ];
       accounts.auth-type = "htpasswd.default";
 
       htpasswd.default.htpasswd = config.sops.secrets."webdav.scan.htpasswd".path;
@@ -59,10 +60,10 @@
 
       location = [
         {
-          route = ["/*path"];
+          route = [ "/*path" ];
           auth = "true";
           handler = "filesystem";
-          methods = ["webdav-rw"];
+          methods = [ "webdav-rw" ];
 
           directory = "/var/www/ftp";
         }

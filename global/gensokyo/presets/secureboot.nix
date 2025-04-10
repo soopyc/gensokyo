@@ -8,13 +8,13 @@
 let
   cfg = config.gensokyo.presets;
 in
-  lib.mkIf cfg.secureboot {
-    environment.systemPackages = [pkgs.sbctl];
+lib.mkIf cfg.secureboot {
+  environment.systemPackages = [ pkgs.sbctl ];
 
-    # lanzaboote currently replaces systemd-boot, so disable that here.
-    boot.loader.systemd-boot.enable = lib.mkForce false;
-    boot.lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
-  }
+  # lanzaboote currently replaces systemd-boot, so disable that here.
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
+  };
+}

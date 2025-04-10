@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./services
     ./networking.nix # generated at runtime by nixos-infect

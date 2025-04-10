@@ -2,11 +2,20 @@
   modulesPath,
   lib,
   ...
-}: {
-  imports = [(modulesPath + "/profiles/qemu-guest.nix")];
+}:
+{
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
-  boot.initrd.availableKernelModules = ["ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "xen_blkfront" "vmw_pvscsi"];
-  boot.initrd.kernelModules = ["nvme"];
+  boot.initrd.availableKernelModules = [
+    "ata_piix"
+    "uhci_hcd"
+    "virtio_pci"
+    "virtio_scsi"
+    "sd_mod"
+    "xen_blkfront"
+    "vmw_pvscsi"
+  ];
+  boot.initrd.kernelModules = [ "nvme" ];
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;

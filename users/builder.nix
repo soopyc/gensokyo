@@ -24,5 +24,5 @@ lib.mkIf (!config.gensokyo.traits.sensitive) {
     shell = pkgs.zsh;
   };
 
-  users.groups.remote-builder = {};
+  users.groups.remote-builder = { };
 }

@@ -13,10 +13,15 @@ lib.mkIf config.gensokyo.traits.gui {
     killUserProcesses = false;
   };
 
-  systemd.targets = lib.genAttrs [
-    "sleep"
-    "suspend"
-    "hibernate"
-    "hybrid-sleep"
-  ] (_: {enable = false;});
+  systemd.targets =
+    lib.genAttrs
+      [
+        "sleep"
+        "suspend"
+        "hibernate"
+        "hybrid-sleep"
+      ]
+      (_: {
+        enable = false;
+      });
 }

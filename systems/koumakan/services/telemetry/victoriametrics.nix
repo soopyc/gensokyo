@@ -3,7 +3,8 @@
   lib,
   _utils,
   ...
-}: let
+}:
+let
   monitoredHosts = [
     "mail"
     "satori"
@@ -14,9 +15,10 @@
   ];
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";
-    secrets = ["agent/akkoma"] ++ builtins.map (f: "auth/hosts/" + f) monitoredHosts;
+    secrets = [ "agent/akkoma" ] ++ builtins.map (f: "auth/hosts/" + f) monitoredHosts;
   };
-in {
+in
+{
   imports = [
     secrets.generate
 
@@ -24,10 +26,11 @@ in {
       VMA_AKKOMA_CRED=${secrets.placeholder "agent/akkoma"}
     '')
     (secrets.mkTemplate "vmauth.env" (
-      lib.concatLines (builtins.map (
+      lib.concatLines (
+        builtins.map (
           host: "AUTH_${lib.toUpper host}_TOKEN=${secrets.placeholder "auth/hosts/${host}"}"
-        )
-        monitoredHosts)
+        ) monitoredHosts
+      )
     ))
   ];
 
@@ -63,12 +66,10 @@ in {
           static_configs = lib.singleton {
             targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
           };
-          relabel_configs =
-            lib.singleton
-            {
-              target_label = "instance";
-              replacement = "koumakan";
-            };
+          relabel_configs = lib.singleton {
+            target_label = "instance";
+            replacement = "koumakan";
+          };
         }
 
         # external nodes uses remote write
@@ -77,13 +78,13 @@ in {
         # other services' metrics
         {
           job_name = "nginx";
-          static_configs = lib.singleton {targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}";};
-          relabel_configs =
-            lib.singleton
-            {
-              target_label = "instance";
-              replacement = "koumakan";
-            };
+          static_configs = lib.singleton {
+            targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}";
+          };
+          relabel_configs = lib.singleton {
+            target_label = "instance";
+            replacement = "koumakan";
+          };
         }
       ];
     };
@@ -101,11 +102,10 @@ in {
     authConfig = {
       users = builtins.concatMap (
         token:
-          lib.singleton
-          {
-            bearer_token = token;
-            url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
-          }
+        lib.singleton {
+          bearer_token = token;
+          url_prefix = "http://${config.services.victoriametrics.listenAddress}"; # send directly to vm
+        }
       ) (builtins.map (host: "%{AUTH_${lib.toUpper host}_TOKEN}") monitoredHosts);
     };
     environmentFile = secrets.getTemplate "vmauth.env";

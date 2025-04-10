@@ -1,4 +1,5 @@
-{_utils, ...}: {
+{ _utils, ... }:
+{
   services.nginx.virtualHosts."nonbunary.soopy.moe" = _utils.mkVhost {
     locations."/".return = "404";
     locations."= /" = _utils.mkNginxFile {

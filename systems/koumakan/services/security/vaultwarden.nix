@@ -3,7 +3,8 @@
   config,
   # lib,
   ...
-}: let
+}:
+let
   # mkSecrets = file:
   #   if !lib.elem file secrets
   #   then throw "Provided secret file ${file} is not in the list of defined secrets."
@@ -23,24 +24,27 @@
     "push/installation_id"
     "push/installation_key"
   ];
-in {
-  sops.secrets = _utils.genSecrets "vaultwarden" secrets {};
-  sops.templates."vaultwarden.env".content = let
-    ph = p: config.sops.placeholder."vaultwarden/${p}";
-  in ''
-    DATABASE_URL=postgresql://${ph "database/username"}:${ph "database/password"}@localhost/vaultwarden
-    ADMIN_TOKEN=${ph "admin_token"}
-    YUBICO_CLIENT_ID=${ph "yubico/id"}
-    YUBICO_SECRET_KEY=${ph "yubico/secret"}
-    SMTP_USERNAME=${ph "smtp/username"}
-    SMTP_FROM=${ph "smtp/username"}
-    SMTP_PASSWORD=${ph "smtp/password"}
-    SMTP_HOST=${ph "smtp/host"}
-    SMTP_SECURITY=${ph "smtp/security"}
-    SMTP_PORT=${ph "smtp/port"}
-    PUSH_INSTALLATION_ID=${ph "push/installation_id"}
-    PUSH_INSTALLATION_KEY=${ph "push/installation_key"}
-  '';
+in
+{
+  sops.secrets = _utils.genSecrets "vaultwarden" secrets { };
+  sops.templates."vaultwarden.env".content =
+    let
+      ph = p: config.sops.placeholder."vaultwarden/${p}";
+    in
+    ''
+      DATABASE_URL=postgresql://${ph "database/username"}:${ph "database/password"}@localhost/vaultwarden
+      ADMIN_TOKEN=${ph "admin_token"}
+      YUBICO_CLIENT_ID=${ph "yubico/id"}
+      YUBICO_SECRET_KEY=${ph "yubico/secret"}
+      SMTP_USERNAME=${ph "smtp/username"}
+      SMTP_FROM=${ph "smtp/username"}
+      SMTP_PASSWORD=${ph "smtp/password"}
+      SMTP_HOST=${ph "smtp/host"}
+      SMTP_SECURITY=${ph "smtp/security"}
+      SMTP_PORT=${ph "smtp/port"}
+      PUSH_INSTALLATION_ID=${ph "push/installation_id"}
+      PUSH_INSTALLATION_KEY=${ph "push/installation_key"}
+    '';
 
   services.vaultwarden = {
     enable = true;
@@ -106,7 +110,7 @@ in {
     upstreams = {
       vault-default = {
         servers = {
-          "[::1]:38480" = {};
+          "[::1]:38480" = { };
         };
         extraConfig = ''
           zone vaultwarden 128k;  # XXX: are there any security implications if we reuse the same zone for both webvault and the ws server?

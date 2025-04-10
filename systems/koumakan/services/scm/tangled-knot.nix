@@ -2,12 +2,14 @@
   _utils,
   config,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "tangled";
-    secrets = ["knot/key"];
+    secrets = [ "knot/key" ];
   };
-in {
+in
+{
   imports = [
     secrets.generate
 

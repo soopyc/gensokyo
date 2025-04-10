@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./power.nix
     ./hardware.nix

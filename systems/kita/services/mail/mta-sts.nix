@@ -1,5 +1,6 @@
 # mail-transfer-agent strict transport security policy
-{_utils, ...}: {
+{ _utils, ... }:
+{
   services.nginx.virtualHosts."mta-sts.soopy.moe" = _utils.mkVhost {
     useACMEHost = "kita-web.c.soopy.moe";
 

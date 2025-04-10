@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   system.activationScripts.diff = {
     supportsDryActivation = true;
     text = ''

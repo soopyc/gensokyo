@@ -2,7 +2,8 @@
   _utils,
   inputs,
   ...
-}: {
+}:
+{
   services.nginx.virtualHosts = {
     "s3.soopy.moe" = _utils.mkSimpleProxy {
       host = "renko.mist-nessie.ts.net";

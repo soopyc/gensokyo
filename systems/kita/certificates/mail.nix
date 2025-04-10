@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   security.acme.certs."kita.c.soopy.moe" = {
     group = config.services.maddy.group;
     extraLegoRenewFlags = [

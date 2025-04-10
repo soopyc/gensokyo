@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.pdns-recursor = {
     enable = true;
 

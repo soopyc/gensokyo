@@ -1,4 +1,5 @@
-{_utils, ...}: {
+{ _utils, ... }:
+{
   services.atuin = {
     enable = true;
     database.createLocally = true;

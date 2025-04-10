@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   imports = [
     inputs.mystia.nixosModules.fixups
     inputs.mystia.nixosModules.vmauth

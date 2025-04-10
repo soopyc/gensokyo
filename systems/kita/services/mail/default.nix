@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./roundcube.nix
 

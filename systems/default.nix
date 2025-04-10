@@ -2,16 +2,18 @@
   lib,
   inputs,
   ...
-}: let
+}:
+let
   utils = import ../global/utils.nix;
 
-  mkSystem = hostname: system:
+  mkSystem =
+    hostname: system:
     lib.nixosSystem {
       specialArgs = {
         inherit inputs;
 
         hostname = hostname;
-        _utils = utils {inherit inputs system;};
+        _utils = utils { inherit inputs system; };
       };
 
       modules = [
@@ -20,13 +22,14 @@
         ./${hostname}/hardware-configuration.nix
 
         {
-          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.extraSpecialArgs = { inherit inputs; };
           networking.hostName = hostname;
           nixpkgs.hostPlatform = lib.mkDefault system; # ensure we detect conflicts
         }
       ];
     };
-in {
+in
+{
   koumakan = mkSystem "koumakan" "x86_64-linux";
   satori = mkSystem "satori" "x86_64-linux";
   renko = mkSystem "renko" "x86_64-linux";

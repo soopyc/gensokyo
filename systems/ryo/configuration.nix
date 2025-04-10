@@ -1,6 +1,7 @@
 # ryo because empty-headed. also btr naming scheme.
 # DO NOT copy anything done on this host, it's insecure by design.
-{...}: {
+{ ... }:
+{
   imports = [
     ./services
   ];

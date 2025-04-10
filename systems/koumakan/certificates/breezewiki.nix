@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # Certificate for breezewiki
   security.acme.certs."bw.c.soopy.moe" = {
     group = "nginx";

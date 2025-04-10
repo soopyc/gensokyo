@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./assets.nix
     ./nonbunary.nix

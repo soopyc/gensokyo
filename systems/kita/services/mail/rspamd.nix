@@ -2,20 +2,20 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "rspamd";
-    secrets = ["controller_passwd"];
+    secrets = [ "controller_passwd" ];
     config.owner = config.users.users.rspamd.name;
   };
-in {
+in
+{
   imports = [
     secrets.generate
-    (
-      secrets.mkTemplate "rspamd-controller-pwd.inc" ''
-        password = "${secrets.placeholder "controller_passwd"}";
-      ''
-    )
+    (secrets.mkTemplate "rspamd-controller-pwd.inc" ''
+      password = "${secrets.placeholder "controller_passwd"}";
+    '')
   ];
   services.rspamd = {
     enable = true;
@@ -39,7 +39,7 @@ in {
       .include(try=false; priority=10) "${secrets.getTemplate "rspamd-controller-pwd.inc"}"
     '';
 
-    workers."normal".bindSockets = ["127.0.0.1:11333"];
+    workers."normal".bindSockets = [ "127.0.0.1:11333" ];
   };
 
   services.redis.servers.rspamd.enable = true;

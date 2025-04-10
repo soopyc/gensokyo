@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # Certificate for fedi services
   security.acme.certs."bsky.c.soopy.moe" = {
     group = "nginx";

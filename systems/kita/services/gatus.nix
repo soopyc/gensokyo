@@ -2,7 +2,8 @@
   _utils,
   config,
   ...
-}: let
+}:
+let
   mkHttpEndpoint = name: group: url: {
     inherit name url group;
     enabled = true;
@@ -12,7 +13,8 @@
       "[CONNECTED] == true"
     ];
   };
-in {
+in
+{
   services.gatus = {
     enable = true;
     settings = {
@@ -34,7 +36,7 @@ in {
       endpoints = [
         (mkHttpEndpoint "Main Site" "core" "https://soopy.moe")
 
-        (mkHttpEndpoint "Gateway (Kanidm)" "koumakan" "https://gateway.soopy.moe" // {enabled = false;}) # TODO
+        (mkHttpEndpoint "Gateway (Kanidm)" "koumakan" "https://gateway.soopy.moe" // { enabled = false; }) # TODO
         (mkHttpEndpoint "Patchy (Forgejo)" "koumakan" "https://patchy.soopy.moe")
         (mkHttpEndpoint "Suika (Grafana)" "koumakan" "https://suika.soopy.moe/login")
         (mkHttpEndpoint "Nue (Synapse)" "koumakan" "https://nue.soopy.moe/health")

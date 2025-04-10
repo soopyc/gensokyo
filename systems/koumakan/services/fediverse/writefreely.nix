@@ -5,7 +5,8 @@
   # inputs,
   # pkgs,
   ...
-}: {
+}:
+{
   services.writefreely = {
     enable = true;
     # package = inputs.nixpkgs-wf.legacyPackages.${pkgs.system}.writefreely;

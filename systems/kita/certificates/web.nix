@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   security.acme.certs."kita-web.c.soopy.moe" = {
     group = "nginx";
     extraDomainNames = [

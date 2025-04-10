@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./steam.nix
     inputs.nixos-hardware.nixosModules.apple-t2

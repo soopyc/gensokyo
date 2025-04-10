@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   services.nginx.virtualHosts."ryo.soopy.moe" = _utils.mkSimpleProxy {
     port = 6080;
     websockets = true;
@@ -16,8 +17,8 @@
 
   systemd.services."novnc" = {
     enable = true;
-    wantedBy = ["multi-user.target"];
-    path = with pkgs; [procps];
+    wantedBy = [ "multi-user.target" ];
+    path = with pkgs; [ procps ];
     serviceConfig = {
       DynamicUser = true;
       ExecStart = "${lib.getExe pkgs.novnc} --file-only";

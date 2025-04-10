@@ -1,4 +1,5 @@
-{_utils, ...}: {
+{ _utils, ... }:
+{
   services.nginx.virtualHosts."assets.soopy.moe" = _utils.mkVhost {
     root = "/opt/public-assets";
     locations = {

@@ -8,7 +8,7 @@ writeShellApplication {
   meta = {
     description = "A shortcut to run `just` in the local system flake directory.";
     license = lib.licenses.cc0;
-    maintainers = with lib.maintainers; [soopyc];
+    maintainers = with lib.maintainers; [ soopyc ];
   };
 
   # we could make this more robust by not using `just` and (hardcode?) commands in, but this is by far the easiest

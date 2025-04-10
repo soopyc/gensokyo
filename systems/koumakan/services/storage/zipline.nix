@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "zipline";
     secrets = [
@@ -12,7 +13,8 @@
       "s3/access_secret"
     ];
   };
-in {
+in
+{
   imports = [
     secrets.generate
     (secrets.mkTemplate "zipline.env" ''

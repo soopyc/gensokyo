@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./breezewiki.nix
     ./pixivfe.nix

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./virt.nix
     ./finance.nix

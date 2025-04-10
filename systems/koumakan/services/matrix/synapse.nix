@@ -4,9 +4,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   getSocket = file: "/run/matrix-synapse/${file}.sock";
-in {
+in
+{
   sops.secrets."synapse.yaml" = {
     mode = "0400";
     owner = config.users.users.matrix-synapse.name;
@@ -35,8 +37,8 @@ in {
     ];
 
     workers = {
-      federation-sender-0 = {};
-      pusher-0 = {};
+      federation-sender-0 = { };
+      pusher-0 = { };
     };
 
     settings = {
@@ -111,7 +113,7 @@ in {
   };
 
   services.postgresql = {
-    ensureDatabases = ["synapse"];
+    ensureDatabases = [ "synapse" ];
     ensureUsers = [
       {
         name = "synapse";
@@ -120,7 +122,7 @@ in {
     ];
   };
 
-  users.users.nginx.extraGroups = ["matrix-synapse"];
+  users.users.nginx.extraGroups = [ "matrix-synapse" ];
   services.nginx.virtualHosts."nue.soopy.moe" = _utils.mkVhost {
     extraConfig = ''
       access_log off;

@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   serviceHardening = {
     PrivateUsers = true;
     LockPersonality = true;
@@ -27,25 +28,27 @@
       # "~@privileged" # cage/wlroots needs setgid for some reason?
     ];
   };
-in {
+in
+{
   users.users.funny = {
     isSystemUser = true;
     group = "funny";
   };
-  users.groups.funny = {};
+  users.groups.funny = { };
 
   systemd.services = {
     cage-feh = {
-      wantedBy = ["multi-user.target"];
-      serviceConfig =
-        {
-          User = "funny";
-          RuntimeDirectory = "funny";
-          Restart = "on-failure";
-          RestartSec = "1";
-        }
-        // serviceHardening;
-      path = with pkgs; [cage feh];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        User = "funny";
+        RuntimeDirectory = "funny";
+        Restart = "on-failure";
+        RestartSec = "1";
+      } // serviceHardening;
+      path = with pkgs; [
+        cage
+        feh
+      ];
       script = ''
         set -e
         cage -d feh -- -.dz -D10 --draw-tinted /srv/funny
@@ -58,18 +61,16 @@ in {
     };
 
     wayvnc-feh = {
-      wantedBy = ["multi-user.target"];
-      requires = ["cage-feh.service"];
-      after = ["cage-feh.service"];
-      serviceConfig =
-        {
-          User = "funny";
-          RuntimeDirectory = "funny";
-          ExecStart = "${lib.getExe pkgs.wayvnc} -d 0.0.0.0";
-          Restart = "on-failure";
-          RestartSec = "1";
-        }
-        // serviceHardening;
+      wantedBy = [ "multi-user.target" ];
+      requires = [ "cage-feh.service" ];
+      after = [ "cage-feh.service" ];
+      serviceConfig = {
+        User = "funny";
+        RuntimeDirectory = "funny";
+        ExecStart = "${lib.getExe pkgs.wayvnc} -d 0.0.0.0";
+        Restart = "on-failure";
+        RestartSec = "1";
+      } // serviceHardening;
       environment = {
         WAYLAND_DISPLAY = "wayland-0";
         XDG_RUNTIME_DIR = "%t/funny";

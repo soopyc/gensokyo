@@ -2,12 +2,14 @@
   _utils,
   config,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "wastebasket";
-    secrets = ["key"];
+    secrets = [ "key" ];
   };
-in {
+in
+{
   # figure out a way to disable encryption, i don't trust the impl.
   imports = [
     secrets.generate

@@ -4,5 +4,5 @@
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
-  i18n.supportedLocales = ["all"];
+  i18n.supportedLocales = [ "all" ];
 }

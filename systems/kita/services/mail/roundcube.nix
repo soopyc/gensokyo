@@ -2,11 +2,17 @@
   pkgs,
   _utils,
   ...
-}: {
+}:
+{
   services.roundcube = {
     enable = true;
-    package = pkgs.roundcube.withPlugins (plugins: with plugins; [carddav contextmenu]);
-    dicts = with pkgs.aspellDicts; [en];
+    package = pkgs.roundcube.withPlugins (
+      plugins: with plugins; [
+        carddav
+        contextmenu
+      ]
+    );
+    dicts = with pkgs.aspellDicts; [ en ];
     hostName = "webmail.soopy.moe";
 
     extraConfig = ''

@@ -4,7 +4,8 @@
   config,
   _utils,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "pds";
     secrets = [
@@ -13,8 +14,9 @@
     ];
     config.owner = config.services.bsky-pds.user;
   };
-in {
-  imports = [secrets.generate];
+in
+{
+  imports = [ secrets.generate ];
   services.bsky-pds = {
     enable = true;
     package = inputs.mystia.packages.${pkgs.system}.bsky-pds;

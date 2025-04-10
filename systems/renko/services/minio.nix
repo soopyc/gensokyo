@@ -2,7 +2,8 @@
   _utils,
   config,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "minio";
     secrets = [
@@ -10,7 +11,8 @@
       "root_pass"
     ];
   };
-in {
+in
+{
   imports = [
     secrets.generate
     (secrets.mkTemplate "minio.env" ''

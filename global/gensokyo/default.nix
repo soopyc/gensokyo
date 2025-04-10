@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./traits.nix
     ./presets

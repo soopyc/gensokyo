@@ -1,5 +1,6 @@
 # crypto stands for cryptography, not cryptocurrency
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     gnupg
     pinentry

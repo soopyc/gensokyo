@@ -1,9 +1,10 @@
-{_utils, ...}: {
+{ _utils, ... }:
+{
   virtualisation.arion.projects.breezewiki.settings = {
     services.breezewiki = {
       service = {
         image = "quay.io/pussthecatorg/breezewiki";
-        ports = ["127.0.0.1:35612:10416"];
+        ports = [ "127.0.0.1:35612:10416" ];
         environment = {
           bw_canonical_origin = "https://bw.soopy.moe";
           bw_log_outgoing = "false";

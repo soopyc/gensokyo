@@ -2,7 +2,8 @@
   _utils,
   config,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "grafana";
     secrets = [
@@ -16,7 +17,8 @@
     };
   };
   fromSecret = path: "$__file{${secrets.get path}}";
-in {
+in
+{
   imports = [
     secrets.generate
     ./provisioning.nix

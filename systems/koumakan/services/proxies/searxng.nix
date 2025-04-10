@@ -3,12 +3,14 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "searxng";
-    secrets = ["secret"];
+    secrets = [ "secret" ];
   };
-in {
+in
+{
   imports = [
     secrets.generate
     (secrets.mkTemplate "searxng.env" ''
@@ -16,7 +18,7 @@ in {
     '')
   ];
 
-  users.users.nginx.extraGroups = [config.users.groups.searx.name];
+  users.users.nginx.extraGroups = [ config.users.groups.searx.name ];
 
   services.searx = {
     enable = true;
@@ -100,7 +102,10 @@ in {
           engine = "discourse";
           shortcut = "dno";
           base_url = "https://discourse.nixos.org";
-          categories = ["it" "q&a"];
+          categories = [
+            "it"
+            "q&a"
+          ];
         }
       ];
     };

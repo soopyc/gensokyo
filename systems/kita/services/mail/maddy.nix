@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.maddy = {
     enable = true;
     hostname = "mx2.soopy.moe";

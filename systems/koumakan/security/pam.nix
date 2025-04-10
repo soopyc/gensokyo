@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   security.pam.yubico = {
     enable = true;
     id = "91582";

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   # enforce settings
   hardware.opengl = {
     enable = true;

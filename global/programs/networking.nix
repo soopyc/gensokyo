@@ -41,7 +41,7 @@ lib.mkMerge [
 
   {
     networking.hosts = {
-      "62.176.231.184" = ["codeberg.org"];
+      "62.176.231.184" = [ "codeberg.org" ];
     };
   }
 ]

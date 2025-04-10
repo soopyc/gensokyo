@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   nixos = config.system.nixos;
-in {
+in
+{
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -30,7 +32,10 @@ in {
 
   programs.ssh = {
     startAgent = true;
-    pubkeyAcceptedKeyTypes = ["ssh-ed25519" "sk-ssh-ed25519@openssh.com"];
+    pubkeyAcceptedKeyTypes = [
+      "ssh-ed25519"
+      "sk-ssh-ed25519@openssh.com"
+    ];
     # enableAskPassword = true;
 
     extraConfig = ''

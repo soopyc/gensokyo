@@ -4,7 +4,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   secrets = [
     "database/pass"
     "turnstile/secret"
@@ -23,7 +24,8 @@
   #   else "/run/secrets/${ns}";
 
   runConfig = config.services.forgejo.customDir + "/conf/app.ini";
-in {
+in
+{
   sops.secrets = _utils.genSecrets ns secrets {
     owner = config.services.forgejo.user;
   };
@@ -242,4 +244,3 @@ in {
   # }}}
 }
 # vim:foldmethod=marker
-

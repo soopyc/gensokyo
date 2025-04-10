@@ -5,7 +5,8 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "hydra";
     secrets = [
@@ -22,12 +23,13 @@
 
   webhookScript = pkgs.writeShellApplication {
     name = "hydra-webhook";
-    runtimeInputs = with pkgs; [xh];
+    runtimeInputs = with pkgs; [ xh ];
     text = ''
       xh :8000 @"$1"
     '';
   };
-in {
+in
+{
   imports = [
     secrets.generate
     (secrets.mkTemplate "hydra-s3-creds" ''

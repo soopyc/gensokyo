@@ -3,12 +3,14 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";
-    secrets = ["minio_token"];
+    secrets = [ "minio_token" ];
   };
-in {
+in
+{
   imports = lib.singleton secrets.generate;
   systemd.services.vmagent.serviceConfig.LoadCredential = [
     "minio_token:${secrets.get "minio_token"}"
@@ -18,7 +20,7 @@ in {
     job_name = "minio-job";
     metrics_path = "/minio/v2/metrics/cluster";
     scheme = "http";
-    static_configs = lib.singleton {targets = lib.singleton "localhost:26531";};
+    static_configs = lib.singleton { targets = lib.singleton "localhost:26531"; };
     relabel_configs = lib.singleton {
       target_label = "instance";
       replacement = config.networking.fqdnOrHostName;

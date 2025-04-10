@@ -4,7 +4,8 @@
   lib,
   _utils,
   ...
-}: {
+}:
+{
   # TODO: we can make this better by just automating everything needed to make a h5ai site.
   services.phpfpm.pools."photography" = {
     user = "photography";
@@ -22,9 +23,12 @@
       "php_admin_flag[log_errors]" = true;
       "catch_workers_output" = true;
     };
-    phpEnv."PATH" = lib.makeBinPath (with pkgs; [
-      zip
-    ]);
+    phpEnv."PATH" = lib.makeBinPath (
+      with pkgs;
+      [
+        zip
+      ]
+    );
   };
 
   services.nginx.virtualHosts."photography.soopy.moe" = _utils.mkVhost {
@@ -54,8 +58,8 @@
     group = "photography";
     createHome = false;
   };
-  users.groups.photography = {};
+  users.groups.photography = { };
 
-  users.users.nginx.extraGroups = ["photography"];
-  users.users.cassie.extraGroups = ["photography"];
+  users.users.nginx.extraGroups = [ "photography" ];
+  users.users.cassie.extraGroups = [ "photography" ];
 }

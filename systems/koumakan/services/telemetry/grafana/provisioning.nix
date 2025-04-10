@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services.grafana.provision = {
     datasources.settings = {
       apiVersion = 1; # i am stupid. keep this as 1.
@@ -11,7 +12,9 @@
           uid = "gs_panopticon";
           url = "http://localhost:20090";
           isDefault = true;
-          jsonData = {prometheusVersion = "2.44.0";};
+          jsonData = {
+            prometheusVersion = "2.44.0";
+          };
         }
       ];
     };

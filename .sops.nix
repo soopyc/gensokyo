@@ -19,22 +19,23 @@ let
     }
   ];
 
-  mkHost = name: identities:
-    assert builtins.typeOf identities == "list"; {
+  mkHost =
+    name: identities:
+    assert builtins.typeOf identities == "list";
+    {
       path_regex = "creds/sops/${name}/.*";
       key_groups = [
         {
-          age =
-            [
-              # admin
-              age.soopyc_pxl7ag
-              age.soopyc_mbp14
-            ]
-            ++ identities;
+          age = [
+            # admin
+            age.soopyc_pxl7ag
+            age.soopyc_mbp14
+          ] ++ identities;
         }
       ];
     };
-in {
+in
+{
   # remember to run `just utils update-sops-config` and `sops updatekeys` after editing.
   creation_rules = [
     {
@@ -42,13 +43,13 @@ in {
       key_groups = everything;
     }
 
-    (mkHost "koumakan" [age.koumakan])
-    (mkHost "satori" [age.satori])
-    (mkHost "renko" [age.renko])
+    (mkHost "koumakan" [ age.koumakan ])
+    (mkHost "satori" [ age.satori ])
+    (mkHost "renko" [ age.renko ])
 
-    (mkHost "bocchi" [age.bocchi])
-    (mkHost "kita" [age.kita])
-    (mkHost "ryo" [age.ryo])
-    (mkHost "nijika" [age.nijika])
+    (mkHost "bocchi" [ age.bocchi ])
+    (mkHost "kita" [ age.kita ])
+    (mkHost "ryo" [ age.ryo ])
+    (mkHost "nijika" [ age.nijika ])
   ];
 }

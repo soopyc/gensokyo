@@ -3,10 +3,12 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   presetConf = config.gensokyo.presets;
 in
-  lib.mkIf presetConf.nginx (lib.mkMerge [
+lib.mkIf presetConf.nginx (
+  lib.mkMerge [
     {
       services.nginx = {
         enable = lib.mkDefault true;
@@ -50,7 +52,9 @@ in
       services.vmagent.prometheusConfig.scrape_configs = [
         {
           job_name = "nginx";
-          static_configs = [{targets = ["localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}"];}];
+          static_configs = [
+            { targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}" ]; }
+          ];
           relabel_configs = [
             {
               target_label = "instance";
@@ -60,4 +64,5 @@ in
         }
       ];
     })
-  ])
+  ]
+)
