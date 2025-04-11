@@ -3,7 +3,8 @@
   traits,
   inputs,
   ...
-}: {
+}:
+{
   programs.git = lib.mkMerge [
     {
       enable = true;

@@ -29,7 +29,7 @@ lib.mkMerge [
         buffer_font_size = 16;
         buffer_font_family = "Cascadia Code";
         preferred_line_length = 120;
-        wrap_guides = [120];
+        wrap_guides = [ 120 ];
         show_whitespaces = "all";
         indent_guides = {
           enabled = true;

@@ -8,7 +8,7 @@ stdenvNoCC.mkDerivation (final: {
   name = "brcm-mac-firmware";
 
   src = fetchzip {
-    nativeBuildInputs = [zstd];
+    nativeBuildInputs = [ zstd ];
     stripRoot = false;
     url = "https://mirror.funami.tech/arch-mact2/os/x86_64/apple-bcm-firmware-14.0-1-any.pkg.tar.zst";
     hash = "sha256-7HFXStpTkBG8wujsO8OTm5x+h17mqRiGSrS/Srv49Yg=";
@@ -26,7 +26,7 @@ stdenvNoCC.mkDerivation (final: {
   meta = {
     description = "Collection of Wi-Fi and Bluetooth firmware files for Apple Mac devices.";
     license = lib.licenses.unfree;
-    maintainers = with lib.maintainers; [soopyc];
+    maintainers = with lib.maintainers; [ soopyc ];
     platforms = lib.platforms.linux;
   };
 })

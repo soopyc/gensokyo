@@ -1,9 +1,10 @@
-{...}: {
+{ ... }:
+{
   users.users.cassie = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
     openssh = {
-      authorizedKeys.keyFiles = [../../creds/ssh/users/cassie];
+      authorizedKeys.keyFiles = [ ../../creds/ssh/users/cassie ];
     };
   };
 

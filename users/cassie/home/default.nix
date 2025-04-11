@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./dev
     ./path.nix
