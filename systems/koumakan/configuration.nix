@@ -4,7 +4,6 @@
     inputs.mystia.nixosModules.fixups
     inputs.mystia.nixosModules.vmauth
     inputs.mystia.nixosModules.bsky-pds
-    inputs.mystia.nixosModules.anubis
     inputs.hydra.nixosModules.hydra
     inputs.knotserver-module.nixosModules.default
 
