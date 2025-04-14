@@ -43,10 +43,16 @@
     "autodefrag"
   ];
 
-  networking.firewall.allowedTCPPorts = [
-    25565
-    25566
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      25565
+      25566
+    ];
+    allowedUDPPorts = [
+      25565
+      25566
+    ];
+  };
 
   # muh unfree software!!!!!!!!!!!!!!!!!!
   nixpkgs.config.allowUnfree = true;
