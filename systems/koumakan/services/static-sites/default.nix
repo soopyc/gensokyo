@@ -3,6 +3,7 @@
   imports = [
     ./assets.nix
     ./nonbunary.nix
+    ./user.nix
   ];
 
   # Fallback site
