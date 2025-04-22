@@ -18,6 +18,9 @@
   # We do not like overlays but sometimes they have to be done
   nixpkgs.overlays = import ./overlays inputs;
 
+  system.rebuild.enableNg = true;
+  system.switch.enableNg = true;
+
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or "unknown";
 
   hardware.enableRedistributableFirmware = true;
