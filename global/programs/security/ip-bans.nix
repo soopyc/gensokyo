@@ -9,13 +9,14 @@ let
   };
 in
 {
-  networking.firewall.extraCommands = builtins.concatStringsSep "\n" ([
-    # i'd be damned if they rename the helper, but i also cba writing it *again*, for the same util to show up
-    # 3 times in the final script.
-    "ip46tables -N gensokyo-blackhole"
-    "ip46tables -I INPUT -j gensokyo-blackhole"
-  ] ++
-    lib.flatten (
+  networking.firewall.extraCommands = builtins.concatStringsSep "\n" (
+    [
+      # i'd be damned if they rename the helper, but i also cba writing it *again*, for the same util to show up
+      # 3 times in the final script.
+      "ip46tables -N gensokyo-blackhole"
+      "ip46tables -I INPUT -j gensokyo-blackhole"
+    ]
+    ++ lib.flatten (
       lib.mapAttrsToList (
         family: ips: builtins.map (ip: "${family}tables -w -I gensokyo-blackhole -s ${ip} -j DROP") ips
       ) banned

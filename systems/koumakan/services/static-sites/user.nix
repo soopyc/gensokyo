@@ -1,4 +1,5 @@
-{_utils, ...}: {
+{ _utils, ... }:
+{
   services.nginx.virtualHosts."users.soopy.moe" = _utils.mkVhost {
     locations."/" = _utils.mkNginxFile {
       content = ''
