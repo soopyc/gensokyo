@@ -4,6 +4,7 @@ let
     ip = [
       "156.229.232.142" # added 2025-04-10: minecraft server scanner with 30m intervals
       "156.146.63.199" # added 2025-04-11: minecraft server scanner, found no contact methods
+      "167.86.121.64" # added 2025-04-24: minecraft server pinger, does not properly disconnect, no contacts
     ];
     ip6 = [ ];
   };
