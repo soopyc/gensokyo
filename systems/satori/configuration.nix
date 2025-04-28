@@ -49,6 +49,20 @@
   hardware.apple-t2.kernelChannel = "stable";
   specialisation.latest-kernel.configuration.hardware.apple-t2.kernelChannel = lib.mkForce "latest";
 
+  # experimental
+  boot.kernelParams = [ "mem_sleep_default=s2idle" ];
+  systemd = {
+    services.tiny-dfr = {
+      wantedBy = [
+        "post-resume.target"
+        "dev-tiny_dfr_display.device"
+        "dev-tiny_dfr_backlight.device"
+        "dev-tiny_dfr_display_backlight.device"
+      ];
+      after = [ "post-resume.target" ];
+    };
+  };
+
   zramSwap.enable = true;
 
   # muh unfree software!!!!!!!!!!!!!!!!!!
