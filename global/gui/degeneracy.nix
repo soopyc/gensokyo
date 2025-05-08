@@ -7,7 +7,6 @@
 lib.mkIf config.gensokyo.traits.gui {
   environment.systemPackages = [
     pkgs.dosage-tracker
-    pkgs.zoom-us
 
     (pkgs.discord.override {
       withVencord = true;
