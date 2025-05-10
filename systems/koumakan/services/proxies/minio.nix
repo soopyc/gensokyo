@@ -1,12 +1,42 @@
 {
   _utils,
+  config,
   inputs,
   ...
 }:
+let
+  secrets = _utils.setupSecrets config {
+    namespace = "minio";
+    secrets = [
+      "root_user"
+      "root_pass"
+    ];
+  };
+in
 {
+  imports = [
+    secrets.generate
+    (secrets.mkTemplate "minio.env" ''
+      MINIO_ROOT_USER=${secrets.placeholder "root_user"}
+      MINIO_ROOT_PASSWORD=${secrets.placeholder "root_pass"}
+    '')
+  ];
+
+  services.minio = {
+    enable = true;
+    region = "ap-east-1";
+    listenAddress = "127.0.0.1:26531";
+    rootCredentialsFile = secrets.getTemplate "minio.env";
+  };
+
+  # stupid module design
+  systemd.services.minio.environment = {
+    MINIO_BROWSER_REDIRECT_URL = "https://s3.soopy.moe/_static";
+    MINIO_BROWSER_LOGIN_ANIMATION = "false";
+  };
+
   services.nginx.virtualHosts = {
     "s3.soopy.moe" = _utils.mkSimpleProxy {
-      host = "renko.mist-nessie.ts.net";
       port = 26531;
       extraConfig = {
         extraConfig = ''

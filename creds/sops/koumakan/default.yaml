@@ -80,6 +80,9 @@ zipline:
     s3:
         access_key: ENC[AES256_GCM,data:dwV+xA+2MYAizNMuHZptqDFv62s=,iv:MDmcEGAA3gdhDBA4ie4A5nlBwJElek/7qSvzFrGP9FI=,tag:pDIU8LTNagJrVwPw700XQQ==,type:str]
         access_secret: ENC[AES256_GCM,data:ID9NA21++yUNmF/UGWudyxXuZXbMPfViGnariYe8H06aKZias9OK2A==,iv:PMXdLwkz+JpBJ0ZrVwaUdcqDxew/+Yv9AbVrX1EUfWE=,tag:4puu4oyZVGdfvaZpkdKFFQ==,type:str]
+minio:
+    root_user: ENC[AES256_GCM,data:q+w4FgnCA2QxWsxM,iv:NojzSMmZ2yq7VyPn7fOYauLpgMOE0NGCyTUQ6slGN2Q=,tag:5FfjO4KH8XfLuymxDgV2iA==,type:str]
+    root_pass: ENC[AES256_GCM,data:oh/VQDU1dR9YLribrhZeVJxMoY9/7Ri8bloM650j6Ut/vHF6BB4NYY94RngkBYRVkHplF9oKx+Ey13kMyIPvC+EvPczoWKCHJ4pJqq3GgWigFp7ufUDdvY4hBjW7SU7fk0wYOjZYH2JlLqjmU0MsVKSqt66Rq9Si0MU7VACNrJzYDe6KbCbL/YT3DmTvBpPR6ysLCE525rH7Tg2LVyn775Si+vo+KGC5gqGMlw==,iv:8pbJMeuDIcvkI8Uda30i8ote/PRUSSAmaua22gQmbHc=,tag:6hNvVytKXbjrKZMKkQ5pEA==,type:str]
 sops:
     age:
         - recipient: age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
@@ -109,7 +112,7 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-04-07T08:00:02Z"
-    mac: ENC[AES256_GCM,data:q0y16grUnIP1EteFS0UrAQN77U6IM00ADbTMoPZek2gklsc9EQnRMfne1sRFfAxxVB9lWRVrmIfWFAZ9SdyQs/sGPrbbzqNT1gGggvgCTcATNUprybMnno4iUDhWjn2B2d6sM4Y9HdcDEKuEnz9JjvVfOQyd95uvMjA8rBAt7rE=,iv:yT9icU+kQUUdBtmLnCQIfk5xSqHfsr1y2XZxIgCqtxY=,tag:bqxuI/KSmnLWODsB6830CQ==,type:str]
+    lastmodified: "2025-05-10T16:10:38Z"
+    mac: ENC[AES256_GCM,data:HZAsp6PS6k8Boz95d4zU+14fY2KEpVXIcLRkQXFiXYaaA3lN1i7onh4E5tjcDLFGD7qHOzDjlgRVkNwxpCjKg4LB587eJG1umviClFvZOf/vbkF+fSn2dtwUFRgW5SRIHRsMJ0NL6N+uKM51qWmjAoLxvUMbl/A5zeh0TJeMdEs=,iv:yPZGnF7C6fYImugWMhOpd88nTmBCI+0e128Ssz8oB34=,tag:cJN7BmmgRvEHKu8CDfLwVw==,type:str]
     unencrypted_suffix: _unencrypted
-    version: 3.10.0
+    version: 3.10.2

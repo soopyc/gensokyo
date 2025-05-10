@@ -27,11 +27,6 @@
     fsType = "btrfs";
   };
 
-  fileSystems."/var/lib/minio/data" = {
-    label = "MINIO0";
-    fsType = "xfs";
-  };
-
   boot.initrd.luks.devices."gock".device = "/dev/disk/by-uuid/9d57daa1-f152-443d-992c-b58cbfa57ec1";
 
   fileSystems."/efi" = {
