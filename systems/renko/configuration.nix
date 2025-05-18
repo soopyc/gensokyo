@@ -44,13 +44,17 @@
   ];
 
   networking.firewall = {
-    allowedTCPPorts = [
-      25565
-      25566
+    allowedTCPPortRanges = [
+      {
+        from = 25560;
+        to = 25570;
+      }
     ];
-    allowedUDPPorts = [
-      25565
-      25566
+    allowedUDPPortRanges = [
+      {
+        from = 25560;
+        to = 25570;
+      }
     ];
   };
 
