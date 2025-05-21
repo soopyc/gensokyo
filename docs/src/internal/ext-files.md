@@ -6,7 +6,7 @@ sets of files/directories in this repository.
 <!-- These are coincidentally the same length. magic! -->
 
 - `-r-------- /etc/lego/desec`: acme credentials
-- `drwx------ /etc/secureboot`: secureboot keys
+- `drwx------ /var/lib/sbctl`: secure boot keys
 - `-r-------- /v/l/forgejo/data/jwt/oauth.pem`: forgejo oauth jwt private key
 - `-r-------- kita:/etc/radicale/users`: radicale user htpasswd mappings
 
