@@ -40,5 +40,8 @@ in
 
   services.nginx.virtualHosts."dumpster.soopy.moe" = _utils.mkSimpleProxy {
     port = 34638;
+    extraConfig.extraConfig = ''
+      client_max_body_size 100M;
+    '';
   };
 }
