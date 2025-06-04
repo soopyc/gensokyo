@@ -50,11 +50,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    vencord = {
-      url = "github:Vendicated/Vencord";
-      flake = false;
-    };
-
     tangled-core = {
       url = "git+https://tangled.sh/@tangled.sh/core";
       inputs.nixpkgs.follows = "nixpkgs";

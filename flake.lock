@@ -662,8 +662,7 @@
         ],
         "sops-nix": "sops-nix",
         "tangled-core": "tangled-core",
-        "treefmt-nix": "treefmt-nix_3",
-        "vencord": "vencord"
+        "treefmt-nix": "treefmt-nix_3"
       }
     },
     "rust-overlay": {
@@ -808,22 +807,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "vencord": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1747859341,
-        "narHash": "sha256-vSjqZFDi+x+xMnBo6GYbCig3GXIHnKCSPlDF9GvVBS8=",
-        "owner": "Vendicated",
-        "repo": "Vencord",
-        "rev": "bbeaa461e5f63e1347e43be279d5d25d4f0d8777",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Vendicated",
-        "repo": "Vencord",
         "type": "github"
       }
     },
