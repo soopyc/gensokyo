@@ -2,11 +2,7 @@
 {
   imports = [
     ./nginx.nix
-
-    ./databases
-    ./storage
-    ./scm
-    ./ci
+    ./anubis.nix
 
     # "containers" in a burning text gif
     ./arion
@@ -19,10 +15,13 @@
     ./fediverse
     ./feeds
 
-    ./anubis.nix
-    ./telemetry
-    ./security
+    ./ci
+    ./databases
     ./proxies
+    ./scm
+    ./security
     ./static-sites
+    ./storage
+    ./telemetry
   ];
 }
