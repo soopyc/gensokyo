@@ -19,7 +19,6 @@
   nixpkgs.overlays = import ./overlays inputs;
 
   system.rebuild.enableNg = true;
-  system.switch.enableNg = true;
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or "unknown";
 
