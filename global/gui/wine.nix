@@ -8,5 +8,7 @@ lib.mkIf config.gensokyo.traits.gui {
   environment.systemPackages = [
     pkgs.wineWowPackages.full
     pkgs.winetricks
+
+    pkgs.bottles
   ];
 }
