@@ -1,5 +1,6 @@
 {
   _utils,
+  lib,
   config,
   inputs,
   ...
@@ -10,6 +11,7 @@ let
     secrets = [
       "root_user"
       "root_pass"
+      "vmetrics_token"
     ];
   };
 in
@@ -78,5 +80,21 @@ in
         };
       };
     };
+  };
+
+  services.vmagent.prometheusConfig.scrape_configs = lib.singleton {
+    job_name = "minio-job";
+    metrics_path = "/minio/v2/metrics/cluster";
+    scheme = "http";
+    static_configs = lib.singleton { targets = lib.singleton "localhost:26531"; };
+    relabel_configs = lib.singleton {
+      target_label = "instance";
+      replacement = config.networking.fqdnOrHostName;
+    };
+
+    # https://github.com/NixOS/nixpkgs/issues/367447
+    # https://docs.victoriametrics.com/sd_configs/#scrape_configs
+    # hard coding because we can't use %{ENV_VAR} syntax (yet) when checking.
+    bearer_token_file = "/run/credentials/vmagent.service/minio_token";
   };
 }
