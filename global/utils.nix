@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024 Cassie Cheung (soopyc)
+# Copyright (c) 2023 Cassie Cheung (soopyc)
 # Permission is given to copy and use under the terms of Apache 2.0.
 #
 # you may copy-paste this entire file to anywhere else. just keep the comments.
@@ -96,7 +96,7 @@ rec {
       check =
         path:
         assert lib.assertMsg (lib.elem path secrets)
-          "secret path `${path}` is not defined in namespace `${namespace}`. (resolved to: ${_r_ns namespace}/${path})";
+          "secret path `${path}` is not defined in namespace `${namespace}`. (resolved to: ${_r_ns}${path})";
         path;
       getRealPath = path: _r_ns + check path;
     in
