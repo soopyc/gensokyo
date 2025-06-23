@@ -56,7 +56,7 @@
     };
 
     knotserver-module = {
-      url = "git+https://tangled.sh/@soopy.moe/knotserver-module";
+      url = "git+https://tangled.sh/@soopy.moe/knotserver-module/?ref=knot-fix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.tangledCore.follows = "tangled-core";
     };

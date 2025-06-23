@@ -194,11 +194,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1750453314,
-        "narHash": "sha256-/mT9nssL6CMGCjETqvYKTE9vX1uSh0Xj2MxQtwa9yV0=",
+        "lastModified": 1750679248,
+        "narHash": "sha256-zRv0FqFwR4xenvgpyh386gtEXEWdRKZJDvLJV1MRyVc=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "f55c77bc817f0d28992e34db54408da388b172a6",
+        "rev": "373fc6bcbf04f50bc8a8d19c7688f8ee24fb3849",
         "type": "github"
       },
       "original": {
@@ -273,11 +273,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750304462,
-        "narHash": "sha256-Mj5t4yX05/rXnRqJkpoLZTWqgStB88Mr/fegTRqyiWc=",
+        "lastModified": 1750690749,
+        "narHash": "sha256-x6fRPeqdgDKVTCyvbp4J8Q5UQ3DV3oWYSoyM444N8cY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "863842639722dd12ae9e37ca83bcb61a63b36f6c",
+        "rev": "05b8c9506452349d8be854ac46e5a7630fa7917d",
         "type": "github"
       },
       "original": {
@@ -296,6 +296,18 @@
       "original": {
         "type": "file",
         "url": "https://unpkg.com/htmx.org@2.0.4/dist/htmx.min.js"
+      }
+    },
+    "htmx-ws-src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-XbUFiv94ZPB6VVULoTWOsje5Gq1I+IT72lMc4CpUYrY=",
+        "type": "file",
+        "url": "https://unpkg.com/htmx.org@2.0.4/dist/ext/ws.js"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://unpkg.com/htmx.org@2.0.4/dist/ext/ws.js"
       }
     },
     "hydra": {
@@ -370,17 +382,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1742290927,
-        "narHash": "sha256-DgF5sC+AAVsxb2BLHxphuGrzkf7jrpmxSrqwOaNqqck=",
-        "ref": "refs/heads/mistress",
-        "rev": "c6ab9b539e93c5d457dd72652ed2cc983dd7a064",
-        "revCount": 16,
+        "lastModified": 1750698324,
+        "narHash": "sha256-yzHqS8XzYjxuygOVekjFScZf81fZvRtXZpz1xx6mRc0=",
+        "ref": "knot-fix",
+        "rev": "3eb304f66d1f5583fedfea8ec3744105f0771239",
+        "revCount": 17,
         "type": "git",
-        "url": "https://tangled.sh/@soopy.moe/knotserver-module"
+        "url": "https://tangled.sh/@soopy.moe/knotserver-module/"
       },
       "original": {
+        "ref": "knot-fix",
         "type": "git",
-        "url": "https://tangled.sh/@soopy.moe/knotserver-module"
+        "url": "https://tangled.sh/@soopy.moe/knotserver-module/"
       }
     },
     "lanzaboote": {
@@ -430,11 +443,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1750482007,
-        "narHash": "sha256-vB7G6anfMk60VXmcpQ7bDu5BYzsijk7gh4flG+kf2RI=",
+        "lastModified": 1750665781,
+        "narHash": "sha256-p4HXOj0c6uLe04oNGtWPgEcpAkuxNnoNouT3dV5ulb8=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "bf38c5b319cf42311c7f11ee31ac9526485c8d12",
+        "rev": "a0b2af79b7754214c2e5869e6b22ad06a7e6ed13",
         "type": "github"
       },
       "original": {
@@ -483,11 +496,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1749960154,
-        "narHash": "sha256-EWlr9MZDd+GoGtZB4QsDzaLyaDQPGnRY03MFp6u2wSg=",
+        "lastModified": 1750565152,
+        "narHash": "sha256-A6ZIoIgaPPkzIVxKuaxwEJicPOeTwC/MD9iuC3FVhDM=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "424a40050cdc5f494ec45e46462d288f08c64475",
+        "rev": "78cd697acc2e492b4e92822a4913ffad279c20e6",
         "type": "github"
       },
       "original": {
@@ -598,11 +611,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1750365781,
-        "narHash": "sha256-XE/lFNhz5lsriMm/yjXkvSZz5DfvKJLUjsS6pP8EC50=",
+        "lastModified": 1750506804,
+        "narHash": "sha256-VLFNc4egNjovYVxDGyBYTrvVCgDYgENp5bVi9fPTDYc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "08f22084e6085d19bcfb4be30d1ca76ecb96fe54",
+        "rev": "4206c4cb56751df534751b058295ea61357bbbaa",
         "type": "github"
       },
       "original": {
@@ -732,6 +745,7 @@
       "inputs": {
         "gitignore": "gitignore_2",
         "htmx-src": "htmx-src",
+        "htmx-ws-src": "htmx-ws-src",
         "ibm-plex-mono-src": "ibm-plex-mono-src",
         "indigo": "indigo",
         "inter-fonts-src": "inter-fonts-src",
@@ -742,11 +756,11 @@
         "sqlite-lib-src": "sqlite-lib-src"
       },
       "locked": {
-        "lastModified": 1750429077,
-        "narHash": "sha256-qED5NoD+L240vg9NYKOF6YQj9SfbFIL+Qhrqyl1X184=",
+        "lastModified": 1750580269,
+        "narHash": "sha256-Y8WCUQYknbPPBN2nKCnL2B7rqFpIJxZ9dGB8ahmPPnA=",
         "ref": "refs/heads/master",
-        "rev": "935b6304ad0344ffa528f1bd1507f368d0e9e9a6",
-        "revCount": 853,
+        "rev": "fa3beeb9d299bbcf86440e77899773506e654e29",
+        "revCount": 861,
         "type": "git",
         "url": "https://tangled.sh/@tangled.sh/core"
       },
