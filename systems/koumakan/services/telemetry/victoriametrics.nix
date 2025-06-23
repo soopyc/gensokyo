@@ -6,7 +6,6 @@
 }:
 let
   monitoredHosts = [
-    "mail"
     "satori"
     "renko"
     "kita"
@@ -15,16 +14,13 @@ let
   ];
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";
-    secrets = [ "agent/akkoma" ] ++ builtins.map (f: "auth/hosts/" + f) monitoredHosts;
+    secrets = builtins.map (f: "auth/hosts/" + f) monitoredHosts;
   };
 in
 {
   imports = [
     secrets.generate
 
-    (secrets.mkTemplate "vmagent.env" ''
-      VMA_AKKOMA_CRED=${secrets.placeholder "agent/akkoma"}
-    '')
     (secrets.mkTemplate "vmauth.env" (
       lib.concatLines (
         builtins.map (
@@ -39,8 +35,6 @@ in
     listenAddress = "127.0.0.1:20090";
     retentionPeriod = "5y"; # 5 years
   };
-
-  systemd.services.vmagent.serviceConfig.EnvironmentFile = secrets.getTemplate "vmagent.env";
 
   services.vmagent = {
     enable = true;
