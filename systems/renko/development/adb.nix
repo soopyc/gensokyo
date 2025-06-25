@@ -1,4 +1,4 @@
 {
   programs.adb.enable = true;
-  users.users.cassie.extraGroups = ["adbusers"];
+  users.users.cassie.extraGroups = [ "adbusers" ];
 }
