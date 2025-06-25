@@ -11,6 +11,5 @@ lib.mkIf config.gensokyo.traits.gui {
     kalk
     kdf
     kmime
-    kasts
   ];
 }

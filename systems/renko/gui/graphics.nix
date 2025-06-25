@@ -1,4 +1,3 @@
-{ ... }:
 {
   # enforce settings
   hardware.opengl = {
