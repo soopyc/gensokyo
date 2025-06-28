@@ -1,9 +1,9 @@
-{ ... }:
 {
   imports = [
     ./assets.nix
     ./nonbunary.nix
     ./user.nix
+    ./verification.nix
   ];
 
   # Fallback site
