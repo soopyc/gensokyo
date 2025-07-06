@@ -35,11 +35,6 @@ in
       };
       env_file = lib.singleton (secrets.getTemplate "pixivfe.env");
     };
-
-    docker-compose.raw = {
-      # https://github.com/compose-spec/compose-spec/blob/main/spec.md#pull_policy
-      services.pixivfe.pull_policy = "weekly";
-    };
   };
 
   services.nginx = {
