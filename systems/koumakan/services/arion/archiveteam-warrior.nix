@@ -10,7 +10,12 @@
     environment = {
       DOWNLOADER = "soopyc";
       WARRIOR_ID = "soopyc-uSoU1YZC";
-      CONCURRENT_ITEMS = "3";
+      CONCURRENT_ITEMS = "6";
+      SELECTED_PROJECT = "auto";
+      SHARED_RSYNC_THREADS = "20";
+
+      # see if this does any good
+      PREFER_IPV4 = "true";
     };
   };
 }
