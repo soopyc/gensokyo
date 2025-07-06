@@ -1,6 +1,6 @@
-{ ... }:
 {
   imports = [
+    ./archiveteam-warrior.nix
     ./breezewiki.nix
     ./pixivfe.nix
   ];

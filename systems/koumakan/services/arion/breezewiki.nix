@@ -13,6 +13,11 @@
         };
       };
     };
+
+    docker-compose.raw = {
+      # https://github.com/compose-spec/compose-spec/blob/main/spec.md#pull_policy
+      services.breezewiki.pull_policy = "weekly";
+    };
   };
 
   services.nginx.virtualHosts.".bw.soopy.moe" = _utils.mkSimpleProxy {
