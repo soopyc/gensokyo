@@ -82,6 +82,10 @@ in
     };
   };
 
+  systemd.services.vmagent.serviceConfig.LoadCredential = [
+    "minio_token:${secrets.get "vmetrics_token"}"
+  ];
+
   services.vmagent.prometheusConfig.scrape_configs = lib.singleton {
     job_name = "minio-job";
     metrics_path = "/minio/v2/metrics/cluster";

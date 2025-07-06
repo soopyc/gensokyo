@@ -113,7 +113,7 @@ in
 
     locations."= /".extraConfig = ''
       add_header content-type text/plain;
-      return 200 "200 big sister is watching you.";
+      return 200 "HTTP/1.1 100 CONTINUE - big sister is watching you.";
     '';
 
     # Allow only the write route
