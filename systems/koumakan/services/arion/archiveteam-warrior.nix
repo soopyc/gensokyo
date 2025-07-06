@@ -2,7 +2,7 @@
   virtualisation.arion.projects.at-warrior.settings = {
     services.atw.service = {
       image = "atdr.meo.ws/archiveteam/warrior-dockerfile";
-      ports = ["127.0.0.1:35842:8001"];
+      ports = [ "127.0.0.1:35842:8001" ];
       restart = "unless-stopped";
     };
 
