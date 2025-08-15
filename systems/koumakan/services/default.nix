@@ -17,6 +17,7 @@
 
     ./ci
     ./databases
+    ./mirror
     ./proxies
     ./scm
     ./security
