@@ -30,7 +30,8 @@ let
             # admin
             age.soopyc_pxl7ag
             age.soopyc_mbp14
-          ] ++ identities;
+          ]
+          ++ identities;
         }
       ];
     };

@@ -44,7 +44,8 @@ in
         RuntimeDirectory = "funny";
         Restart = "on-failure";
         RestartSec = "1";
-      } // serviceHardening;
+      }
+      // serviceHardening;
       path = with pkgs; [
         cage
         feh
@@ -70,7 +71,8 @@ in
         ExecStart = "${lib.getExe pkgs.wayvnc} -d 0.0.0.0";
         Restart = "on-failure";
         RestartSec = "1";
-      } // serviceHardening;
+      }
+      // serviceHardening;
       environment = {
         WAYLAND_DISPLAY = "wayland-0";
         XDG_RUNTIME_DIR = "%t/funny";
