@@ -14,17 +14,14 @@
 
   inputs = {
     mystia.url = "github:soopyc/mystia";
-    # nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/7fd36ee82c0275fb545775cc5e4d30542899511d";
+    nixpkgs.follows = "mystia/nixpkgs";
+    # nixpkgs.url = "github:NixOS/nixpkgs/27063df46af3631e094d9ec5dcf3f3af28de82a6";
+    # nixpkgs.url = "/home/cassie/projects/nixpkgs";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix";
     hydra.url = "github:NixOS/hydra";
-
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
-    };
+    ghostty.url = "github:ghostty-org/ghostty";
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";

@@ -9,6 +9,8 @@ lib.mkIf config.gensokyo.traits.gui {
     pkgs.wineWowPackages.full
     pkgs.winetricks
 
-    pkgs.bottles
+    (pkgs.bottles.override {
+      removeWarningPopup = true;
+    })
   ];
 }

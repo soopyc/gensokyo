@@ -33,6 +33,7 @@
     libarchive
     unar
     man-pages
+    htop-vim
 
     # security
     openssl

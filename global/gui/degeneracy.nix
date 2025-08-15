@@ -13,6 +13,9 @@ lib.mkIf config.gensokyo.traits.gui {
     })
   ];
 
+  # some things work better with flatpaks
+  services.flatpak.enable = true;
+
   # this is in degeneracy because no one likes printers
   services.printing.enable = true;
 }

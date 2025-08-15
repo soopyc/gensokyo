@@ -26,28 +26,19 @@ lib.mkIf config.gensokyo.traits.gui {
       <fontconfig>
       <!-- XML is stupid -->
 
-      <!-- DID NOT WORK -->
-      <!-- <alias>
-        <family>monospace</family>
+      <alias binding="same">
+        <family>Nishiki-Teki</family>
         <prefer>
-          <family>DejaVu Sans Mono</family>
-          <family>Hurmit Nerd Font</family>
-          <family>FiraMono Nerd Font</family>
+          <family>Noto Sans CJK JP</family>
         </prefer>
-      </alias> -->
-
-      <!-- DID NOT WORK -->
-      <!-- <match target="pattern">
-        <test qual="any" name="family" compare="eq"><string>FreeMono</string></test>
-        <edit name="family" mode="assign" binding="same"><string>Noto Sans Symbols 2</string></edit>
-      </match> -->
+        <default><family>sans-serif</family></default>
+      </alias>
 
       <selectfont>
         <rejectfont>
           <pattern><patelt name="family"><string>FreeMono</string></patelt></pattern>
         </rejectfont>
       </selectfont>
-
       </fontconfig>
     '';
   };
