@@ -1,17 +1,20 @@
 { _utils, config, ... }:
 {
   imports = [
-
+    ./archt2.nix
   ];
 
-  users.groups."mirror-worker" = {};
+  users.groups."mirror-worker" = { };
   users.users."mirror-worker" = {
     isSystemUser = true;
     group = "mirror-worker";
   };
 
   services.nginx.virtualHosts."mirror.soopy.moe" = _utils.mkVhost {
-    locations."/".root = "/var/lib/mirrors";
+    locations."/" = {
+      root = "/var/lib/mirrors";
+      extraConfig = "autoindex on;";
+    };
   };
 
   services.nginx.virtualHosts."keine.soopy.moe".globalRedirect = "mirror.soopy.moe";

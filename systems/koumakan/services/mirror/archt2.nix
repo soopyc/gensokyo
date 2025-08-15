@@ -15,7 +15,7 @@
     };
 
     services."mirror-sync-t2" = {
-      path = [pkgs.rsync];
+      path = [ pkgs.rsync ];
       script = ''
         touch /var/lib/mirrors/{arch,endeavouros}-mact2
 
