@@ -3,10 +3,12 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }:
 let
   getSocket = file: "/run/matrix-synapse/${file}.sock";
+  staticly = inputs.mystia.packages.${pkgs.system}.staticly;
 in
 {
   sops.secrets."synapse.yaml" = {
@@ -140,12 +142,12 @@ in
     };
 
     locations."= /.well-known/matrix/client" = {
-      alias = "${pkgs.staticly}/configs/matrix/";
+      alias = "${staticly}/configs/matrix/";
       tryFiles = "stable.json =404";
     };
 
     locations."/" = {
-      root = "${pkgs.staticly}/pages/matrix/landing/";
+      root = "${staticly}/pages/matrix/landing/";
       tryFiles = "$uri $uri/index.html $uri.html =404";
     };
   };

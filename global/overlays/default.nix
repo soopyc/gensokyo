@@ -1,3 +1,4 @@
 inputs: [
-  inputs.mystia.overlays.default
+  # we can probably live without an overlay?
+  # inputs.mystia.overlays.default
 ]
