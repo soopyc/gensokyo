@@ -18,7 +18,7 @@
       path = [ pkgs.rsync ];
       script = ''
         mkdir -p \
-          /var/lib/mirrors/arch-mact2
+          /var/lib/mirrors/arch-mact2 \
           /var/lib/mirrors/endeavouros-t2
 
         rsync -rlptHvh --progress --safe-links --delete-delay --delay-updates \
