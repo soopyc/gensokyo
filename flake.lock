@@ -212,11 +212,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1756175751,
-        "narHash": "sha256-IkD/k434/4tX2X9vcPbitmRs9xCf/SDomD2ULEe1cf8=",
+        "lastModified": 1756197898,
+        "narHash": "sha256-0X6qBT9lbKlQPZH5PRopNyJcdsgh6NU8rxQf2DK47EM=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "5b0801cbc9d930d051eb862769c55ab05be09642",
+        "rev": "4630369f874fe8fab0607c7e4f2b375d7ab78741",
         "type": "github"
       },
       "original": {
@@ -462,11 +462,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1756108943,
-        "narHash": "sha256-deHLhdlCR0UjbIsOxQPeFMrwj9ehSe5mp+WTxsp6ouI=",
+        "lastModified": 1756208965,
+        "narHash": "sha256-vOIAYDdcbjI/os3DUG/0pFMjaMRaMXkzC60J1T1mado=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "91bdd1a3d8557a726ae80510dafd3aa284b87ee7",
+        "rev": "4f2e1f0b05963632069cd18e0ed40d5ee8fd5730",
         "type": "github"
       },
       "original": {
@@ -643,11 +643,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1755615617,
-        "narHash": "sha256-HMwfAJBdrr8wXAkbGhtcby1zGFvs+StOp19xNsbqdOg=",
+        "lastModified": 1756125398,
+        "narHash": "sha256-XexyKZpf46cMiO5Vbj+dWSAXOnr285GHsMch8FBoHbc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
+        "rev": "3b9f00d7a7bf68acd4c4abb9d43695afb04e03a5",
         "type": "github"
       },
       "original": {
@@ -803,11 +803,11 @@
         "sqlite-lib-src": "sqlite-lib-src"
       },
       "locked": {
-        "lastModified": 1756139281,
-        "narHash": "sha256-A0FYRaFr7rBtJD5DeTDLxF42Yj8MsN3fdd7wgH9dSmk=",
+        "lastModified": 1756209045,
+        "narHash": "sha256-AysE94uRmnQ0oS4XhWsshBqVWT8UayRv72n5nwSQqMo=",
         "ref": "refs/heads/master",
-        "rev": "8dae47cfb25506690fe32082fb973fabdb57af9f",
-        "revCount": 1234,
+        "rev": "45cd444e2d42524fbe24f4146701450bac9b9d21",
+        "revCount": 1238,
         "type": "git",
         "url": "https://tangled.sh/@tangled.sh/core"
       },
