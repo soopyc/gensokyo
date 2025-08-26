@@ -6,11 +6,13 @@
 lib.mkIf config.gensokyo.traits.gui {
   # hopefully eradicate suspend
   services.logind = {
-    suspendKey = "lock";
-    extraConfig = ''
-      IdleAction=lock
-    '';
-    killUserProcesses = false;
+    settings.Login = {
+      KillUserProcesses = false;
+      HandleSuspendKey = "lock";
+      HandleHibernateKey = "lock";
+      HandleLidSwitch = "lock";
+      IdleAction = "lock";
+    };
   };
 
   systemd.targets =
