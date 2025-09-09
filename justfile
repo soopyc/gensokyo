@@ -12,6 +12,10 @@ build system="" +extra_args="":
 		{{extra_args}} |& nom --json
 	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
 
+# evaluate the configuration for a system
+eval system:
+	nix eval .#nixosConfigurations.{{system}}.config.system.build.toplevel
+
 # build and test the configuration, but don't switch
 test system="":
 	nixos-rebuild -v -L test --flake .#{{system}} --accept-flake-config
@@ -32,6 +36,7 @@ defer system="": sudo_cache
 
 build-all: (for-all-systems 'build' 'true')
 deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)' true)
+eval-all: (for-all-systems 'eval' 'true')
 
 # check the flake
 check:
