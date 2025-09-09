@@ -18,6 +18,9 @@ lib.mkIf traits.gui {
       # great feature, but breaks a bit too many things :(
       # minimum-contrast = 1.1;
       async-backend = "epoll"; # see if this fixes iowait "bug"
+
+      custom-shader = builtins.toString ./assets/cursor_smear.glsl;
+      custom-shader-animation = true;
     };
   };
 }
