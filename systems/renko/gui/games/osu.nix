@@ -8,8 +8,8 @@ lib.mkIf config.gensokyo.traits.games {
   environment.systemPackages = [
     # this override is crap don't do it
     (pkgs.callPackage ./_osu.nix {
-      version = "2025.813.0-tachyon";
-      hash = "sha256-etZJEFXY0W9S7z5UvTywA5E636PaLJsqkzCKW/DF5Sg=";
+      version = "2025.905.0-tachyon";
+      hash = "sha256-ApMGaKwHZ4I+1LFKzkF4kls9dRCLjYKBiJr82rBSYnU=";
       # nativeWayland = true; # this doesnt window properly
     })
   ];
