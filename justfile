@@ -21,10 +21,10 @@ test system="":
 	nixos-rebuild -v -L test --flake .#{{system}} --accept-flake-config
 
 deploy system:
-	nixos-rebuild switch --flake .#{{system}} --target-host {{system}} --sudo --ask-sudo-password -v -L --use-substitutes
+	nixos-rebuild switch --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L --use-substitutes
 
 dry-deploy system:
-	nixos-rebuild build --flake .#{{system}} --target-host {{system}} --sudo --ask-sudo-password -v -L --use-substitutes
+	nixos-rebuild build --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L --use-substitutes
 
 # switch to the current configuration
 switch system="": sudo_cache
