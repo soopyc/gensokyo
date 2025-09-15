@@ -1,9 +1,16 @@
-{ ... }:
 {
   programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
     enable = true;
     qemu.swtpm.enable = true;
+  };
+
+  # try virtualbox
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableKvm = true;
+    enableExtensionPack = false;
+    addNetworkInterface = false; # conflicts with KVM
   };
 
   # GPU Passthrough
