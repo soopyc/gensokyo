@@ -13,7 +13,7 @@ lib.mkMerge [
       enable = true;
       userSettings = {
         # crap disablement
-        assistant = {
+        agent = {
           version = "1";
           enabled = false;
         };
