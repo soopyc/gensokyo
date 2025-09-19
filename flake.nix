@@ -18,7 +18,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/release-25.05";
     hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
 
