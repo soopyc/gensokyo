@@ -27,7 +27,10 @@ lib.mkMerge [
         # display
         ui_font_size = 20;
         buffer_font_size = 16;
-        buffer_font_family = "Cascadia Code";
+        buffer_font_family = "Fira Code";
+        buffer_font_weight = 500;
+        buffer_font_features.calt = false;
+
         preferred_line_length = 120;
         wrap_guides = [ 120 ];
         show_whitespaces = "all";
