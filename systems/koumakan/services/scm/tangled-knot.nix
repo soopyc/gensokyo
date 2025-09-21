@@ -10,14 +10,6 @@ let
   };
 in
 {
-  imports = [
-    secrets.generate
-
-    (secrets.mkTemplate "knotserver.env" ''
-      KNOT_SERVER_SECRET=${secrets.placeholder "knot/key"}
-    '')
-  ];
-
   services.tangled-knotserver = {
     enable = true;
     user = "knot";
@@ -29,12 +21,15 @@ in
       internalListenAddr = "127.0.0.1:34196";
     };
 
+    extraConfig = {
+      KNOT_SERVER_OWNER = "did:plc:jmr637khkdb2fdxxvoyj672m";
+    };
+
     extraSshdConfig = ''
       Banner none
       PasswordAuthentication no
       KbdInteractiveAuthentication no
     '';
-    environmentFile = secrets.getTemplate "knotserver.env";
   };
 
   services.nginx.virtualHosts."enanan.staging.soopy.moe" = _utils.mkSimpleProxy {
