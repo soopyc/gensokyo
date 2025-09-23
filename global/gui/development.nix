@@ -6,7 +6,7 @@
 }:
 lib.mkIf config.gensokyo.traits.gui {
   environment.systemPackages = [
-    pkgs.vscode
+    pkgs.vscodium
 
     # school requirement
     pkgs.eclipses.eclipse-java
