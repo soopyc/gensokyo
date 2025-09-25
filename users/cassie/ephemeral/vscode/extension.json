@@ -1,0 +1,22 @@
+[
+  "anweber.local-sync",
+  "astro-build.astro-vscode",
+  "catppuccin.catppuccin-vsc",
+  "catppuccin.catppuccin-vsc-icons",
+  "dbaeumer.vscode-eslint",
+  "editorconfig.editorconfig",
+  "esbenp.prettier-vscode",
+  "formulahendry.auto-rename-tag",
+  "gruntfuggly.todo-tree",
+  "hossaini.bootstrap-intellisense",
+  "inlang.vs-code-extension",
+  "jnoortheen.nix-ide",
+  "mkhl.direnv",
+  "ms-python.debugpy",
+  "ms-python.python",
+  "ms-vscode.hexeditor",
+  "redhat.vscode-yaml",
+  "svelte.svelte-vscode",
+  "usernamehw.errorlens",
+  "yoavbls.pretty-ts-errors"
+]

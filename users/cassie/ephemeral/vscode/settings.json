@@ -1,0 +1,87 @@
+{
+  // reduce eye strain
+  "terminal.integrated.fontFamily": "Hurmit Nerd Font Mono",
+  "terminal.integrated.enableImages": true,
+  "terminal.integrated.enableVisualBell": true,
+  "terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.environmentChangesIndicator": "on",
+  "git.terminalGitEditor": false,
+  // ricing
+  "workbench.colorTheme": "Catppuccin Latte",
+  "catppuccin.accentColor": "pink",
+  "catppuccin.boldKeywords": true,
+  "editor.renderWhitespace": "all",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "phase",
+  "editor.fontFamily": "'Hurmit Nerd Font', 'Menlo', monospace",
+  "editor.fontSize": 17,
+  "editor.lineHeight": 1.65,
+  "editor.fontLigatures": false,
+  "errorLens.statusBarIconsEnabled": true,
+  "errorLens.gutterIconSet": "defaultOutline",
+  "errorLens.statusBarColorsEnabled": true,
+  "errorLens.statusBarIconsPriority": 1000,
+  "workbench.iconTheme": "catppuccin-latte",
+  "explorer.confirmDelete": false,
+  "files.autoSave": "onFocusChange",
+  "git.suggestSmartCommit": false,
+  "git.verboseCommit": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "window.autoDetectColorScheme": true,
+  "git.branchRandomName.dictionary": [
+    "adjectives",
+    "colors",
+    "animals"
+  ],
+  "todo-tree.general.statusBar": "top three",
+  "window.titleBarStyle": "native",
+  "window.dialogStyle": "custom",
+  "window.customTitleBarVisibility": "never",
+  "svelte.enable-ts-plugin": true,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "editor.insertSpaces": false,
+  "json.format.enable": false,
+  "editor.rulers": [
+    100
+  ],
+  "todo-tree.highlights.useColourScheme": true,
+  "window.confirmBeforeClose": "keyboardOnly",
+  "prettier.useEditorConfig": false,
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hant": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "bootstrapIntelliSense": {
+    "enable": true,
+    "bsVersion": "5.3.6",
+    "useLocalFile": false,
+    "cssFilePath": "",
+    "languageSupport": []
+  },
+  "git.closeDiffOnOperation": true,
+  "redhat.telemetry.enabled": false,
+  "update.mode": "none",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.terminal.activateEnvironment": false,
+  "git.openRepositoryInParentFolders": "never",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.stickyScroll.enabled": false,
+  // shit removal
+  "chat.agent.enabled": false,
+  "chat.detectParticipant.enabled": false,
+  "chat.checkpoints.enabled": false,
+  "chat.disableAIFeatures": true,
+  // backups
+  "local-sync.autobackup": true,
+  "local-sync.autorestore": true
+}
