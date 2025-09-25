@@ -6,6 +6,7 @@
 }:
 lib.mkIf config.gensokyo.traits.gui {
   environment.systemPackages = [
+    pkgs.sshfs
     pkgs.vscodium
 
     # school requirement
