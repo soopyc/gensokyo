@@ -1,4 +1,4 @@
-{...}: {
+{
   services.nginx = {
     enable = true;
     recommendedOptimisation = true;
