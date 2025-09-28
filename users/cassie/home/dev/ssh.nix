@@ -21,6 +21,7 @@
       backup = {
         hostname = "koumakan";
         user = "forgejo";
+        identitiesOnly = true;
         identityFile = "~/.ssh/id_minecraft_backup";
       };
     };
