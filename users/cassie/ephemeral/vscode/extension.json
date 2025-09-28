@@ -4,6 +4,7 @@
   "catppuccin.catppuccin-vsc",
   "catppuccin.catppuccin-vsc-icons",
   "dbaeumer.vscode-eslint",
+  "denoland.vscode-deno",
   "editorconfig.editorconfig",
   "esbenp.prettier-vscode",
   "formulahendry.auto-rename-tag",
