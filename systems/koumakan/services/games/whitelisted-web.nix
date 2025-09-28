@@ -28,7 +28,7 @@ in
 
     settings = {
       PORT = "30274";
-      PUBLIC_URL = "https://renko.mist-nessie.ts.net:5173";
+      PUBLIC_URL = "https://mc.soopy.moe";
       PUBLIC_TOS_URI_TEMPLATE = "/tos/%LANG%.md";
       PUBLIC_SERVER_IP = "mc.soopy.moe"; # the public minecraft server IP
       PUBLIC_TURNSTILE_SITEID = "0x4AAAAAABifUhFToAkxeZDM";
