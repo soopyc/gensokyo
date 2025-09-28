@@ -1,4 +1,4 @@
-# Copyright (c) 2023 Cassie Cheung (soopyc)
+# Copyright (c) 2023 soopyc
 # Permission is given to copy and use under the terms of Apache 2.0.
 #
 # you may copy-paste this entire file to anywhere else. just keep the comments.

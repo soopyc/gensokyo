@@ -8,7 +8,7 @@
   programs.git = lib.mkMerge [
     {
       enable = true;
-      userName = "Cassie Cheung";
+      userName = "Sophie Cheung";
       userEmail = "me@soopy.moe";
 
       # difftastic.enable = true;
