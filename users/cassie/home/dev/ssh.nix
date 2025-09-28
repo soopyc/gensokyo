@@ -17,6 +17,12 @@
         hostname = "github.com";
         user = "git";
       };
+
+      backup = {
+        hostname = "koumakan";
+        user = "forgejo";
+        identityFile = "~/.ssh/id_minecraft_backup";
+      };
     };
 
     # extraConfig is config for the Host * block.
