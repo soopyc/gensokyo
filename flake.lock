@@ -730,7 +730,8 @@
         "nixpkgs": "nixpkgs_6",
         "sops-nix": "sops-nix",
         "tangled-core": "tangled-core",
-        "treefmt-nix": "treefmt-nix_3"
+        "treefmt-nix": "treefmt-nix_3",
+        "whitelisted-web": "whitelisted-web"
       }
     },
     "rust-overlay": {
@@ -907,6 +908,24 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "whitelisted-web": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1759076896,
+        "narHash": "sha256-PrnYydY6FLsUbbUTqQ5qT5Jd7dO4aS+U+BgaULeCGyk=",
+        "rev": "4f73a4b5345bb47c4f1cd56b5dca7f4cac23d5b5",
+        "type": "tarball",
+        "url": "https://patchy.soopy.moe/api/v1/repos/soopyc/whitelisted-web/archive/4f73a4b5345bb47c4f1cd56b5dca7f4cac23d5b5.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://patchy.soopy.moe/soopyc/whitelisted-web/archive/main.tar.gz"
       }
     },
     "zig": {

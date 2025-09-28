@@ -5,6 +5,7 @@
     inputs.mystia.nixosModules.vmauth
     inputs.mystia.nixosModules.bsky-pds
     inputs.hydra.nixosModules.hydra
+    inputs.whitelisted-web.nixosModules.default
     inputs.knotserver-module.nixosModules.default
 
     ./hardware-configuration.nix

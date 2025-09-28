@@ -17,6 +17,7 @@
 
     ./ci
     ./databases
+    ./games
     ./mirror
     ./proxies
     ./scm
