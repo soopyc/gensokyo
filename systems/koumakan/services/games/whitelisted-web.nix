@@ -40,7 +40,13 @@ in
     environmentFile = secrets.getTemplate "whitelisted-web.env";
   };
 
-  services.nginx.virtualHosts."mc.soopy.moe" = _utils.mkSimpleProxy {
-    port = 30274;
+  services.nginx.virtualHosts."mc.soopy.moe" = _utils.mkVhost {
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:30274";
+    };
+
+    locations."/map/" = {
+      proxyPass = "http://renko.mist-nessie.ts.net:8100/";
+    };
   };
 }
