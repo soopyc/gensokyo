@@ -84,6 +84,7 @@
   // backups
   "local-sync.autobackup": true,
   "local-sync.autorestore": true,
+  "sherlock.userId": "6a5316dc-c799-445c-934c-34b77e148545",
   "[dockercompose]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
