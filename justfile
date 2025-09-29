@@ -52,6 +52,10 @@ utils recipe="list" +extras="":
 	@echo "Running utils/{{recipe}}"
 	@just -d utils -f utils/justfile {{recipe}} {{extras}}
 
+# commit ephemeral/auto-generated files
+ephemeral:
+	git commit --gpg-sign -m "chore: update ephemeral files" users/cassie/ephemeral/
+
 # update an input in the flake lockfile
 update-input input:
 	nix flake lock --update-input {{input}}
