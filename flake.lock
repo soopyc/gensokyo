@@ -917,11 +917,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1759141554,
-        "narHash": "sha256-QEJPlTnm0xuNZ8mODg4XakJEEQdWlKA8Z7eUj96700M=",
-        "rev": "1b3cb9faca99a58d6bb46059452ac759efc0122e",
+        "lastModified": 1759145940,
+        "narHash": "sha256-gSFS1PFp6JS6PP9k9ybuPmTyRbJ6LzmV2ww/aBJdYmY=",
+        "rev": "5efea6e3ffcf453f60256e42e85d8aa01418b297",
         "type": "tarball",
-        "url": "https://patchy.soopy.moe/api/v1/repos/soopyc/whitelisted-web/archive/1b3cb9faca99a58d6bb46059452ac759efc0122e.tar.gz"
+        "url": "https://patchy.soopy.moe/api/v1/repos/soopyc/whitelisted-web/archive/5efea6e3ffcf453f60256e42e85d8aa01418b297.tar.gz"
       },
       "original": {
         "type": "tarball",
