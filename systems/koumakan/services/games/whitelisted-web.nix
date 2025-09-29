@@ -26,10 +26,12 @@ in
       PUBLIC_STATIC_CONTACT_INFO = ''{"Email": "mailto:Sophie Cheung <me@soopy.moe>"}'';
     };
 
+    extraAssets = ./whitelisted-assets;
+
     settings = {
       PORT = "30274";
       PUBLIC_URL = "https://mc.soopy.moe";
-      PUBLIC_TOS_URI_TEMPLATE = "/tos/%LANG%.md";
+      PUBLIC_TOS_URI_TEMPLATE = "/tos/{LANG}.md";
       PUBLIC_SERVER_IP = "mc.soopy.moe"; # the public minecraft server IP
       PUBLIC_TURNSTILE_SITEID = "0x4AAAAAABifUhFToAkxeZDM";
       PUBLIC_ENTRA_CLIENT_ID = "807b9c9e-69c9-4b9f-b020-01dbf256623b";
