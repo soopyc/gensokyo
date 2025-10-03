@@ -30,6 +30,8 @@ dry-deploy system:
 switch system="": sudo_cache
 	sudo nixos-rebuild -v -L switch --flake .#{{system}} --accept-flake-config --keep-going
 
+sw: switch
+
 # literally nixos-rebuild boot with a different name
 defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake .#{{system}} --accept-flake-config
