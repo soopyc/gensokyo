@@ -5,7 +5,14 @@
 }:
 lib.mkMerge [
   {
-    programs.helix.enable = true;
+    programs.helix = {
+      enable = true;
+      settings.language = [{
+        name = "yaml";
+        scope = "source.yaml";
+        indent = {unit = "  ";};
+      }];
+    };
   }
 
   (lib.mkIf traits.gui {
