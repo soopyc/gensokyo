@@ -7,11 +7,16 @@ lib.mkMerge [
   {
     programs.helix = {
       enable = true;
-      settings.language = [{
-        name = "yaml";
-        scope = "source.yaml";
-        indent = {unit = "  ";};
-      }];
+      languages.language = [
+        {
+          name = "yaml";
+          scope = "source.yaml";
+          indent = {
+            unit = "  ";
+            tab-width = 2;
+          };
+        }
+      ];
     };
   }
 
