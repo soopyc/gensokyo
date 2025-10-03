@@ -26,6 +26,8 @@ lib.mkIf (traits.gui) {
         "(?d)**/node_modules"
         "(?d)**/target"
         "(?d)**/.svelte-kit"
+        "(?d)**/build"
+        "(?d)**/.gradle"
       ];
       folders = {
         "/home/cassie/projects/synced" = {
