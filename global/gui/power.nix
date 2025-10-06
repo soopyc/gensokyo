@@ -4,7 +4,6 @@
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
-  # hopefully eradicate suspend
   services.logind = {
     # settings.Login = {
     #   KillUserProcesses = false;
@@ -15,11 +14,12 @@ lib.mkIf config.gensokyo.traits.gui {
     # };
   };
 
+  # hopefully eradicate buggy shid
   systemd.targets =
     lib.genAttrs
       [
-        "sleep"
-        "suspend"
+        # "sleep"
+        # "suspend"
         "hibernate"
         "hybrid-sleep"
       ]

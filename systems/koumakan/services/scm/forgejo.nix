@@ -18,10 +18,6 @@ let
   ];
   ns = "forgejo";
   mkSecret = file: config.sops.secrets."${ns}/${file}".path;
-  # mkSecret = file:
-  #   if !lib.elem file secrets
-  #   then throw "Could not find requested secret ${file} in definition."
-  #   else "/run/secrets/${ns}";
 
   runConfig = config.services.forgejo.customDir + "/conf/app.ini";
 in

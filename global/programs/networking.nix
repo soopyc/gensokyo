@@ -30,7 +30,7 @@ lib.mkMerge [
   }
 
   (lib.mkIf config.gensokyo.traits.portable {
-    networking.networkmanager.wifi.backend = lib.mkForce "wpa_supplicant";
+    networking.networkmanager.wifi.backend = "wpa_supplicant";
   })
 
   (lib.mkIf (!config.gensokyo.traits.sensitive) {

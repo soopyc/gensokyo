@@ -33,7 +33,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
 
   # development
-  services.redis.servers."".enable = true;
+  # services.redis.servers."".enable = true;
 
   boot.initrd.systemd.enable = true;
   hardware.apple.touchBar = {
@@ -62,6 +62,16 @@
       after = [ "post-resume.target" ];
     };
   };
+
+  environment.etc."systemd/timesyncd.conf.d/50-save-clock.conf".text = ''
+    [Time]
+    SaveIntervalSec=30
+  '';
+
+  environment.systemPackages = [
+    pkgs.jetbrains.idea-ultimate
+    pkgs.prismlauncher
+  ];
 
   zramSwap.enable = true;
 
