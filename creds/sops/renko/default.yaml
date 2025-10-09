@@ -1,5 +1,7 @@
 vmetrics:
     auth: ENC[AES256_GCM,data:oxbj18DlfPJ+PEdIj6YEdF66ZZNar1l9Mak0Bmqu2AOZWlhCo2aRlrcGfvs7mORplvQmcfh5MwjTqGExjQX4ke28SZ7pszoLMGM3XR2BdedPNsO0KcI/zV19dAL1wijBr1c2qqDJGqqO1P0UzLaUbonl9bskG8L9+lB2pr8aU7z1Unejd/Qq2Ae/3x9Ku82deeP5jGWJkeUae9wADEsBPdbqRbv1bpW5zzmc2A==,iv:x65jPFbodvp3/v09OJ0BIgxMUFOLBkpiKRVMoB8seP4=,tag:wz5UVNBJoSl2994GYjVgpA==,type:str]
+forgejo:
+    tokenFile: ENC[AES256_GCM,data:zY6+75ES2lKwOl9L0lTbolpOu7XqWkfJPYw59557DUqjCFyEqyP2BknCgVhqWA==,iv:U6xv/0CE3i6ea67QBo3PeOhzuyRWbEEtDZbvLgBnrko=,tag:K6KrXGqArx9Dd+Q53T+Ilw==,type:str]
 sops:
     age:
         - recipient: age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
@@ -29,7 +31,7 @@ sops:
             S2duS3ZmMVZJYW9HOERMc1FadlZIekEKaXDFW+Szv9WlqQMIr6Mc5qYlMyt8M19u
             DmMZu5Mzl2bLQK5LQvT/iLktWZZidYKfOuP73HpAFf8iIhYXBOLKMQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-06-22T16:04:28Z"
-    mac: ENC[AES256_GCM,data:pUH2KLxV/PuMANhICBpqqUfjHCNzSJVCdtUJqjQM5NbMpWJlt1FhLoQZy+4QLoU9V6p8kmFOuG+J8KLPfs40/W69JfXtfhxWZ74W+qdEEp7LOxAqNFm4Nwxe53Jmz1QiD30BKo9d/l46B1pHvjSCevqGGPSJYIjZICXnZ+PvKkI=,iv:tNSfRB95Ve4XmIsJpqHq2HDauAZunDl9PT0fNHJ4ISg=,tag:QY6dcrAVnxTu1Higo5aHeA==,type:str]
+    lastmodified: "2025-10-03T01:46:03Z"
+    mac: ENC[AES256_GCM,data:zD5HByLfLjAvAC1XjN0ZhSVkihEAnNs2tKT8dN11NLy5ne52wMDcWaaxnUSj6zFC98vnlELATCUu7JuOzaFp0YTBWcD5hknXbcCKMhAnF92ArXw0O4Iq7wYSX5xZzbCoYfU9FMZi76GfJ1RoY1c6R+6gACTNeYml1ZgH7IGDTAY=,iv:xZvHlck+vYELhWP2yvTP4eWx4lTfJvQYSwm8LHJyiuc=,tag:LlPEJpLbkTsIktjeSWY1bw==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.10.2
