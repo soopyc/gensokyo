@@ -5,6 +5,8 @@
     qemu.swtpm.enable = true;
   };
 
+  virtualisation.waydroid.enable = true;
+
   # try virtualbox
   virtualisation.virtualbox.host = {
     enable = true;
