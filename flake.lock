@@ -675,18 +675,15 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1759735786,
-        "narHash": "sha256-a0+h02lyP2KwSNrZz4wLJTu9ikujNsTWIC874Bv7IJ0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "20c4598c84a671783f741e02bf05cbfaf4907cff",
-        "type": "github"
+        "lastModified": 1760324802,
+        "narHash": "sha256-VWlJtLQ5EQQj45Wj0yTExtSjwRyZ59/qMqEwus/Exlg=",
+        "rev": "7e297ddff44a3cc93673bb38d0374df8d0ad73e4",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.811135.7e297ddff44a/nixexprs.tar.xz"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://nixpkgs.dev/channel/nixos-25.05"
       }
     },
     "pre-commit-hooks-nix": {

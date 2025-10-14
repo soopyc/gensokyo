@@ -15,7 +15,7 @@
   inputs = {
     mystia.url = "github:soopyc/mystia";
     # nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.05";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix/release-25.05";
