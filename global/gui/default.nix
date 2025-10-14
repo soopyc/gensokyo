@@ -11,6 +11,7 @@
 
     ./dm.nix
     ./wayland.nix
+    ./niri.nix
     ./kde.nix
     ./fonts.nix
 
