@@ -37,5 +37,5 @@ in
   # cloud servers
   kita = mkSystem "kita" "x86_64-linux";
   ryo = mkSystem "ryo" "x86_64-linux";
-  nijika = mkSystem "nijika" "aarch64-linux";
+  # nijika = mkSystem "nijika" "aarch64-linux";
 }
