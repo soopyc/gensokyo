@@ -8,6 +8,7 @@
   users = {
     users.backup = {
       isNormalUser = true;
+      group = "backup";
       shell = pkgs.bashInteractive;
       packages = with pkgs; [ rsync ];
       openssh.authorizedKeys.keyFiles = lib.singleton (inputs.self + "/creds/ssh/users/backup");
@@ -25,15 +26,16 @@
         ${lib.getExe pkgs.btrfs-progs} subvolume create /home/backup
       fi
 
-      chown backup /home/backup
+      chown backup:backup /home/backup
       chmod 0550 /home/backup
-      install -dm755 /home/backup/public
-      install -dm700 /home/backup/private
+      install -dm755 -o backup -g backup /home/backup/public
+      install -dm700 -o backup -g backup /home/backup/private
     '';
   };
 
   systemd = {
     services."snapshot-backup" = {
+      path = [ pkgs.btrfs-progs ];
       script = ''
         NOW=$(date -u +%Y%m%d.%H%M%S)
         DATA_PATH=/home/backup/public
