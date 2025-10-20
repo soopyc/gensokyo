@@ -28,5 +28,5 @@
       extraConfig = "autoindex on;";
     };
   };
-  systemd.services.nginx.serviceConfig.ReadOnlyPaths = lib.singleton "/home/cassie/Web";
+  systemd.services.nginx.serviceConfig.BindReadOnlyPaths = lib.singleton "/home/cassie/Web";
 }

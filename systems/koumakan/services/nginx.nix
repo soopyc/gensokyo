@@ -12,4 +12,7 @@
       brotli
     ];
   };
+
+  # necessary for stuff like backup-public.nix and user.nix
+  systemd.services.nginx.serviceConfig.ProtectHome = "tmpfs";
 }

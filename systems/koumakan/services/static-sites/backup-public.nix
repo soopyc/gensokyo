@@ -15,6 +15,6 @@
     };
   };
 
-  systemd.services.nginx.serviceConfig.ReadOnlyPaths = lib.singleton "/home/backup/public";
+  systemd.services.nginx.serviceConfig.BindReadOnlyPaths = lib.singleton "/home/backup/public";
   users.users.nginx.extraGroups = lib.singleton config.users.users.backup.name;
 }
