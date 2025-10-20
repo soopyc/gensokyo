@@ -40,6 +40,7 @@ lib.mkMerge [
       connect-timeout = 30;
       max-jobs = "auto";
       auto-optimise-store = true;
+      download-buffer-size = 268435456; # 256 MiB
     };
 
     nix.gc = {
