@@ -1,4 +1,9 @@
-{ _utils, lib, config, ... }:
+{
+  _utils,
+  lib,
+  config,
+  ...
+}:
 {
   services.nginx.virtualHosts."backups.soopy.moe" = _utils.mkVhost {
     locations."/" = {
@@ -10,5 +15,6 @@
     };
   };
 
+  systemd.services.nginx.serviceConfig.ReadOnlyPaths = lib.singleton "/home/backup/public";
   users.users.nginx.extraGroups = lib.singleton config.users.users.backup.name;
 }

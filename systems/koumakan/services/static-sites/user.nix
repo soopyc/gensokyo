@@ -1,4 +1,4 @@
-{ _utils, ... }:
+{ _utils, lib, ... }:
 {
   services.nginx.virtualHosts."users.soopy.moe" = _utils.mkVhost {
     locations."/" = _utils.mkNginxFile {
@@ -28,4 +28,5 @@
       extraConfig = "autoindex on;";
     };
   };
+  systemd.services.nginx.serviceConfig.ReadOnlyPaths = lib.singleton "/home/cassie/Web";
 }
