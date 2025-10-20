@@ -25,6 +25,7 @@
         ${lib.getExe pkgs.btrfs-progs} subvolume create /home/backup
       fi
 
+      chown backup /home/backup
       chmod 0550 /home/backup
       install -dm755 /home/backup/public
       install -dm700 /home/backup/private
