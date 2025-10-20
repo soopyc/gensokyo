@@ -1,6 +1,7 @@
 {
   imports = [
     ./assets.nix
+    ./backup-public.nix
     ./nonbunary.nix
     ./user.nix
     ./verification.nix
