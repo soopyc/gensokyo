@@ -24,14 +24,22 @@
     text = let
       btrfs = lib.getExe pkgs.btrfs-progs;
     in ''
-      test ! -e /home/backup && ${btrfs} subvolume create /home/backup
-      test ! -e /home/backup/private && ${btrfs} subvolume create /home/backup/private
-      test ! -e /home/backup/public && ${btrfs} subvolume create /home/backup/public
+      ensureSubvolume() {
+        mode=$1; shift
+        dir=$1; shift
 
-      chown backup:backup /home/backup /home/backup/{private,public}
-      chmod 0550 /home/backup
-      install -dm755 -o backup -g backup /home/backup/public
-      install -dm700 -o backup -g backup /home/backup/private
+        if test ! -e $dir; then
+          ${btrfs} subvolume create $dir
+        fi
+        chown backup:backup $dir
+        chmod $mode $dir
+      }
+
+      ensureSubvolume 550 /home/backup
+      ensureSubvolume 700 /home/backup/private
+      ensureSubvolume 700 /home/backup/private/snapshots
+      ensureSubvolume 755 /home/backup/public
+      ensureSubvolume 755 /home/backup/public/snapshots
     '';
   };
 
