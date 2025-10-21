@@ -21,12 +21,14 @@
   system.activationScripts.initBackupHome = {
     deps = [ "users" ];
     supportsDryActivation = false;
-    text = ''
-      if test ! -e /home/backup; then
-        ${lib.getExe pkgs.btrfs-progs} subvolume create /home/backup
-      fi
+    text = let
+      btrfs = lib.getExe pkgs.btrfs-progs;
+    in ''
+      test ! -e /home/backup && ${btrfs} subvolume create /home/backup
+      test ! -e /home/backup/private && ${btrfs} subvolume create /home/backup/private
+      test ! -e /home/backup/public && ${btrfs} subvolume create /home/backup/public
 
-      chown backup:backup /home/backup
+      chown backup:backup /home/backup /home/backup/{private,public}
       chmod 0550 /home/backup
       install -dm755 -o backup -g backup /home/backup/public
       install -dm700 -o backup -g backup /home/backup/private
