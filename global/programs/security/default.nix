@@ -1,9 +1,9 @@
-{ ... }:
 {
   imports = [
     ./crypto.nix
-    ./sudo.nix
-    ./pam.nix
     ./firewall.nix
+    ./kanidm.nix
+    ./pam.nix
+    ./sudo.nix
   ];
 }
