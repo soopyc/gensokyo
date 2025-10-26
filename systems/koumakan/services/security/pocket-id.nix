@@ -7,7 +7,10 @@
 let
   secrets = _utils.setupSecrets config {
     namespace = "pocket-id";
-    secrets = [ "encryption_key" "maxmind_key" ];
+    secrets = [
+      "encryption_key"
+      "maxmind_key"
+    ];
     config = {
       owner = config.users.users.pocket-id.name;
     };

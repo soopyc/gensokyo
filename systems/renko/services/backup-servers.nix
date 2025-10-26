@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   systemd.user = {
     timers.backup-2025 = {
       wantedBy = lib.singleton "default.target";
@@ -31,7 +32,7 @@
           --verbose \
           $SOURCE \
           $DESTINATION
-    '';
+      '';
     };
   };
 }

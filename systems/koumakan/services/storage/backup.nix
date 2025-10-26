@@ -21,26 +21,28 @@
   system.activationScripts.initBackupHome = {
     deps = [ "users" ];
     supportsDryActivation = false;
-    text = let
-      btrfs = lib.getExe pkgs.btrfs-progs;
-    in ''
-      ensureSubvolume() {
-        mode=$1; shift
-        dir=$1; shift
+    text =
+      let
+        btrfs = lib.getExe pkgs.btrfs-progs;
+      in
+      ''
+        ensureSubvolume() {
+          mode=$1; shift
+          dir=$1; shift
 
-        if test ! -e $dir; then
-          ${btrfs} subvolume create $dir
-        fi
-        chown backup:backup $dir
-        chmod $mode $dir
-      }
+          if test ! -e $dir; then
+            ${btrfs} subvolume create $dir
+          fi
+          chown backup:backup $dir
+          chmod $mode $dir
+        }
 
-      ensureSubvolume 550 /home/backup
-      ensureSubvolume 700 /home/backup/private
-      ensureSubvolume 700 /home/backup/private/snapshots
-      ensureSubvolume 755 /home/backup/public
-      ensureSubvolume 755 /home/backup/public/snapshots
-    '';
+        ensureSubvolume 550 /home/backup
+        ensureSubvolume 700 /home/backup/private
+        ensureSubvolume 700 /home/backup/private/snapshots
+        ensureSubvolume 755 /home/backup/public
+        ensureSubvolume 755 /home/backup/public/snapshots
+      '';
   };
 
   systemd = {
