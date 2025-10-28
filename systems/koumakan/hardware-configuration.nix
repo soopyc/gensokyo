@@ -39,6 +39,11 @@
     ];
   };
 
+  fileSystems."/var/lib/garage/data" = {
+    device = "/dev/disk/by-uuid/99607c97-0dc6-403e-b09a-7b40735f9176";
+    fsType = "xfs";
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/902b902d-3486-49de-9a58-7a079c9a090d"; }
   ];

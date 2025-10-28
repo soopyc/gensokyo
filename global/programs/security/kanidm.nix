@@ -1,4 +1,5 @@
-{ pkgs, ...}: {
+{ pkgs, ... }:
+{
   services.kanidm = {
     enableClient = true;
     package = pkgs.kanidm_1_7;

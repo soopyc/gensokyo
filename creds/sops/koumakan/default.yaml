@@ -85,6 +85,10 @@ whitelisted-web:
 pocket-id:
     encryption_key: ENC[AES256_GCM,data:aSWSWrd1dR6NpwLJE3Je4j6bnBMq7QFD8VX6u4XIKqFq3shwuM/fZitblSfVX92UdDFZnsZyRiAf57rH/9PB+saoOcdSUkC/rTYO0iGFLQLcOiSMfBdyKA==,iv:ZlCrKpT8LrcqDK7uCr1m8vp+reCdwcG6KhxFQsB+KqY=,tag:+MvOEXBnUP5QleY5f6kbuA==,type:str]
     maxmind_key: ENC[AES256_GCM,data:KfGuV+GbrZhDSDovV7eHu7nffOB6j+z6wsXQxlaEB/7tvwucn2wbxA==,iv:+t5nNpRE/x1cSZ+Ee6fHj5x1vKqTP/6NGqiUlhdzTxs=,tag://rUceu5SeIpgKGiP6+Pkw==,type:str]
+garage:
+    rpc_secret: ENC[AES256_GCM,data:+H+vxo8KtnWDVB6UF/wVaw0gFQqTLJ6lkVvfCrukNnNfiO/xTNpD1nNIykbLW8Ruz0WdhAF52ucvVXQ0cebyGSHMyFoi5YUl66SMNuIKM+fVPOembQLf5iys3kTKxj5RwyS2Gqc780zRM+8a3INS7icr2fuUkywrXRdQGv00fS0=,iv:jQ2xeXcRFZxSw1kVVv4/vUD8jbK/7yTrAYi/iZU4wNY=,tag:SVMaeaXdiraok3f+FN2ecw==,type:str]
+    admin_token: ENC[AES256_GCM,data:in/UjRG4jehvI0kjfD3TvheWN+7NNmU4GRuXEqBZocyd1E0NqP6DKxhpG6M=,iv:yTA4dQd36ou3gs6UGrsuONJzQ8DNTIsOi765GZIIaQI=,tag:HD401PZLEOaPNszV/04jJQ==,type:str]
+    metrics_token: ENC[AES256_GCM,data:BZ3TN+ubxwHNi8QZP+TmdVgcL88UzwDsv8Lema2ClxqYRZFddaQg2RIHHIM=,iv:k7xyeyzZiMK3R/Gr/f+8uN8zFOUJaaQ99AILoKMYa/c=,tag:mJhPxEjMKOjb/Z0KnGzN4w==,type:str]
 sops:
     age:
         - recipient: age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
@@ -114,7 +118,7 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-10-13T08:42:55Z"
-    mac: ENC[AES256_GCM,data:ocIWuopOoiUMxc6TMCxzBuicp5rzqX9oE9pXaIbFkRxjXwmskUwS8s00Xzqgo1K60+tnBFFK+zma+jMd7fKeBtkUqD00dgXMnLlUNmUt2s+Mq34nCt3hiNSOcqQHjBBIeSEiy/gqn1umdnCkV/zLBEP10u/EOdJ1Dlb1vA3gvqs=,iv:xS9HBMGmATAH/IxFide0tV4lTZ1HwjBTm+Be+4exczo=,tag:JQTIYw+PQ03mx5JE8rNPsg==,type:str]
+    lastmodified: "2025-10-28T07:05:28Z"
+    mac: ENC[AES256_GCM,data:YWBAo/szJudWIWZ9zEqDQa3v4aUTYI0b574rK6MAyKBvJbjAizYuzEd5O/A/OnhC/X2bPZteTDy3VuWJUJpBFZDpbLAFCF3lSy6ZDutsZ9yj90WyFGsKhTSMJGDwBJHaCz2bafJQqQrAwGoRcP/Mk27EMVM0Y+Cb4XsxRPNM/t4=,iv:Z9q0WPdPJFAgfYBPkJ8lVFwBDQa67T8e2o0cwQY4nYI=,tag:SDkqNZbc4P8ijCLrzcZGwQ==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.11.0
