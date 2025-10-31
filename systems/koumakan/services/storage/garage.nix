@@ -13,6 +13,7 @@ let
       "admin_token"
       "metrics_token"
     ];
+    config.owner = "garage";
   };
 in
 {
@@ -70,6 +71,12 @@ in
     Group = config.users.groups.garage.name;
     Restart = "on-failure";
     StateDirectory = lib.mkForce null; # this somehow breaks mounting dirs into /var/lib; systemd complains about id-mapped mount: device or resource busy
+    # ReadWritePaths = [
+    #   "/var/lib/garage"
+    #   "/var/lib/garage/data"
+    #   "/var/lib/garage/meta"
+    #   "/var/lib/garage/snapshots"
+    # ];
   };
 
   services.nginx.virtualHosts.".s3.soopy.moe" = _utils.mkSimpleProxy {

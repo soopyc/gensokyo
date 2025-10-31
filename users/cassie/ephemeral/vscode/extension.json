@@ -12,6 +12,7 @@
   "hossaini.bootstrap-intellisense",
   "inlang.vs-code-extension",
   "jnoortheen.nix-ide",
+  "llvm-vs-code-extensions.vscode-clangd",
   "minecraftcommands.syntax-mcfunction",
   "mkhl.direnv",
   "ms-python.debugpy",
