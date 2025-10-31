@@ -47,6 +47,12 @@ in
         root_domain = ".s3.soopy.moe";
       };
 
+      # this is needed because garage apparently still doesn't support anon access via path based api, so this is more like a hack than anything atm.
+      s3_web = {
+        bind_addr = "[::1]:39939";
+        root_domain = "root.invalid";
+      };
+
       rpc_bind_addr = "100.100.16.16:39931";
       rpc_public_addr = "koumakan.mist-nessie.ts.net:39931";
       rpc_secret_file = secrets.get "rpc_secret";
@@ -108,6 +114,10 @@ in
         '';
       };
     };
+  };
+
+  services.nginx.virtualHosts."cache.soopy.moe" = _utils.mkSimpleProxy {
+    port = 39939;
   };
 
   systemd.services.vmagent.serviceConfig.LoadCredential = [
