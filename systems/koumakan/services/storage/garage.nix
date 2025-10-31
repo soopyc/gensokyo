@@ -58,11 +58,18 @@ in
     };
   };
 
+  systemd.tmpfiles.settings."50-garage-init"."/var/lib/garage"."d" = {
+    user = "garage";
+    group = "garage";
+    mode = "0700";
+  };
+
   systemd.services.garage.serviceConfig = {
     DynamicUser = false; # we need to use a mounted filesystem and systemd explodes when i already have a mountpoint at /var/lib/garage/data.
     User = config.users.users.garage.name;
     Group = config.users.groups.garage.name;
     Restart = "on-failure";
+    StateDirectory = lib.mkForce null; # this somehow breaks mounting dirs into /var/lib; systemd complains about id-mapped mount: device or resource busy
   };
 
   services.nginx.virtualHosts.".s3.soopy.moe" = _utils.mkSimpleProxy {
