@@ -50,7 +50,7 @@ in
       # this is needed because garage apparently still doesn't support anon access via path based api, so this is more like a hack than anything atm.
       s3_web = {
         bind_addr = "[::1]:39939";
-        root_domain = "root.invalid";
+        root_domain = ".s3web.soopy.moe";
       };
 
       rpc_bind_addr = "100.100.16.16:39931";
@@ -77,17 +77,12 @@ in
     Group = config.users.groups.garage.name;
     Restart = "on-failure";
     StateDirectory = lib.mkForce null; # this somehow breaks mounting dirs into /var/lib; systemd complains about id-mapped mount: device or resource busy
-    # ReadWritePaths = [
-    #   "/var/lib/garage"
-    #   "/var/lib/garage/data"
-    #   "/var/lib/garage/meta"
-    #   "/var/lib/garage/snapshots"
-    # ];
   };
 
   services.nginx.virtualHosts.".s3.soopy.moe" = _utils.mkSimpleProxy {
     port = 39930;
     extraConfig = {
+      useACMEHost = "s3.soopy.moe";
       extraConfig = ''
         client_max_body_size 32G;
         proxy_max_temp_file_size 0;
@@ -116,8 +111,9 @@ in
     };
   };
 
-  services.nginx.virtualHosts."cache.soopy.moe" = _utils.mkSimpleProxy {
+  services.nginx.virtualHosts."*.s3web.soopy.moe" = _utils.mkSimpleProxy {
     port = 39939;
+    extraConfig.useACMEHost = "s3.soopy.moe";
   };
 
   systemd.services.vmagent.serviceConfig.LoadCredential = [
@@ -137,5 +133,11 @@ in
     # https://docs.victoriametrics.com/sd_configs/#scrape_configs
     # hard coding because we can't use %{ENV_VAR} syntax (yet) when checking.
     bearer_token_file = "/run/credentials/vmagent.service/garage_token";
+  };
+
+  ##################### NAMED BUCKETS WITH WEB HOSTING ###########################
+
+  services.nginx.virtualHosts."cache.soopy.moe" = _utils.mkSimpleProxy {
+    port = 39939;
   };
 }
