@@ -31,7 +31,7 @@ in
     settings = {
       CORE_PORT = 34638;
       DATASOURCE_TYPE = "s3";
-      DATASOURCE_S3_BUCKET = "zipline";
+      DATASOURCE_S3_BUCKET = "zipline-01";
       DATASOURCE_S3_REGION = "ap-east-1";
       DATASOURCE_S3_ENDPOINT = "https://s3.soopy.moe";
       DATASOURCE_S3_FORCE_PATH_STYLE = "true";
