@@ -2,21 +2,22 @@
   pkgs,
   lib,
   config,
-  inputs,
+  # inputs,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
-  fonts.packages = [
-    pkgs.nerd-fonts.hurmit
-    pkgs.nerd-fonts.fira-mono
+  fonts.packages = with pkgs; [
+    nerd-fonts.hurmit
+    nerd-fonts.fira-mono
 
-    pkgs.cozette
-    pkgs.fira-code
-    pkgs.noto-fonts
-    pkgs.noto-fonts-cjk-sans
-    pkgs.noto-fonts-emoji-blob-bin
+    cozette
+    fira-code
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji-blob-bin
 
-    inputs.mystia.packages.${pkgs.system}.nishiki-teki
+    last-resort
+    # inputs.mystia.packages.${pkgs.system}.nishiki-teki
   ];
 
   fonts.fontconfig = {
