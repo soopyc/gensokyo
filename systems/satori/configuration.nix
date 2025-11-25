@@ -73,6 +73,16 @@
     pkgs.prismlauncher
   ];
 
+  # TODO: make this a trait
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
+
+  users.groups.docker.members = [
+    "cassie"
+  ];
+
   zramSwap.enable = true;
 
   # muh unfree software!!!!!!!!!!!!!!!!!!
