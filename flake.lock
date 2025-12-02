@@ -243,11 +243,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1764280348,
-        "narHash": "sha256-koM+VSWyCMlXNwElrW7zvlM6Eni49IvVM2VVRQ7Zrew=",
+        "lastModified": 1764605702,
+        "narHash": "sha256-ZGIKHORnvJ+6ghU/KjtXTesbRB4S75KwwAat7UFMpXU=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "199119967b3070b50150b59805341bfdbdc7b2b2",
+        "rev": "5714ed07a1012573261b7b7e3ed2add9c1504496",
         "type": "github"
       },
       "original": {
@@ -323,16 +323,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1763992789,
-        "narHash": "sha256-WHkdBlw6oyxXIra/vQPYLtqY+3G8dUVZM8bEXk0t8x4=",
+        "lastModified": 1764613336,
+        "narHash": "sha256-L979az28t/+SXvYw9qhOno5HLlDwkZOpz6LzCLnjmRM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "44831a7eaba4360fb81f2acc5ea6de5fde90aaa3",
+        "rev": "f3902b5d8767985680875ad86d028371100faeb3",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -548,11 +548,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1763870992,
-        "narHash": "sha256-NPyc76Wxmv/vAsXJ8F+/8fXECHYcv2YGSqdiSHp/F/A=",
+        "lastModified": 1764475780,
+        "narHash": "sha256-77jL5H5x51ksLiOUDjY0ZK8e2T4ZXLhj3ap8ETvknWI=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "d7423982c7a26586aa237d130b14c8b302c7a367",
+        "rev": "5a3ff8c1a09003f399f43d5742d893c0b1ab8af0",
         "type": "github"
       },
       "original": {
@@ -586,11 +586,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1762180855,
-        "narHash": "sha256-869wVd48SypgwNuXQQizmFTocbXmSsCir76jH1UKi8w=",
+        "lastModified": 1764413095,
+        "narHash": "sha256-Hk8mMlcXb6AIKCpCDx0ZlpUd4RaEqmWzote/T5139zY=",
         "owner": "soopyc",
         "repo": "nixos-hardware",
-        "rev": "a8ed697c0aefcdfb3334f2f02a4858a634d69f77",
+        "rev": "32ea05037f81b73fcce9b4b261dd88af5b1ccc28",
         "type": "github"
       },
       "original": {
@@ -691,15 +691,15 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1763948260,
-        "narHash": "sha256-zZk7fn2ARAqmLwaYTpxBJmj81KIdz11NiWt7ydHHD/M=",
-        "rev": "1c8ba8d3f7634acac4a2094eef7c32ad9106532c",
+        "lastModified": 1764522689,
+        "narHash": "sha256-GzkEBSHGkj8EyOxnxQvl9sx0x2S7JzH0hwCziF176T8=",
+        "rev": "8bb5646e0bed5dbd3ab08c7a7cc15b75ab4e1d0f",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.813095.1c8ba8d3f763/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.650.8bb5646e0bed/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://nixpkgs.dev/channel/nixos-25.05"
+        "url": "https://nixpkgs.dev/channel/nixos-25.11"
       }
     },
     "pre-commit-hooks-nix": {
@@ -776,11 +776,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764021963,
-        "narHash": "sha256-1m84V2ROwNEbqeS9t37/mkry23GBhfMt8qb6aHHmjuc=",
+        "lastModified": 1764483358,
+        "narHash": "sha256-EyyvCzXoHrbL467YSsQBTWWg4sR96MH1sPpKoSOelB4=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "c482a1c1bbe030be6688ed7dc84f7213f304f1ec",
+        "rev": "5aca6ff67264321d47856a2ed183729271107c9c",
         "type": "github"
       },
       "original": {
@@ -849,11 +849,11 @@
         "sqlite-lib-src": "sqlite-lib-src"
       },
       "locked": {
-        "lastModified": 1764005195,
-        "narHash": "sha256-PzuWiW/nMxwQTX0i1bHwGazQF4ptLNI9OGwpmhDb9i0=",
+        "lastModified": 1764494836,
+        "narHash": "sha256-u1i7aMo0fTQ6WVdOZhG2fo/gEx2Fq8+3URmuqEBZGWI=",
         "ref": "refs/heads/master",
-        "rev": "7358ec6edfa4d17b8b8f543d99e83a4705901148",
-        "revCount": 1687,
+        "rev": "d37f774fb8c60aa2bd0cb965c9884457d0afb660",
+        "revCount": 1689,
         "type": "git",
         "url": "https://tangled.org/@tangled.sh/core"
       },
