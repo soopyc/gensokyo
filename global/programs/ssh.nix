@@ -42,4 +42,7 @@ in
       ConnectTimeout 5
     ''; # if things exceed 5 seconds to connect something has gone wrong. Fail fast to not wait.
   };
+
+  # i did not consent to having this automatically enabled
+  services.gnome.gcr-ssh-agent.enable = false;
 }
