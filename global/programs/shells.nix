@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   users.defaultUserShell = pkgs.zsh;
   programs.zsh = {
@@ -27,6 +27,12 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  programs.pay-respects = {
+    enable = true;
+    alias = "fuck";
+    aiIntegration = lib.mkForce false;
   };
 
   # conflicts with comma
