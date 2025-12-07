@@ -1,8 +1,10 @@
-{ ... }:
 {
   users.users.cassie = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "dialout" # esp programming
+    ];
     openssh = {
       authorizedKeys.keyFiles = [ ../../creds/ssh/users/cassie ];
     };
