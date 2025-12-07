@@ -44,4 +44,9 @@ in
       client_max_body_size 100M;
     '';
   };
+
+  systemd.services.zipline.serviceConfig = {
+    Restart = "on-failure";
+    RestartSec = "10s";
+  };
 }

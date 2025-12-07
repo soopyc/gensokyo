@@ -15,7 +15,7 @@ in
   imports = lib.singleton secrets.generate;
 
   services.gitea-actions-runner = {
-    package = pkgs.forgejo-actions-runner;
+    package = pkgs.forgejo-runner;
     instances.default = {
       enable = true;
       name = "renko-default";

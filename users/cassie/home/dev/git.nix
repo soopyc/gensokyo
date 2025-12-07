@@ -8,31 +8,33 @@
   programs.git = lib.mkMerge [
     {
       enable = true;
-      userName = "Sophie Cheung";
-      userEmail = "me@soopy.moe";
 
-      # difftastic.enable = true;
-      # delta.enable = true;
-      diff-so-fancy = {
-        enable = true;
-        stripLeadingSymbols = false;
+      settings = {
+        user.name = "Sophie Cheung";
+        user.email = "git@soopy.moe";
       };
     }
 
     (lib.mkIf traits.gui {
-      signing = {
-        signByDefault = true;
-        key = inputs.self + "/creds/ssh/auth";
-      };
-
-      extraConfig = {
+      settings = {
         gpg.format = "ssh";
+        commit.gpgSign = true;
+        tag.gpgSign = true;
+
+        user.signingKey = inputs.self + "/creds/ssh/auth";
       };
     })
   ];
 
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
+
+    settings.stripLeadingSymbols = false;
+  };
+
   home.shellAliases = {
     # redo previous commit when something explodes, like my key died or something
-    gcmm = "git commit -eF .git/COMMIT_EDITMSG";
+    gcmm = "git commit -eF .git/COMMIT_EDITMSG"; # FIXME: strip the thing after ------ 8< ------
   };
 }

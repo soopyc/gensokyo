@@ -1,14 +1,7 @@
 {
   _utils,
-  config,
   ...
 }:
-let
-  secrets = _utils.setupSecrets config {
-    namespace = "tangled";
-    secrets = [ "knot/key" ];
-  };
-in
 {
   services.tangled-knotserver = {
     enable = true;

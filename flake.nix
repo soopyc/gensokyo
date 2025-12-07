@@ -15,10 +15,10 @@
   inputs = {
     mystia.url = "github:soopyc/mystia";
     # nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.05";
+    nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.11";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
-    catppuccin.url = "github:catppuccin/nix/release-25.05";
+    catppuccin.url = "github:catppuccin/nix/release-25.05"; # TODO
     hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
 
@@ -29,7 +29,7 @@
 
     home-manager = {
       # sync with nixpkgs!
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -39,7 +39,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote/v0.4.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   config,
   ...
 }:
@@ -13,7 +12,6 @@ lib.mkIf presetConf.nginx (
       services.nginx = {
         enable = lib.mkDefault true;
         enableReload = lib.mkDefault true;
-        package = lib.mkDefault pkgs.nginxQuic;
 
         statusPage = true;
 

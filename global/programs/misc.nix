@@ -25,7 +25,7 @@
     file
     ripgrep
     ack
-    du-dust
+    dust
     parallel
     cryptsetup
     borgbackup

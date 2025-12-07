@@ -2,8 +2,7 @@
 {
   programs.ssh = {
     enable = true;
-    hashKnownHosts = true;
-    forwardAgent = true;
+    enableDefaultConfig = false; # silent warning
 
     matchBlocks = {
       # most intuitive design /s
@@ -24,13 +23,23 @@
         identitiesOnly = true;
         identityFile = "~/.ssh/id_minecraft_backup";
       };
+
+      "*" = {
+        forwardAgent = true;
+        compression = false;
+        serverAliveInterval = 0;
+        serverAliveCountMax = 3;
+        hashKnownHosts = true;
+        userKnownHostsFile = "~/.ssh/known_hosts";
+        # visualHostKey = true; # if this doesn't work im moving to hjem
+      };
     };
 
     # extraConfig is config for the Host * block.
     ## n.b.: identitesonly and identityfile makes bootstrapping other devices hard esp.
     ##       if they're embedded or resource constrained.
     extraConfig = ''
-      VisualHostKey yes
+      VisualHostKey = true; # if this doesn't work im moving to hjem
     '';
   };
 }

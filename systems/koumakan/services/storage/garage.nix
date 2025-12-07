@@ -24,7 +24,7 @@ in
       isSystemUser = true;
       group = "garage";
     };
-    groups.garage = {};
+    groups.garage = { };
   };
 
   services.garage = {

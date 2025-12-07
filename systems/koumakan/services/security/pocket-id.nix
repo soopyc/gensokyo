@@ -1,7 +1,6 @@
 {
   _utils,
   config,
-  # lib,
   ...
 }:
 let
@@ -23,7 +22,8 @@ in
     enable = true;
 
     settings = {
-      PUBLIC_APP_URL = "https://gatekeeper.soopy.moe";
+      APP_URL = "https://gatekeeper.soopy.moe";
+      HOST = "127.0.0.1";
       TRUST_PROXY = true;
       PORT = "31411";
       KEYS_STORAGE = "database";

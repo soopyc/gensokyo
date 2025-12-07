@@ -41,6 +41,8 @@ lib.mkMerge [
       max-jobs = "auto";
       auto-optimise-store = true;
       download-buffer-size = 268435456; # 256 MiB
+
+      trace-import-from-derivation = true;
     };
 
     nix.gc = {

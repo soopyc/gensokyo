@@ -7,6 +7,7 @@
       push.autoSetupRemote = true;
       gpg.ssh.allowedSignersFile = pkgs.writeText "soopyc.allowedsigners" ''
         me@soopy.moe namespaces="git" ${builtins.readFile ../../creds/ssh/auth}
+        git@soopy.moe namespaces="git" ${builtins.readFile ../../creds/ssh/auth}
       '';
 
       rebase.autoStash = true;

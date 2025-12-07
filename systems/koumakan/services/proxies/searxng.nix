@@ -22,9 +22,10 @@ in
 
   services.searx = {
     enable = true;
-    runInUwsgi = true;
     environmentFile = secrets.getTemplate "searxng.env";
     redisCreateLocally = true;
+
+    configureUwsgi = true;
     uwsgiConfig = {
       http = "/run/searx/searxng.sock";
       chmod-socket = "660";
