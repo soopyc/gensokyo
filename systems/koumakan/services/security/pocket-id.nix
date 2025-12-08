@@ -35,5 +35,23 @@ in
 
   services.nginx.virtualHosts."gatekeeper.soopy.moe" = _utils.mkSimpleProxy {
     port = 31411;
+
+    extraConfig.locations."= /humans.txt" = _utils.mkNginxFile {
+      filename = "humans.txt";
+      content = ''
+        /* Credits */
+        Login Background: https://www.pixiv.net/artworks/122054405
+        You: for using our services
+
+        /* People */
+        Administrator: soopyc
+        Contact: https://soopy.moe/about
+
+        /* Service */
+        Software: Pocket ID
+        Deployed-With: NixOS
+        Security: https://soopy.moe/.well-known/security.txt
+      '';
+    };
   };
 }
