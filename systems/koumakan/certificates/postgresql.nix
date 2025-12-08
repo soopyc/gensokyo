@@ -1,3 +1,5 @@
+# WARN: unused. see default.nix
+
 { config, ... }:
 {
   # PostgreSQL only certificate
