@@ -39,7 +39,7 @@
     ## n.b.: identitesonly and identityfile makes bootstrapping other devices hard esp.
     ##       if they're embedded or resource constrained.
     extraConfig = ''
-      VisualHostKey = true; # if this doesn't work im moving to hjem
+      VisualHostKey yes
     '';
   };
 }
