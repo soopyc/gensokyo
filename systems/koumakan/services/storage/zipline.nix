@@ -35,6 +35,8 @@ in
       DATASOURCE_S3_REGION = "ap-east-1";
       DATASOURCE_S3_ENDPOINT = "https://s3.soopy.moe";
       DATASOURCE_S3_FORCE_PATH_STYLE = "true";
+
+      FEATURES_OAUTH_REGISTRATION = "true";
     };
   };
 
