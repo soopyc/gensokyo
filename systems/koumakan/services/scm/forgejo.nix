@@ -79,7 +79,8 @@ in
         ENABLE_NOTIFY_MAIL = true;
         REGISTER_EMAIL_CONFIRM = true;
 
-        DISABLE_REGISTRATION = false;
+        DISABLE_REGISTRATION = false; # need to be false to enable any sort of reg.
+        ENABLE_INTERNAL_SIGNIN = true; # we have gatekeeper setup now and working, this can be turned off.
         ALLOW_ONLY_EXTERNAL_REGISTRATION = true;
 
         ENABLE_CAPTCHA = true;
@@ -161,7 +162,7 @@ in
       # Logging {{{
       log = {
         ROOT_PATH = "/var/log/forgejo/";
-        "logger.router.MODE" = "";
+        LOGGER_ROUTER_MODE = "";
       };
       # }}}
 

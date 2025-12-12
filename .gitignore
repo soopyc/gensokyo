@@ -1,5 +1,6 @@
 # balls
 result
+result-*
 
 .direnv/
 *.qcow2
