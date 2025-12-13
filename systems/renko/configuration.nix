@@ -43,7 +43,7 @@
   ];
 
   networking.firewall = {
-    allowedTCPPorts = [ 59153 ];
+    allowedTCPPorts = [ 59153 5515 ];
     allowedTCPPortRanges = [
       {
         from = 25560;
