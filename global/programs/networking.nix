@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 lib.mkMerge [
@@ -31,6 +32,13 @@ lib.mkMerge [
 
   (lib.mkIf config.gensokyo.traits.portable {
     networking.networkmanager.wifi.backend = "wpa_supplicant";
+  })
+
+  # TODO: maybe we should move these to /global/gui?
+  (lib.mkIf config.gensokyo.traits.gui {
+    networking.networkmanager.plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
   })
 
   (lib.mkIf (!config.gensokyo.traits.sensitive) {

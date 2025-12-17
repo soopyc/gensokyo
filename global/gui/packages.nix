@@ -6,11 +6,12 @@
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
-  environment.systemPackages = [
-    pkgs.vlc
-    pkgs.flameshot
-    pkgs.libnotify
-    pkgs.thunderbird
+  environment.systemPackages = with pkgs; [
+    vlc
+    flameshot
+    libnotify
+    thunderbird
+
     inputs.ghostty.packages.${pkgs.system}.default
   ];
 }
