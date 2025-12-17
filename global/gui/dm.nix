@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  # pkgs,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
@@ -9,12 +9,12 @@ lib.mkIf config.gensokyo.traits.gui {
     enable = true;
     autoNumlock = true;
     wayland.enable = true;
-    theme = "catppuccin-frappe";
+    # theme = "catppuccin-frappe";
   };
 
-  environment.systemPackages = [
-    (pkgs.catppuccin-sddm.override {
-      flavor = "frappe";
-    })
-  ];
+  # environment.systemPackages = [
+  #   (pkgs.catppuccin-sddm.override {
+  #     flavor = "frappe";
+  #   })
+  # ];
 }
