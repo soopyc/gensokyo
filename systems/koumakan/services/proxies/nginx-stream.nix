@@ -4,15 +4,16 @@
     group = "nginx";
     mode = "0750";
   };
-  systemd.services.nginx.serviceConfig = {
-    # needed for transparent proxying
-    CapabilityBoundingSet = ["CAP_NET_RAW"];
-    AmbientCapabilities = ["CAP_NET_RAW"];
-  };
+  # NOTE: this doesn't work properly atm, we cba setting up routing stuff right now.
+  # systemd.services.nginx.serviceConfig = {
+  #   # needed for transparent proxying
+  #   CapabilityBoundingSet = ["CAP_NET_RAW"];
+  #   AmbientCapabilities = ["CAP_NET_RAW"];
+  # };
 
   services.nginx.streamConfig = ''
     resolver 100.100.100.100;
-    proxy_bind $remote_addr transparent;
+    # proxy_bind $remote_addr transparent;
     proxy_connect_timeout 1s;
     proxy_timeout 30s;
 
