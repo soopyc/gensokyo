@@ -44,24 +44,6 @@
 
   networking.firewall = {
     allowedTCPPorts = [ 59153 5515 ];
-    allowedTCPPortRanges = [
-      {
-        from = 25560;
-        to = 25570;
-      }
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 25560;
-        to = 25570;
-      }
-
-      # plasmo voice
-      {
-        from = 55111;
-        to = 55199;
-      }
-    ];
   };
 
   # muh unfree software!!!!!!!!!!!!!!!!!!
