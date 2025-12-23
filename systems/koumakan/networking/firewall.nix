@@ -16,9 +16,29 @@
         from = 50000;
         to = 50100;
       }
+
+      # minecraft
+      {
+        from = 25560;
+        to = 25599;
+      }
     ];
     allowedUDPPorts = [
       443 # https over quic (http3)
+    ];
+
+    allowedUDPPortRanges = [
+      # more minecraft
+      {
+        from = 25560;
+        to = 25599;
+      }
+
+      # plasmo voice
+      {
+        from = 55111;
+        to = 55199;
+      }
     ];
   };
 
