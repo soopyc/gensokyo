@@ -54,12 +54,12 @@
     };
 
     tangled-core = {
-      url = "git+https://tangled.org/@tangled.sh/core";
+      url = "git+https://tangled.org/tangled.sh/core";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     knotserver-module = {
-      url = "git+https://tangled.org/@soopy.moe/knotserver-module/?ref=knot-fix";
+      url = "git+https://tangled.org/soopy.moe/knotserver-module/?ref=knot-fix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.tangledCore.follows = "tangled-core";
     };
@@ -123,5 +123,9 @@
       );
 
       formatter = forAllSystems (pkgs: treefmt.${pkgs.system}.config.build.wrapper);
+
+      _debug = {
+        inherit inputs;
+      };
     };
 }

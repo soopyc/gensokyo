@@ -441,12 +441,12 @@
         "rev": "3eb304f66d1f5583fedfea8ec3744105f0771239",
         "revCount": 17,
         "type": "git",
-        "url": "https://tangled.org/@soopy.moe/knotserver-module/"
+        "url": "https://tangled.org/soopy.moe/knotserver-module/"
       },
       "original": {
         "ref": "knot-fix",
         "type": "git",
-        "url": "https://tangled.org/@soopy.moe/knotserver-module/"
+        "url": "https://tangled.org/soopy.moe/knotserver-module/"
       }
     },
     "lanzaboote": {
@@ -822,11 +822,11 @@
         "rev": "6dc86ffbed5a290ca6a4890caa2dadea5c8b8a81",
         "revCount": 1792,
         "type": "git",
-        "url": "https://tangled.org/@tangled.sh/core"
+        "url": "https://tangled.org/tangled.sh/core"
       },
       "original": {
         "type": "git",
-        "url": "https://tangled.org/@tangled.sh/core"
+        "url": "https://tangled.org/tangled.sh/core"
       }
     },
     "treefmt-nix": {
