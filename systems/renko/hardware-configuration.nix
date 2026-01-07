@@ -27,6 +27,11 @@
     fsType = "btrfs";
   };
 
+  fileSystems."/srv/winboat" = {
+    device = "/dev/disk/by-uuid/82c0749d-e019-4ec2-b0e4-017433b4246c";
+    fsType = "btrfs";
+  };
+
   boot.initrd.luks.devices."gock".device = "/dev/disk/by-uuid/9d57daa1-f152-443d-992c-b58cbfa57ec1";
 
   fileSystems."/efi" = {

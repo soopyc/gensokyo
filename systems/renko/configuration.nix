@@ -43,7 +43,10 @@
   ];
 
   networking.firewall = {
-    allowedTCPPorts = [ 59153 5515 ];
+    allowedTCPPorts = [
+      59153
+      5515
+    ];
   };
 
   # muh unfree software!!!!!!!!!!!!!!!!!!

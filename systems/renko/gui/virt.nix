@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
@@ -9,11 +10,14 @@
 
   # try virtualbox
   virtualisation.virtualbox.host = {
-    enable = true;
-    enableKvm = true;
-    enableExtensionPack = false;
-    addNetworkInterface = false; # conflicts with KVM
+    # nah cba. doesn't do what we need it to do well.
+    enable = false;
+    # enableKvm = true;
+    # enableExtensionPack = false;
+    # addNetworkInterface = false; # conflicts with KVM
   };
+
+  environment.systemPackages = lib.singleton pkgs.winboat;
 
   # GPU Passthrough
   # boot.initrd.kernelModules = [
