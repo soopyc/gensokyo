@@ -46,7 +46,11 @@ in
     };
 
     locations."/map/" = {
-      proxyPass = "http://renko.mist-nessie.ts.net:8100/";
+      proxyPass = "http://renko-mc-bluemap/";
     };
+  };
+
+  services.nginx.upstreams."renko-mc-bluemap".servers = {
+    "renko.mist-nessie.ts.net:8100" = {};
   };
 }
