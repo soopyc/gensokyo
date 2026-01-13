@@ -54,7 +54,7 @@
     };
 
     tangled-core = {
-      url = "git+https://tangled.org/tangled.sh/core";
+      url = "git+https://tangled.org/tangled.org/core";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

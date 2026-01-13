@@ -821,11 +821,11 @@
         "rev": "3638909db6c988eef717981ee3f4950937e92836",
         "revCount": 1807,
         "type": "git",
-        "url": "https://tangled.org/tangled.sh/core"
+        "url": "https://tangled.org/tangled.org/core"
       },
       "original": {
         "type": "git",
-        "url": "https://tangled.org/tangled.sh/core"
+        "url": "https://tangled.org/tangled.org/core"
       }
     },
     "treefmt-nix": {
