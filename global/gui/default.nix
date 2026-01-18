@@ -6,7 +6,7 @@
     ./input.nix
     ./audio.nix
 
-    ./wine.nix
+    # ./wine.nix
     ./locale.nix
 
     ./dm.nix
