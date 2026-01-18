@@ -223,11 +223,11 @@
         "zon2nix": "zon2nix"
       },
       "locked": {
-        "lastModified": 1768242096,
-        "narHash": "sha256-lqjA2rS5WL7+ZXqHjMp2/gvQfrYczFt8BICiQUGlStA=",
+        "lastModified": 1768628056,
+        "narHash": "sha256-TEfSd6oR4YCc1BVr9pOxjTJASMswKiGfEC2kRA3aTyI=",
         "owner": "ghostty-org",
         "repo": "ghostty",
-        "rev": "c90f47f11f5ceaf0f161350c3755db2c50ade3f1",
+        "rev": "9fb03ba55c9e53901193187d5c43341f5b1b430d",
         "type": "github"
       },
       "original": {
@@ -324,11 +324,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767910483,
-        "narHash": "sha256-MOU5YdVu4DVwuT5ztXgQpPuRRBjSjUGIdUzOQr9iQOY=",
+        "lastModified": 1768603898,
+        "narHash": "sha256-vRV1dWJOCpCal3PRr86wE2WTOMfAhTu6G7bSvOsryUo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "82fb7dedaad83e5e279127a38ef410bcfac6d77c",
+        "rev": "2a63d0e9d2c72ac4d4150ebb242cf8d86f488c8c",
         "type": "github"
       },
       "original": {
@@ -369,11 +369,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1767626752,
-        "narHash": "sha256-VKBXQV3sWJB4DMm8xCMBsyp9HLe5isb+dduWrzPRj7A=",
+        "lastModified": 1768396302,
+        "narHash": "sha256-P83O7scGSQUQtkvS59oNgh6/VS3ef7AHupApuqTHKiQ=",
         "owner": "NixOS",
         "repo": "hydra",
-        "rev": "41daeb3cc94077c42395bf1e9f1698e3e1bf5532",
+        "rev": "9df4b65c672f0b123235d3123e84679048cd5df3",
         "type": "github"
       },
       "original": {
@@ -440,12 +440,12 @@
         "rev": "3eb304f66d1f5583fedfea8ec3744105f0771239",
         "revCount": 17,
         "type": "git",
-        "url": "https://tangled.org/soopy.moe/knotserver-module/"
+        "url": "https://tangled.org/did:plc:jmr637khkdb2fdxxvoyj672m/knotserver-module/"
       },
       "original": {
         "ref": "knot-fix",
         "type": "git",
-        "url": "https://tangled.org/soopy.moe/knotserver-module/"
+        "url": "https://tangled.org/did:plc:jmr637khkdb2fdxxvoyj672m/knotserver-module/"
       }
     },
     "lanzaboote": {
@@ -509,11 +509,11 @@
     "nix": {
       "flake": false,
       "locked": {
-        "lastModified": 1767367029,
-        "narHash": "sha256-RsVlkBkxvPPePEo59AVolBFdayxny9FFv8X4aNq9qFc=",
+        "lastModified": 1768160359,
+        "narHash": "sha256-XDCQIrHNJKMYoL8hcUgzEbBHzINofkcsLRDr7tYa7Ac=",
         "owner": "NixOS",
         "repo": "nix",
-        "rev": "394a8da9dd9c046de715e451a96b70e64ce4aa7a",
+        "rev": "b601b44de51f8d46530a99659f889027e1e7d670",
         "type": "github"
       },
       "original": {
@@ -630,11 +630,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1767475907,
-        "narHash": "sha256-w10AFfl20h5MSBCsCegD4xtmcgDlQQeoFsOaIFwHOrE=",
+        "lastModified": 1768129980,
+        "narHash": "sha256-QJ4xDnLGWTz6r844qXcfBYE14FX00PU7+BJthwJpiQQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7a0d60a03534a2d14b0805616aa1fd403fccfa55",
+        "rev": "3bb0067937fe6c1adec9068b9ba24b1adc8defae",
         "type": "github"
       },
       "original": {
@@ -661,11 +661,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1768028080,
-        "narHash": "sha256-Od9bSqaPoHX9uDBIZ+m0vLJwhVNo82w8dYsbcLXOH+k=",
-        "rev": "d03088749a110d52a4739348f39a63f84bb0be14",
+        "lastModified": 1768621446,
+        "narHash": "sha256-vIRLe/pJTsxCw5wjBNtQcAzOSQmA0ECUG26/WMuI0kk=",
+        "rev": "72ac591e737060deab2b86d6952babd1f896d7c5",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.3695.d03088749a11/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.4137.72ac591e7370/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -742,11 +742,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1768271704,
-        "narHash": "sha256-jJqlW8A3OZ5tYbXphF7U8P8g/3Cn8PPwPa4YlJ/9agg=",
+        "lastModified": 1768481291,
+        "narHash": "sha256-NjKtkJraCZEnLHAJxLTI+BfdU//9coAz9p5TqveZwPU=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "691b8b6713855d0fe463993867291c158472fc6f",
+        "rev": "e085e303dfcce21adcb5fec535d65aacb066f101",
         "type": "github"
       },
       "original": {
@@ -815,11 +815,11 @@
         "sqlite-lib-src": "sqlite-lib-src"
       },
       "locked": {
-        "lastModified": 1768273768,
-        "narHash": "sha256-T87j98h4T2ux5LYc/R1KjisUfv1qck65MknhGJVMEA4=",
+        "lastModified": 1768661129,
+        "narHash": "sha256-+xkSMmS1PPllMmzqCGAnN+9QJHpuCdd40mDmmhZ+v70=",
         "ref": "refs/heads/master",
-        "rev": "3638909db6c988eef717981ee3f4950937e92836",
-        "revCount": 1807,
+        "rev": "0f6d3ee083b9a775a5c802d5db27a263b03a118c",
+        "revCount": 1845,
         "type": "git",
         "url": "https://tangled.org/tangled.org/core"
       },

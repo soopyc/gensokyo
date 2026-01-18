@@ -59,7 +59,7 @@
     };
 
     knotserver-module = {
-      url = "git+https://tangled.org/soopy.moe/knotserver-module/?ref=knot-fix";
+      url = "git+https://tangled.org/did:plc:jmr637khkdb2fdxxvoyj672m/knotserver-module/?ref=knot-fix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.tangledCore.follows = "tangled-core";
     };
