@@ -1,4 +1,3 @@
-{ ... }:
 {
   imports = [
     ./osu.nix
@@ -8,4 +7,7 @@
 
     ./hud.nix
   ];
+
+  # other random stuff
+  programs.gamemode.enable = true;
 }
