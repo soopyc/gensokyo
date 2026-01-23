@@ -33,6 +33,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     whitelisted-web = {
       url = "https://patchy.soopy.moe/soopyc/whitelisted-web/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
