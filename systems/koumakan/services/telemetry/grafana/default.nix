@@ -70,28 +70,28 @@ in
         external_enabled = true;
       };
 
-      # "auth.generic_oauth" = {
-      #   name = "GensoGateway";
-      #   enabled = true;
+      "auth.generic_oauth" = {
+        enabled = true;
+        name = "Gatekeeper";
 
-      #   allow_sign_up = true;
+        allow_sign_up = true;
 
-      #   client_id = fromSecret "oauth2/gateway/cid";
-      #   client_secret = fromSecret "oauth2/gateway/cse";
-      #   scopes = "openid email profile offline_access roles";
+        client_id = fromSecret "oauth2/gateway/cid";
+        client_secret = fromSecret "oauth2/gateway/cse";
+        scopes = "openid email profile offline_access";
 
-      #   email_attribute_path = "email";
-      #   login_attribute_path = "username";
-      #   name_attribute_path = "username";
+        email_attribute_path = "email";
+        login_attribute_path = "username";
+        name_attribute_path = "display_name";
 
-      #   auth_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/auth";
-      #   token_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/token";
-      #   api_url = "https://gateway.soopy.moe/realms/gensokyo/protocol/openid-connect/userinfo";
-      # };
+        auth_url = "https://gatekeeper.soopy.moe/authorize";
+        token_url = "https://gatekeeper.soopy.moe/api/oidc/token";
+        api_url = "https://gatekeeper.soopy.moe/api/oidc/userinfo";
+      };
 
       "auth.github" = {
         enabled = true;
-        allow_sign_up = true; # TODO: disable this when we're done with gensogateway
+        allow_sign_up = true;
         client_id = fromSecret "oauth2/github/cid";
         client_secret = fromSecret "oauth2/github/cse";
         scopes = "user:email,read:org";

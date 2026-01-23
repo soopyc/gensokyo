@@ -38,8 +38,8 @@ grafana:
             cid: ENC[AES256_GCM,data:YZ6c5PHqdMwM30hCYxycpk2xapU=,iv:K/WKrdiq9mXaFV33zYQYeYgia/54t6/qCseVGykW/yg=,tag:e0UQEcMJg88JD/5s+pkK+Q==,type:str]
             cse: ENC[AES256_GCM,data:o9yW6DRgdV+eX1OQ6XyJUQsZ0SMtUY2MrWrfhhqf9LgDRdsHFZNxUQ==,iv:iNbKhyUIuKtBUVHXdR36KWCueMjQuKIErl8P7intFX8=,tag:OpzLX7zbOfxVxZmL6crLWA==,type:str]
         gateway:
-            cid: ENC[AES256_GCM,data:M9LrS2w=,iv:F8A+gIGPUjziBTuBnhVS9kygzZYjnwFayL6Mx7LBwe4=,tag:ioQXCTFxqZo5yOnucSLz/Q==,type:str]
-            cse: ENC[AES256_GCM,data:YYTOpfaOlwo08qnPCkydj92N3TxDtQxwXAA0xVVB1hQ=,iv:1InLcW58sbz9wfp9VnONsqE+iDrhCWhlBBkr13KfN1s=,tag:4/OIhs4kqgBeCHCNkIwAGg==,type:str]
+            cid: ENC[AES256_GCM,data:8MoDYcPuHa35zssafh7m2tj23JJ/uTLceYeEZU9uxItehDBC,iv:9Lwj8kpsNnTTbBaM6025uUBMFnONaPhxDq/E62mXO+k=,tag:QuCAn984sfQrvtjovAnI7g==,type:str]
+            cse: ENC[AES256_GCM,data:3fV8qTOUtyqbEsiyDvbRsRyi5vgtgrc2MOiV6sErm7k=,iv:DxPnWS0IREUSlonIbXGpN8OIG00q2KyRo/RY3RUNd4M=,tag:UtS6xMuchL52MglZKlsBFg==,type:str]
 vmetrics:
     agent: null
     auth:
@@ -118,7 +118,7 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-10-31T06:22:39Z"
-    mac: ENC[AES256_GCM,data:cRRtc1MzZ+1+lzWRQA/IIVSyQgIO2b0FZ+Xf/Riu4ry8c9FeqLCIrOJzYUUYA4h3z+KQLKL8mgYKJ8xrhMOEmOBhmtEFhyOJp9IdQeEjjQyNy2uRnJRrUtJpTe95LSKBV1At/hPZMcwCSx6h7zDTI7sBWsNCxkMSp/Zcpr1AyZI=,iv:lc19cb+rUMcTZbjxdlLXNE2uWKvwHIK8p7FuPXfvZUo=,tag:U48mLo/y+zjWT+p6/L+eBg==,type:str]
+    lastmodified: "2026-01-23T03:33:27Z"
+    mac: ENC[AES256_GCM,data:6aACuYJqQ24GUHG8KD455F0YbRQcjWW15TzL+iTMf3NRsfiyscqAZA47Vi2cgmmy71bwU0/mnl7HblY533OonHe1k9IfprAiUU2tzAln7ICsBIttYwUW3cG4WvRho6s9x4n24pChQmJzJkq1/SRY//Ue/QqhU+bMQc3ev7BWA1Q=,iv:Nt59R0r53CN9SAud7LrEi8i7PKAR0dys8j53EMIxOl4=,tag:mIZjKkHfm2oAiqJ+zSACBA==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.11.0
