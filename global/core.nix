@@ -6,6 +6,7 @@
 {
   imports = [
     ./upgrade-diff.nix
+    ./unfree-insecure-allowlist.nix
   ];
 
   # Set default i18n configuration

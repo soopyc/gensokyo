@@ -85,8 +85,5 @@
 
   zramSwap.enable = true;
 
-  # muh unfree software!!!!!!!!!!!!!!!!!!
-  nixpkgs.config.allowUnfree = true;
-
   system.stateVersion = "23.05"; # Did you read the comment? Yes.
 }
