@@ -5,12 +5,13 @@
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
-  environment.systemPackages = [
-    pkgs.dosage-tracker
-    pkgs.signal-desktop
-    (pkgs.discord.override {
+  environment.systemPackages = with pkgs; [
+    dosage-tracker
+    signal-desktop
+    (discord.override {
       withOpenASAR = true;
     })
+    fractal
   ];
 
   # some things work better with flatpaks
