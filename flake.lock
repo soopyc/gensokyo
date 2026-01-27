@@ -515,11 +515,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1769543946,
-        "narHash": "sha256-3IqYOBgTHkY1KZMX/+DQMlz4QjOy9p/tJkLnexaPi/Y=",
+        "lastModified": 1769545807,
+        "narHash": "sha256-JAGneMryuzcbCTIyOGLvOf9h0JRmzF+xkk87OQhRokY=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "7f6a626322c17fcce164b593bd895254e169ab90",
+        "rev": "30057f5a7b33b7275a8f70feae6c7692a212bd49",
         "type": "github"
       },
       "original": {
