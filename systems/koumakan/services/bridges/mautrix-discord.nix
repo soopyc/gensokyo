@@ -126,7 +126,7 @@ in
         };
 
         encryption = {
-          allow = true;
+          allow = false;
           appservice = true;
           msc4910 = true;
           require = false;
