@@ -20,6 +20,7 @@
     ./games
     ./mirror
     # ./notifications
+    ./bridges
     ./proxies
     ./scm
     ./security

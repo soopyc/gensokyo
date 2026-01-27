@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./mautrix-discord.nix
+  ];
+}
