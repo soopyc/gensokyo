@@ -51,6 +51,6 @@ in
   };
 
   services.nginx.upstreams."renko-mc-bluemap".servers = {
-    "renko.mist-nessie.ts.net:8100" = {};
+    "renko.mist-nessie.ts.net:8100" = { };
   };
 }

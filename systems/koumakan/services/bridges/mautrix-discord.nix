@@ -132,16 +132,18 @@ in
           require = false;
           allow_key_sharing = false;
           plaintext_mentions = false;
-          delete_keys = (lib.genAttrs [
-            "dont_store_outbound"
-            "ratchet_on_decrypt"
-            "delete_on_device_delete"
-            "delete_outdated_inbound"
-          ] (lib.const false)) // (lib.genAttrs [
-            "delete_fully_used_on_decrypt"
-            "periodically_delete_expired"
-            "delete_prev_on_new_session"
-          ] (lib.const true));
+          delete_keys =
+            (lib.genAttrs [
+              "dont_store_outbound"
+              "ratchet_on_decrypt"
+              "delete_on_device_delete"
+              "delete_outdated_inbound"
+            ] (lib.const false))
+            // (lib.genAttrs [
+              "delete_fully_used_on_decrypt"
+              "periodically_delete_expired"
+              "delete_prev_on_new_session"
+            ] (lib.const true));
 
           verification_levels = {
             receive = "unverified";
@@ -161,7 +163,9 @@ in
     };
   };
 
-  services.nginx.virtualHosts."cfef897c-cbb9-4793-a2e3-6255473744c0.soopy.moe" = _utils.mkSimpleProxy {
-    inherit port;
-  };
+  services.nginx.virtualHosts."cfef897c-cbb9-4793-a2e3-6255473744c0.soopy.moe" =
+    _utils.mkSimpleProxy
+      {
+        inherit port;
+      };
 }
