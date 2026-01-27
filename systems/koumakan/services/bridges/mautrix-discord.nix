@@ -20,11 +20,11 @@ in
     (secrets.mkTemplate "mautrix-discord.env" ''
       MDB_AVATAR_KEY=${secrets.placeholder "avatar_key"}
       MDB_MEDIA_KEY=${secrets.placeholder "media_key"}
-
     '')
   ];
   services.mautrix-discord = {
     enable = true;
+    environmentFile = secrets.getTemplate "mautrix-discord.env";
     settings = {
       # just put most things in the template config here
       # i do not trust the nix module to be complete, but things like db and secret config is fine.
