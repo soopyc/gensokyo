@@ -127,29 +127,29 @@ in
 
         encryption = {
           allow = false;
-          appservice = true;
-          msc4910 = true;
-          require = false;
-          allow_key_sharing = false;
-          plaintext_mentions = false;
-          delete_keys =
-            (lib.genAttrs [
-              "dont_store_outbound"
-              "ratchet_on_decrypt"
-              "delete_on_device_delete"
-              "delete_outdated_inbound"
-            ] (lib.const false))
-            // (lib.genAttrs [
-              "delete_fully_used_on_decrypt"
-              "periodically_delete_expired"
-              "delete_prev_on_new_session"
-            ] (lib.const true));
+          # appservice = true;
+          # msc4910 = true;
+          # require = false;
+          # allow_key_sharing = false;
+          # plaintext_mentions = false;
+          # delete_keys =
+          #   (lib.genAttrs [
+          #     "dont_store_outbound"
+          #     "ratchet_on_decrypt"
+          #     "delete_on_device_delete"
+          #     "delete_outdated_inbound"
+          #   ] (lib.const false))
+          #   // (lib.genAttrs [
+          #     "delete_fully_used_on_decrypt"
+          #     "periodically_delete_expired"
+          #     "delete_prev_on_new_session"
+          #   ] (lib.const true));
 
-          verification_levels = {
-            receive = "unverified";
-            send = "cross-signed-tofu";
-            share = "cross-signed-tofu";
-          };
+          # verification_levels = {
+          #   receive = "unverified";
+          #   send = "cross-signed-tofu";
+          #   share = "cross-signed-tofu";
+          # };
         };
 
         provisioning.shared_secret = "disable";
