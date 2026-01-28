@@ -42,6 +42,9 @@ in
       }
     ))
   ];
+  # owner override for template
+  sops.templates."mautrix-doublepuppet.yaml".owner = "matrix-synapse";
+
   services.mautrix-discord = {
     enable = true;
     environmentFile = secrets.getTemplate "mautrix-discord.env";
