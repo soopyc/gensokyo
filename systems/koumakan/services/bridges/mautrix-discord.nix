@@ -132,7 +132,7 @@ in
         };
         # i realize this acronym sucks but it's what we have, okay?
         # TODO: fix this when they _finally_ upgrade the discord bridge
-        login_shared_secret_map."nue.soopy.moe" = "$MDB_DP_AS_TOKEN";
+        login_shared_secret_map."nue.soopy.moe" = "as_token:$MDB_DP_AS_TOKEN";
         double_puppet_allow_discovery = false;
 
         command_prefix = "!discord";
