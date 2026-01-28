@@ -127,7 +127,7 @@ in
 
         encryption = {
           allow = true;
-          appservice = true;
+          appservice = false;
           msc4190 = true;
           require = false;
           allow_key_sharing = false;
