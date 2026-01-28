@@ -6,10 +6,14 @@
 }:
 let
   secrets = _utils.setupSecrets config {
-    namespace = "mautrix-discord";
+    namespace = "mautrix";
     secrets = [
-      "avatar_key"
-      "media_key"
+      "doublepuppet/as"
+      "doublepuppet/hs"
+      "doublepuppet/localpart"
+
+      "discord/avatar_key"
+      "discord/media_key"
     ];
   };
   port = 29334;
@@ -18,9 +22,25 @@ in
   imports = [
     secrets.generate
     (secrets.mkTemplate "mautrix-discord.env" ''
-      MDB_AVATAR_KEY=${secrets.placeholder "avatar_key"}
-      MDB_MEDIA_KEY=${secrets.placeholder "media_key"}
+      MDB_AVATAR_KEY=${secrets.placeholder "discord/avatar_key"}
+      MDB_MEDIA_KEY=${secrets.placeholder "discord/media_key"}
+      MDB_DP_AS_TOKEN=${secrets.placeholder "doublepuppet/as"}
     '')
+
+    (secrets.mkTemplate "mautrix-doublepuppet.yaml" (
+      builtins.toJSON {
+        id = "mautrix-doublepuppet";
+        url = null;
+        as_token = secrets.placeholder "doublepuppet/as";
+        hs_token = secrets.placeholder "doublepuppet/hs";
+        sender_localpart = secrets.placeholder "doublepuppet/localpart";
+        rate_limited = false;
+        namespaces.users = lib.singleton {
+          regex = "@.*:nue\\.soopy\\.moe";
+          exclusive = false;
+        };
+      }
+    ))
   ];
   services.mautrix-discord = {
     enable = true;
@@ -64,7 +84,7 @@ in
       };
       bridge = {
         username_template = "discord_{{.}}";
-        displayname_template = "<D> {{if .Webhook}}[HOOK] {{else if .System}}[SYS] {{else if .Bot}}[BOT] {{ else if .Application }}[APP] {{end}}{{.GlobalName}} ({{.Username}})";
+        displayname_template = "[D]{{if .Webhook}}[hook]{{else if .System}}[sys]{{else if .Bot}}[bot]{{ else if .Application }}[app]{{end}} {{.GlobalName}} ({{.Username}})";
         channel_name_template = "{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{if .NSFW}} 🔞{{end}}{{end}}";
         guild_name_template = "{{.Name}}";
 
@@ -74,8 +94,8 @@ in
         avatar_proxy_key = "$MDB_AVATAR_KEY";
         portal_message_buffer = 128;
 
-        startup_private_channel_create_limit = 10;
-        delivery_receipts = true;
+        startup_private_channel_create_limit = 5;
+        delivery_receipts = false;
         message_status_events = false;
         message_error_notices = true;
         restricted_rooms = true;
@@ -107,13 +127,16 @@ in
             fps = 25;
           };
         };
+        # i realize this acronym sucks but it's what we have, okay?
+        # TODO: fix this when they _finally_ upgrade the discord bridge
+        login_shared_secret_map."nue.soopy.moe" = "$MDB_DP_AS_TOKEN";
         double_puppet_allow_discovery = false;
 
         command_prefix = "!discord";
         management_room_text = {
           welcome = "Welcome to Gensokyo's Discord Bridge bot.";
-          welcome_connected = "Use `help` to help or `login` to login.";
-          welcome_unconnected = "Use `help` to help or `login` to login.";
+          welcome_connected = "Use `help` for help, `ping` for status check or `login` to login.";
+          welcome_unconnected = "Use `help` for help or `login` to login.";
           additional_help = "For questions, please direct to @sophie:nue.soopy.moe";
         };
 
@@ -162,6 +185,10 @@ in
       };
     };
   };
+
+  services.matrix-synapse.settings.app_service_config_files = lib.singleton (
+    secrets.getTemplate "mautrix-doublepuppet.yaml"
+  );
 
   services.nginx.virtualHosts."cfef897c-cbb9-4793-a2e3-6255473744c0.soopy.moe" =
     _utils.mkSimpleProxy
