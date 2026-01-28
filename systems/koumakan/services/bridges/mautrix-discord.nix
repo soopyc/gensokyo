@@ -64,7 +64,7 @@ in
       };
       bridge = {
         username_template = "discord_{{.}}";
-        displayname_template = "'<D> {{if .Webhook}}[HOOK] {{else if .System}}[SYS] {{else if .Bot}}[BOT] {{ else if .Application }}[APP] {{end}}{{.GlobalName}} ({{.Username}})'";
+        displayname_template = "<D> {{if .Webhook}}[HOOK] {{else if .System}}[SYS] {{else if .Bot}}[BOT] {{ else if .Application }}[APP] {{end}}{{.GlobalName}} ({{.Username}})";
         channel_name_template = "{{if or (eq .Type 3) (eq .Type 4)}}{{.Name}}{{else}}#{{.Name}}{{if .NSFW}} 🔞{{end}}{{end}}";
         guild_name_template = "{{.Name}}";
 
