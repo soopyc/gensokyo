@@ -29,7 +29,7 @@ in
       metrics-listen-http = "127.0.0.1:44525";
       behind-proxy = true;
       # listen-http = null; # explode
-      listen-unix-mode = "0770";
+      listen-unix-mode = 770;
 
       cache-file = "/var/lib/ntfy-sh/cache.db";
       auth-file = "/var/lib/ntfy-sh/auth.db";
