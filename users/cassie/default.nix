@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./hjem
+  ];
+
   users.users.cassie = {
     isNormalUser = true;
     extraGroups = [
