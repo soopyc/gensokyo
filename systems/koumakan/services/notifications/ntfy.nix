@@ -56,7 +56,7 @@ in
       #web-push-private-key set via env vars
 
       auth-access = [
-        "soopyc:gs-*:rw"
+        # "soopyc:gs-*:rw" # not needed since it's already admin
         "*:gs-*:ro"
       ];
     };
