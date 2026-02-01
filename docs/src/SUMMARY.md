@@ -16,6 +16,7 @@
   - [setupSecrets](utils/setupSecrets.md)
   - [mkNginxFile](utils/mkNginxFile.md)
   - [mkNginxJSON](utils/mkNginxJSON.md)
+  - [mkHjemConfig](utils/mkHjemConfig.md)
 
 # Internal documentation
 - ["Private" use]()

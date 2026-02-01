@@ -156,4 +156,8 @@ rec {
         content = builtins.toJSON attrset;
       }
     );
+
+  mkHjemConfig = user: path: attr: {
+    hjem.users.${user}.xdg.config.files.${path} = attr;
+  };
 }
