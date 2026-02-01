@@ -28,7 +28,7 @@ in
       listen-unix = "/run/ntfy-sh/ntfy.sock";
       metrics-listen-http = "127.0.0.1:44525";
       behind-proxy = true;
-      listen-http = null;
+      # listen-http = null; # explode
       listen-unix-mode = "0770";
 
       cache-file = "/var/lib/ntfy-sh/cache.db";
