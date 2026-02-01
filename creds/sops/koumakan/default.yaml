@@ -101,6 +101,8 @@ ntfy:
     webpush-pk: ENC[AES256_GCM,data:hEqMkMCDR03kEGTTBvl8uF9kpMD6a6nsmRIFfaIsFzrGsEBzl84f1Ch8jg==,iv:BReUs3g+hxA2yCC14f/N9xKUqRLG+egei7y6sBKzDWg=,tag:kcTCrwCwj8Ks3ddtA4c1hg==,type:str]
     provision:
         soopyc: ENC[AES256_GCM,data:bIoxT7aixY01od1WUvQeP4NFyAHhrWVpD1765IV8al8rqKMs6jNmN4o7R/eRQoiZZpHVLTkeNMZ6exdb,iv:mdnOj0i5o3Kl2Aqpf4xz9O2Qe24TMlQlUpXKIT65Qew=,tag:WdZWBexR4UQuulPw9/KVVw==,type:str]
+mollysocket:
+    vapid_key: ENC[AES256_GCM,data:PCHSyRondX5MFQrwWZWCwdkPYp4GRqdGTwZYiI90whSJ+EFb0Fgg+gqqow==,iv:I/iiHJ18ZaF91QOO/3FeSjsrfpn6SUvC7pXFJgUr8xA=,tag:HYL826eUd0ZwCAMGeEhU5A==,type:str]
 sops:
     age:
         - recipient: age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
@@ -130,7 +132,7 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-02-01T18:14:13Z"
-    mac: ENC[AES256_GCM,data:idqplCdtvVzxL3nlS6YU8NRs1UHSPB8mkcbhVB++fdO0nJUUUiVzVjKAOG2goluTjxctjjghzHY97PLmwq8+jhH23mctx3NjbLtUqTvcDoeXDBv5TIaUmGnLrMovMuB0BHiS4Jyk3WueIwmBK3t+gBDqyFpn6qIaC127eyq7Lig=,iv:DTWLsDASaRykulYhQCY+459YdxeyCG1npmvxP7/V098=,tag:2ebEyEvpDpdZ5pB79X4low==,type:str]
+    lastmodified: "2026-02-01T18:50:17Z"
+    mac: ENC[AES256_GCM,data:M9LYgzUE0iV9/IU6CQDJQOfjnqZmkYzAR1dQKwjpFKNKzbIP/Fmt8kBo10n8hr4MJrCEzxYaMvg77hvCG+jhbChwv1QuP0+xcv0MomsNVNY3dumbzzmgTei/nOxByQUe9KryzUIVZrQP7WUHandDUakHtVnIUsbtPf9uieoFxi4=,iv:7+DxY/ZFB467qLh2KRmiVSJblQWpe/V4QMxYofktBaQ=,tag:uPnFJ7yGPKXMfBMwxos8Vg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.11.0
