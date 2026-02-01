@@ -97,6 +97,10 @@ mautrix:
     discord:
         avatar_key: ENC[AES256_GCM,data:AcsN3XxX76bLSeKgF/0fkFOuuX4+5fEteXIDq9l6QvI=,iv:6chwrF3De4I7kcMM4tIxHx9rkR7Le32YGnxzKud/054=,tag:3fgF7dvi6RGF/XeWSpbL4w==,type:str]
         media_key: ENC[AES256_GCM,data:GNxdvsee5eMRgB6+2SmkvrVxgD0quZZwxtdXVBssBKPUWPAPaLkSLRLvvc3W1w0JLi1tLvuyDUQyCg==,iv:usVSqqcV8z2owW+ntRlOIKZztN/Jc9bbjW22Kgy44rc=,tag:6sSQ2F2zgH+3b40eQKu16g==,type:str]
+ntfy:
+    webpush-pk: ENC[AES256_GCM,data:hEqMkMCDR03kEGTTBvl8uF9kpMD6a6nsmRIFfaIsFzrGsEBzl84f1Ch8jg==,iv:BReUs3g+hxA2yCC14f/N9xKUqRLG+egei7y6sBKzDWg=,tag:kcTCrwCwj8Ks3ddtA4c1hg==,type:str]
+    provision:
+        soopyc: ENC[AES256_GCM,data:bIoxT7aixY01od1WUvQeP4NFyAHhrWVpD1765IV8al8rqKMs6jNmN4o7R/eRQoiZZpHVLTkeNMZ6exdb,iv:mdnOj0i5o3Kl2Aqpf4xz9O2Qe24TMlQlUpXKIT65Qew=,tag:WdZWBexR4UQuulPw9/KVVw==,type:str]
 sops:
     age:
         - recipient: age1l3qxt6630dzesdclfm3eqgw3uuhwj09dh6typwlwr6clcv0qhfrqgtj2fk
@@ -126,7 +130,7 @@ sops:
             QUlVNExmVGd2QXJwVmRGa0JvMmtocEUK7Zo0Mtj3oZm5Etp61cGbLs+2XP97pjR6
             rtfHnuxceJj0+yBugfwgFD1TGJ+6M7z5YCwTx+GAvbPDrmSm2TGrwg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-01-28T12:25:37Z"
-    mac: ENC[AES256_GCM,data:zS7Ycv88LfdMB6vypXPuWjWn2gf1AoNCYbWdNmgMjGa6a6+D9ff9jMS3nAbndPhZrD/ZHDQ0AUUWy0bVOdFZHyftW4wQ+x/SvEjMhIbAHlqys+QBVgeDMkVWhll1q1q27pVASbtsG0tJR1ELSogb0INHzdUU0a+r83H0zMhu8EQ=,iv:Wd1WUykALNg7D9QhPKXsIHJv++HnwfrVw+bmsblEJ/U=,tag:0PwEBLxN0FQrc0AF5nQkuA==,type:str]
+    lastmodified: "2026-02-01T18:14:13Z"
+    mac: ENC[AES256_GCM,data:idqplCdtvVzxL3nlS6YU8NRs1UHSPB8mkcbhVB++fdO0nJUUUiVzVjKAOG2goluTjxctjjghzHY97PLmwq8+jhH23mctx3NjbLtUqTvcDoeXDBv5TIaUmGnLrMovMuB0BHiS4Jyk3WueIwmBK3t+gBDqyFpn6qIaC127eyq7Lig=,iv:DTWLsDASaRykulYhQCY+459YdxeyCG1npmvxP7/V098=,tag:2ebEyEvpDpdZ5pB79X4low==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.11.0

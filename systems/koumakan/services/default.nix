@@ -19,7 +19,7 @@
     ./databases
     ./games
     ./mirror
-    # ./notifications
+    ./notifications
     ./bridges
     ./proxies
     ./scm
