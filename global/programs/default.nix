@@ -1,8 +1,8 @@
-{ ... }:
 {
   imports = [
     ./nix
 
+    ./man.nix
     ./editors.nix
     ./shells.nix
     ./multiplexers.nix
