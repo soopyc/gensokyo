@@ -33,7 +33,7 @@ in
 
           # diff-so-fancy stuff
           diff-so-fancy.stripLeadingSymbols = false;
-          core.pager = "${diff-so-fancy} | ${less} '--tabs=4' -RFX"; # in order: raw control chars, quit if one screen, don't init terminal
+          core.pager = "${diff-so-fancy} | ${less} '--tabs=4' -R"; # in order: (R)aw control chars, (F)quit if one screen, (X)don't init terminal
           interactive.diffFilter = "${diff-so-fancy} --patch";
         };
       }
