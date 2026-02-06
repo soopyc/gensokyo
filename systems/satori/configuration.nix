@@ -69,7 +69,6 @@
   '';
 
   environment.systemPackages = [
-    pkgs.jetbrains.idea-ultimate
     pkgs.prismlauncher
   ];
 
