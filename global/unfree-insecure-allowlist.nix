@@ -11,6 +11,8 @@
         "idea"
         "discord"
         "via"
+
+        "brcm-mac-firmware-zstd"
       ];
 
     allowInsecurePredicate =
