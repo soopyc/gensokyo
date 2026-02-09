@@ -18,6 +18,15 @@
   };
 
   environment.systemPackages = lib.singleton pkgs.winboat;
+  users.users.cassie.extraGroups = [ "libvirtd" ];
+
+  # security.polkit.extraConfig = ''
+  #   // allow unconditional access to libvirt for cassie
+  #   polkit.addRule(function (action, subject) {
+  #     if (action.id == "org.libvirt.unix.manage" && subject.local && subject.active && subject.user == "cassie")
+  #       return polkit.Result.YES;
+  #   });
+  # '';
 
   # GPU Passthrough
   # boot.initrd.kernelModules = [
