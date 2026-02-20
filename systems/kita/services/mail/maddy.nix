@@ -101,6 +101,17 @@
         }
       }
 
+      # this identity (distinguisher) differs from identity (condition)
+      table.chain merged_sender_identity {
+        optional_step static {
+          # allow this user to use any address.
+          # ideally we would limit this to our localdomain, but manually creating imap mailboxes seems to be necessary.
+          entry "cassie@soopy.moe" "*"
+        }
+        # enforce identical username==email checks otherwise
+        step identity
+      }
+
       # enable port 465 implicit tls and 587 submission
       submission tls://0.0.0.0:465 tcp://0.0.0.0:587 {
         limits {
@@ -111,7 +122,7 @@
           check {
               authorize_sender {
                   prepare_email &local_rewrites
-                  user_to_email identity
+                  user_to_email &merged_sender_identity
               }
           }
           destination postmaster $(local_domains) {
