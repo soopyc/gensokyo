@@ -2,11 +2,11 @@
 let
   secrets = _utils.setupSecrets config {
     namespace = "mollysocket";
-    secrets = ["vapid_key"];
+    secrets = [ "vapid_key" ];
   };
-  in
+in
 {
-  imports = [secrets.generate];
+  imports = [ secrets.generate ];
   services.mollysocket = {
     enable = true;
     settings.port = 35153;
