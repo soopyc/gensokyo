@@ -91,8 +91,16 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
-      forAllSystems = fn: lib.genAttrs systems (system: fn nixpkgs.legacyPackages.${system});
-      treefmt = forAllSystems (pkgs: treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix);
+      forAllSystems =
+        fn:
+        lib.genAttrs systems (
+          system:
+          fn {
+            inherit system;
+            pkgs = nixpkgs.legacyPackages.${system};
+          }
+        );
+      treefmt = forAllSystems ({ pkgs, ... }: treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix);
     in
     {
       lib.x86_64-linux = import ./global/utils.nix {
@@ -117,17 +125,17 @@
 
       nixosConfigurations = import systems/default.nix { inherit inputs lib; };
 
-      devShells = forAllSystems (pkgs: import ./nix/devshell.nix { inherit pkgs inputs; });
+      devShells = forAllSystems ({ pkgs, ... }: import ./nix/devshell.nix { inherit pkgs inputs; });
 
       checks = forAllSystems (
-        pkgs:
+        { pkgs, system }:
         (import ./nix/checks.nix { inherit pkgs inputs; })
         // {
-          formatting = treefmt.${pkgs.system}.config.build.check self;
+          formatting = treefmt.${system}.config.build.check self;
         }
       );
 
-      formatter = forAllSystems (pkgs: treefmt.${pkgs.system}.config.build.wrapper);
+      formatter = forAllSystems ({ system, ... }: treefmt.${system}.config.build.wrapper);
 
       _debug = {
         inherit inputs;
