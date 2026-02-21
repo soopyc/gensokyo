@@ -3,10 +3,6 @@ python_executable := if os() == "android" { "python3" } else { "nix develop ..# 
 list:
 	just -l
 
-# grab a new nitter guest account and save it
-nitter-token:
-	{{python_executable}} nitter-guest-account.py tokens.json
-
 # sync sops config with the nix file
 update-sops-config:
 	#!/usr/bin/env bash
