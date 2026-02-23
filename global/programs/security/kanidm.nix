@@ -2,7 +2,7 @@
 {
   services.kanidm = {
     enableClient = true;
-    package = pkgs.kanidm_1_8;
+    package = pkgs.kanidm_1_9;
     clientSettings = {
       uri = "https://serenity.mist-nessie.ts.net";
     };
