@@ -4,6 +4,7 @@
     packages = [
       pkgs.nixos-rebuild
       pkgs.nvd
+      pkgs.just-lsp
     ];
   };
 
