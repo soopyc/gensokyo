@@ -1,26 +1,17 @@
 {
-  networking.networkmanager.ethernet.macAddress = "stable";
+  systemd.network.networks."50-enp3s0-static-ips" = {
+    enable = true;
+    DHCP = "ipv4";
 
-  networking.interfaces."enp3s0" = {
-    ipv4.addresses = [
-      # dn42
-      {
-        address = "172.20.13.225";
-        prefixLength = 28;
-      }
-    ];
+    name = "enp3s0";
 
-    ipv6.addresses = [
-      {
-        address = "2404:c800:9133:2709:b2c::16";
-        prefixLength = 64;
-      }
+    address = [
+      # public internet
+      "2404:c800:9133:2709:b2c::16/64"
 
       # dn42
-      {
-        address = "fddd:443:3c3c:a5ea::16";
-        prefixLength = 64;
-      }
+      "172.20.13.225/28"
+      "fddd:443:3c3c:a5ea::16/64"
     ];
   };
 }
