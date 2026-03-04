@@ -10,7 +10,7 @@ true := "true"
 build system="" +extra_args="":
 	nixos-rebuild -v -L --keep-going --accept-flake-config --log-format internal-json --flake .#{{system}} build \
 		{{extra_args}} |& nom --json
-	{{ if system == "" {"nvd diff /run/current-system result"} else {""} }}
+	{{ if system == "" {"dix /run/current-system result"} else {""} }}
 
 # evaluate the configuration for a system
 eval system:
@@ -69,7 +69,7 @@ flake-update:
 
 # list changes in the current config vs the system config
 diff:
-	nvd diff /run/current-system result
+	dix /run/current-system result
 
 # build a vm for a system
 vm system run="true" bootloader="false":

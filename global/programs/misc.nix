@@ -11,6 +11,7 @@
     gh
     nil
     nvd
+    dix
     nix-output-monitor
     python3
     ffmpeg-full

@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
   default = pkgs.mkShellNoCC {
-    packages = [
-      pkgs.nixos-rebuild
-      pkgs.nvd
-      pkgs.just-lsp
+    packages = with pkgs; [
+      nixos-rebuild
+      dix
+      just-lsp
+      nixfmt
     ];
   };
 
