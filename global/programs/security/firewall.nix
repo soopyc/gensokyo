@@ -1,9 +1,4 @@
-{ ... }:
 {
-  imports = [
-    ./ip-bans.nix
-  ];
-
   networking.firewall = {
     enable = true;
 
