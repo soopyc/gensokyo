@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   imports = [
     ./firewall.nix
@@ -7,5 +6,5 @@
 
   systemd.network.enable = true;
   networking.useNetworkd = true;
-  networking.networkmanager.enable = lib.mkForce false;
+  networking.networkmanager.enable = false;
 }

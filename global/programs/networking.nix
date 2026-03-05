@@ -6,7 +6,7 @@
 }:
 lib.mkMerge [
   {
-    networking.networkmanager.enable = true;
+    networking.networkmanager.enable = lib.mkDefault true;
     networking.domain = "d.soopy.moe";
 
     services.avahi = {
