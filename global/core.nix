@@ -33,6 +33,11 @@
 
   boot.crashDump.enable = true;
 
+  # copy and edit something because it is very annoying when ubuntu decide subjective things for
+  # their users, and modprobe not having a !blacklist option.
+  boot.modprobeConfig.useUbuntuModuleBlacklist = false;
+  environment.etc."modprobe.d/ubuntu-edit.conf".source = ./ubuntu.modprobe.conf;
+
   time.timeZone = "Asia/Hong_Kong";
 
   # Lock root account
