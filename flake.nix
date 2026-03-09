@@ -9,6 +9,11 @@
     extra-trusted-public-keys = [
       "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
     ];
+
+    extra-experimental-features = [
+      "ca-derivations"
+    ];
+
     fallback = true;
   };
 
