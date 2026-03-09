@@ -8,34 +8,31 @@ true := "true"
 
 # build the current configuration
 build system="" +extra_args="":
-	nixos-rebuild -v -L --keep-going --accept-flake-config --log-format internal-json --flake .#{{system}} build \
+	nixos-rebuild -v -L --keep-going --accept-flake-config --log-format internal-json --flake '.#{{system}}' build \
 		{{extra_args}} |& nom --json
 	{{ if system == "" {"dix /run/current-system result"} else {""} }}
 
 # evaluate the configuration for a system
 eval system:
-	nix eval .#nixosConfigurations.{{system}}.config.system.build.toplevel
+	nix eval '.#nixosConfigurations.{{system}}.config.system.build.toplevel'
 
 # build and test the configuration, but don't switch
 test system="":
-	nixos-rebuild -v -L test --flake .#{{system}} --accept-flake-config
+	nixos-rebuild -v -L test --flake '.#{{system}}' --accept-flake-config
 
-deploy system:
-	nixos-rebuild switch --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L --use-substitutes
-
-dry-deploy system:
-	nixos-rebuild build --flake .#{{system}} --target-host {{system}} --use-remote-sudo -v -L --use-substitutes
+deploy system target="" +args="--use-substitutes":
+	nixos-rebuild switch --flake '.#{{system}}' --target-host {{ if target == "" {system} else {target} }} --use-remote-sudo -v -L {{args}}
 
 # switch to the current configuration
 switch system="": sudo_cache
-	sudo nixos-rebuild -v -L switch --flake .#{{system}} --accept-flake-config --keep-going
+	sudo nixos-rebuild -v -L switch --flake '.#{{system}}' --accept-flake-config --keep-going
 
 sw system="": sudo_cache
-	sudo nixos-rebuild --fast -v -L switch --flake .#{{system}} --accept-flake-config --keep-going
+	sudo nixos-rebuild --fast -v -L switch --flake '.#{{system}}' --accept-flake-config --keep-going
 
 # literally nixos-rebuild boot with a different name
 defer system="": sudo_cache
-	sudo nixos-rebuild -v -L boot --flake .#{{system}} --accept-flake-config
+	sudo nixos-rebuild -v -L boot --flake '.#{{system}}' --accept-flake-config
 
 build-all: (for-all-systems 'build' 'true')
 deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)' true)
@@ -73,7 +70,7 @@ diff:
 
 # build a vm for a system
 vm system run="true" bootloader="false":
-	nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake .#{{system}}
+	nixos-rebuild -v -L build-vm{{if bootloader == "true" {"-with-bootloader"} else {""} }} --flake '.#{{system}}'
 	{{if run == true {"./result/bin/run-"+system+"-vm"} else {""} }}
 
 [private]
