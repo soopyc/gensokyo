@@ -5,6 +5,7 @@ let
   age.soopyc_mbp14 = "age1zkafenrdkkmatjh034yykpzjzzs5fx6kft23jlmsung3dwyufcksds59l2";
 
   # hosts
+  age.youmu = "age1hxuyl2uuktrv7q6rlw9ur8fkuurv0tgushfa3clyplqxnajyxc6quyrl8w";
   age.koumakan = "age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt";
   age.satori = "age132qsqclmp5d6x968x5y8amdn90v64rldy3assprr8g8wjdpecvmqwryah8";
   age.renko = "age1p6n5yh9fy09xspwf29klfsa4zdrhp04q22gvxkz2vvm88vt9tunsdn020s";
@@ -32,6 +33,7 @@ let
             age.soopyc_yub302
             age.soopyc_yub901
           ]
+          ++ [ age.${name} ]
           ++ identities;
         }
       ];
@@ -45,10 +47,10 @@ in
       key_groups = everything;
     }
 
-    (mkHost "koumakan" [ age.koumakan ])
-    (mkHost "satori" [ age.satori ])
-    (mkHost "renko" [ age.renko ])
-
-    (mkHost "kita" [ age.kita ])
+    (mkHost "youmu" [ ])
+    (mkHost "koumakan" [ ])
+    (mkHost "satori" [ ])
+    (mkHost "renko" [ ])
+    (mkHost "kita" [ ])
   ];
 }
