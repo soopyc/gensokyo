@@ -12,7 +12,7 @@
   # Set default i18n configuration
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    font = "sun12x22";
     keyMap = "us";
   };
 
@@ -33,6 +33,13 @@
 
   boot.initrd.systemd.enable = true;
   boot.crashDump.enable = true;
+
+  boot.kernelParams = [
+    # catppuccin latte as tty colors
+    "vt.default_red=239,210,64,223,30,234,23,108,172,210,64,223,30,234,23,76"
+    "vt.default_grn=241,15,160,142,102,118,146,111,176,15,160,142,102,118,146,79"
+    "vt.default_blu=245,57,43,29,245,203,153,133,190,57,43,29,245,203,153,105"
+  ];
 
   # copy and edit something because it is very annoying when ubuntu decide subjective things for
   # their users, and modprobe not having a !blacklist option.
