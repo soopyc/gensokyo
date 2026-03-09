@@ -31,6 +31,7 @@
     cleanOnBoot = true;
   };
 
+  boot.initrd.systemd.enable = true;
   boot.crashDump.enable = true;
 
   # copy and edit something because it is very annoying when ubuntu decide subjective things for
