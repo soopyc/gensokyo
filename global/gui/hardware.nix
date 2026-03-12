@@ -13,4 +13,6 @@ lib.mkIf config.gensokyo.traits.gui {
   ];
 
   programs.kdeconnect.enable = true;
+
+  programs.yubikey-touch-detector.enable = true;
 }
