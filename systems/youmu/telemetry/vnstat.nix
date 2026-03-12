@@ -82,6 +82,7 @@ in
         Group = "vnstatd";
         StateDirectory = "vnstat";
 
+        ReadWritePaths = lib.singleton "/srv/vnstat/";
         ConditionPathExists = "/var/lib/vnstat/vnstat.db";
 
         NoNewPrivileges = true;
