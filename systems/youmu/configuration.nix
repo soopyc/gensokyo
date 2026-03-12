@@ -21,6 +21,7 @@ in
 
     ./disk.nix
     ./services
+    ./telemetry
     ./networking
 
     inputs.impermanence.nixosModules.default

@@ -91,6 +91,7 @@ in
       "/var/lib/nixos"
       "/var/lib/postgresql"
       "/var/log/journal"
+      "/var/lib/vnstat"
       # "/var/lib/kea"
       # "/var/lib/private/kea"
       (mkPersistDir "/var/lib/tailscale" "0700")
