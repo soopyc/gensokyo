@@ -1,6 +1,6 @@
 {
   documentation.man = {
-    generateCaches = true;
+    # generateCaches = true;
 
     man-db.enable = true;
     # mandoc.enable = true;
