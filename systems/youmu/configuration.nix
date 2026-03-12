@@ -20,6 +20,7 @@ in
     passSecrets.generate
 
     ./disk.nix
+    ./services
     ./networking
 
     inputs.impermanence.nixosModules.default
