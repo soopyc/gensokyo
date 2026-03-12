@@ -21,5 +21,7 @@ in
       configFile = pkgs.writeText "Caddyfile" cfg.config;
       adapter = "caddyfile";
     };
+
+    services.tailscale.permitCertUid = "caddy";
   };
 }
