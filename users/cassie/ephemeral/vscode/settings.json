@@ -132,5 +132,4 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true
-  // other random generated crap
 }

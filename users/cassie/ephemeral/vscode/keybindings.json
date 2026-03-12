@@ -19,7 +19,7 @@
     "command": "workbench.action.openWorkspace"
   },
   {
-    "key": "ctrl+alt+n",
+    "key": "ctrl+n",
     "command": "explorer.newFile"
   },
   {
@@ -38,5 +38,17 @@
   {
     "key": "alt+'",
     "command": "editor.emmet.action.wrapWithAbbreviation"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile"
   }
 ]
