@@ -6,11 +6,12 @@
 }:
 let
   monitoredHosts = [
+    "youmu"
     "satori"
     "renko"
     "kita"
-    "ryo"
-    "nijika"
+    # "ryo"
+    # "nijika"
   ];
   secrets = _utils.setupSecrets config {
     namespace = "vmetrics";

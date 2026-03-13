@@ -69,6 +69,7 @@ in
     };
 
   # gensokyo.traits.sensitive = true; # TODO: turn this back on after verified connectivity
+  gensokyo.presets.vmetrics = true;
 
   system.stateVersion = "25.11";
 }

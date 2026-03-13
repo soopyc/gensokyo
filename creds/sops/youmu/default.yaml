@@ -1,5 +1,7 @@
 passwords:
     cassie: ENC[AES256_GCM,data:pigvhNOgPQU5+dK3iss6A58bijdyLjWbw9H8ugu1oPo3Ln2AGyx8ePWvNwaM02DoTylUy5iGecoZiOEg8JHOKZkVUrRJCPzKEg==,iv:DOn5TX4bNGYoMmKTgDae755HasAlXdFWp4ve233dFRU=,tag:bMtIJP+BJkVasmaAxBR/iQ==,type:str]
+vmetrics:
+    auth: ENC[AES256_GCM,data:ISW8RWoC+oq5KHCw4AsAwWkhOZMCcTonXu2niuZgmd0Bbtt/TnBAOinBmNAXgP2eUSf8pMqF0l9KZBU8HCBk7gVbJwSXfea5IZyHzRxyiCh0mswyNeoCA75S7PmWZuQmbPkLPBQgDN6nEi5C5qYaQhJa+NweFWKiVpY47xpfsINPM4gMKCf3d+na3BDCTRnXE/jF0ht5P6SspFZ8jrJSwo3NDjaCMIOSGNO9HQ==,iv:P3y0GF6Be4/jt40CjXcl7vGOICYGnHJZfnPG/YQ1N68=,tag:6/ecv4okMGEdCtGG/vlQFQ==,type:str]
 sops:
     age:
         - recipient: age1zkafenrdkkmatjh034yykpzjzzs5fx6kft23jlmsung3dwyufcksds59l2
@@ -40,7 +42,7 @@ sops:
             RHpBelhZeHdhd3JjSTVaQmhDNmNObVkK0xQUV8jotl1oQhAYB4w7Atv9cRgKCrhE
             ok3CwsSaD+aC0+pLPpQNz2tHTpigTAyYGsHbOnp/7l6JKU8/Ys9KPQ==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2026-03-08T18:10:14Z"
-    mac: ENC[AES256_GCM,data:pxZ3fJ1hBzPPjcRamalFB6xPi/QKNYptxm6doSgcNPEqHwGEinphQw13e9etOyfntVuiC3lx0OT3d3F8HCCEOVwAUZY42RpwPmpIhNb0EVwJMV/8hwlD3z6Bkp60/8csKmz/Kc+NcIrfGawZiKucpO81Qt/7V7ZwWsDQsOe8S38=,iv:cDJKbscVQnN3VbpZohlhoVH/ZS2ZyZorezDmPEfnsPQ=,tag:L3cQsdNOnmYgzMOOcFh65A==,type:str]
+    lastmodified: "2026-03-13T10:36:30Z"
+    mac: ENC[AES256_GCM,data:6o4CbeXkr0lJnrsekWlywjCs0QFjUFUwt5v9bNDANsre7J7q5Tw/dmi9CfTpfM2OrdeFfP22uW3poRvGyLGhY3TmVPe7VscTYqQNwAHSaFXBV5xrVDSojsYbp0JHo4NzMDxN/rHvQn9tdq5Dz84moBCg2nXXt8JYomW9deJ9OdQ=,iv:IvAOpwtYNdWFCCIAC9siWmZBXXzJJJ6zbZXzQsfcGN4=,tag:651rwYzRQvaXiejXWEE7Hg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.11.0
