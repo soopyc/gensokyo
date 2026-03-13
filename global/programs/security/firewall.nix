@@ -2,10 +2,11 @@
   networking.firewall = {
     enable = true;
 
-    # this was never needed because ts has been bypassing the firewall anyways. (by being higher on the list.)
-    # trustedInterfaces = [
-    #   "tailscale0"
-    # ];
+    # with iptables it wasn't necessary.
+    # however with nftables this is needed to maintain connectivity.
+    trustedInterfaces = [
+      "tailscale0"
+    ];
   };
 
   # services.openssh.openFirewall = false;
