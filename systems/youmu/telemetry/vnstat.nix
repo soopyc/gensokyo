@@ -64,7 +64,7 @@ in
   '';
 
   systemd = {
-    tmpfiles.settings."10-vnstati-images"."/srv/vnstat/".D = {
+    tmpfiles.settings."50-vnstati-images"."/srv/www/vnstat/".D = {
       user = config.users.users.vnstatd.name;
       group = config.users.groups.vnstatd.name;
       mode = "0755";
@@ -82,7 +82,7 @@ in
         Group = "vnstatd";
         StateDirectory = "vnstat";
 
-        ReadWritePaths = lib.singleton "/srv/vnstat/";
+        ReadWritePaths = lib.singleton "/srv/www/vnstat/";
         ConditionPathExists = "/var/lib/vnstat/vnstat.db";
 
         NoNewPrivileges = true;
@@ -93,19 +93,12 @@ in
 
       script = ''
         set -euxo pipefail
-        cp -v ${imagesMeta} /srv/vnstat/
-        ${lib.concatLines (lib.mapAttrsToList (k: v: "vnstati ${v} -o ${k}.png") imageTypes)}
+        test -e /srv/www/vnstat/metadata.json && rm /srv/www/vnstat/metadata.json
+        ln -sv ${imagesMeta} /srv/www/vnstat/metadata.json
+        ${lib.concatLines (
+          lib.mapAttrsToList (k: v: "vnstati ${v} -o /srv/www/vnstat/${k}.png") imageTypes
+        )}
       '';
     };
   };
-
-  gensokyo.caddy.config = ''
-    # vnstat
-    youmu.mist-nessie.ts.net {
-      file_server /vnstat {
-        browse
-        root /srv/vnstat
-      }
-    }
-  '';
 }
