@@ -1,9 +1,8 @@
 { pkgs, ... }:
-
 {
   imports = [
     ./interface.nix
-
+    ./firewall.nix
     ./dhcp.nix
     ./routing.nix
   ];
