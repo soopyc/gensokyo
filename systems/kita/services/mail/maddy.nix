@@ -88,6 +88,9 @@
           spf
         }
 
+        source_in file /etc/maddy/banned_domains {
+          reject 550 5.7.1 "Domain is permanently blocked. Please fix your outgoing spam filter."
+        }
         source $(local_domains) {
           reject 501 5.1.8 "Use internal submission port for outgoing SMTP"
         }
@@ -189,6 +192,11 @@
       }
     '';
   };
+
+  environment.etc."maddy/banned_domains".text = ''
+    # domain-wide blackhole as a last-resort spam rejection measure.
+    tiscali.it
+  '';
 
   networking.firewall.allowedTCPPorts = [
     25 # smtp
