@@ -92,8 +92,7 @@ in
       "/var/lib/postgresql"
       "/var/log/journal"
       "/var/lib/vnstat"
-      # "/var/lib/kea"
-      # "/var/lib/private/kea"
+      "/var/lib/private/kea" # dynamicuser is enabled
       (mkPersistDir "/var/lib/tailscale" "0700")
     ];
   };
