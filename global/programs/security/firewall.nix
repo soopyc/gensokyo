@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   networking.firewall = {
     enable = true;
@@ -7,6 +8,9 @@
     trustedInterfaces = [
       "tailscale0"
     ];
+
+    # reduce spam
+    logRefusedConnections = lib.mkDefault false;
   };
 
   # services.openssh.openFirewall = false;

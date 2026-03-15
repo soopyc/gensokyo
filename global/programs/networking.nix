@@ -20,9 +20,6 @@ lib.mkMerge [
     # disable broken services
     systemd.services.NetworkManager-wait-online.enable = false;
 
-    # reduce spam
-    networking.firewall.logRefusedConnections = lib.mkDefault false;
-
     # use tcp bbr for increased throughput
     boot.kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
