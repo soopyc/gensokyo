@@ -9,7 +9,7 @@ in
       settings = {
         lease-database = {
           type = "memfile";
-          persist = false;
+          persist = true;
           name = "/var/lib/kea/dhcp4.leases";
         };
 
@@ -39,4 +39,8 @@ in
       settings = { };
     };
   };
+
+  # why are these enabled? it's already running as a user
+  systemd.services.kea-dhcp4-server.serviceConfig.DynamicUser = lib.mkForce false;
+  systemd.services.kea-dhcp6-server.serviceConfig.DynamicUser = lib.mkForce false;
 }
