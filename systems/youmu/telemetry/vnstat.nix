@@ -32,6 +32,7 @@ in
 
     # default interface
     Interface wan0
+    AlwaysAddNewInterfaces 1
 
     # default list output entry limits (0 = all)
     ;List5Mins      24
