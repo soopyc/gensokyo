@@ -40,7 +40,11 @@ lib.mkMerge [
 
   (lib.mkIf (!config.gensokyo.traits.sensitive) {
     services.avahi = {
-      publish.enable = true;
+      openFirewall = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
     };
   })
 
