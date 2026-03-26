@@ -65,10 +65,17 @@ in
     };
   };
 
-  systemd.tmpfiles.settings."50-garage-init"."/var/lib/garage"."d" = {
-    user = "garage";
-    group = "garage";
-    mode = "0700";
+  systemd.tmpfiles.settings."50-garage-init" = {
+    "/var/lib/garage"."d" = {
+      user = "garage";
+      group = "garage";
+      mode = "0700";
+    };
+    "/var/lib/garage/data"."e" = {
+      user = "garage";
+      group = "garage";
+      mode = "0700";
+    };
   };
 
   systemd.services.garage.serviceConfig = {
