@@ -11,7 +11,7 @@ lib.mkIf traits.gui {
     package = inputs.ghostty.packages.${pkgs.system}.ghostty;
     settings = {
       theme = "catppuccin-latte";
-      font-family = "CozetteVector";
+      font-family = "FantasqueSansM Nerd Font Mono";
       font-size = 14;
       window-decoration = "client";
 

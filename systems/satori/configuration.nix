@@ -39,7 +39,7 @@
   hardware.apple.touchBar = {
     enable = true;
     settings = {
-      FontTemplate = "Hurmit Nerd Font";
+      FontTemplate = "FantasqueSansM Nerd Font Mono";
     };
   };
   hardware.firmware = [

@@ -8,10 +8,9 @@
 lib.mkIf config.gensokyo.traits.gui {
   fonts.packages = with pkgs; [
     nerd-fonts.hurmit
-    nerd-fonts.fira-mono
+    nerd-fonts.fantasque-sans-mono
 
     cozette
-    fira-code
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji-blob-bin
@@ -34,6 +33,20 @@ lib.mkIf config.gensokyo.traits.gui {
         </prefer>
         <default><family>sans-serif</family></default>
       </alias>
+
+      <!-- doesn't work...
+      <match target='font'>
+          <test name='fontformat' compare='not_eq'>
+              <string/>
+          </test>
+          <test name='family'>
+              <string>FantasqueSansM Nerd Font Mono</string>
+          </test>
+          <edit name='fontfeatures' mode='assign_replace'>
+              <string>ss01</string>
+          </edit>
+      </match>
+      -->
 
       <selectfont>
         <rejectfont>
