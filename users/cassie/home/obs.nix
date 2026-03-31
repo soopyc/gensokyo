@@ -13,4 +13,6 @@ lib.mkIf traits.gui {
       obs-pipewire-audio-capture
     ];
   };
+
+  home.packages = with pkgs; [ obs-cmd ];
 }
