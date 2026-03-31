@@ -1,6 +1,6 @@
 {
   // reduce eye strain
-  "terminal.integrated.fontFamily": "Hurmit Nerd Font Mono",
+  "terminal.integrated.fontFamily": "FantasqueSansM Nerd Font Mono",
   "terminal.integrated.enableImages": true,
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
@@ -13,9 +13,8 @@
   "editor.renderWhitespace": "all",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "phase",
-  "editor.fontFamily": "'Hurmit Nerd Font', 'Menlo', monospace",
-  "editor.fontSize": 17,
-  "editor.lineHeight": 1.65,
+  "editor.fontFamily": "'FantasqueSansM Nerd Font Mono', 'Menlo', monospace",
+  "editor.fontSize": 20,
   "editor.fontLigatures": false,
   "errorLens.statusBarIconsEnabled": true,
   "errorLens.gutterIconSet": "defaultOutline",
@@ -131,5 +130,9 @@
   "[less]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.lineHeight": 1.5,
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"ss01\"",
+  "terminal.integrated.lineHeight": 1.25
 }
