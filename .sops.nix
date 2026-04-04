@@ -10,9 +10,9 @@ let
   age.satori = "age132qsqclmp5d6x968x5y8amdn90v64rldy3assprr8g8wjdpecvmqwryah8";
   age.renko = "age1p6n5yh9fy09xspwf29klfsa4zdrhp04q22gvxkz2vvm88vt9tunsdn020s";
   age.kita = "age1qzma7prftj6d4atqcmatdl9le0tuuqzegm6f8e9gkwrp3pja0aaqs49g7n";
+  age.nijika = "age1llxz2vd696pt46rdfwd9rfv2mycapqlsdjs2zlky6j5ujzmkyf7smlz6mm";
   # age.bocchi = "age1kdctxllje2rw3kwpzell0rt6t7mruc3h3j5zfjelnpmahchjlaqs9v9vm9";
   # age.ryo = "age1tdatk0rrr6uf89g5vpq96wjcjcetkrs6yadkxv47v76q8qhtva2sn7tun2";
-  # age.nijika = "age1rzxugsgkpnf0ns0w70swdc3sndjpktx23eucah4w47zcppz56sls2c5e6m";
 
   everything = [
     {
@@ -52,5 +52,6 @@ in
     (mkHost "satori" [ ])
     (mkHost "renko" [ ])
     (mkHost "kita" [ ])
+    (mkHost "nijika" [ ])
   ];
 }
