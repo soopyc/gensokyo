@@ -23,9 +23,6 @@ in
     ./services
     ./telemetry
     ./networking
-
-    inputs.impermanence.nixosModules.default
-    inputs.disko.nixosModules.default
   ];
 
   # impermenance doesn't check neededForBoot for a given mountpoint and that is needed for sops-nix
