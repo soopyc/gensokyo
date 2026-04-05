@@ -23,7 +23,7 @@
     nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.11";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
-    catppuccin.url = "github:catppuccin/nix/release-25.05"; # TODO
+    catppuccin.url = "github:catppuccin/nix/release-25.11";
     hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
 
