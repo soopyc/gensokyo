@@ -1,6 +1,8 @@
 {
   imports = [
     ./dev
+
+    ./lsd.nix
   ];
 
   hjem.users.cassie = {

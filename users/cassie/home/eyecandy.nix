@@ -1,11 +1,4 @@
-{ ... }:
 {
-  programs.eza = {
-    enable = true;
-    icons = "auto";
-    git = true;
-  };
-
   catppuccin = {
     enable = true;
     accent = "pink";
