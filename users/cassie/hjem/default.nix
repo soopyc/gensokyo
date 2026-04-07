@@ -3,6 +3,7 @@
     ./dev
 
     ./lsd.nix
+    ./zsh.nix
   ];
 
   hjem.users.cassie = {
