@@ -22,7 +22,7 @@
     # nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.11";
 
-    nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
+    nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-staging";
     catppuccin.url = "github:catppuccin/nix/release-25.11";
     hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
