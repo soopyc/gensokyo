@@ -707,16 +707,16 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1775915520,
-        "narHash": "sha256-RfC00xI73s41rMBA3FLWMa9fuvcAQGsTX1Y16U2+RUU=",
+        "lastModified": 1776149042,
+        "narHash": "sha256-meYtCk8h2hEcZcCKxOri5hgr3TcLtxay1DMZG9uFSRU=",
         "owner": "soopyc",
         "repo": "nixos-hardware",
-        "rev": "789c8c995208028431b03a40ffb1ce4fe7d3f11e",
+        "rev": "977b492d454642437d8d719babec4270fc686fe2",
         "type": "github"
       },
       "original": {
         "owner": "soopyc",
-        "ref": "apple-t2-staging",
+        "ref": "apple-t2-updates",
         "repo": "nixos-hardware",
         "type": "github"
       }
