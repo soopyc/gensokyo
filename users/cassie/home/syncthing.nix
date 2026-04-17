@@ -29,6 +29,8 @@ lib.mkIf (traits.gui) {
         "(?d)**/build"
         "(?d)**/.gradle"
         "(?d)**/.direnv"
+        "(?d)**/.venv"
+        "(?d)**/venv"
       ];
       folders = {
         "/home/cassie/projects/synced" = {
