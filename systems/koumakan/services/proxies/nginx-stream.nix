@@ -27,18 +27,18 @@
     # data
     server {
       listen 25565-25599 reuseport;
-      proxy_pass renko.mist-nessie.ts.net:$server_port;
+      proxy_pass 100.100.32.32:$server_port;
     }
 
     # query sockets
     server {
       listen 25565-25599 udp reuseport;
-      proxy_pass renko.mist-nessie.ts.net:$server_port;
+      proxy_pass 100.100.32.32:$server_port;
     }
     # voice
     server {
       listen 55111-55199 udp reuseport;
-      proxy_pass renko.mist-nessie.ts.net:$server_port;
+      proxy_pass 100.100.32.32:$server_port;
     }
   '';
 }
