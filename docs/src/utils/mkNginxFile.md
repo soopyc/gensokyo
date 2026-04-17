@@ -1,5 +1,5 @@
 # `_utils.mkNginxFile`
-`{filename<str> ? "index.html", content<str>, status<int> ? 200} -> {alias<str>, tryFiles<str>}`
+`{filename<str> ? "index.html", content<str>} -> {alias<str>, tryFiles<str>}`
 
 Helper function to generate an attrset compatible with a nginx vhost `locations` attribute that serves a single file.
 
