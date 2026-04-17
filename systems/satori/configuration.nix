@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./fan.nix
     ./steam.nix
     inputs.nixos-hardware.nixosModules.apple-t2
     inputs.nixos-hardware.nixosModules.common-cpu-intel
@@ -50,7 +51,11 @@
   specialisation.latest-kernel.configuration.hardware.apple-t2.kernelChannel = lib.mkForce "latest";
 
   # experimental
-  boot.kernelParams = [ "mem_sleep_default=s2idle" ];
+  boot.kernelParams = [
+    # "mem_sleep_default=s2idle"
+    "pcie_aspm=off"
+  ];
+
   systemd = {
     services.tiny-dfr = {
       wantedBy = [
