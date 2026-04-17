@@ -8,7 +8,7 @@
         # lsd aliases
         alias ls='lsd --git'
         alias l='ls -alh'
-        alias ll='lsd -l'
+        alias ll='lsd -la'
         alias la='lsd -la'
         alias laa='lsd -a'
         alias lt='lsd --tree'
