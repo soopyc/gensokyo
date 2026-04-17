@@ -60,8 +60,6 @@ in
           ];
         }
 
-        (mkHttpEndpoint "Hydra" "bocchi" "https://hydra.soopy.moe")
-
         (mkHttpEndpoint "noVNC" "ryo" "https://ryo.soopy.moe/vnc_lite.html")
       ];
     };

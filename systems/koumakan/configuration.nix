@@ -5,7 +5,6 @@
     inputs.mystia.nixosModules.vmauth
     inputs.mystia.nixosModules.bsky-pds
     inputs.mystia.nixosModules.mautrix-discord # technically not needed, but json will work better
-    inputs.hydra.nixosModules.hydra
     inputs.whitelisted-web.nixosModules.default
     inputs.knotserver-module.nixosModules.default
 

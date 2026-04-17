@@ -22,7 +22,7 @@ let
       {
         hostName = name + ".mist-nessie.ts.net";
 
-        protocol = "ssh"; # nevermind we need hydra
+        protocol = "ssh-ng"; # nevermind we need hydra
         sshUser = "builder";
         sshKey = config.sops.secrets.builder_key.path;
 

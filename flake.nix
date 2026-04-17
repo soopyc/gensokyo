@@ -24,7 +24,7 @@
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix/release-25.11";
-    hydra.url = "github:NixOS/hydra";
+    # hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
 
     disko = {
