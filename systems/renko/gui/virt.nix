@@ -10,11 +10,11 @@
 
   # try virtualbox
   virtualisation.virtualbox.host = {
-    # nah cba. doesn't do what we need it to do well.
-    enable = false;
-    # enableKvm = true;
-    # enableExtensionPack = false;
-    # addNetworkInterface = false; # conflicts with KVM
+    # for things like win7
+    enable = true;
+    enableKvm = true;
+    enableExtensionPack = false;
+    addNetworkInterface = false; # conflicts with KVM
   };
 
   environment.systemPackages = lib.singleton pkgs.winboat;
