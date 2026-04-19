@@ -1,4 +1,3 @@
-{ pkgs, lib, ... }:
 {
   programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
@@ -17,7 +16,7 @@
     addNetworkInterface = false; # conflicts with KVM
   };
 
-  environment.systemPackages = lib.singleton pkgs.winboat;
+  # environment.systemPackages = lib.singleton pkgs.winboat;
   users.users.cassie.extraGroups = [ "libvirtd" ];
 
   # security.polkit.extraConfig = ''
