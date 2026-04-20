@@ -2,12 +2,12 @@
   pkgs,
   lib,
   config,
-  # inputs,
+  inputs,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
   fonts.packages = with pkgs; [
-    nerd-fonts.hurmit
+    inputs.mystia.packages.${stdenv.hostPlatform.system}.maple-soopy
     nerd-fonts.fantasque-sans-mono
 
     cozette

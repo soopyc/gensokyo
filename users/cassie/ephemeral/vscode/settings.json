@@ -1,6 +1,6 @@
 {
   // reduce eye strain
-  "terminal.integrated.fontFamily": "FantasqueSansM Nerd Font Mono",
+  "terminal.integrated.fontFamily": "Maple Soopy NL NFMono CN",
   "terminal.integrated.enableImages": true,
   "terminal.integrated.enableVisualBell": true,
   "terminal.integrated.tabs.defaultColor": "terminal.ansiBlue",
@@ -13,8 +13,8 @@
   "editor.renderWhitespace": "all",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "phase",
-  "editor.fontFamily": "'FantasqueSansM Nerd Font Mono', 'Menlo', monospace",
-  "editor.fontSize": 20,
+  "editor.fontFamily": "'Maple Soopy NL NFMono CN', 'Menlo', monospace",
+  "editor.fontSize": 18,
   "editor.fontLigatures": false,
   "errorLens.statusBarIconsEnabled": true,
   "errorLens.gutterIconSet": "defaultOutline",
@@ -131,8 +131,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
+  "terminal.integrated.lineHeight": 1.25,
   "editor.lineHeight": 1.5,
-  "terminal.integrated.fontSize": 18,
-  "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"ss01\"",
-  "terminal.integrated.lineHeight": 1.25
+  "terminal.integrated.fontSize": 16
 }

@@ -11,13 +11,13 @@ lib.mkIf traits.gui {
     package = inputs.ghostty.packages.${pkgs.system}.ghostty;
     settings = {
       theme = "catppuccin-latte";
-      font-family = "FantasqueSansM Nerd Font Mono";
+      font-family = "Maple Soopy NL NFMono CN";
       font-size = 14;
       window-decoration = "client";
 
       # great feature, but breaks a bit too many things :(
       # minimum-contrast = 1.1;
-      async-backend = "epoll"; # see if this fixes iowait "bug"
+      # async-backend = "epoll"; # see if this fixes iowait "bug"
 
       custom-shader = builtins.toString ./assets/cursor_smear.glsl;
       custom-shader-animation = true;
