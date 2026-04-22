@@ -4,11 +4,15 @@
     enable = true;
     defaultEditor = false;
     viAlias = true;
-    vimAlias = true;
+    vimAlias = false;
+  };
+
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
   };
 
   environment.systemPackages = with pkgs; [
     helix
   ];
-  environment.variables.EDITOR = "hx";
 }

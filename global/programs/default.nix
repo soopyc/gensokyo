@@ -3,7 +3,7 @@
     ./nix
 
     ./man.nix
-    ./editors.nix
+    ./editors
     ./shells.nix
     ./multiplexers.nix
 
