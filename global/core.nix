@@ -7,6 +7,7 @@
   imports = [
     ./upgrade-diff.nix
     ./unfree-insecure-allowlist.nix
+    ./sysctl.nix
   ];
 
   # Set default i18n configuration
