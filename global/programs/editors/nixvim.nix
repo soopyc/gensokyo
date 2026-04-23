@@ -24,6 +24,7 @@
       lualine.enable = true;
       neo-tree.enable = true;
       telescope.enable = true;
+      which-key.enable = true;
 
       mini = {
         enable = true;
