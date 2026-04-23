@@ -7,6 +7,7 @@ in
   services.openssh = {
     enable = true;
     settings = {
+      UseDns = true; # shows hostname on lastlog
       PermitRootLogin = "no";
       PasswordAuthentication = false;
       PubkeyAcceptedAlgorithms = "sk-ssh-ed25519@openssh.com,ssh-ed25519";
