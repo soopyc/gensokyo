@@ -127,7 +127,7 @@
         );
       treefmt = forAllSystems ({ pkgs, ... }: treefmt-nix.lib.evalModule pkgs ./nix/treefmt.nix);
     in
-    {
+    lib.recursiveUpdate {
       lib.x86_64-linux = import ./global/utils.nix {
         inherit inputs;
         system = "x86_64-linux";
@@ -165,5 +165,5 @@
       _debug = {
         inherit inputs;
       };
-    };
+    } (import ./systems/deploy.nix inputs);
 }
