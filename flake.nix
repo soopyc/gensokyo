@@ -26,6 +26,7 @@
     catppuccin.url = "github:catppuccin/nix/release-25.11";
     # hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
+    nixvim.url = "github:nix-community/nixvim";
 
     disko = {
       url = "github:nix-community/disko";
@@ -91,11 +92,6 @@
 
     deploy-rs = {
       url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
