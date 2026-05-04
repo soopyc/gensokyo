@@ -38,6 +38,24 @@
         "type": "github"
       }
     },
+    "camasca": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777852849,
+        "narHash": "sha256-4izvPgktYkdeaIQKmaysLW20G4SnLMmB5FDbT24Mc64=",
+        "rev": "98bfcd66700afd673fc5d324e3848951386c55bf",
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/api/v1/repos/uku/camasca/archive/98bfcd66700afd673fc5d324e3848951386c55bf.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.uku3lig.net/uku/camasca/archive/main.tar.gz"
+      }
+    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -843,6 +861,7 @@
     "root": {
       "inputs": {
         "arion": "arion",
+        "camasca": "camasca",
         "catppuccin": "catppuccin",
         "deploy-rs": "deploy-rs",
         "disko": "disko",
