@@ -1,7 +1,8 @@
 {
+  inputs,
   config,
   lib,
-  # pkgs,
+  pkgs,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
@@ -12,9 +13,13 @@ lib.mkIf config.gensokyo.traits.gui {
     # theme = "catppuccin-frappe";
   };
 
-  # environment.systemPackages = [
+  environment.systemPackages = [
   #   (pkgs.catppuccin-sddm.override {
   #     flavor = "frappe";
   #   })
-  # ];
+    (inputs.camasca.packages.${pkgs.stdenv.hostPlatform.system}.project-sekai-cursors.override {
+      character = "Mizuki";
+      animated = true;
+    })
+  ];
 }
