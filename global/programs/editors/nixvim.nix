@@ -1,7 +1,27 @@
+{ lib, ... }:
 {
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
+
+    # testing
+    # performance.combinePlugins.enable = true;
+    # extraPython3Packages = ps: with ps; [ pynvim-pp ];
+
+    highlightOverride =
+      lib.genAttrs
+        [
+          "LspDiagnosticUnderlineError"
+          "LspDiagnosticUnderlineWarn"
+          "DiagnosticUnderlineError"
+          "DiagnosticUnderlineWarn"
+        ]
+        (
+          lib.const {
+            undercurl = true;
+            update = true;
+          }
+        );
 
     opts = {
       number = true;
@@ -38,7 +58,6 @@
 
     plugins = {
       # auto-session.enable = true;
-      coq-nvim.enable = true;
       lspconfig.enable = true;
       lualine.enable = true;
       telescope.enable = true;
@@ -48,6 +67,11 @@
       rainbow-delimeters.enable = true;
       fidget.enable = true;
       treesitter.enable = true;
+
+      # coq-nvim = {
+      #   enable = true;
+      #   installArtifacts = true;
+      # };
 
       tiny-inline-diagnostic = {
         enable = true;
@@ -60,7 +84,6 @@
             show_code = true;
 
             add_messages = {
-              # display_count = true;
               messages = true;
               show_multiple_glyphs = true;
             };
@@ -90,7 +113,10 @@
           icons = { };
           tabline = { };
           comment = {
-            mappings.comment_line = "<C-c>";
+            mappings = {
+              comment_line = "<C-c>";
+              comment_visual = "<C-c>";
+            };
           };
           indentscope = {
             draw = {
