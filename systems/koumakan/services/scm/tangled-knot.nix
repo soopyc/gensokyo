@@ -27,6 +27,7 @@
 
   services.nginx.virtualHosts."enanan.staging.soopy.moe" = _utils.mkSimpleProxy {
     port = 34195;
+    websockets = true;
     extraConfig = {
       useACMEHost = null;
       enableACME = true;
