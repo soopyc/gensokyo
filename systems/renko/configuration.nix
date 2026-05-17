@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   ...
 }:
@@ -26,7 +27,8 @@
     };
   };
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot = {
     enable = true;
