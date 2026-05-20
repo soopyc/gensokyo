@@ -44,6 +44,10 @@ in
         ];
       }
 
+      (lib.mkIf config.services.tailscale.enable {
+        networking.hosts."100.100.16.16" = [ "panopticon.soopy.moe" ];
+      })
+
       secrets.generate
     ]
   );
