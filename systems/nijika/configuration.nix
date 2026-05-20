@@ -15,7 +15,7 @@
   boot.loader.efi.efiSysMountPoint = "/efi";
 
   # experiment
-  nixpkgs.config.contentAddressedByDefault = true;
+  # nixpkgs.config.contentAddressedByDefault = true;
 
   system.stateVersion = "25.11";
 }
