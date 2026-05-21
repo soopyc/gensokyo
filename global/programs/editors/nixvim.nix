@@ -1,7 +1,8 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
+  programs.neovim.enable = !config.gensokyo.traits.gui;
   programs.nixvim = {
-    enable = true;
+    enable = config.gensokyo.traits.gui;
     clipboard.providers.wl-copy.enable = true;
 
     # testing
@@ -35,11 +36,18 @@
 
     keymaps =
       let
-        mkMap = key: action: { inherit key action; };
+        mkMap = mode: key: action: { inherit mode key action; };
+        mkLuaMap = mode: key: lua: desc: {
+          inherit mode key;
+          options.desc = desc;
+          action.__raw = lua;
+        };
       in
       [
-        (mkMap "<Leader>t" "<cmd>Neotree<cr>")
-        (mkMap "U" "<C-R>")
+        (mkMap "n" "<Leader>t" "<cmd>Neotree<cr>")
+        (mkMap "n" "U" "<C-R>")
+        (mkLuaMap "n" "tb" "_M.ts_builtin.buffers" "Telescope (buffers)")
+        (mkLuaMap "n" "tf" "_M.ts_builtin.find_files" "Telescope (files)")
       ];
 
     userCommands = {
@@ -56,6 +64,10 @@
       };
     };
 
+    extraConfigLuaPre = ''
+      _M.ts_builtin = require("telescope.builtin")
+    '';
+
     plugins = {
       # auto-session.enable = true;
       lspconfig.enable = true;
@@ -65,13 +77,18 @@
       gitsigns.enable = true;
       tiny-glimmer.enable = true;
       rainbow-delimeters.enable = true;
-      fidget.enable = true;
       treesitter.enable = true;
+      bufferline.enable = true;
 
       # coq-nvim = {
       #   enable = true;
       #   installArtifacts = true;
       # };
+
+      fidget = {
+        enable = true;
+        settings.notification.override_vim_notify = true;
+      };
 
       tiny-inline-diagnostic = {
         enable = true;
@@ -111,7 +128,7 @@
         modules = {
           basics = { };
           icons = { };
-          tabline = { };
+          # tabline = { }; # replaced by bufferline
           comment = {
             mappings = {
               comment_line = "<C-c>";
