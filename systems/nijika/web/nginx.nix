@@ -1,7 +1,11 @@
+{ pkgs, ... }:
 {
   services.nginx = {
     enable = true;
     enableReload = true;
+
+    # needed for http/2 proxy_version
+    package = pkgs.nginxMainline;
 
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
