@@ -30,7 +30,13 @@ lib.mkMerge [
 
       trusted-substituters = [
         "https://cache.soopy.moe"
-      ];
+      ]
+      # our own proxies
+      ++ (map (loc: "https://${loc}.cno.proxy.soopy.moe") [
+        "syd"
+        "nbg"
+        "osa"
+      ]);
 
       trusted-public-keys = [
         "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
