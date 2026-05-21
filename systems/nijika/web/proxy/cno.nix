@@ -2,6 +2,7 @@
 {
   services.nginx.virtualHosts."syd.cno.proxy.soopy.moe" = {
     enableACME = true;
+    forceSSL = true;
     http2 = true;
 
     locations."/" = {
