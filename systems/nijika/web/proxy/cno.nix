@@ -1,4 +1,4 @@
-{ _utils, ... }:
+# { _utils, ... }:
 {
   services.nginx.virtualHosts."syd.cno.proxy.soopy.moe" = {
     enableACME = true;
@@ -17,12 +17,13 @@
       proxyPass = "https://cache.nixos.org";
     };
 
-    locations."= /nix-cache-info" = _utils.mkNginxFile {
-      content = ''
-        StoreDir: /nix/store
-        WantMassQuery: 1
-        Priority: 40
-      '';
-    };
+    # locations."= /nix-cache-info" = _utils.mkNginxFile {
+    #   filename = "nix-cache-info.txt";
+    #   content = ''
+    #     StoreDir: /nix/store
+    #     WantMassQuery: 1
+    #     Priority: 40
+    #   '';
+    # };
   };
 }
