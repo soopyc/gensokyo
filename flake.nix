@@ -20,6 +20,7 @@
   inputs = {
     mystia.url = "github:soopyc/mystia";
     # nixpkgs.follows = "mystia/nixpkgs";
+    nixpkgs-unstable.url = "https://nixpkgs.dev/channel/nixos-unstable";
     nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.11";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-staging";
@@ -151,7 +152,7 @@
 
       nixosConfigurations = import systems/default.nix { inherit inputs lib; };
 
-      devShells = forAllSystems ({ pkgs, ... }: import ./nix/devshell.nix { inherit pkgs inputs; });
+      devShells = forAllSystems ({ pkgs, system }: import ./nix/devshell.nix { inherit pkgs system inputs; });
 
       checks = forAllSystems (
         { pkgs, system }:
