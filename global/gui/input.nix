@@ -18,6 +18,8 @@ lib.mkIf config.gensokyo.traits.gui {
     };
   };
 
+  hardware.opentabletdriver.enable = true;
+
   environment.systemPackages = [
     pkgs.showmethekey
   ];
