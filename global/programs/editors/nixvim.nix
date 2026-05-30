@@ -129,6 +129,7 @@
           basics = { };
           icons = { };
           # tabline = { }; # replaced by bufferline
+          surround = { };
           comment = {
             mappings = {
               comment_line = "<C-c>";
