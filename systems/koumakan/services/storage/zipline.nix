@@ -52,6 +52,7 @@ in
       CHUNKS_SIZE = "25mb";
 
       OAUTH_OIDC_CLIENT_ID = "478bc046-4ff4-4630-bec8-6e9f03f61e7e";
+      OAUTH_OIDC_CLIENT_SECRET = "unused";
       OAUTH_OIDC_AUTHORIZE_URL = "${oidcOp}/authorize";
       OAUTH_OIDC_TOKEN_URL = "${oidcOp}/api/oidc/token";
       OAUTH_OIDC_USERINFO_URL = "${oidcOp}/api/oidc/userinfo";
