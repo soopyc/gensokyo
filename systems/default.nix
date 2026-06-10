@@ -43,7 +43,7 @@ in
   renko = mkSystem "renko" "x86_64-linux" "760c2249";
 
   # cloud servers
-  # seika = mkSystem "seika" "x86_64-linux" "a0baa181"; # hetzner; s.nbg.n.soopynet.org
+  seika = mkSystem "seika" "x86_64-linux" "a0baa181"; # hetzner; s.nbg.n.soopynet.org
   kita = mkSystem "kita" "x86_64-linux" "05a75d20"; # hetzner;   k.nbg.n.soopynet.org
   # ryo = mkSystem "ryo" "x86_64-linux";
   nijika = mkSystem "nijika" "aarch64-linux" "2a10e73a"; # oci;  b.syd.n.soopynet.org
