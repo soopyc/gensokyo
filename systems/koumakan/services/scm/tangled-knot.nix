@@ -16,6 +16,7 @@
 
     extraConfig = {
       KNOT_SERVER_OWNER = "did:plc:jmr637khkdb2fdxxvoyj672m";
+      APPVIEW_ENDPOINT = "https://tangled.org";
     };
 
     extraSshdConfig = ''

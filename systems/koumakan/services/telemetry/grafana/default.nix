@@ -7,6 +7,7 @@ let
   secrets = _utils.setupSecrets config {
     namespace = "grafana";
     secrets = [
+      "encryption_key"
       "oauth2/github/cid"
       "oauth2/github/cse"
       "oauth2/gateway/cid"
@@ -44,6 +45,7 @@ in
       };
 
       security = {
+        secret_key = fromSecret "encryption_key";
         disable_initial_admin_creation = true;
         disable_gravatar = false;
         cookie_secure = true;

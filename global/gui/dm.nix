@@ -2,7 +2,7 @@
   inputs,
   config,
   lib,
-  pkgs,
+  _system,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
@@ -17,7 +17,7 @@ lib.mkIf config.gensokyo.traits.gui {
   #   (pkgs.catppuccin-sddm.override {
   #     flavor = "frappe";
   #   })
-    (inputs.camasca.packages.${pkgs.stdenv.hostPlatform.system}.project-sekai-cursors.override {
+    (inputs.camasca.packages.${_system}.project-sekai-cursors.override {
       character = "Mizuki";
       animated = true;
     })

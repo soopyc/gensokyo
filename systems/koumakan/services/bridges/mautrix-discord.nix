@@ -62,7 +62,7 @@ in
       };
       appservice = {
         inherit port;
-        address = "http://127.0.0.1:${builtins.toString port}";
+        address = "http://127.0.0.1:${toString port}";
         hostname = "127.0.0.1";
 
         database = {
@@ -140,7 +140,7 @@ in
           welcome = "Welcome to Gensokyo's Discord Bridge bot.";
           welcome_connected = "Use `help` for help, `ping` for status check or `login` to login.";
           welcome_unconnected = "Use `help` for help or `login` to login.";
-          additional_help = "For questions, please direct to @sophie:nue.soopy.moe";
+          additional_help = "For questions, please direct to @soopyc:nue.soopy.moe";
         };
 
         backfill = {

@@ -21,10 +21,11 @@
     mystia.url = "github:soopyc/mystia";
     # nixpkgs.follows = "mystia/nixpkgs";
     nixpkgs-unstable.url = "https://nixpkgs.dev/channel/nixos-unstable";
-    nixpkgs.url = "https://nixpkgs.dev/channel/nixos-25.11";
+    # nixpkgs-2511.url = "https://nixpkgs.dev/channel/nixos-25.11";
+    nixpkgs.url = "https://nixpkgs.dev/channel/nixos-26.05";
 
-    nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-staging";
-    catppuccin.url = "github:catppuccin/nix/release-25.11";
+    nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
+    catppuccin.url = "github:catppuccin/nix/release-26.05";
     # hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
     nixvim.url = "github:nix-community/nixvim";
@@ -46,7 +47,7 @@
 
     home-manager = {
       # sync with nixpkgs!
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

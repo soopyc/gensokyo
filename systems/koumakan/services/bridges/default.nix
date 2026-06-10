@@ -1,5 +1,5 @@
 {
   imports = [
-    ./mautrix-discord.nix
+    # ./mautrix-discord.nix  # TODO: possibly remove
   ];
 }

@@ -7,7 +7,6 @@
     ./virt.nix
     ./eyecandy.nix
     ./shell.nix
-    ./ghostty.nix
     ./media.nix
     ./syncthing.nix
     ./extras.nix

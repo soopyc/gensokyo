@@ -3,11 +3,12 @@
   lib,
   config,
   inputs,
+  _system,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
   fonts.packages = with pkgs; [
-    inputs.mystia.packages.${stdenv.hostPlatform.system}.maple-soopy
+    inputs.mystia.packages.${_system}.maple-soopy
     nerd-fonts.fantasque-sans-mono
 
     cozette
@@ -16,7 +17,7 @@ lib.mkIf config.gensokyo.traits.gui {
     noto-fonts-emoji-blob-bin
 
     last-resort
-    # inputs.mystia.packages.${pkgs.system}.nishiki-teki
+    # inputs.mystia.packages.${_system}.nishiki-teki
   ];
 
   fonts.fontconfig = {

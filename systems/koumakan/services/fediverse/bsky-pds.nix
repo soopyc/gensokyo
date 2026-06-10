@@ -1,8 +1,8 @@
 {
   inputs,
-  pkgs,
   config,
   _utils,
+  _system,
   ...
 }:
 let
@@ -19,7 +19,7 @@ in
   imports = [ secrets.generate ];
   services.bsky-pds = {
     enable = true;
-    package = inputs.mystia.packages.${pkgs.system}.bsky-pds;
+    package = inputs.mystia.packages.${_system}.bsky-pds;
 
     # because sensible settings are already defined in the module, we can keep this simple :)
     settings = {

@@ -20,8 +20,6 @@
   # We do not like overlays but sometimes they have to be done
   nixpkgs.overlays = import ./overlays inputs;
 
-  system.rebuild.enableNg = true;
-
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or "unknown";
 
   hardware.enableRedistributableFirmware = true;
@@ -46,6 +44,8 @@
   # their users, and modprobe not having a !blacklist option.
   boot.modprobeConfig.useUbuntuModuleBlacklist = false;
   environment.etc."modprobe.d/ubuntu-edit.conf".source = ./ubuntu.modprobe.conf;
+
+  boot.zfs.forceImportRoot = false; # TODO: check if this broke anything
 
   time.timeZone = "Asia/Hong_Kong";
 

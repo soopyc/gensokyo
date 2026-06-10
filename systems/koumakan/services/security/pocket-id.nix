@@ -26,7 +26,6 @@ in
       HOST = "127.0.0.1";
       TRUST_PROXY = true;
       PORT = "31411";
-      KEYS_STORAGE = "database";
 
       ENCRYPTION_KEY_FILE = secrets.get "encryption_key";
       MAXMIND_LICENSE_KEY_FILE = secrets.get "maxmind_key";

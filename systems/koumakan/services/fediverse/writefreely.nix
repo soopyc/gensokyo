@@ -9,7 +9,6 @@
 {
   services.writefreely = {
     enable = true;
-    # package = inputs.nixpkgs-wf.legacyPackages.${pkgs.system}.writefreely;
     host = "words.soopy.moe";
     settings = {
       server.port = 31294;

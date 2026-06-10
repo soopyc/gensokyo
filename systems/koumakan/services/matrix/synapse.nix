@@ -4,11 +4,12 @@
   lib,
   config,
   inputs,
+  _system,
   ...
 }:
 let
   getSocket = file: "/run/matrix-synapse/${file}.sock";
-  staticly = inputs.mystia.packages.${pkgs.system}.staticly;
+  staticly = inputs.mystia.packages.${_system}.staticly;
 in
 {
   sops.secrets."synapse.yaml" = {

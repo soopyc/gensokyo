@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  inputs,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
@@ -11,7 +10,5 @@ lib.mkIf config.gensokyo.traits.gui {
     flameshot
     libnotify
     thunderbird
-
-    inputs.ghostty.packages.${pkgs.system}.default
   ];
 }

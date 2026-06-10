@@ -1,9 +1,11 @@
 {
   imports = [
     ./dev
+    ./gui
 
     ./lsd.nix
     ./zsh.nix
+    ./ssh.nix
   ];
 
   hjem.users.cassie = {

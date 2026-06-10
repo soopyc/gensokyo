@@ -17,7 +17,7 @@
       # validMinDays = 3;
 
       extraLegoRenewFlags = [
-        "--renew-days 0"
+        # "--renew-days 0" # added in v5, we're still stuck on v4
       ];
     };
   };

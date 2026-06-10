@@ -11,7 +11,7 @@
       "10.69.2.16/16"
 
       # public internet
-      "2404:c805:33dd:9900::16/56"
+      # "2404:c805:33dd:9900::16/56"
 
       # dn42
       # TODO: move this to another interface

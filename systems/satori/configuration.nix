@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  _system,
   ...
 }:
 {
@@ -44,7 +45,7 @@
     };
   };
   hardware.firmware = [
-    inputs.self.packages.${pkgs.system}.brcmfmac
+    inputs.self.packages.${_system}.brcmfmac
   ];
 
   hardware.apple-t2.kernelChannel = "stable";
