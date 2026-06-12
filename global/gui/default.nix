@@ -8,6 +8,7 @@
 
     # ./wine.nix
     ./locale.nix
+    ./ghostty.nix
 
     ./dm.nix
     ./wayland.nix

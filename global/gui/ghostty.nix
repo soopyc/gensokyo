@@ -19,7 +19,7 @@ lib.mkIf config.gensokyo.traits.gui (
       };
     };
 
-    services.dbus.services = lib.singleton package;
+    services.dbus.packages = lib.singleton package;
     environment.systemPackages = lib.singleton package;
   }
 )
