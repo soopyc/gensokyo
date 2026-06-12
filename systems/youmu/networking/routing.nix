@@ -62,8 +62,14 @@ in
           add element ip gensokyo-nat wan_ip "{ $IP_ADDR }"
       '';
 
-      after = lib.singleton "network-online.target";
-      requires = lib.singleton "network-online.target";
+      after = [
+        "network-online.target"
+        "nftables.service"
+      ];
+      requires = [
+        "network-online.target"
+        "nftables.service"
+      ];
     };
   };
 }
