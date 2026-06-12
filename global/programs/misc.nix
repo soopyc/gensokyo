@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, _system, ... }:
 {
   # Miscellaneous packages that do not have an option.
   # It is recommended to use packages.<package>.enable when possible.
@@ -12,7 +12,6 @@
     dix
     nix-output-monitor
     python3
-    ghostty.terminfo
 
     # irc
     catgirl
@@ -44,6 +43,9 @@
     # command runners and utilities
     just
     inotify-tools
+
+    # external stuff
+    inputs.ghostty.packages.${_system}.default.terminfo
   ];
 
   programs.mtr.enable = true;
