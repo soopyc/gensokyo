@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, system, ... }:
 {
   default = pkgs.mkShellNoCC {
     packages = with pkgs; [
@@ -6,6 +6,8 @@
       dix
       just-lsp
       nixfmt
+
+      inputs.nixpkgs-unstable.legacyPackages.${system}.just
     ];
   };
 
