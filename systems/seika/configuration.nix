@@ -5,6 +5,8 @@
 {
   imports = [
     ./disk.nix
+
+    ./services
   ];
 
   sops.age.sshKeyPaths = lib.singleton "/persist/etc/ssh/ssh_host_ed25519_key";

@@ -90,6 +90,7 @@ in
     directories = [
       "/var/lib/nixos"
       "/var/log/journal"
+      "/var/lib/stalwart"
       (mkPersistDir "/var/lib/tailscale" "0700")
     ];
   };
