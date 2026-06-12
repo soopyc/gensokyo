@@ -9,12 +9,9 @@
     curl
     xh
     gh
-    nil
-    nvd
     dix
     nix-output-monitor
     python3
-    ffmpeg-full
     ghostty.terminfo
 
     # irc
@@ -28,8 +25,7 @@
     ack
     dust
     parallel
-    cryptsetup
-    borgbackup
+    q
     doggo
     libarchive
     unar

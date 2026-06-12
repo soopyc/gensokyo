@@ -1,15 +1,22 @@
 # crypto stands for cryptography, not cryptocurrency
-{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    gnupg
-    pinentry-curses
-    pinentry-qt
-    opensc
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  environment.systemPackages =
+    with pkgs;
+    [
+      gnupg
+      opensc
+      pinentry-curses
 
-    rage
-    age-plugin-yubikey
-  ];
+      rage
+      age-plugin-yubikey
+    ]
+    ++ (lib.optional config.gensokyo.traits.gui pinentry-qt);
 
   programs.gnupg.agent.enable = true;
   # ideally this should be set automatically but in case that doesn't work
