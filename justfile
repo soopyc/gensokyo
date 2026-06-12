@@ -34,7 +34,7 @@ sw system="": sudo_cache
 defer system="": sudo_cache
 	sudo nixos-rebuild -v -L boot --flake '.#{{system}}' --accept-flake-config
 
-build-all: (for-all-systems 'build' 'true')
+build-all: (for-all-systems 'build' 'system.config.nixpkgs.hostPlatform.system == builtins.currentSystem')
 deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)' true)
 eval-all: (for-all-systems 'eval' 'true')
 
@@ -80,7 +80,7 @@ sudo_cache:
 [private]
 for-all-systems recipe filter ignore_failure="false":
 	#!/usr/bin/env bash
-	set -euxo pipefail
+	set -euo pipefail
 	for system in $(nix eval --impure --apply 'configs: builtins.map (system: system.config.networking.hostName) (builtins.filter (system: {{filter}}) (builtins.attrValues configs))' .#nixosConfigurations --json | jq '.[]' | xargs); do
 		set +e
 		just {{recipe}} ${system}
@@ -88,4 +88,5 @@ for-all-systems recipe filter ignore_failure="false":
 			exit 1;
 		fi
 		set -e
+		echo
 	done
