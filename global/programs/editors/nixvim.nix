@@ -44,7 +44,8 @@
         };
       in
       [
-        (mkMap "n" "<Leader>t" "<cmd>Neotree<cr>")
+        (mkMap "n" "<Leader>tt" "<cmd>Neotree<cr>")
+        (mkMap "n" "<Leader>tr" "<cmd>Neotree reveal<cr>")
         (mkMap "n" "U" "<C-R>")
         (mkLuaMap "n" "tb" "_M.ts_builtin.buffers" "Telescope (buffers)")
         (mkLuaMap "n" "tf" "_M.ts_builtin.find_files" "Telescope (files)")
