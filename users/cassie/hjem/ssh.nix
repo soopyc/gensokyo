@@ -8,12 +8,12 @@
       Hostname github.com
       User     git
 
-    Host kita
+    Host kita seika
       Compression   yes
 
     Host *
       ForwardAgent       yes
-      Compression        false
+      Compression        no
       VisualHostKey      yes
       UserKnownHostsFile ~/.ssh/known_hosts
 
