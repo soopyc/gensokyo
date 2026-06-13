@@ -17,7 +17,7 @@ lib.mkIf config.gensokyo.traits.gui (
     # systemd stuff moved to global/gui
     # ...except this i guess
     # ...this really should be a user-side override, maybe with hjem
-    systemd.user.services."app-com.mitchellh.ghostty".restartTriggers =
+    systemd.user.services."app-com.mitchellh.ghostty".reloadTriggers =
       lib.singleton
         config.hjem.users.cassie.xdg.config.files."ghostty/config".source;
 
