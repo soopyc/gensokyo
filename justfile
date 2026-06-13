@@ -31,11 +31,12 @@ sw system="": sudo_cache
 	sudo nixos-rebuild --fast -v -L switch --flake '.#{{system}}' --accept-flake-config --keep-going
 
 # literally nixos-rebuild boot with a different name
-defer system="": sudo_cache
-	sudo nixos-rebuild -v -L boot --flake '.#{{system}}' --accept-flake-config
+stage system="": sudo_cache
+	nixos-rebuild -v -L boot --flake '.#{{system}}' --accept-flake-config
 
 build-all: (for-all-systems 'build' 'system.config.nixpkgs.hostPlatform.system == builtins.currentSystem')
 deploy-all: (for-all-systems 'deploy' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)' true)
+stage-all: (for-all-systems 'stage' '!system.config.gensokyo.traits.sensitive && (system.config.nixpkgs.hostPlatform.system == builtins.currentSystem)' true)
 eval-all: (for-all-systems 'eval' 'true')
 
 # check the flake
