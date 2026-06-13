@@ -16,6 +16,9 @@ lib.mkIf config.gensokyo.traits.gui (
       user.services."app-com.mitchellh.ghostty" = {
         restartIfChanged = false;
         overrideStrategy = "asDropin";
+
+        # don't set other junk
+        environment = lib.genAttrs [ "PATH" "LOCALE_ARCHIVE" "TZDIR" ] (_: lib.mkForce null);
       };
     };
 
