@@ -77,7 +77,7 @@
       which-key.enable = true;
       gitsigns.enable = true;
       tiny-glimmer.enable = true;
-      rainbow-delimeters.enable = true;
+      rainbow-delimiters.enable = true;
       treesitter.enable = true;
       bufferline.enable = true;
 
