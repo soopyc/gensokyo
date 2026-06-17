@@ -28,7 +28,7 @@
     catppuccin.url = "github:catppuccin/nix/release-26.05";
     # hydra.url = "github:NixOS/hydra";
     ghostty.url = "github:ghostty-org/ghostty";
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
 
     disko = {
       url = "github:nix-community/disko";
