@@ -16,7 +16,7 @@ lib.mkIf config.gensokyo.traits.gui {
     noto-fonts-cjk-sans
     noto-fonts-emoji-blob-bin
 
-    last-resort
+    # last-resort
     # inputs.mystia.packages.${_system}.nishiki-teki
   ];
 
@@ -27,6 +27,7 @@ lib.mkIf config.gensokyo.traits.gui {
       <fontconfig>
       <!-- XML is stupid -->
 
+      <!--
       <alias binding="same">
         <family>Nishiki-Teki</family>
         <prefer>
@@ -34,6 +35,7 @@ lib.mkIf config.gensokyo.traits.gui {
         </prefer>
         <default><family>sans-serif</family></default>
       </alias>
+      -->
 
       <!-- doesn't work...
       <match target='font'>
