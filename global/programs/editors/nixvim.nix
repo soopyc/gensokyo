@@ -80,6 +80,7 @@
       rainbow-delimiters.enable = true;
       treesitter.enable = true;
       bufferline.enable = true;
+      guess-indent.enable = true;
 
       # coq-nvim = {
       #   enable = true;
