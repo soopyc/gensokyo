@@ -1,8 +1,0 @@
-# json because yaml sucks
-{
-  "builds": {
-    "exclude": [
-      "*.brcmfmac"
-    ]
-  }
-}
