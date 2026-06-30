@@ -8,6 +8,7 @@
       nixfmt
 
       inputs.nixpkgs-unstable.legacyPackages.${system}.just
+      inputs.niks3.packages.${system}.default
     ];
   };
 
