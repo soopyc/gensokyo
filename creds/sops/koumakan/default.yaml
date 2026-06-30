@@ -101,6 +101,14 @@ ntfy:
         soopyc: ENC[AES256_GCM,data:bIoxT7aixY01od1WUvQeP4NFyAHhrWVpD1765IV8al8rqKMs6jNmN4o7R/eRQoiZZpHVLTkeNMZ6exdb,iv:mdnOj0i5o3Kl2Aqpf4xz9O2Qe24TMlQlUpXKIT65Qew=,tag:WdZWBexR4UQuulPw9/KVVw==,type:str]
 mollysocket:
     vapid_key: ENC[AES256_GCM,data:PCHSyRondX5MFQrwWZWCwdkPYp4GRqdGTwZYiI90whSJ+EFb0Fgg+gqqow==,iv:I/iiHJ18ZaF91QOO/3FeSjsrfpn6SUvC7pXFJgUr8xA=,tag:HYL826eUd0ZwCAMGeEhU5A==,type:str]
+vikunja:
+    jwt_secret: ENC[AES256_GCM,data:x566bRMjbx5l5fV0rwdWlNvIYnrih1mVZGJ3O9GTGek03KLXgyKX3wGeFUusijSO0B2mzFPhqD3mfKUk2XQetZY+MtdzzlW74QlMGcRzOB+K30I9Iissjw==,iv:tJ+9Z2O3lByH6D4L4Sq5WT+n3VU7N3yd5KlXkZeLPJ4=,tag:VZxH0Bwf69t0W3fGqD0biQ==,type:str]
+    oauth:
+        cid: ENC[AES256_GCM,data:OOk3DNOAA3dTciMRuJKr/X7B8y3QoUBaDGX3NPTwv56QC0V+,iv:b+SjEDwNw2HCs57J1sH1PdSDvn8NzkgDqDXfdFhCzxQ=,tag:1fBBUmmfwNk8cq1VIgTr3Q==,type:str]
+        cse: ENC[AES256_GCM,data:UOADuoVeHBn86x17AHJRP8lTe3An4GbqLMlRUaayUmY=,iv:EYwBVCKLD19klHb2fRgs2DNI0oTM4890rNOWfHyfF7c=,tag:1H3K5CMJaqrBKQ7y/jR/eQ==,type:str]
+    s3:
+        aid: ENC[AES256_GCM,data:2xKMKh4uVSA4ZlYw2vyZyusg6IztKJNKrX4=,iv:mNtZ8nkZCj/OQLu3EjlN/X2b+9tp0ll9SLyvHz6JT0E=,tag:B5LROgf7ujwCzwCSejTyeQ==,type:str]
+        sk: ENC[AES256_GCM,data:DjFKRbU9TzOncYtcXN2VRx6jHnxNapj/yK22sCTwtNSlAK7WRPQ/k955GmkR0BMdNHabJlazsabcbPbDRSzGVg==,iv:teofA7RgZozQjVsiAKyxILGe5QP99OVTmKzDv4nJgKw=,tag:xO2WHEkYHO2gBbiUNL9Q9w==,type:str]
 sops:
     age:
         - enc: |
@@ -141,7 +149,7 @@ sops:
             A15+hRdjKJBKfcRCCekW8YFH5c5AP7iLQXYzWV9vaerpLzE0oC0F6A==
             -----END AGE ENCRYPTED FILE-----
           recipient: age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
-    lastmodified: "2026-06-30T10:10:55Z"
-    mac: ENC[AES256_GCM,data:BRe5EW4jyjchPL2s/lb9NSrxL7yq0F4PZhR/hX6/3vY5Tx+4/ldES/9J1WEpVpXbnn7XD1lHDTH1BKNBoW+YCgPobQBDLmkNnSth6bsqmgFlx7PZDa9DE4jA94ErqtEpXhmLBKYUlRTIqklLWJlpgbUa4c/vqftQ6hEjFRaoVBs=,iv:7mxDF/PQ6+sTpcc4sTiaszfqo20FrevcRik3bwKlTgc=,tag:LYgl1LSPpIV2QPSgC9PS4w==,type:str]
+    lastmodified: "2026-06-30T11:43:56Z"
+    mac: ENC[AES256_GCM,data:X3aimZTtmpLH2a95Dil8ndmCHofgNaRYB10kY01mlm4yaESOLEqWL83RvqKaMVBxoEd3JBSasdYFfbrG501P092zJUtxWAqXwz/GXj5lcpI0F5zzjEMnnDDTYcFnQC690tl3QkTBF2D2dmEXMyGg6/4+BZqlWcP+Gt1vfQgLyYk=,iv:cen5Pnb7R9kP9Gg/JhvzPpdfz690r8LMi4t8HCjMb6g=,tag:hi+leBv4TBuViCfA1DfUQg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.13.1

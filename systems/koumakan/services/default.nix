@@ -27,5 +27,6 @@
     ./static-sites
     ./storage
     ./telemetry
+    ./productivity
   ];
 }
