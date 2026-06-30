@@ -22,3 +22,7 @@ add-grafana-dashboard id name *title="":
 	xh https://grafana.com/api/dashboards/{{id}} | \
 		jq '.json | .uid="{{name}}" {{ if title != "" {"| .title=\"" + title + "\"" } else {""} }}' \
 			-c > ../systems/koumakan/services/telemetry/grafana/dashboards/{{name}}.json
+
+rebuild-collations:
+	run0 -u postgres --description "rebuild postgres collations" -- bash < $PWD/rebuild-collations.sh
+

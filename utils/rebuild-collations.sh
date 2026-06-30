@@ -2,8 +2,10 @@
 set -euo pipefail
 
 for db in $(psql -Atc 'select datname from pg_database;' postgres); do
-	echo "Updating database ${db}"
+	echo "Rebuilding database ${db}"
 	psql -e -c "reindex (verbose) database ${db};" -c "alter database ${db} refresh collation version;" ${db} &
 done
 
+# parallel execution because some dbs finishes _way_ faster
 wait
+
