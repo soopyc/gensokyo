@@ -46,6 +46,7 @@
 
     # external stuff
     inputs.ghostty.packages.${_system}.default.terminfo
+    inputs.niks3.packages.${_system}.default
   ];
 
   programs.mtr.enable = true;
