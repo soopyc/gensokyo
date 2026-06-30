@@ -75,7 +75,7 @@ remote op system remote-build="" *args:
 [arg("help", short='h', long, value="true", help="show help message")]
 [arg("cmd", help="a command, or `help`")]
 [arg("filter", long, help="nix expression. see --help")]
-[arg("fail-fast", short='F', long, help="fail and quit on first error")]
+[arg("fail-fast", short='F', long, value="true", help="fail and quit on first error")]
 forall filter="true" help="" fail-fast="" +cmd="help":
 	#!/usr/bin/env sh
 	set -euo pipefail
@@ -100,7 +100,7 @@ forall filter="true" help="" fail-fast="" +cmd="help":
 	fi
 
 	echo "evaluating hosts matching filter..."
-	systems=
+	systems=""
 	read -r systems < <(nix eval --impure --json \
 		--apply "${expr}" \
 		'.#nixosConfigurations' \
@@ -123,11 +123,36 @@ forall filter="true" help="" fail-fast="" +cmd="help":
 			*) echo '{{RED}}aborted.{{NORMAL}}'; exit 1 ;;
 	esac
 
+	# status report
+	stat_success="$(mktemp)"
+	stat_fail="$(mktemp)"
+	cleanup() {
+		echo "{{GREEN}}* success:$(< $stat_success)"
+		echo "{{RED}}* failure:$(< $stat_fail)"
+		echo "{{NORMAL}}"
+		rm $stat_success $stat_fail
+	}
+	trap cleanup EXIT ERR
+
 	for sys in $systems; do
 		set +e
 		{{cmd}}
 
+		exit="$?"
+		test "$exit" -eq 130 && exit 1 # immediate exit on sigint/^C
 		set -e
+
+		if [ "$exit" -ne 0 ]; then
+			if [ '{{fail-fast}}' = 'true' ]; then
+				echo "{{RED}} fail-fast requested, terminating{{NORMAL}}"
+				exit "$exit"
+			else
+				printf " ${sys}" >> $stat_fail
+			fi
+		else
+			printf " ${sys}" >> $stat_success
+		fi
+
 		echo "------------------------ >8 -----------------------"
 	done
 
@@ -178,8 +203,11 @@ filterCurrentSystem := "system.config.nixpkgs.hostPlatform.system == builtins.cu
 filterNonSensitive := "!system.config.gensokyo.traits.sensitive"
 
 # evaluate all systems
-eval-all: (forall "true" "" "true" "just eval -s ${sys}")
-# build-all:
+# eval-all: (forall "true" "" "true" "just eval -s ${sys}")
+eval-all:
+	just forall -F 'just eval -s ${sys}'
+build-all:
+	just forall -F --filter '{{filterCurrentSystem}}' 'just build -s ${sys}'
 # stage-all:
 # deploy-all:
 # build and cache systems
