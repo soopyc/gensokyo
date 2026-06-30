@@ -11,7 +11,7 @@ let
     ];
   };
 
-  systemdCred = key: { file = "/run/credentials/vikunja/${key}"; };
+  systemdCred = key: { file = "/run/credentials/vikunja.service/${key}"; };
 in
 {
   imports = [ secrets.generate ];
