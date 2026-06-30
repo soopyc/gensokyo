@@ -77,10 +77,12 @@ in
         name = "Gatekeeper";
 
         allow_sign_up = true;
+        validate_id_token = true;
+        use_pkce = true;
 
         client_id = fromSecret "oauth2/gateway/cid";
         client_secret = fromSecret "oauth2/gateway/cse";
-        scopes = "openid email profile offline_access";
+        scopes = "openid email profile";
 
         email_attribute_path = "email";
         login_attribute_path = "username";
@@ -89,6 +91,7 @@ in
         auth_url = "https://gatekeeper.soopy.moe/authorize";
         token_url = "https://gatekeeper.soopy.moe/api/oidc/token";
         api_url = "https://gatekeeper.soopy.moe/api/oidc/userinfo";
+        jwk_set_url = "https://gatekeeper.soopy.moe/.well-known/jwks.json";
       };
 
       "auth.github" = {
