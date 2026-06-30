@@ -97,9 +97,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
+    niks3 = {
+      url = "github:Mic92/niks3";
+      inputs.treefmt-nix.follows = "treefmt-nix";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
