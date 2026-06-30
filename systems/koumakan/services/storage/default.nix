@@ -1,10 +1,11 @@
 {
   imports = [
     ./atuin.nix
-    ./wastebin.nix
     ./backup.nix
-    ./immich.nix
     ./garage.nix
+    ./immich.nix
+    ./niks3.nix
+    ./wastebin.nix
     ./zipline.nix
   ];
 }

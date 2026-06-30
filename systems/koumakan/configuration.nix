@@ -7,6 +7,7 @@
     inputs.mystia.nixosModules.mautrix-discord # technically not needed, but json will work better
     inputs.whitelisted-web.nixosModules.default
     inputs.knotserver-module.nixosModules.default
+    inputs.niks3.nixosModules.default
 
     ./hardware-configuration.nix
 
