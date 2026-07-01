@@ -14,6 +14,10 @@ let
   # age.bocchi = "age1kdctxllje2rw3kwpzell0rt6t7mruc3h3j5zfjelnpmahchjlaqs9v9vm9";
   # age.ryo = "age1tdatk0rrr6uf89g5vpq96wjcjcetkrs6yadkxv47v76q8qhtva2sn7tun2";
 
+  deploy = {
+    age.patchy-ci = "age1vrqdvpemn0rd5d57dcc0ylevpd29mtfrxjg8yhxa06sj083er4uq0zs020";
+  };
+
   everything = [
     {
       age = builtins.attrValues age;
@@ -53,5 +57,21 @@ in
     (mkHost "renko" [ ])
     (mkHost "kita" [ ])
     (mkHost "nijika" [ ])
+
+    # deployment stuff, separate from most everything else.
+    {
+      path_regex = ".deploy.env";
+      key_groups = [
+        {
+          age = [
+            age.soopyc_yub302
+            age.soopyc_yub901
+
+            deploy.age.patchy-ci
+          ];
+        }
+      ];
+    }
+
   ];
 }
