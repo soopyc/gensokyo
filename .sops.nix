@@ -11,6 +11,7 @@ let
   age.renko = "age1p6n5yh9fy09xspwf29klfsa4zdrhp04q22gvxkz2vvm88vt9tunsdn020s";
   age.kita = "age1qzma7prftj6d4atqcmatdl9le0tuuqzegm6f8e9gkwrp3pja0aaqs49g7n";
   age.nijika = "age1llxz2vd696pt46rdfwd9rfv2mycapqlsdjs2zlky6j5ujzmkyf7smlz6mm";
+  age.seika = "age1xddzsq2u5up0wm664u6q2us7dwy4qcx72kclj8dtsvvmkk98g9gs27kl8d";
   # age.bocchi = "age1kdctxllje2rw3kwpzell0rt6t7mruc3h3j5zfjelnpmahchjlaqs9v9vm9";
   # age.ryo = "age1tdatk0rrr6uf89g5vpq96wjcjcetkrs6yadkxv47v76q8qhtva2sn7tun2";
 
@@ -57,6 +58,7 @@ in
     (mkHost "renko" [ ])
     (mkHost "kita" [ ])
     (mkHost "nijika" [ ])
+    (mkHost "seika" [ ])
 
     # deployment stuff, separate from most everything else.
     {
