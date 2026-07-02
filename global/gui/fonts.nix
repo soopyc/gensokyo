@@ -11,6 +11,7 @@ lib.mkIf config.gensokyo.traits.gui {
     inputs.mystia.packages.${_system}.maple-soopy
     nerd-fonts.fantasque-sans-mono
 
+    lexend
     cozette
     noto-fonts
     noto-fonts-cjk-sans
