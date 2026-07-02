@@ -152,7 +152,7 @@
             pkgs.callPackage ./vendor/brcmfmac { };
         };
 
-      nixosConfigurations = import systems/default.nix { inherit inputs lib; };
+      nixosConfigurations = import ./systems/default.nix { inherit inputs lib; };
 
       devShells = forAllSystems ({ pkgs, system }: import ./nix/devshell.nix { inherit pkgs system inputs; });
 
