@@ -48,7 +48,14 @@ lib.mkMerge [
       auto-optimise-store = true;
       download-buffer-size = 268435456; # 256 MiB
 
+      flake-registry = ""; # use explicitly defined registry values below
+      log-lines = 5; # rarely useful > 5, we have to scroll to find the error anyways if set to 25.
+
+      # future proofing
       trace-import-from-derivation = true;
+      use-xdg-base-directories = true;
+      lint-url-literals = "warn";
+      # lint-short-path-literals = "warn"; # nixpkgs has them, quite annoying
     };
 
     nix.gc = {
@@ -56,12 +63,31 @@ lib.mkMerge [
       dates = "weekly";
     };
 
-    nix.registry = {
-      n.flake = inputs.nixpkgs;
-    }
-    // (builtins.mapAttrs (_: flake: { inherit flake; }) (
-      lib.filterAttrs (n: _: n != "nixpkgs") inputs
-    ));
+    nix.registry =
+      let
+        mkTarball = name: url: {
+          ${name} = {
+            from = {
+              type = "indirect";
+              id = name;
+            };
+            to = {
+              inherit url;
+              type = "tarball";
+            };
+          };
+        };
+      in
+      {
+        n.flake = inputs.nixpkgs;
+        nu.flake = inputs.nixpkgs-unstable;
+      }
+      // mkTarball "nixpkgs" "https://nixpkgs.dev/channel/nixos-26.05"
+      // mkTarball "nixpkgs-unstable" "https://nixpkgs.dev/channel/nixos-unstable";
+
+    # // (builtins.mapAttrs (_: flake: { inherit flake; }) (
+    #   lib.filterAttrs (n: _: n != "nixpkgs") inputs
+    # ));
 
     # nix-index[-database]
     programs.nix-index.enable = true;
