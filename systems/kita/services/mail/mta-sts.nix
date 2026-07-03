@@ -10,6 +10,7 @@
         mode: enforce
         max_age: 604800
         mx: mx2.soopy.moe
+        mx: seika.nbg.mx.soopynet.org
       '';
       filename = "mta-sts.txt";
     };
