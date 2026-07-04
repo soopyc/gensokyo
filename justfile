@@ -4,7 +4,7 @@ set ignore-comments
 # utility recipes
 mod utils
 
-sudo_cmd := "run0"
+sudo_cmd := "run0 --description='gensokyo system manager'"
 
 true := "true"
 mkIf(k, v) := if k == true { v } else { "" }
