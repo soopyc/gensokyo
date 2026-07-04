@@ -665,11 +665,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1783127266,
-        "narHash": "sha256-HLLHJijBBAN7zUYjXk6ETqzNRK1pXNyFiKlfLlhs3lU=",
+        "lastModified": 1783127696,
+        "narHash": "sha256-UH2J3UFhR7cqcMoSKhF3gRqNrxGWDrJd+s6I7lACNYE=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "110de7750929275f3ba61c24e12380d4a8bb9beb",
+        "rev": "a96f83f11e042d6c599842c57f85faf41a72a551",
         "type": "github"
       },
       "original": {
