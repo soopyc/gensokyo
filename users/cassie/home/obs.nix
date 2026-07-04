@@ -2,6 +2,8 @@
   pkgs,
   traits,
   lib,
+  inputs,
+  _system,
   ...
 }:
 lib.mkIf traits.gui {
@@ -11,6 +13,7 @@ lib.mkIf traits.gui {
       obs-vaapi
       obs-vkcapture
       obs-pipewire-audio-capture
+      inputs.nixpkgs-unstable.legacyPackages.${_system}.obs-studio-plugins.obs-wayland-hotkeys
     ];
   };
 
