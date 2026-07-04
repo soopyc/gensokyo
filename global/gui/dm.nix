@@ -6,11 +6,16 @@
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui {
-  services.displayManager.sddm = {
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   autoNumlock = true;
+  #   wayland.enable = true;
+  #   # theme = "catppuccin-frappe";
+  # };
+
+  services.displayManager.plasma-login-manager = {
     enable = true;
-    autoNumlock = true;
-    wayland.enable = true;
-    # theme = "catppuccin-frappe";
+    # settings handled by kcm
   };
 
   environment.systemPackages = [
