@@ -1,9 +1,11 @@
 {
+  inputs,
   lib,
   ...
 }:
 {
   imports = [
+    inputs.mystia.nixosModules.stalwart-minimal
     ./disk.nix
 
     ./services

@@ -1,6 +1,13 @@
 {
-  services.stalwart = {
+  inputs,
+  _system,
+  ...
+}:
+{
+  services.stalwart-minimal = {
     enable = true;
-    stateVersion = "26.05"; # are u fr
+    package = inputs.nixpkgs-unstable.legacyPackages.${_system}.stalwart_0_16;
+
+    credentials = { };
   };
 }
