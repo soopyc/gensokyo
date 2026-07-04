@@ -27,7 +27,10 @@ let
             hostName = hostname;
           };
 
-          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            _system = system;
+          };
           nixpkgs.hostPlatform = lib.mkDefault system; # ensure we detect conflicts
         }
       ];
