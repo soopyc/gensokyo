@@ -79,6 +79,7 @@ lib.mkMerge [
         };
       in
       {
+        self.flake = inputs.self;
         n.flake = inputs.nixpkgs;
         nu.flake = inputs.nixpkgs-unstable;
       }
