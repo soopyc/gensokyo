@@ -747,11 +747,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1782165191,
-        "narHash": "sha256-nE0B7IB7V3jGHxhMr3d+dNzWTR1NLy4QE27RFaT0YEI=",
+        "lastModified": 1783397383,
+        "narHash": "sha256-KMankt2E0x245i1ClKoyDQRT9zIH3p0qV+W7HgpaazA=",
         "owner": "soopyc",
         "repo": "nixos-hardware",
-        "rev": "f7d7e1c0d5794e629498a34692c0ca109f9729d9",
+        "rev": "dce2a7c7d4b4b5d48bba9c9df6c3a1ffe8fff6ca",
         "type": "github"
       },
       "original": {
