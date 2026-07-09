@@ -24,14 +24,14 @@ lib.mkIf config.gensokyo.traits.gui (
     hjem.users.cassie.xdg.config.files."ghostty/config" = {
       generator = format.generate "ghostty-config";
       value = {
-        custom-shader = toString ./ghostty-shaders/zoom_and_aberration.glsl;
-        custom-shader-animation = true;
+        # custom-shader = toString ./ghostty-shaders/zoom_and_aberration.glsl;
+        # custom-shader-animation = true;
         font-family = "Maple Soopy NL NFMono CN";
         font-size = 14;
         theme = "Catppuccin Latte";
         window-decoration = "client";
         cursor-click-to-move = false;
-        # async-backend = "epoll"; # see if this fixes iowait "bug"
+        async-backend = "epoll"; # io_uring has issues with (bad?) io usage (probably just reporting issues)
       };
     };
   }
