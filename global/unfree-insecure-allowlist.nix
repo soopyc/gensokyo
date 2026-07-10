@@ -13,6 +13,8 @@
         "via"
 
         "brcm-mac-firmware-zstd"
+        "brcm-firmware-sonoma-zstd"
+        "brcm-firmware"
       ];
 
     allowInsecurePredicate =

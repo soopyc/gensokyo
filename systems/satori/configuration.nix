@@ -48,13 +48,15 @@
     inputs.self.packages.${_system}.brcmfmac
   ];
 
+  # hardware.apple-t2.firmware.enable = true;
+
   hardware.apple-t2.kernelChannel = "stable";
   specialisation.latest-kernel.configuration.hardware.apple-t2.kernelChannel = lib.mkForce "latest";
 
   # experimental
   boot.kernelParams = [
     # "mem_sleep_default=s2idle"
-    "pcie_aspm=off"
+    "acpi_osi=!Darwin"
   ];
 
   systemd = {
