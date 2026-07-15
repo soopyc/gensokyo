@@ -20,9 +20,8 @@
   inputs = {
     mystia.url = "github:soopyc/mystia";
     # nixpkgs.follows = "mystia/nixpkgs";
-    nixpkgs-unstable.url = "https://nixpkgs.dev/channel/nixos-unstable";
-    # nixpkgs-2511.url = "https://nixpkgs.dev/channel/nixos-25.11";
-    nixpkgs.url = "https://nixpkgs.dev/channel/nixos-26.05";
+    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst";
 
     nixos-hardware.url = "github:soopyc/nixos-hardware/apple-t2-updates";
     catppuccin.url = "github:catppuccin/nix/release-26.05";
