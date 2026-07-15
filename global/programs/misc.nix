@@ -12,6 +12,7 @@
     dix
     nix-output-monitor
     python3
+    vim.xxd
 
     # irc
     catgirl
