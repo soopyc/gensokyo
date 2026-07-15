@@ -171,6 +171,11 @@ _build:
 	just general "build" --nom -- --keep-going
 	dix /run/current-system ./result
 
+# build and cache the derivation for a system
+cache system *args:
+	just build -s "{{system}}" {{args}}
+	niks3 push --pin "gensokyo-{{system}}" ./result
+
 # switch the system to a configuration
 switch *args:
 	just general "switch" {{args}}
@@ -213,8 +218,7 @@ build-all:
 # build and cache systems
 cache-all:
 	# TODO: fix remote building so we can build for everything
-	just forall --filter '{{filterCurrentSystem}}' \
-		'just build -s ${sys} && niks3 push --pin gensokyo-${sys} ./result'
+	just forall --filter '{{filterCurrentSystem}}' 'just cache ${sys}'
 
 # non-nixos-rebuild stuff
 
