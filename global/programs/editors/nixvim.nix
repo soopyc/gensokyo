@@ -1,9 +1,16 @@
 { lib, config, ... }:
 {
-  programs.neovim.enable = !config.gensokyo.traits.gui;
+  programs.neovim = {
+    enable = !config.gensokyo.traits.gui;
+    defaultEditor = true;
+    vimAlias = true;
+  };
   programs.nixvim = {
     enable = config.gensokyo.traits.gui;
     clipboard.providers.wl-copy.enable = true;
+
+    defaultEditor = true;
+    vimAlias = true;
 
     # testing
     # performance.combinePlugins.enable = true;
