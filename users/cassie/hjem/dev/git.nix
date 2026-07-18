@@ -24,6 +24,8 @@ in
         value = {
           user.signingKey = inputs.self + "/creds/ssh/auth";
           gpg.format = "ssh";
+
+          merge.conflictStyle = "zdiff3";
           # i probably don't need to set 'gpg "openpgp"'.program here since i don't use gpg
           # ... how am i even supposed to set that?? don't tell me i have to write that cursed line
           # update: it looks like it is indeed that cursed thing...
