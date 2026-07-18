@@ -9,7 +9,7 @@
 {
   imports = [
     (_utils.mkHjemConfig "cassie" "jj/config.toml" {
-      generator = (pkgs.formats.toml { }).generate;
+      generator = (pkgs.formats.toml { }).generate "jj-config.toml";
       value = {
         user.name = "Sophie Cheung";
         user.email = "git@soopy.moe";
@@ -19,6 +19,19 @@
         templates.commit_trailers = ''
           format_signed_off_by_trailer(self)
         '';
+
+        aliases =
+          let
+            mkAlias = doc: definition: {
+              inherit doc;
+              definition =
+                if builtins.typeOf definition == "string" then lib.splitString " " definition else definition;
+            };
+          in
+          {
+            gf = mkAlias "Git Fetch" "git fetch";
+            gp = mkAlias "Git Push" "git push";
+          };
       };
     })
 
@@ -28,7 +41,8 @@
           git.sign-on-push = true;
 
           signing = {
-            behavior = "own";
+            # behavior = "own";
+            behavior = "drop";
 
             backend = "ssh";
             key = inputs.self + "/creds/ssh/auth";
