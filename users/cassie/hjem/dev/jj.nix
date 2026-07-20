@@ -14,6 +14,8 @@
         user.name = "Sophie Cheung";
         user.email = "git@soopy.moe";
 
+        ui.default-command = "status";
+
         # ui.pager = "less -R";
 
         templates.commit_trailers = ''
