@@ -6,6 +6,7 @@
       dix
       just-lsp
       nixfmt
+      compose2nix
 
       inputs.nixpkgs-unstable.legacyPackages.${system}.just
       inputs.niks3.packages.${system}.default

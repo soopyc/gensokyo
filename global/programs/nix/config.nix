@@ -82,9 +82,10 @@ lib.mkMerge [
         self.flake = inputs.self;
         n.flake = inputs.nixpkgs;
         nu.flake = inputs.nixpkgs-unstable;
+        nixpkgs = lib.mkForce { flake = inputs.nixpkgs-unstable; };
       }
       // mkTarball "nixpkgs-stable" "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst"
-      // mkTarball "nixpkgs" "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
+      // mkTarball "nixpkgs-unstable" "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
 
     # // (builtins.mapAttrs (_: flake: { inherit flake; }) (
     #   lib.filterAttrs (n: _: n != "nixpkgs") inputs
