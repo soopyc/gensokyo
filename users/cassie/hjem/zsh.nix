@@ -14,5 +14,10 @@
     }
 
     export compress_video
+
+    # random aliases
+    alias pw="packwiz"
+    alias klogout="qdbus org.kde.LogoutPrompt /LogoutPrompt promptLogout"
+    alias kreboot="qdbus org.kde.LogoutPrompt /LogoutPrompt promptReboot"
   '';
 }
