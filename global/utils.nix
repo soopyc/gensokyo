@@ -18,7 +18,7 @@ rec {
     lib.mkMerge [
       {
         forceSSL = lib.mkDefault true;
-        useACMEHost = lib.mkDefault "global.c.soopy.moe";
+        useACMEHost = lib.mkDefault "global.c.soopy.moe"; # TODO: remove
         kTLS = lib.mkDefault true;
         quic = lib.mkDefault true;
 
@@ -30,6 +30,10 @@ rec {
         locations."= /robots.txt" = mkNginxFile {
           filename = "robots.txt";
           content = ''
+            User-Agent: ia_archiver
+            Disallow:
+            Allow: /
+
             # Please stop hammering and/or scraping our services.
             User-Agent: *
             Disallow: /
