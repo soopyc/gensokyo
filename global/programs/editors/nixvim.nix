@@ -164,6 +164,7 @@
         astro.enable = true;
         html.enable = true;
         pyright.enable = true;
+        ts_go.enable = true;
       };
     };
   };
