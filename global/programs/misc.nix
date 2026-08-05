@@ -13,6 +13,7 @@
     nix-output-monitor
     python3
     vim.xxd
+    mergiraf
 
     # irc
     catgirl
