@@ -57,12 +57,12 @@
 
     whitelisted-web = {
       url = "https://patchy.soopy.moe/soopyc/whitelisted-web/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      # inputs.nixpkgs.follows = "nixpkgs-unstable"; # not overriding so we could cache this for as long as we don't update
     };
 
     sops-nix = {
@@ -88,18 +88,18 @@
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     camasca = {
       url = "https://git.uku3lig.net/uku/camasca/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     niks3 = {
       url = "github:Mic92/niks3";
       inputs.treefmt-nix.follows = "treefmt-nix";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -153,7 +153,9 @@
 
       nixosConfigurations = import ./systems/default.nix { inherit inputs lib; };
 
-      devShells = forAllSystems ({ pkgs, system }: import ./nix/devshell.nix { inherit pkgs system inputs; });
+      devShells = forAllSystems (
+        { pkgs, system }: import ./nix/devshell.nix { inherit pkgs system inputs; }
+      );
 
       checks = forAllSystems (
         { pkgs, system }:
