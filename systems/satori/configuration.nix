@@ -57,6 +57,11 @@
   boot.kernelParams = [
     # "mem_sleep_default=s2idle"
     "acpi_osi=!Darwin"
+    "hid-apple.fnmode=1"
+
+    # testing
+    # "rd.systemd.break=pre-mount"
+    # "rd.systemd.debug_shell=1"
   ];
 
   systemd = {
