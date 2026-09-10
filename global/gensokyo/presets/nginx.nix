@@ -51,7 +51,7 @@ lib.mkIf presetConf.nginx (
         {
           job_name = "nginx";
           static_configs = [
-            { targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}" ]; }
+            { targets = [ "localhost:${toString config.services.prometheus.exporters.nginx.port}" ]; }
           ];
           relabel_configs = [
             {
