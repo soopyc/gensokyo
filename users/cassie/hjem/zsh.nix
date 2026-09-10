@@ -1,15 +1,21 @@
 {
   hjem.users.cassie.xdg.config.files."hjem-zsh-glue.zsh".text = ''
     compress_video() {
-      if ! test "$#" -eq 1; then
-        echo "must specify only one source parameter."
+      if test "$#" -lt 1; then
+        echo "must specify one source parameter, or one source + one sseof param."
         return 1
       fi
 
       spath=$1; shift
       sname="$(basename "$spath")"
 
-      ffmpeg -i $spath -c:v libsvtav1 -preset 5 -b:v 1000k "./''${sname%%.*}-compressed.webm"
+      sseof=
+      if test "$1" != ""; then sseof="-sseof $1"; fi
+
+      ffmpeg \
+        ''${=sseof}\
+        -i $spath -c:v libsvtav1 -preset 5 -b:v 3500k \
+        "./''${sname%%.*}-compressed.webm"
       return 0
     }
 
