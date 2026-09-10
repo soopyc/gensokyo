@@ -14,6 +14,9 @@ in
 {
   imports = lib.singleton secrets.generate;
 
+  # cache action communication
+  networking.firewall.trustedInterfaces = [ "br-+" ];
+
   services.gitea-actions-runner = {
     package = pkgs.forgejo-runner;
     instances.default = {
