@@ -19,7 +19,7 @@
         DESTINATION="backup@koumakan:/home/backup/public/"
         rsync \
           -rltH \
-          --rsh="ssh -i $HOME/.ssh/id_backup_koumakan" \
+          --rsh="ssh -o IdentityAgent=none -i $HOME/.ssh/id_backup_koumakan" \
           --safe-links \
           --delay-updates \
           --human-readable --progress \
