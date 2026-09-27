@@ -72,5 +72,6 @@ in
 
   services.nginx.virtualHosts."tasks.soopy.moe" = _utils.mkSimpleProxy {
     port = 35891;
+    websockets = true;
   };
 }
