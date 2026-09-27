@@ -116,6 +116,8 @@ niks3:
     s3:
         aid: ENC[AES256_GCM,data:9Esh3T9lNPr2lblLnMtiEoZRJ6QomtyAC5w=,iv:BkBEeJrRxco0sagtaelZO1a+UAbLqNOZT0xTiwp+JCM=,tag:SJTKh0Qy7njJSb1VDJ7/yQ==,type:str]
         sk: ENC[AES256_GCM,data:2oogByBJyTcRl1xJV590GLooBEvdRFwORSDfY2c3cIpeApU+oPH6Gb02anqBzIjYmCEK6vfBbbYYzOVBD5Ml8A==,iv:YXuCNr0th9jbGGoVoI8VY2mxW0H393XdOg9qTgY4xnI=,tag:Ix1umout4QWPHlwLObpe/w==,type:str]
+getsuyo:
+    discord-webhook-url: ENC[AES256_GCM,data:L9Piv+k+aCSGisp9z55CViOR1ZOoGF1hDWmV60sSeH35jsTkIJ2Cqia+x5QIPIwpnQNmRotrAloZJvI4lu51nkn1ufQVJYSvvCMHeSJibUvsZVr7qD1U1NdoYR8+2EEFyDzrwDfydyNCKeKzYB/MNUQtnBtPx6DKiw==,iv:yRYAF/LSrT1qpzleSSVIzdhwWs8+ZsITk3A0ZVSwo2M=,tag:IvUhoCywTa16RY89WpDzJg==,type:str]
 sops:
     age:
         - enc: |
@@ -156,7 +158,7 @@ sops:
             A15+hRdjKJBKfcRCCekW8YFH5c5AP7iLQXYzWV9vaerpLzE0oC0F6A==
             -----END AGE ENCRYPTED FILE-----
           recipient: age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
-    lastmodified: "2026-06-30T16:33:05Z"
-    mac: ENC[AES256_GCM,data:lBZZOPMSOGLmfJkkIsqgZqsNGytul7S8WFswe2Nhv0Y14WHdVjlYr1dNx216imsIFsONxMimrfAzW3GHGJMw86b9iezHC2sbpbjFf28juYL1vIBDw9YSYXwyFaucuAYBxNRFQ/h/rKjBorQ8Aq1d1jquMbHdUP7aocNn323sBII=,iv:eoKdISuhjD9+9PJ6hSLbs1WhKQNefC+MU2/dilWfjxM=,tag:TkYPE4xd0VCBfjZTjYXCRw==,type:str]
+    lastmodified: "2026-09-27T20:34:08Z"
+    mac: ENC[AES256_GCM,data:3quajvkwf/Qv20EaPeIvg0n8KbOUm4evBSR5RPMFZzbVeKjqyx1/tfs818/1n6oGGPipElioTaO6pZK7sG4NGomO16qOAvNuuAEkNF21Xoych+qdtHrGeBwbXVxtRGL53HpZ/7OVRHDU6um8KPkQi3u1tUPy8rStObvZRglUzSw=,iv:MBYyrI7mMxSBSjKwUhUgCzObhItku/7Wjaj2U4nvmew=,tag:Nq8VfUUufTahexw9Ex+oLA==,type:str]
     unencrypted_suffix: _unencrypted
-    version: 3.13.1
+    version: 3.13.3

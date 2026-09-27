@@ -1,4 +1,3 @@
-{ ... }:
 {
   imports = [
     ./nginx.nix
@@ -28,5 +27,7 @@
     ./storage
     ./telemetry
     ./productivity
+
+    ./misc
   ];
 }
