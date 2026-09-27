@@ -39,8 +39,13 @@ in
 
   systemd = {
     services."getsuyobot" = {
+      requires = [ "network-online.target" ];
+      after = [ "network-online.target" ];
       serviceConfig = {
+        Type = "oneshot";
         ExecStart = lib.getExe pkg;
+        Restart = "on-failure";
+
         LoadCredential = [
           "discord-webhook-url:${secrets.get "discord-webhook-url"}"
         ];
@@ -53,7 +58,10 @@ in
 
     timers."getsuyobot" = {
       wantedBy = lib.singleton "multi-user.target";
-      timerConfig.OnCalendar = "Sun,Tue 17:00:00 Etc/GMT-8";
+      timerConfig = {
+        OnCalendar = "Sun,Tue 17:00:00 Etc/GMT-8";
+        Persistent = true;
+      };
     };
   };
 }
