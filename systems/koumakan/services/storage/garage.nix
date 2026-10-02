@@ -95,6 +95,8 @@ in
         proxy_max_temp_file_size 0;
       '';
 
+      locations."= /_health".proxyPass = "http://100.100.16.16:39932/health";
+
       locations."= /_static" = _utils.mkNginxFile {
         content = ''
           <!doctype html>
