@@ -12,9 +12,33 @@ let
       "[STATUS] < 300"
       "[CONNECTED] == true"
     ];
+    alerts = [
+      { type = "ntfy"; }
+      { type = "email"; }
+    ];
+  };
+
+  secrets = _utils.setupSecrets config {
+    namespace = "gatus";
+    secrets = [
+      "ntfy_topic"
+      "email/username"
+      "email/password"
+      "email/dest_addr"
+    ];
   };
 in
 {
+  imports = [
+    secrets.generate
+    (secrets.mkTemplate "gatus.env" ''
+      C_NTFY_TOPIC=${secrets.placeholder "ntfy_topic"}
+      C_EMAIL_U=${secrets.placeholder "email/username"}
+      C_EMAIL_P=${secrets.placeholder "email/password"}
+      C_EMAIL_D=${secrets.placeholder "email/dest_addr"}
+    '')
+  ];
+
   services.gatus = {
     enable = true;
     settings = {
@@ -23,7 +47,7 @@ in
       web.port = 33234;
       ui = {
         title = "Vitals | Gensokyo";
-        description = "Health checking of Gensokyo services, powered by Gatus.";
+        description = "Gensokyo services electropacketgraph";
         header = "Vitals";
         buttons = [
           {
@@ -33,11 +57,39 @@ in
         ];
       };
 
+      alerting = {
+        ntfy = {
+          topic = "\${C_NTFY_TOPIC}";
+          url = "https://ntfy.sh";
+          priority = 4;
+          default-alert = {
+            failure-threshold = 3;
+            success-threshold = 3;
+            send-on-resolved = true;
+          };
+        };
+
+        email = {
+          from = "\${C_EMAIL_U}";
+          username = "\${C_EMAIL_U}";
+          password = "\${C_EMAIL_P}";
+          to = "\${C_EMAIL_D}";
+          host = "smtp.soopy.moe";
+          port = 465;
+          default-alert = {
+            failure-threshold = 5;
+            success-threshold = 5;
+            send-on-resolved = true;
+          };
+        };
+      };
+
       endpoints = [
         (mkHttpEndpoint "Main Site" "core" "https://soopy.moe")
 
-        (mkHttpEndpoint "Gateway (Kanidm)" "koumakan" "https://gateway.soopy.moe" // { enabled = false; }) # TODO
+        (mkHttpEndpoint "Gatekeeper" "koumakan" "https://gatekeeper.soopy.moe")
         (mkHttpEndpoint "Patchy (Forgejo)" "koumakan" "https://patchy.soopy.moe")
+        (mkHttpEndpoint "Garage (S3)" "koumakan" "https://s3.soopy.moe/_health")
         (mkHttpEndpoint "Suika (Grafana)" "koumakan" "https://suika.soopy.moe/login")
         (mkHttpEndpoint "Nue (Synapse)" "koumakan" "https://nue.soopy.moe/health")
         (mkHttpEndpoint "Miniflux" "koumakan" "https://flux.soopy.moe")
@@ -59,8 +111,6 @@ in
             "[CERTIFICATE_EXPIRATION] > 10d"
           ];
         }
-
-        (mkHttpEndpoint "noVNC" "ryo" "https://ryo.soopy.moe/vnc_lite.html")
       ];
     };
   };
