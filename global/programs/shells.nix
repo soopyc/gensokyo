@@ -5,6 +5,8 @@
     enable = true;
     histSize = 50000;
 
+    setOptions = lib.singleton "TRANSIENT_RPROMPT";
+
     # plugins
     syntaxHighlighting.enable = true;
     autosuggestions = {
@@ -21,7 +23,7 @@
 
   programs.starship = {
     enable = true;
-    settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+    settings = fromTOML (builtins.readFile ./starship.toml);
 
     # TODO: remove after jj support lands in stable
     package = pkgs.starship.overrideAttrs (final: _: {

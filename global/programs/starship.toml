@@ -1,34 +1,148 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# set timeout for slow operations because slow prompts severely and negatively impacts my productivity
+scan_timeout = 25
+command_timeout = 75
+
 # Inserts a blank line between shell prompts
 add_newline = true
-right_format = """$os $shell $direnv"""
+# format = "$fill$time$os$shell$direnv$line_break$all$jobs$hostname$status$character"
+# right_format = "$time$os$shell$direnv$line_break"
+
+# after $directory\
+# $vcsh\
+# $fossil_branch\
+# $fossil_metrics\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
+# $hg_branch\
+# $hg_state\
+# $pijul_channel\
+# before $docker_context\
+# copied the entire thing just to insert between a line_break
+format = """
+$username\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$nats\
+$directory\
+$vcs\
+$docker_context\
+$package\
+$bun\
+$c\
+$cmake\
+$cobol\
+$cpp\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$fortran\
+$gleam\
+$golang\
+$gradle\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$maven\
+$mojo\
+$nim\
+$nodejs\
+$ocaml\
+$odin\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$xmake\
+$zig\
+$buf\
+$guix_shell\
+$nix_shell\
+$conda\
+$pixi\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$mise\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$fill\
+$time\
+$container\
+$netns\
+$line_break\
+$jobs\
+$hostname\
+$status\
+$character"""
+right_format = "$battery$os$shell$direnv"
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
-error_symbol = '[➜](bold red)'
+success_symbol = '[\$](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[\$](bold red)'
 
 [os]
 disabled = false
 style = "bold blue"
-format = "on [$symbol($name)]($style)"
+format = " on [$symbol($name)]($style)"
+
+[battery]
+format = '[$symbol$percentage]($style)'
+
+[[battery.display]]
+threshold = 100
+style = "bold green"
+
+[[battery.display]]
+threshold = 75
+style = "bold yellow"
 
 [[battery.display]]
 threshold = 30
 style = "bold red"
 
-[[battery.display]]
-threshold = 60
-style = "bold yellow"
-
-[[battery.display]]
-threshold = 80
-style = "bold green"
-
 [username]
 show_always = true
+format = '[$user]($style) '
 
 [status]
 disabled = false
@@ -44,23 +158,34 @@ signal_symbol = ''
 
 [shell]
 disabled = false
-format = 'with [󰆍 $indicator]($style)'
+format = ' with [󰆍 $indicator]($style)'
 style = 'bold green'
 
 [nix_shell]
 symbol = " "
-format = 'via [$symbol$name$state]($style) '
+format = 'via [$symbol($name$state)]($style) '
 impure_msg = ''
-pure_msg = '(pure)'
-unknown_msg = '(?)'
+pure_msg = '+pure'
+unknown_msg = '+?'
 heuristic = true
+
+[fill]
+symbol = ' '
 
 [hostname]
 ssh_symbol = "󰒍 "
 ssh_only = false
+format = '[@](purple)[$ssh_symbol$hostname](bold purple) '
 
 [time]
 disabled = false
+format = "on [$time]($style) "
+time_format = "%a %b %d %T"
+
+[jobs]
+number_threshold = 1
+symbol = "+"
+style = "blue"
 
 [cmd_duration]
 min_time = 0
@@ -68,8 +193,8 @@ show_milliseconds = true
 
 [direnv]
 disabled = false
-style = "bold orange"
-format = "with [$symbol$allowed]($style)"
+style = "bold cyan"
+format = " with [$symbol$allowed]($style)"
 allowed_msg = "" # loaded and accepted by user
 not_allowed_msg = "" # loaded, user never allowed/denied
 denied_msg = "" # loaded, user explicitly denied
@@ -91,6 +216,7 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
+format = 'in [$read_only]($read_only_style)[$path]($style) '
 
 [docker_context]
 symbol = " "
@@ -186,7 +312,7 @@ Windows = "󰍲 "
 [package]
 symbol = "󰏗 "
 
-[pijul_channel] # ????
+[pijul_channel]
 symbol = "🪺 "
 
 [python]
@@ -206,5 +332,9 @@ symbol = " "
 
 [spack]
 symbol = "🅢 "
+
+[vcs]
+order = ["jj", "git", "hg"]
+jj_modules = "jj $jj_bookmark$jj_change$jj_metrics$jj_status"
 
 # vim:foldmethod=marker
