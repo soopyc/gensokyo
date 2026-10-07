@@ -22,6 +22,24 @@
   programs.starship = {
     enable = true;
     settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+
+    # TODO: remove after jj support lands in stable
+    package = pkgs.starship.overrideAttrs (final: _: {
+       version = "unstable-2026-10-05-d4d0459c5";
+       # cargoHash = "";
+       doCheck = false;
+       src = pkgs.fetchFromGitHub {
+         owner = "starship";
+         repo = "starship";
+         rev = "d4d0459c5c24ba8f64663af8714f7858d7fb357b";
+         hash = "sha256-mO+25Q+v7z5XUT7DVLRwDjW3htc+kmUOKavhuEM5654=";
+       };
+       cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+         inherit (final) src version;
+         pname = "${final.pname}-cargo-deps";
+         hash = "sha256-5R2CdOA5FVWswVbGxdacRQXd+M1yTrSNJwSfBNhjomQ=";
+       };
+    });
   };
 
   programs.direnv = {
