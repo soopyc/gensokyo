@@ -1,73 +1,55 @@
-# {inputs, config, hostname, ...}: {
 {
-  config,
-  inputs,
-  ...
-}:
-{
-  sops.secrets = {
-    "vsftpdUsers.db" = {
-      sopsFile = inputs.self + "/creds/sops/koumakan/vsftpdUsers.db";
-      owner = config.users.users.vsftpd.name;
-      format = "binary";
+  gensokyo.ports.vsftpd = 21;
+  users.groups.ftp-ingress.gid = 3000;
+  systemd.tmpfiles.settings."ftp-ingress.conf"."/var/www/ftp/ingress" = {
+    d = {
+      mode = "0770";
+      user = "root";
+      group = "ftp-ingress";
     };
-
-    "webdav.scan.htpasswd" = {
-      sopsFile = inputs.self + "/creds/sops/koumakan/webdav.scan.htpasswd";
-      owner = config.users.users.vsftpd.name;
-      format = "binary";
-    };
+    a.argument = "g::rw,o::,m::rw";
   };
 
-  users = {
-    users.vsftpd = {
-      uid = 3000;
-      home = "/var/www/ftp";
+  containers."vsftpd" = {
+    autoStart = true;
+    bindMounts."/var/www/ftp" = {
+      hostPath = "/var/www/ftp";
+      isReadOnly = false;
     };
-    groups.vsftpd.gid = 3000;
-  };
+    privateUsers = "pick";
 
-  services.vsftpd = {
-    enable = true;
-    enableVirtualUsers = true;
-    localRoot = "/var/www/ftp";
-    localUsers = true;
-    virtualUseLocalPrivs = true;
-    writeEnable = true;
+    config =
+      let
+        mkUser = hashedPassword: {
+          inherit hashedPassword;
+          isNormalUser = true;
+          home = "/homeless-shelter";
+          useDefaultShell = false;
+          extraGroups = [ "paperless" ];
+        };
+      in
+      {
+        users = {
+          allowNoPasswordLogin = true; # brother i'm in a container
+          mutableUsers = false;
+          groups.ftp-ingress.gid = 3000;
+          users.akkoma-L3750CDW = mkUser "$y$j9T$sKgJPvXEQwr0Jv9q.oIYF.$BhnLfoYWjZ07UQ3L4SKoCTI0RHtaicMLKvyoL4LT6XD";
+          users.soopyc = mkUser "$y$j9T$ZxenYquhn9VGhJrhYjH4q1$7JiiNH1BFVsSkz/WlTiScTRto8BJL/AP7F2PSuMpC7A";
+        };
 
-    userDbPath = "/run/secrets/vsftpdUsers";
-    userlistEnable = true;
-    userlist = [
-      "brother_scan"
-    ];
-
-    extraConfig = ''
-      pasv_min_port=50000
-      pasv_max_port=50100
-    '';
-  };
-
-  services.webdav-server-rs = {
-    user = "vsftpd";
-    group = "vsftpd";
-    enable = true;
-    settings = {
-      server.listen = [ "100.100.16.16:38563" ];
-      accounts.auth-type = "htpasswd.default";
-
-      htpasswd.default.htpasswd = config.sops.secrets."webdav.scan.htpasswd".path;
-      unix.min-uid = 1000;
-
-      location = [
-        {
-          route = [ "/*path" ];
-          auth = "true";
-          handler = "filesystem";
-          methods = [ "webdav-rw" ];
-
-          directory = "/var/www/ftp";
-        }
-      ];
-    };
+        services.vsftpd = {
+          enable = true;
+          userlist = [
+            "soopyc"
+            "akkoma-L3750CDW"
+          ];
+          localUsers = true;
+          writeEnable = true;
+          extraConfig = ''
+            pasv_min_port=50000
+            pasv_max_port=50100
+          '';
+        };
+      };
   };
 }
