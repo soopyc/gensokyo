@@ -27,7 +27,10 @@ let
         name = "Gensokyo Gatekeeper";
         client_id = secrets.placeholder "oauth/gatekeeper/cid";
         secret = secrets.placeholder "oauth/gatekeeper/cse";
-        settings.server_url = "https://gatekeeper.soopy.moe";
+        settings = {
+          server_url = "https://gatekeeper.soopy.moe";
+          oauth_pkce_enabled = true;
+        };
       };
     };
   };
