@@ -39,7 +39,7 @@ in
   imports = [
     secrets.generate
     (secrets.mkTemplate "paperless.env" ''
-      PAPERLESS_SOCIALACCOUNT_PROVIDERS=${builtins.toJSON allauthConfig}
+      PAPERLESS_SOCIALACCOUNT_PROVIDERS='${builtins.toJSON allauthConfig}'
     '')
   ];
 
@@ -94,6 +94,7 @@ in
       PAPERLESS_BIND_ADDR = "127.0.0.1";
       PAPERLESS_TRUSTED_PROXIES = "127.0.0.1";
 
+      PAPERLESS_SOCIAL_AUTO_SIGNUP = true;
       PAPERLESS_SOCIAL_ACCOUNTS_SYNC_GROUPS = true;
       PAPERLESS_SOCIAL_ACCOUNT_SYNC_SUPERUSER_GROUP = "admin";
       PAPERLESS_DISABLE_REGULAR_LOGIN = true;
