@@ -97,6 +97,8 @@ in
 
       # TODO: setup email ingress
 
+      PAPERLESS_THUMBNAIL_FONT_NAME = "${pkgs.lexend}/share/fonts/truetype/lexend/deca/LexendDeca-Regular.ttf";
+
       PAPERLESS_CONSUMPTION_DIR = "/var/www/ftp/ingress/";
       PAPERLESS_CONSUMER_ENABLE_BARCODES = true;
       PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
