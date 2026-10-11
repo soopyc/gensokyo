@@ -18,6 +18,7 @@
         ui.merge-editor = "mergiraf";
 
         # ui.pager = "less -R";
+        revsets.bookmark-advance-to = "@-";
 
         templates.commit_trailers = ''
           format_signed_off_by_trailer(self)
@@ -39,7 +40,9 @@
             l = mkAlias "log" "log";
             sh = mkAlias "show" "show";
             sq = mkAlias "squash" "squash";
+            rb = mkAlias "rebase" "rebase";
 
+            blame = mkAlias "[blame] myself" "file annotate";
             untrack = mkAlias "untrack files" "file untrack";
           };
       };
