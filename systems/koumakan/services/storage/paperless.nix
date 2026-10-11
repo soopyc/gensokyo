@@ -68,7 +68,7 @@ in
   services.paperless = {
     enable = true;
     domain = "koakuma.soopy.moe";
-    port = config.gensokyo.ports.paperless;
+    port = config.gensokyo.ports.paperless-ngx;
     database.createLocally = true;
     package = pkgs.paperless-ngx.overrideAttrs {
       # disable checks due to rebuilds and incomprehensibly slow build times
