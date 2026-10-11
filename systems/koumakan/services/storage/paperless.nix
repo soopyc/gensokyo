@@ -66,7 +66,7 @@ in
 
       PAPERLESS_ADVANCED_FUZZY_SEARCH_THRESHOLD = 0.5;
       PAPERLESS_OCR_LANGUAGE = "eng+chi_tra+chi_sim+jpn";
-      PAPERLESS_DATE_PARSER_LANGUAGES = "en-HK+en-GB+zh-Hant-HK+ja";
+      PAPERLESS_DATE_PARSER_LANGUAGES = "en-HK+zh-Hant-HK+ja";
 
       PAPERLESS_ENABLE_COMPRESSION = false; # nginx does this already
 
