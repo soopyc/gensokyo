@@ -119,6 +119,7 @@ niks3:
 getsuyo:
     discord-webhook-url: ENC[AES256_GCM,data:L9Piv+k+aCSGisp9z55CViOR1ZOoGF1hDWmV60sSeH35jsTkIJ2Cqia+x5QIPIwpnQNmRotrAloZJvI4lu51nkn1ufQVJYSvvCMHeSJibUvsZVr7qD1U1NdoYR8+2EEFyDzrwDfydyNCKeKzYB/MNUQtnBtPx6DKiw==,iv:yRYAF/LSrT1qpzleSSVIzdhwWs8+ZsITk3A0ZVSwo2M=,tag:IvUhoCywTa16RY89WpDzJg==,type:str]
 paperless:
+    secret_key: ENC[AES256_GCM,data:KFQG/LltJIkVRU/pSAD4T/zRxNPyPCk1ErO/BeCI126ix/AWBioarraf2PsleYfx9qS2bTFq4RFihh8+3/tpfwKIJHcgiGO/H+PNR+aRtJUW6/I8/GLSrDq3ZyiiHp+NVt7g99SSdOpL/fhUKaKvemsFEBHO74/XS7F0RU71VAw5NmLfRt74X2QG058Ay4bVlHNNKBSvmN4vmyV2eTUJZMCavlfzxPfIF0P55g==,iv:C0axBYv+3E0uZTdDfF+M7pee8fbYNVld7ZAWO4zhCEE=,tag:09F+wfivXrv0PDbuZCVgVw==,type:str]
     oauth:
         gatekeeper:
             cid: ENC[AES256_GCM,data:+9tCElSMFvq7OqGnE7kTyo8LZXJ3Ii2rbwRUnJY+Uv7bAbZs,iv:RJCJCvQdedVaIvQQu8sIWAXnLsfYvIAinLjhDygoYIs=,tag:e9BtNpxbceSN/HJrgtR2cg==,type:str]
@@ -163,7 +164,7 @@ sops:
             A15+hRdjKJBKfcRCCekW8YFH5c5AP7iLQXYzWV9vaerpLzE0oC0F6A==
             -----END AGE ENCRYPTED FILE-----
           recipient: age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
-    lastmodified: "2026-10-09T11:31:59Z"
-    mac: ENC[AES256_GCM,data:xrHdgqjzD90SNuQUKBvhHklhQVMnQbIVua4e2lJUj7TTaYjUIoAcapBzwQ3o89x5wYXwMMzkPZ5ao+Svp75xRmH3D2aYgYfTsS6IvQOKm1z8qeBdCFYHk+yw5c/BFaC55BLtW4/aD0TP4sF28gtXB3T9m77BE8ddomCDSl/myGM=,iv:KR9ojgJSU7OjtzjlENFCBjan1aCSINoubzwOGxwDRsI=,tag:agsQqj5gDsx+7piPJ+SGEA==,type:str]
+    lastmodified: "2026-10-11T12:21:12Z"
+    mac: ENC[AES256_GCM,data:6L8o/M6Wj7hmYHvIweoNXL+T53fXz/MzqBwT1gjfJTys0ti67UntdxPa1REkASXuxFkaGaeKLB2ZJsi+J8RONBFRcBjYeVt07bRFfyfx88U4YVtqDEhs9mbcXWAxxp/aWY+DJohE7b98fg7EZEx2cD8mRTkwU1QAyTt14rOLfyw=,iv:7lboHMj62KVMr4S7v+wWLlS72b8cZBc/5hU6z7fowB0=,tag:dmYhPCYKXZCG5vY8Zcgczg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.13.3

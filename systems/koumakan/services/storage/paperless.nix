@@ -11,6 +11,7 @@ let
   secrets = _utils.setupSecrets config {
     namespace = "paperless";
     secrets = [
+      "secret_key"
       "oauth/gatekeeper/cid"
       "oauth/gatekeeper/cse"
     ];
@@ -44,6 +45,7 @@ in
     secrets.generate
     (secrets.mkTemplate "paperless.env" ''
       PAPERLESS_SOCIALACCOUNT_PROVIDERS='${builtins.toJSON allauthConfig}'
+      PAPERLESS_SECRET_KEY='${secrets.placeholder "secret_key"}'
     '')
   ];
 
@@ -71,6 +73,11 @@ in
           };
         });
   };
+
+  # TODO: another v3 migration: cannot override generation of _SECRET_KEY in the module... but everything else wants one
+  systemd.services.paperless-web.script = lib.mkForce ''
+    exec ${lib.getExe config.services.paperless.package.python.pkgs.granian} --interface asginl --ws "paperless.asgi:application"
+  '';
 
   services.paperless = {
     enable = true;
@@ -115,6 +122,10 @@ in
       PAPERLESS_CONSUMER_ENABLE_BARCODES = true;
       PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE = true;
       PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX = "GSN";
+
+      # TODO: pending 3.0 migrations
+      PAPERLESS_DBENGINE = "postgresql";
+      PAPERLESS_NLTK_DIR = "";
     };
 
     configureNginx = true;
