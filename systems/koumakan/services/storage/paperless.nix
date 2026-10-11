@@ -2,6 +2,8 @@
   lib,
   pkgs,
   config,
+  inputs,
+  _system,
   _utils,
   ...
 }:
@@ -75,7 +77,7 @@ in
     domain = "koakuma.soopy.moe";
     port = config.gensokyo.ports.paperless-ngx;
     database.createLocally = true;
-    package = pkgs.paperless-ngx.overrideAttrs {
+    package = inputs.nixpkgs-unstable.legacyPackages.${_system}.paperless-ngx.overrideAttrs {
       # disable checks due to rebuilds and incomprehensibly slow build times
       # TODO: hopefully make upstream module/package use a wrapper instead
       doCheck = false;
