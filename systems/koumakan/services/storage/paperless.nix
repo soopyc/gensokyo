@@ -68,6 +68,7 @@ in
   services.paperless = {
     enable = true;
     domain = "koakuma.soopy.moe";
+    port = config.gensokyo.ports.paperless;
     database.createLocally = true;
     package = pkgs.paperless-ngx.overrideAttrs {
       # disable checks due to rebuilds and incomprehensibly slow build times
@@ -75,6 +76,7 @@ in
       doCheck = false;
       doInstallCheck = false;
     };
+    environmentFile = secrets.getTemplate "paperless.env";
 
     consumptionDir = "/var/www/ftp/ingress";
     settings = {
