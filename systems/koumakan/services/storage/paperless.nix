@@ -16,9 +16,11 @@ let
 
   allauthConfig = {
     openid_connect = {
+      # this does not work at this moment.
       OAUTH_PKCS_ENABLED = true;
       SCOPE = [
         "openid"
+        "email"
         "profile"
         "groups"
       ];
@@ -29,7 +31,7 @@ let
         secret = secrets.placeholder "oauth/gatekeeper/cse";
         settings = {
           server_url = "https://gatekeeper.soopy.moe";
-          oauth_pkce_enabled = true;
+          oauth_pkce_enabled = true; # this _also_ does not work??
         };
       };
     };
@@ -95,7 +97,7 @@ in
       PAPERLESS_TRUSTED_PROXIES = "127.0.0.1";
 
       PAPERLESS_SOCIAL_AUTO_SIGNUP = true;
-      PAPERLESS_SOCIAL_ACCOUNTS_SYNC_GROUPS = true;
+      PAPERLESS_SOCIAL_ACCOUNT_SYNC_GROUPS = true;
       PAPERLESS_SOCIAL_ACCOUNT_SYNC_SUPERUSER_GROUP = "admin";
       PAPERLESS_DISABLE_REGULAR_LOGIN = true;
       PAPERLESS_ACCOUNT_SESSION_REMEMBER = false;
@@ -104,6 +106,8 @@ in
       # TODO: setup email ingress
 
       PAPERLESS_THUMBNAIL_FONT_NAME = "${pkgs.lexend}/share/fonts/truetype/lexend/deca/LexendDeca-Regular.ttf";
+
+      PAPERLESS_FILENAME_FORMAT = "{{ created_year }}-{{ created_month }}/{{ doc_pk }}-{{ asn }}";
 
       PAPERLESS_CONSUMPTION_DIR = "/var/www/ftp/ingress/";
       PAPERLESS_CONSUMER_ENABLE_BARCODES = true;
