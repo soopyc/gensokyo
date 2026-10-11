@@ -49,6 +49,21 @@ in
   services.tika.port = config.gensokyo.ports.tika;
 
   users.users."paperless".extraGroups = lib.singleton "ftp-ingress";
+  systemd.tmpfiles.settings = {
+    "10-paperless" = lib.mkForce { }; # don't touch my shit
+    "10-paperless-custom" =
+      lib.genAttrs
+        [
+          config.services.paperless.dataDir
+          config.services.paperless.mediaDir
+        ]
+        (_: {
+          d = {
+            user = config.services.paperless.user;
+            group = config.users.users.${config.services.paperless.user}.name;
+          };
+        });
+  };
 
   services.paperless = {
     enable = true;
@@ -61,6 +76,7 @@ in
       doInstallCheck = false;
     };
 
+    consumptionDir = "/var/www/ftp/ingress";
     settings = {
       PAPERLESS_APPS = "allauth.socialaccount.providers.openid_connect";
 
