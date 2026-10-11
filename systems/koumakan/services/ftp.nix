@@ -23,6 +23,13 @@ in
       };
       a.argument = "g::rw,o::,m::rw";
     };
+    "/var/www/ftp/ingress/collate" = {
+      d = {
+        mode = "0770";
+        user = "root";
+        group = "ftp-ingress";
+      };
+    };
   };
 
   users = {
