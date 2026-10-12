@@ -42,5 +42,73 @@
     };
   };
 
+  # TODO: oneshot command for once-in-a-blue-moon db major version upgrades
+  # niko oneshot:
+  environment.systemPackages =
+    let
+      old = config.services.postgresql.finalPackage;
+      new = pkgs.postgresql_18.withPackages config.services.postgresql.extensions;
+    in
+    lib.singleton (
+      pkgs.writeScriptBin "postgres-upgrade-env" ''
+        set -euo pipefail
+
+        if test $UID -ne 0; then
+          echo "You might want to run this as root. You should run this as root. Come on."
+          exit 1
+        fi
+
+        PGBINOLD="${old}/bin"
+        PGBINNEW="${new}/bin"
+
+        PGDATAOLD="/var/lib/postgresql/${old.psqlSchema}"
+        PGDATANEW="/var/lib/postgresql/${new.psqlSchema}"
+
+        showdepend() {
+          set -x
+          systemctl show 'postgresql.*' --property Id,WantedBy,RequiredBy --no-pager
+          set +x
+        }
+
+        enter() {
+          set -x
+          run0 -u postgres \
+            --setenv PGBINOLD --setenv PGBINNEW \
+            --setenv PGDATAOLD --setenv PGDATANEW \
+            --setenv "pg_upgrade=${lib.getExe' new "pg_upgrade"}"
+          set +x
+        }
+
+        init() {
+          set -x
+          install -dm700 -o postgres -g postgres "$PGDATANEW"
+          run0 -u postgres "${lib.getExe' new "initdb"}" -D "$PGDATANEW" ${lib.escapeShellArgs config.services.postgresql.initdbArgs}
+          set +x
+        }
+
+        export PGBINOLD PGBINNEW PGDATAOLD PGDATANEW
+        export -f enter init showdepend
+
+        echo 'Postgresql is depended on by the following services:'
+        showdepend
+        echo
+        echo 'It may be wise to turn them off first, then turn off postgresql.'
+        echo
+        echo "-------"
+        echo 'Several environment variables have been set for use with pg_upgrade and other tooling:'
+        echo '  PGBINOLD PGBINNEW PGDATAOLD PGDATANEW'
+        echo
+        echo 'Several functions have also been provided to aid in this step:'
+        echo '  - enter()     : enter a shell as the `postgres` user with necessary variables set; pg_upgrade available as $pg_upgrade'
+        echo '                  * remember to --clone on pg_upgrade'
+        echo "  - init()      : initialize the directory $PGDATANEW with a new database"
+        echo '  - showdepend(): show dependencies of postgresql.* as above.'
+        echo
+        echo 'See https://www.postgresql.org/docs/current/pgupgrade.html for documentation.'
+
+        exec bash -u
+      ''
+    );
+
   users.users.postgres.useDefaultShell = lib.mkForce false;
 }
