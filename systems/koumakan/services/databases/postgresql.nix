@@ -1,9 +1,11 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 {
+  gensokyo.ports.postgresql = 5432;
   services.postgresql = {
     enable = true;
 
@@ -19,6 +21,7 @@
     '';
 
     settings = {
+      port = config.gensokyo.ports.postgresql;
       listen_addresses = pkgs.lib.mkForce "*";
       max_connections = 200;
       password_encryption = "scram-sha-256";

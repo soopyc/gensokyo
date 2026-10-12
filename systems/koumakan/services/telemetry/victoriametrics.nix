@@ -30,10 +30,14 @@ in
       )
     ))
   ];
+  gensokyo.ports = {
+    vmetrics = 20090;
+    vmauth = 21000;
+  };
 
   services.victoriametrics = {
     enable = true;
-    listenAddress = "127.0.0.1:20090";
+    listenAddress = "127.0.0.1:${toString config.gensokyo.ports.vmetrics}";
     retentionPeriod = "5y"; # 5 years
   };
 
@@ -50,7 +54,7 @@ in
           job_name = "victoriametrics";
           scrape_interval = "15s";
           static_configs = lib.singleton {
-            targets = lib.singleton "${builtins.toString config.services.victoriametrics.listenAddress}";
+            targets = lib.singleton "${toString config.services.victoriametrics.listenAddress}";
           };
         }
 
@@ -59,7 +63,7 @@ in
           job_name = "node";
           scrape_interval = "15s";
           static_configs = lib.singleton {
-            targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.node.port}";
+            targets = lib.singleton "localhost:${toString config.gensokyo.ports.nodeExporter}";
           };
           relabel_configs = lib.singleton {
             target_label = "instance";
@@ -74,7 +78,7 @@ in
         {
           job_name = "nginx";
           static_configs = lib.singleton {
-            targets = lib.singleton "localhost:${builtins.toString config.services.prometheus.exporters.nginx.port}";
+            targets = lib.singleton "localhost:${toString config.gensokyo.ports.nginxExporter}";
           };
           relabel_configs = lib.singleton {
             target_label = "instance";
@@ -93,7 +97,7 @@ in
   # module search: https://mystia.soopy.moe
   services.vmauth = {
     enable = true;
-    listenAddress = "127.0.0.1:21000";
+    listenAddress = "127.0.0.1:${toString config.gensokyo.ports.vmauth}";
     authConfig = {
       users = builtins.concatMap (
         token:
@@ -119,7 +123,7 @@ in
 
     # Allow only the write route
     locations."~* /api/.*/write" = {
-      proxyPass = "http://127.0.0.1:21000";
+      proxyPass = "http://127.0.0.1:${toString config.gensokyo.ports.vmauth}";
     };
   };
 }

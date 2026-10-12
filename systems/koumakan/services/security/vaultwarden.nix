@@ -46,11 +46,13 @@ in
       PUSH_INSTALLATION_KEY=${ph "push/installation_key"}
     '';
 
+  gensokyo.ports.vaultwarden = 38480;
+
   services.vaultwarden = {
     enable = true;
     config = {
       ROCKET_ADDRESS = "::1";
-      ROCKET_PORT = 38480;
+      ROCKET_PORT = config.gensokyo.ports.vaultwarden;
       LOG_LEVEL = "warn";
       DOMAIN = "https://v.soopy.moe";
       IP_HEADER = "X-Real-IP";
@@ -110,7 +112,7 @@ in
     upstreams = {
       vault-default = {
         servers = {
-          "[::1]:38480" = { };
+          "[::1]:${toString config.gensokyo.ports.vaultwarden}" = { };
         };
         extraConfig = ''
           zone vaultwarden 128k;  # XXX: are there any security implications if we reuse the same zone for both webvault and the ws server?

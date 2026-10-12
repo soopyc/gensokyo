@@ -26,7 +26,7 @@ in
     settings = {
       base-url = "https://ntfy.soopy.moe";
       listen-unix = "/run/ntfy-sh/ntfy.sock";
-      metrics-listen-http = "127.0.0.1:44525";
+      # metrics-listen-http = "127.0.0.1:44525";
       behind-proxy = true;
       # listen-http = null; # explode
       listen-unix-mode = 400; # base10 of octal 0o0620. yet another example of yaml being a mistake

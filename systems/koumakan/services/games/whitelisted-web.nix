@@ -19,6 +19,8 @@ in
     '')
   ];
 
+  gensokyo.ports.whitelisted-web = 30274;
+
   gensokyo.services.whitelisted-web = {
     enable = true;
 
@@ -29,7 +31,7 @@ in
     extraAssets = ./whitelisted-assets;
 
     settings = {
-      PORT = "30274";
+      PORT = toString config.gensokyo.ports.whitelisted-web;
       PUBLIC_URL = "https://mc.soopy.moe";
       PUBLIC_TOS_URI_TEMPLATE = "/tos/{LANG}.md";
       PUBLIC_SERVER_IP = "mc.soopy.moe"; # the public minecraft server IP
@@ -42,7 +44,7 @@ in
 
   services.nginx.virtualHosts."mc.soopy.moe" = _utils.mkVhost {
     locations."/" = {
-      proxyPass = "http://127.0.0.1:30274";
+      proxyPass = "http://127.0.0.1:${toString config.gensokyo.ports.whitelisted-web}";
     };
 
     locations."/map/" = {

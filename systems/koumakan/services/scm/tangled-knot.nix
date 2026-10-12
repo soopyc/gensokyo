@@ -1,8 +1,13 @@
 {
   _utils,
+  config,
   ...
 }:
 {
+  gensokyo.ports = {
+    tangled-knot = 34195;
+    tangled-knot-internal = 34196;
+  };
   services.tangled-knotserver = {
     enable = true;
     user = "knot";
@@ -10,8 +15,8 @@
     repo.mainBranch = "meow";
     server = {
       hostname = "enanan.staging.soopy.moe";
-      listenAddr = "127.0.0.1:34195";
-      internalListenAddr = "127.0.0.1:34196";
+      listenAddr = "127.0.0.1:${toString config.gensokyo.ports.tangled-knot}";
+      internalListenAddr = "127.0.0.1:${toString config.gensokyo.ports.tangled-knot-internal}";
     };
 
     extraConfig = {
@@ -27,7 +32,7 @@
   };
 
   services.nginx.virtualHosts."enanan.staging.soopy.moe" = _utils.mkSimpleProxy {
-    port = 34195;
+    port = config.gensokyo.ports.tangled-knot;
     websockets = true;
     extraConfig = {
       useACMEHost = null;

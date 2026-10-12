@@ -15,10 +15,12 @@ in
 {
   imports = [ secrets.generate ];
 
+  gensokyo.ports.niks3 = 31532;
+
   services.niks3 = {
     enable = true;
 
-    httpAddr = "127.0.0.1:31532";
+    httpAddr = "127.0.0.1:${toString config.gensokyo.ports.niks3}";
     database.createLocally = true;
 
     cacheUrl = "https://cache.soopy.moe";
@@ -49,7 +51,7 @@ in
   };
 
   services.nginx.virtualHosts."niks3.soopy.moe" = _utils.mkSimpleProxy {
-    port = 31532;
+    port = config.gensokyo.ports.niks3;
     extraConfig.extraConfig = ''
       proxy_connect_timeout 300s;
       proxy_read_timeout    300s;

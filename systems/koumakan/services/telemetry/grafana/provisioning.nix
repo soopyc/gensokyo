@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   services.grafana.provision = {
     datasources.settings = {
@@ -10,7 +10,7 @@
           name = "panopticon";
           type = "prometheus";
           uid = "gs_panopticon";
-          url = "http://localhost:20090";
+          url = "http://localhost:${toString config.gensokyo.ports.vmetrics}";
           isDefault = true;
           jsonData = {
             prometheusVersion = "2.44.0";

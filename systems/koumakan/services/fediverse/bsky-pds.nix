@@ -17,12 +17,15 @@ let
 in
 {
   imports = [ secrets.generate ];
+  gensokyo.ports.bsky-pds = 2583;
+
   services.bsky-pds = {
     enable = true;
     package = inputs.mystia.packages.${_system}.bsky-pds;
 
     # because sensible settings are already defined in the module, we can keep this simple :)
     settings = {
+      PDS_PORT = config.gensokyo.ports.bsky-pds;
       PDS_HOSTNAME = "bsky.soopy.moe";
       PDS_CONTACT_EMAIL_ADDRESS = "me@soopy.moe";
     };
@@ -33,7 +36,7 @@ in
   };
 
   services.nginx.virtualHosts.".bsky.soopy.moe" = _utils.mkSimpleProxy {
-    port = 2583;
+    port = config.gensokyo.ports.bsky-pds;
     websockets = true;
     extraConfig = {
       useACMEHost = "bsky.c.soopy.moe";

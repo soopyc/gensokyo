@@ -6,13 +6,13 @@
 {
   assertions = lib.mapAttrsToList (k: v: {
     # assertion = v.settings.METRICS_BIND_NETWORK == "tcp" -> !builtins.isNull (builtins.match "127.0.0.1:.*" v.settings.METRICS_BIND);
-    assertion =
-      !builtins.isNull (builtins.match "^127.0.0.1:17[[:digit:]]\{3\}$" v.settings.METRICS_BIND); # stricter
+    assertion = !isNull (builtins.match "^127.0.0.1:17[[:digit:]]\{3\}$" v.settings.METRICS_BIND); # stricter
     message = "koumakan-internal(anubis `${k}`): settings.METRICS_BIND must be in the form `127.0.0.1:17xxx`";
   }) config.services.anubis.instances;
 
   # neither VM nor Prom supports scraping unix domain sockets and i currently cba writing a custom scraper for it
   # prom: https://github.com/prometheus/prometheus/issues/12024
+  # UPDATE(2026-10-07): both prometheus and victoriametrics now support scraping through __unix_socket__ relabeling.
   # TODO: do that
   services.anubis.defaultOptions.settings = {
     METRICS_BIND_NETWORK = "tcp";

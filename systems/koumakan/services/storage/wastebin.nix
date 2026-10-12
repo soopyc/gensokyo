@@ -17,10 +17,11 @@ in
       WASTEBIN_SIGNING_KEY=${secrets.placeholder "key"}
     '')
   ];
+  gensokyo.ports.wastebin = 34682;
   services.wastebin = {
     enable = true;
     settings = {
-      WASTEBIN_ADDRESS_PORT = "127.0.0.1:34682";
+      WASTEBIN_ADDRESS_PORT = "127.0.0.1:${toString config.gensokyo.ports.wastebin}";
       WASTEBIN_BASE_URL = "https://akyuu.soopy.moe";
       WASTEBIN_MAX_BODY_SIZE = 10240;
     };
@@ -28,6 +29,6 @@ in
   };
 
   services.nginx.virtualHosts."akyuu.soopy.moe" = _utils.mkSimpleProxy {
-    port = 34682;
+    port = config.gensokyo.ports.wastebin;
   };
 }

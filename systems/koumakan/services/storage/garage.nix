@@ -6,6 +6,7 @@
   ...
 }:
 let
+  ports = config.gensokyo.ports;
   secrets = _utils.setupSecrets config {
     namespace = "garage";
     secrets = [
@@ -27,6 +28,13 @@ in
     groups.garage = { };
   };
 
+  gensokyo.ports = {
+    garagePublicApi = 39930;
+    garageRpc = 39931;
+    garageAdminApi = 39932;
+    garageWeb = 39939;
+  };
+
   services.garage = {
     enable = true;
     package = pkgs.garage_2;
@@ -43,22 +51,22 @@ in
 
       s3_api = {
         s3_region = "ap-east-1";
-        api_bind_addr = "[::1]:39930";
+        api_bind_addr = "[::1]:${toString ports.garagePublicApi}";
         root_domain = ".s3.soopy.moe";
       };
 
       # this is needed because garage apparently still doesn't support anon access via path based api, so this is more like a hack than anything atm.
       s3_web = {
-        bind_addr = "[::1]:39939";
+        bind_addr = "[::1]:${toString ports.garageWeb}";
         root_domain = ".s3web.soopy.moe";
       };
 
-      rpc_bind_addr = "100.100.16.16:39931";
-      rpc_public_addr = "koumakan.mist-nessie.ts.net:39931";
+      rpc_bind_addr = "100.100.16.16:${toString ports.garageRpc}";
+      rpc_public_addr = "koumakan.mist-nessie.ts.net:${toString ports.garageRpc}";
       rpc_secret_file = secrets.get "rpc_secret";
 
       admin = {
-        api_bind_addr = "100.100.16.16:39932";
+        api_bind_addr = "100.100.16.16:${toString ports.garageAdminApi}";
         admin_token_file = secrets.get "admin_token";
         metrics_token_file = secrets.get "metrics_token";
       };
@@ -87,7 +95,7 @@ in
   };
 
   services.nginx.virtualHosts.".s3.soopy.moe" = _utils.mkSimpleProxy {
-    port = 39930;
+    port = ports.garagePublicApi;
     extraConfig = {
       useACMEHost = "s3.soopy.moe";
       extraConfig = ''
@@ -95,7 +103,7 @@ in
         proxy_max_temp_file_size 0;
       '';
 
-      locations."= /_health".proxyPass = "http://100.100.16.16:39932/health";
+      locations."= /_health".proxyPass = "http://100.100.16.16:${toString ports.garageAdminApi}/health";
 
       locations."= /_static" = _utils.mkNginxFile {
         content = ''
@@ -121,7 +129,7 @@ in
   };
 
   services.nginx.virtualHosts."*.s3web.soopy.moe" = _utils.mkSimpleProxy {
-    port = 39939;
+    port = ports.garageWeb;
     extraConfig.useACMEHost = "s3.soopy.moe";
   };
 
@@ -132,7 +140,9 @@ in
   services.vmagent.prometheusConfig.scrape_configs = lib.singleton {
     job_name = "garage-job";
     scheme = "http";
-    static_configs = lib.singleton { targets = lib.singleton "localhost:39932"; };
+    static_configs = lib.singleton {
+      targets = lib.singleton "localhost:${toString ports.garageAdminApi}";
+    };
     relabel_configs = lib.singleton {
       target_label = "instance";
       replacement = config.networking.fqdnOrHostName;
@@ -147,6 +157,6 @@ in
   ##################### NAMED BUCKETS WITH WEB HOSTING ###########################
 
   services.nginx.virtualHosts."cache.soopy.moe" = _utils.mkSimpleProxy {
-    port = 39939;
+    port = ports.garageWeb;
   };
 }

@@ -26,12 +26,14 @@ in
     '')
   ];
 
+  gensokyo.ports.zipline = 34638;
+
   services.zipline = {
     enable = true;
     environmentFiles = lib.singleton (secrets.getTemplate "zipline.env");
 
     settings = {
-      CORE_PORT = 34638;
+      CORE_PORT = config.gensokyo.ports.zipline;
       CORE_RETURN_HTTPS_URLS = "true";
       CORE_DEFAULT_DOMAIN = "dumpster.soopy.moe";
       CORE_TRUST_PROXY = "true";

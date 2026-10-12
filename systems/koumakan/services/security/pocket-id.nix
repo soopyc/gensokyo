@@ -18,6 +18,8 @@ in
 {
   imports = [ secrets.generate ];
 
+  gensokyo.ports.pocket-id = 31411;
+
   services.pocket-id = {
     enable = true;
 
@@ -25,7 +27,7 @@ in
       APP_URL = "https://gatekeeper.soopy.moe";
       HOST = "127.0.0.1";
       TRUST_PROXY = true;
-      PORT = "31411";
+      PORT = toString config.gensokyo.ports.pocket-id;
 
       ENCRYPTION_KEY_FILE = secrets.get "encryption_key";
       MAXMIND_LICENSE_KEY_FILE = secrets.get "maxmind_key";
@@ -33,7 +35,7 @@ in
   };
 
   services.nginx.virtualHosts."gatekeeper.soopy.moe" = _utils.mkSimpleProxy {
-    port = 31411;
+    port = config.gensokyo.ports.pocket-id;
 
     extraConfig.locations."= /humans.txt" = _utils.mkNginxFile {
       filename = "humans.txt";

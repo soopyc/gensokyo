@@ -7,9 +7,11 @@ let
 in
 {
   imports = [ secrets.generate ];
+
+  gensokyo.ports.mollysocket = 35153;
   services.mollysocket = {
     enable = true;
-    settings.port = 35153;
+    settings.port = config.gensokyo.ports.mollysocket;
     # we need vapid stuff else it won't start...
   };
 
@@ -23,6 +25,6 @@ in
   };
 
   services.nginx.virtualHosts."ms.soopy.moe" = _utils.mkSimpleProxy {
-    port = 35153;
+    port = config.gensokyo.ports.mollysocket;
   };
 }

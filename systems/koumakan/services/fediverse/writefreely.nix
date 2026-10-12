@@ -7,11 +7,12 @@
   ...
 }:
 {
+  gensokyo.ports.writefreely = 31294;
   services.writefreely = {
     enable = true;
     host = "words.soopy.moe";
     settings = {
-      server.port = 31294;
+      server.port = config.gensokyo.ports.writefreely;
       app = {
         host = "https://${config.services.writefreely.host}"; # annoying
         site_name = "Kourindou";

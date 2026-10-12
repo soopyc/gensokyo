@@ -208,9 +208,10 @@ in
   };
 
   # nginx vhost and anubis definition {{{
+  gensokyo.ports.anubis-forgejo-metrics = 17001;
   services.anubis.instances."forgejo".settings = {
     TARGET = "unix://${config.services.forgejo.settings.server.HTTP_ADDR}";
-    METRICS_BIND = "127.0.0.1:17001"; # FIXME: hopefully we can eradicate tcp sockets when vm supports that.
+    METRICS_BIND = "127.0.0.1:${toString config.gensokyo.ports.anubis-forgejo-metrics}"; # FIXME: hopefully we can eradicate tcp sockets when vm supports that.
   };
   services.nginx.virtualHosts."patchy.soopy.moe" = _utils.mkSimpleProxy {
     socketPath = config.services.anubis.instances."forgejo".settings.BIND;

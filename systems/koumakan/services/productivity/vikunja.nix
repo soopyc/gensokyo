@@ -16,9 +16,11 @@ in
 {
   imports = [ secrets.generate ];
 
+  gensokyo.ports.vikunja = 35891;
+
   services.vikunja = {
     enable = true;
-    port = 35891;
+    port = config.gensokyo.ports.vikunja;
 
     frontendHostname = "tasks.soopy.moe";
     frontendScheme = "https";
@@ -71,7 +73,7 @@ in
   ];
 
   services.nginx.virtualHosts."tasks.soopy.moe" = _utils.mkSimpleProxy {
-    port = 35891;
+    port = config.gensokyo.ports.vikunja;
     websockets = true;
   };
 }

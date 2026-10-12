@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   systemd.tmpfiles.settings."nginx-stream-log"."/var/log/nginx/stream"."d" = {
     user = "nginx";
@@ -10,6 +11,11 @@
   #   CapabilityBoundingSet = ["CAP_NET_RAW"];
   #   AmbientCapabilities = ["CAP_NET_RAW"];
   # };
+
+  gensokyo.ports = lib.genAttrs' (lib.range 25565 25599) (port: {
+    name = "nginxStreamMinecraft-${toString port}";
+    value = port;
+  });
 
   services.nginx.streamConfig = ''
     resolver 100.100.100.100;
