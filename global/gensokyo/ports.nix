@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }:
@@ -52,5 +53,8 @@ in
             )}
         '';
       };
+    environment.etc."allocated-ports.json".source =
+      (pkgs.formats.json { }).generate "allocated-ports.json"
+        cfg;
   };
 }
