@@ -8,6 +8,7 @@
     ./upgrade-diff.nix
     ./unfree-insecure-allowlist.nix
     ./sysctl.nix
+    ./security.nix
   ];
 
   # Set default i18n configuration
