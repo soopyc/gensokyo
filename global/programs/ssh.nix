@@ -1,16 +1,38 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   nixos = config.system.nixos;
 in
 {
+  gensokyo.ports.sshd = 22;
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    hostKeys = [
+      {
+        bits = 4096;
+        path = "/etc/ssh/ssh_host_rsa_key";
+        type = "rsa";
+      }
+      {
+        path = "/etc/ssh/ssh_host_ed25519_key";
+        type = "ed25519";
+      }
+      {
+        type = "mldsa44-ed25519";
+        path = "/etc/ssh/ssh_host_mldsa44_ed25519_key";
+      }
+    ];
     settings = {
+      Port = config.gensokyo.ports.sshd;
       UseDns = true; # shows hostname on lastlog
       PermitRootLogin = "no";
       PasswordAuthentication = false;
-      PubkeyAcceptedAlgorithms = "sk-ssh-ed25519@openssh.com,ssh-ed25519";
+      PubkeyAcceptedAlgorithms = "sk-ssh-ed25519@openssh.com,ssh-ed25519,ssh-mldsa44-ed25519@openssh.com";
       Banner = toString (
         pkgs.writeText "openssl-banner" ''
           -----BEGIN BANNER-----
@@ -37,6 +59,7 @@ in
     pubkeyAcceptedKeyTypes = [
       "ssh-ed25519"
       "sk-ssh-ed25519@openssh.com"
+      "ssh-mldsa44-ed25519@openssh.com"
     ];
     # enableAskPassword = true;
 
