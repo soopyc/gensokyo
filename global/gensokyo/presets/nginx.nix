@@ -43,15 +43,23 @@ lib.mkIf presetConf.nginx (
         80
         443
       ];
+      gensokyo.ports = {
+        nginxHttp = 80;
+        nginxHttps = 443;
+      };
     }
 
     (lib.mkIf presetConf.vmetrics {
-      services.prometheus.exporters.nginx.enable = true;
+      gensokyo.ports.nginxExporter = 20101;
+      services.prometheus.exporters.nginx = {
+        enable = true;
+        port = config.gensokyo.ports.nginxExporter;
+      };
       services.vmagent.prometheusConfig.scrape_configs = [
         {
           job_name = "nginx";
           static_configs = [
-            { targets = [ "localhost:${toString config.services.prometheus.exporters.nginx.port}" ]; }
+            { targets = [ "localhost:${toString config.gensokyo.ports.nginxExporter}" ]; }
           ];
           relabel_configs = [
             {

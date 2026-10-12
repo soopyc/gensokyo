@@ -16,7 +16,13 @@ in
   config = lib.mkIf config.gensokyo.presets.vmetrics (
     lib.mkMerge [
       {
-        services.prometheus.exporters.node.enable = true;
+        gensokyo.ports.nodeExporter = 20091;
+
+        services.prometheus.exporters.node = {
+          enable = true;
+          port = config.gensokyo.ports.nodeExporter;
+        };
+
         services.vmagent.enable = true;
         services.vmagent.remoteWrite.url = "https://panopticon.soopy.moe/api/v1/write";
         services.vmagent.extraArgs = [ "-remoteWrite.bearerTokenFile=%d/auth_token" ];
@@ -27,7 +33,7 @@ in
             {
               job_name = "node";
               static_configs = [
-                { targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.node.port}" ]; }
+                { targets = [ "localhost:${toString config.gensokyo.ports.nodeExporter}" ]; }
               ];
               relabel_configs = [
                 {
