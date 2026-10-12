@@ -9,8 +9,8 @@
   services.postgresql = {
     enable = true;
 
-    package = pkgs.postgresql_15;
-    dataDir = "/var/lib/postgresql/15";
+    package = pkgs.postgresql_18;
+    dataDir = "/var/lib/postgresql/18";
 
     authentication = lib.mkForce ''
       # unix socket connection
