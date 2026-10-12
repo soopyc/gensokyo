@@ -75,7 +75,8 @@
           run0 -u postgres \
             --setenv PGBINOLD --setenv PGBINNEW \
             --setenv PGDATAOLD --setenv PGDATANEW \
-            --setenv "pg_upgrade=${lib.getExe' new "pg_upgrade"}"
+            --setenv "pg_upgrade=${lib.getExe' new "pg_upgrade"}" \
+            -D /var/lib/postgresql
           set +x
         }
 
@@ -83,6 +84,9 @@
           set -x
           install -dm700 -o postgres -g postgres "$PGDATANEW"
           run0 -u postgres "${lib.getExe' new "initdb"}" -D "$PGDATANEW" ${lib.escapeShellArgs config.services.postgresql.initdbArgs}
+          run0 -u postgres rm -v $PGDATANEW/postgresql.conf
+          run0 -u postgres ln -sv "$(realpath $PGDATAOLD/postgresql.conf)" "$PGDATANEW/postgresql.conf"
+          run0 -u postgres cp -v $PGDATAOLD/pg_hba.conf $PGDATANEW
           set +x
         }
 
