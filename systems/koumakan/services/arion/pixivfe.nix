@@ -1,41 +1,41 @@
 {
   _utils,
-  config,
-  lib,
+  # config,
+  # lib,
   ...
 }:
 let
-  secrets = _utils.setupSecrets config {
-    namespace = "pixivfe";
-    secrets = [ "token" ];
-  };
+  # secrets = _utils.setupSecrets config {
+  #   namespace = "pixivfe";
+  #   secrets = [ "token" ];
+  # };
 in
 {
-  imports = [
-    secrets.generate
-    (secrets.mkTemplate "pixivfe.env" ''
-      PIXIVFE_TOKEN=${secrets.placeholder "token"}
-    '')
-  ];
+  # imports = [
+  #   secrets.generate
+  #   (secrets.mkTemplate "pixivfe.env" ''
+  #     PIXIVFE_TOKEN=${secrets.placeholder "token"}
+  #   '')
+  # ];
 
-  virtualisation.arion.projects.pixivfe.settings = {
-    services.pixivfe.service = {
-      image = "vnpower/pixivfe:latest";
-      ports = [
-        "127.0.0.1:35284:8282"
-      ];
-      capabilities = {
-        ALL = false; # drop all capabilities
-      };
-      environment = {
-        PIXIVFE_PORT = 8282;
-        PIXIVFE_HOST = "0.0.0.0";
-        PIXIVFE_IMAGEPROXY = "https://pximg.soopy.moe";
-        PIXIVFE_CACHE_ENABLED = "true";
-      };
-      env_file = lib.singleton (secrets.getTemplate "pixivfe.env");
-    };
-  };
+  # virtualisation.arion.projects.pixivfe.settings = {
+  #   services.pixivfe.service = {
+  #     image = "vnpower/pixivfe:latest";
+  #     ports = [
+  #       "127.0.0.1:35284:8282"
+  #     ];
+  #     capabilities = {
+  #       ALL = false; # drop all capabilities
+  #     };
+  #     environment = {
+  #       PIXIVFE_PORT = 8282;
+  #       PIXIVFE_HOST = "0.0.0.0";
+  #       PIXIVFE_IMAGEPROXY = "https://pximg.soopy.moe";
+  #       PIXIVFE_CACHE_ENABLED = "true";
+  #     };
+  #     env_file = lib.singleton (secrets.getTemplate "pixivfe.env");
+  #   };
+  # };
 
   services.nginx = {
     # cash money
@@ -73,8 +73,8 @@ in
       };
     };
 
-    virtualHosts."pxv.soopy.moe" = _utils.mkSimpleProxy {
-      port = 35284;
-    };
+    # virtualHosts."pxv.soopy.moe" = _utils.mkSimpleProxy {
+    #   port = 35284;
+    # };
   };
 }
