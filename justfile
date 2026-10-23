@@ -76,7 +76,7 @@ remote op system remote-build="" *args:
 [arg("cmd", help="a command, or `help`")]
 [arg("filter", long, help="nix expression. see --help")]
 [arg("fail-fast", short='F', long, value="true", help="fail and quit on first error")]
-forall filter="true" help="" fail-fast="" +cmd="help":
+forall $filter="true" help="" fail-fast="" +cmd="help":
 	#!/usr/bin/env sh
 	set -euo pipefail
 
@@ -84,7 +84,7 @@ forall filter="true" help="" fail-fast="" +cmd="help":
 		builtins.map \
 			(system: system.config.networking.hostName) \
 			(builtins.filter \
-				(system: {{filter}}) \
+				(system: ${filter}) \
 				(builtins.attrValues configs) \
 			)"
 
@@ -99,7 +99,7 @@ forall filter="true" help="" fail-fast="" +cmd="help":
 		exit
 	fi
 
-	echo "evaluating hosts matching filter..."
+	echo "evaluating hosts matching filter ($filter)..."
 	systems=""
 	read -r systems < <(nix eval --impure --json \
 		--apply "${expr}" \
@@ -108,7 +108,7 @@ forall filter="true" help="" fail-fast="" +cmd="help":
 		| xargs
 	)
 
-	test "$systems" = "" && exit 1
+	test "$systems" = "" && (echo '{{RED}}[!] filter returned no systems{{NORMAL}}' ; exit 1)
 
 	echo '{{GREEN}}will run the command{{NORMAL}}'
 	echo '  {{CYAN}}{{cmd}}'
@@ -130,9 +130,9 @@ forall filter="true" help="" fail-fast="" +cmd="help":
 		echo "{{GREEN}}* success:$(< $stat_success)"
 		echo "{{RED}}* failure:$(< $stat_fail)"
 		echo "{{NORMAL}}"
-		rm $stat_success $stat_fail
+		rm -f $stat_success $stat_fail
 	}
-	trap cleanup EXIT ERR
+	trap cleanup EXIT
 
 	for sys in $systems; do
 		set +e
