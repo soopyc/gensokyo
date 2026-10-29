@@ -7,6 +7,7 @@
     ./gensokyo
     ./programs
     ./sops.nix
+    ./disk.nix
 
     ./home.nix
     ../users

@@ -8,6 +8,15 @@ let
   nixos = config.system.nixos;
 in
 {
+  imports = [
+    (lib.mkIf config.gensokyo.traits.ephemeral {
+      environment.persistence."/persist".files = builtins.map (t: "/etc/ssh/ssh_host_${t}_key") [
+        "rsa"
+        "ed25519"
+        "mldsa44_ed25519"
+      ];
+    })
+  ];
   gensokyo.ports.sshd = 22;
   # Enable the OpenSSH daemon.
   services.openssh = {

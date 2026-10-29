@@ -12,7 +12,7 @@
     ./networking
   ];
 
-  sops.age.sshKeyPaths = lib.singleton "/persist/etc/ssh/ssh_host_ed25519_key";
+  gensokyo.traits.ephemeral = true;
 
   # try something new
   boot.loader.limine = {

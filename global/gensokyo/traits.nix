@@ -10,5 +10,7 @@
 
       This includes stuff like Wifi modules and etc
     '';
+
+    ephemeral = lib.mkEnableOption "configuration of common impermanence options for devices with ephemeral roots";
   };
 }

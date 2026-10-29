@@ -24,15 +24,8 @@ in
     ./networking
   ];
 
-  # impermenance doesn't check neededForBoot for a given mountpoint and that is needed for sops-nix
-  # to properly function (i.e. loading the ssh host key)
-  # HACK: override sops-nix key path(s) to a location that's known to exist after initrd.
-  # we should probably pr this to impermenance or something.
-  sops.age.sshKeyPaths = lib.singleton "/persist/etc/ssh/ssh_host_ed25519_key";
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/efi";
 
   users.users.cassie.hashedPasswordFile = passSecrets.get "cassie";
 
@@ -64,7 +57,10 @@ in
       };
     };
 
-  # gensokyo.traits.sensitive = true; # TODO: turn this back on after verified connectivity
+  gensokyo.traits = {
+    ephemeral = true;
+    # sensitive = true; # TODO: turn this back on after verified connectivity
+  };
   gensokyo.presets.vmetrics = true;
 
   system.stateVersion = "25.11";
