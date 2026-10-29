@@ -1,28 +1,45 @@
 { lib, ... }: {
-  networking.networkmanager.enable = lib.mkForce false;
+  networking = {
+    networkmanager.enable = lib.mkForce false;
+    useNetworkd = true;
+  };
 
   systemd.network = {
     enable = true;
-    links."10-gensoeth0" = {
-      # we only have one real eth interface here
-      matchConfig.Kind = "ether";
-      linkConfig = {
-        AlternativeName = "gensoeth0";
-      };
-    };
 
     networks."10-gensonet" = {
-      name = "gensoeth0";
-      dns = lib.singleton "127.0.0.1";
+      name = "enp1s0";
+
+      networkConfig = {
+        DHCP = "no";
+      };
+
       address = [
         "188.245.74.198/32"
         "2a01:4f8:1c1c:cc9d::cafe/64"
-        "fe80::9400:3ff:fe8b:9312" # link-local
       ];
+
       routes = [
-        { Gateway = "172.31.1.1/32"; }
-        { Gateway = "fe80::1/128"; }
+        # ????????????
+        # ig this is needed if the link doesn't have a subnet addr for this address already
+        {
+          Destination = "172.31.1.1";
+        }
+        {
+          Gateway = "172.31.1.1";
+          Destination = "0.0.0.0/0";
+        }
+        {
+          Gateway = "fe80::1";
+        }
       ];
+
+      #   "fe80::9400:3ff:fe8b:9312/64" # link-local
+      # ];
+      # routes = [
+      #   { Gateway = "172.31.1.1"; }
+      #   { Gateway = "fe80::1"; }
+      # ];
     };
   };
 }
