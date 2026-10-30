@@ -41,6 +41,8 @@ in
 
   services.gatus = {
     enable = true;
+    environmentFile = secrets.getTemplate "gatus.env";
+
     settings = {
       storage.type = "sqlite";
       storage.path = "/var/lib/gatus/data.db";
@@ -92,6 +94,7 @@ in
         (mkHttpEndpoint "Garage (S3)" "koumakan" "https://s3.soopy.moe/_health")
         (mkHttpEndpoint "Suika (Grafana)" "koumakan" "https://suika.soopy.moe/login")
         (mkHttpEndpoint "Nue (Synapse)" "koumakan" "https://nue.soopy.moe/health")
+        (mkHttpEndpoint "Koakuma (Filings)" "koumakan" "https://koakuma.soopy.moe")
         (mkHttpEndpoint "Miniflux" "koumakan" "https://flux.soopy.moe")
         (mkHttpEndpoint "Bluesky PDS" "koumakan" "https://bsky.soopy.moe/xrpc/_health")
         (mkHttpEndpoint "Blog (Writefreely)" "koumakan" "https://words.soopy.moe")
