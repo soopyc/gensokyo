@@ -23,6 +23,8 @@ in
     httpAddr = "127.0.0.1:${toString config.gensokyo.ports.niks3}";
     database.createLocally = true;
 
+    priority = 60;
+
     cacheUrl = "https://cache.soopy.moe";
     serverUrl = "https://niks3.soopy.moe";
 
