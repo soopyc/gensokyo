@@ -12,6 +12,11 @@ let
       specialArgs = {
         inherit inputs hostname;
 
+        pkgs-unstable = import inputs.nixpkgs-unstable {
+          inherit system;
+          config =
+            (import "${inputs.self}/global/unfree-insecure-allowlist.nix" { inherit lib; }).nixpkgs.config;
+        };
         _system = system;
         _utils = utils { inherit inputs system; };
       };
