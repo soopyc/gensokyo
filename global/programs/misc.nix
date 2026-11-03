@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   inputs,
   _system,
   ...
@@ -55,7 +56,7 @@
     mosh # nixos module not needed; only accessible within tailscale
 
     # external stuff
-    inputs.ghostty.packages.${_system}.default.terminfo
+    pkgs-unstable.ghostty.terminfo
     inputs.niks3.packages.${_system}.default
   ];
 

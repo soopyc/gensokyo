@@ -1,13 +1,12 @@
 {
   lib,
   config,
-  inputs,
-  _system,
+  pkgs-unstable,
   ...
 }:
 lib.mkIf config.gensokyo.traits.gui (
   let
-    package = inputs.ghostty.packages.${_system}.default;
+    package = pkgs-unstable.ghostty;
   in
   {
     systemd = {
