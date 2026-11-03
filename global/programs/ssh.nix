@@ -10,7 +10,7 @@ in
 {
   imports = [
     (lib.mkIf config.gensokyo.traits.ephemeral {
-      environment.persistence."/persist".files = builtins.map (t: "/etc/ssh/ssh_host_${t}_key") [
+      environment.persistence."/persist".files = map (t: "/etc/ssh/ssh_host_${t}_key") [
         "rsa"
         "ed25519"
         "mldsa44_ed25519"
@@ -41,7 +41,7 @@ in
       UseDns = true; # shows hostname on lastlog
       PermitRootLogin = "no";
       PasswordAuthentication = false;
-      PubkeyAcceptedAlgorithms = "sk-ssh-ed25519@openssh.com,ssh-ed25519,ssh-mldsa44-ed25519@openssh.com";
+      PubkeyAcceptedAlgorithms = "sk-ssh-ed25519@openssh.com,ssh-ed25519,ssh-mldsa44-ed25519";
       Banner = toString (
         pkgs.writeText "openssl-banner" ''
           -----BEGIN BANNER-----
@@ -66,9 +66,9 @@ in
   programs.ssh = {
     startAgent = true;
     pubkeyAcceptedKeyTypes = [
+      "ssh-mldsa44-ed25519"
       "ssh-ed25519"
       "sk-ssh-ed25519@openssh.com"
-      "ssh-mldsa44-ed25519@openssh.com"
     ];
     # enableAskPassword = true;
 
