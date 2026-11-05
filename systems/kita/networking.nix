@@ -4,6 +4,8 @@
     useNetworkd = true;
   };
 
+  services.resolved.enable = false; # no.
+
   systemd.network = {
     enable = true;
 
