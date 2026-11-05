@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   networking.firewall = {
     enable = true;
@@ -6,8 +6,8 @@
       80
       443 # http[s]
 
-      # sftpgo
-      21 # ftp
+      config.gensokyo.ports.tangled-knot2-ssh
+      config.gensokyo.ports.vsftpd
     ];
 
     allowedTCPPortRanges = [

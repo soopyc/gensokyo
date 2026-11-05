@@ -80,12 +80,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    knotserver-module = {
-      url = "git+https://tangled.org/did:plc:jmr637khkdb2fdxxvoyj672m/knotserver-module/?ref=knot-fix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.tangledCore.follows = "tangled-core";
-    };
-
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
