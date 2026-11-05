@@ -97,6 +97,7 @@ in
         (mkHttpEndpoint "Koakuma (Filings)" "koumakan" "https://koakuma.soopy.moe")
         (mkHttpEndpoint "Miniflux" "koumakan" "https://flux.soopy.moe")
         (mkHttpEndpoint "Bluesky PDS" "koumakan" "https://bsky.soopy.moe/xrpc/_health")
+        (mkHttpEndpoint "Tangled Knot" "koumakan" "https://enanan.staging.soopy.moe/xrpc/_health")
         (mkHttpEndpoint "Blog (Writefreely)" "koumakan" "https://words.soopy.moe")
         (mkHttpEndpoint "Vaultwarden" "koumakan" "https://v.soopy.moe")
         (mkHttpEndpoint "BreezeWiki" "koumakan" "https://bw.soopy.moe")
