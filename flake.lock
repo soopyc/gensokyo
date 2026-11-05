@@ -469,30 +469,6 @@
         "type": "github"
       }
     },
-    "knotserver-module": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "tangledCore": [
-          "tangled-core"
-        ]
-      },
-      "locked": {
-        "lastModified": 1750698324,
-        "narHash": "sha256-yzHqS8XzYjxuygOVekjFScZf81fZvRtXZpz1xx6mRc0=",
-        "ref": "knot-fix",
-        "rev": "3eb304f66d1f5583fedfea8ec3744105f0771239",
-        "revCount": 17,
-        "type": "git",
-        "url": "https://tangled.org/did:plc:jmr637khkdb2fdxxvoyj672m/knotserver-module/"
-      },
-      "original": {
-        "ref": "knot-fix",
-        "type": "git",
-        "url": "https://tangled.org/did:plc:jmr637khkdb2fdxxvoyj672m/knotserver-module/"
-      }
-    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -545,11 +521,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1793640701,
-        "narHash": "sha256-pPEOk8Zc0i2v/59PKqnd8EMhtf0SkQGopQAyIOiGiBg=",
+        "lastModified": 1793899955,
+        "narHash": "sha256-wPPDEqfLft35JXhE+Qmd3SSlL0pfzZfQnYYSEOFkdmY=",
         "owner": "soopyc",
         "repo": "mystia",
-        "rev": "a75253359d3c8409148961f710731952dc7cbf17",
+        "rev": "c0d914cc7b257e8e784b963560668df3240de7ca",
         "type": "github"
       },
       "original": {
@@ -703,11 +679,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1793526781,
-        "narHash": "sha256-GVeZeBj2vr6j0bZwjpRDc2OSQEq23xXmcjkYSqZ5ycM=",
-        "rev": "9bb52223f4f6a0cc606fd0852d8784f896c137d5",
+        "lastModified": 1793633738,
+        "narHash": "sha256-dKEjuquCf1NEYiTZZr6xrvTrkhAm5Q94JuEwLBzycEs=",
+        "rev": "7dcdd87373d72e7a2173e4db02e20d3d7f495cfd",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.13375.9bb52223f4f6/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.13446.7dcdd87373d7/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -810,7 +786,6 @@
         "hjem": "hjem",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "knotserver-module": "knotserver-module",
         "lanzaboote": "lanzaboote",
         "mystia": "mystia",
         "niks3": "niks3",
