@@ -18,7 +18,7 @@ in
           type nat hook prerouting priority dstnat; policy accept;
 
           # koumakan essentials
-          iif "${wanIf}" tcp dport { 22, 80, 443 } dnat to 10.69.2.16
+          iif "${wanIf}" tcp dport { 22, 80, 443, 2222 } dnat to 10.69.2.16
           iif "${wanIf}" udp dport 443 dnat to 10.69.2.16
 
           # minecraft
