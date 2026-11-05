@@ -124,6 +124,9 @@ paperless:
         gatekeeper:
             cid: ENC[AES256_GCM,data:+9tCElSMFvq7OqGnE7kTyo8LZXJ3Ii2rbwRUnJY+Uv7bAbZs,iv:RJCJCvQdedVaIvQQu8sIWAXnLsfYvIAinLjhDygoYIs=,tag:e9BtNpxbceSN/HJrgtR2cg==,type:str]
             cse: ENC[AES256_GCM,data:uTmywCDtUJd+PWRykCYXlAlbhH0gNp+8TBFmCx/gsUQ=,iv:GXJP6oOE4Cl387a8UxL9u+LwcIWkslY5WR3Jh0w/gts=,tag:cYXiXdv9Ij049cJ2XBvSuQ==,type:str]
+tangled:
+    knot:
+        master_key: ENC[AES256_GCM,data:UWdKDCW+UYO8075tsk+w+qYFxB9va92y3nPIN/bKsBcXyFs8Ega80dVz4bCv9brQsFTdpwzCnWIsllqeq915stxlad9Ur3SPJjuCbywDMVQE+oaZ5hFI+Q==,iv:XFK+PuDtjDaXxsXJXJvQSpXBYkikwpjS7LA4XAUrWKU=,tag:kUWVfxyO5RvT0RbYGdCJUA==,type:str]
 sops:
     age:
         - enc: |
@@ -164,7 +167,7 @@ sops:
             A15+hRdjKJBKfcRCCekW8YFH5c5AP7iLQXYzWV9vaerpLzE0oC0F6A==
             -----END AGE ENCRYPTED FILE-----
           recipient: age18h7hya5terghrwawgpny28swlat2nqkdrfd4clk0svujqlz9xfusd3zeqt
-    lastmodified: "2026-10-11T12:21:12Z"
-    mac: ENC[AES256_GCM,data:6L8o/M6Wj7hmYHvIweoNXL+T53fXz/MzqBwT1gjfJTys0ti67UntdxPa1REkASXuxFkaGaeKLB2ZJsi+J8RONBFRcBjYeVt07bRFfyfx88U4YVtqDEhs9mbcXWAxxp/aWY+DJohE7b98fg7EZEx2cD8mRTkwU1QAyTt14rOLfyw=,iv:7lboHMj62KVMr4S7v+wWLlS72b8cZBc/5hU6z7fowB0=,tag:dmYhPCYKXZCG5vY8Zcgczg==,type:str]
+    lastmodified: "2026-11-05T15:02:52Z"
+    mac: ENC[AES256_GCM,data:d3aBma5Ek8u/k+9Y7PLDidt0eZ/KOfUqfeoNNfNzC59tTQFcNmsGkkUmcwHHLcmcWVFo5IIrcbn1HNvwNagHOR9t5nilStEOUH82V+c8jXKeCELdGQ7kCdg2HiisvRn1lpSrVyXvr5GenaR2K6nRcbiG8GsAu/xvj9FQJDpxBjg=,iv:+MVxIJewmSTWP6iGdY5PjmEdoCRDSCZ4HnyD9AwdIq0=,tag:qupzDF2fddTb/UBG3s2tqg==,type:str]
     unencrypted_suffix: _unencrypted
     version: 3.13.3
