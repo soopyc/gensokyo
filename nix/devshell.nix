@@ -10,7 +10,6 @@
       nixVersions.latest
 
       nixos-rebuild
-      dix
       just-lsp
       nixfmt
       compose2nix
@@ -22,6 +21,7 @@
           icalendar
         ]
       ))
+      inputs.nixpkgs-unstable.legacyPackages.${system}.dix
       inputs.nixpkgs-unstable.legacyPackages.${system}.just
       inputs.niks3.packages.${system}.default
     ];
